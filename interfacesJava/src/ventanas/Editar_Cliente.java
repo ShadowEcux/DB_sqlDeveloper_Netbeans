@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author CPU_SYS
@@ -26,7 +27,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
 
     ArrayList<clientes> cliente;
     clienteDB db = new clienteDB();
-    
+
     /**
      * Creates new form Tabla_Clientes
      */
@@ -37,14 +38,13 @@ public class Editar_Cliente extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - TABLA DE CLIENTES");
     }
+
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/CPU_new_2.png"));
         return retValue;
     }
-    
-    
+
     // METODOS::::::::::::::::::::
-    
     public void ListarDatos() {
         cliente = db.ListClientes();
         DefaultTableModel tb = (DefaultTableModel) tabla_clientes.getModel();
@@ -58,9 +58,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
         for (int i = tb.getRowCount() - 1; i >= 0; i--) {
             tb.removeRow(i);
         }
-    }   
-    
-    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -217,7 +215,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
     private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
 
         System.exit(0);
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
@@ -226,7 +224,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
         Tabla_Clientes_Admin obj = new Tabla_Clientes_Admin();
         obj.setVisible(true);
         dispose();
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnVolver1ActionPerformed
 
@@ -234,7 +232,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
 
         LimpirTabla();
         ListarDatos();
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_brnListarActionPerformed
 
@@ -251,8 +249,8 @@ public class Editar_Cliente extends javax.swing.JFrame {
         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "¿Seguro desea Editar este cliente?", "", JOptionPane.OK_CANCEL_OPTION);
-            db.Update(cli);
+            JOptionPane.showConfirmDialog(this, "¿Seguro desea Editar este cliente?", "", JOptionPane.YES_NO_OPTION);
+            db.Editar(cli);
             JOptionPane.showMessageDialog(this, "Datos Editados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
             LimpirTabla();
             ListarDatos();
@@ -265,16 +263,14 @@ public class Editar_Cliente extends javax.swing.JFrame {
             txtContactoCliente.setText("");
             txtNitCliente.requestFocus();
         }
-        
-       
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void tabla_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_clientesMouseClicked
 
         int seleccion = tabla_clientes.getSelectedRow();
-        
+
         txtNitCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 0)));
         txtNombreCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 1)));
         txtTelefonoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 2)));
@@ -282,11 +278,10 @@ public class Editar_Cliente extends javax.swing.JFrame {
         txtCiudadCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 4)));
         txtCorreoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 5)));
         txtContactoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 6)));
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_tabla_clientesMouseClicked
 
-        
     /**
      * @param args the command line arguments
      */

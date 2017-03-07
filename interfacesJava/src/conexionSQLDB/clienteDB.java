@@ -71,7 +71,7 @@ public class clienteDB {
     }
 
     //Codigo para MODIFICAR datos.........................................................
-    public void Update(clientes cli) {
+    public void Editar(clientes cli) {
         try {
             Connection cnx = DataBaseConexion.getConnection();
             PreparedStatement pst = cnx.prepareStatement("UPDATE CLIENTES SET NITCLIENTE = ?, NOMBRECLIENTE = ?, TELEFONOCLIENTE = ?, DIRECCIONCLIENTE = ?, CIUDADCLIENTE = ?, CORREOCLIENTE = ?, NOMBRECONTACTO = ?\n" +

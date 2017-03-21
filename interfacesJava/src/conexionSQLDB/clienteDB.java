@@ -104,6 +104,29 @@ public class clienteDB {
         }
     }
 
+    public clientes Buscar(String buscar) {
+        clientes c = null;
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM CLIENTES "
+                    + " WHERE NOMBRE='"+buscar+"'");
+            while (rs.next()) {
+                c = new clientes();
+                c.setNit_cliente(rs.getString(1));
+                c.setNombre_cliente(rs.getString(2));
+                c.setTelefono_cliente(rs.getString(3));
+                c.setDireccion_cliente(rs.getString(4));
+                c.setCiudad_cliente(rs.getString(5));
+                c.setCorreo_cliente(rs.getString(6));
+                c.setNombre_contacto(rs.getString(7));
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return c;
+    }
     
 
 }

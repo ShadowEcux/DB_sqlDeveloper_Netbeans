@@ -5,9 +5,15 @@
  */
 package ventanas;
 
+import conexionSQLDB.DataBaseConexion;
 import java.io.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -35,8 +41,21 @@ public class Entrada extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENTRADA");
+        CargarCmbCliente();
     }
 
+    public void CargarCmbCliente(){
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery("SELECT NOMBRECLIENTE FROM CLIENTES ORDER BY NOMBRECLIENTE ASC");
+            while (rs.next()) {
+                this.cmbClientes.addItem(rs.getString("nombrecliente"));
+            }
+        } catch (Exception e) {
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,7 +69,7 @@ public class Entrada extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        cmbClientes = new javax.swing.JComboBox();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -65,22 +84,22 @@ public class Entrada extends javax.swing.JFrame {
         cmbTarjetaDeRed = new javax.swing.JComboBox();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        txtCiudad = new javax.swing.JTextField();
+        txtCiudadCliente = new javax.swing.JTextField();
         txtElemento = new javax.swing.JTextField();
         txtPotencia = new javax.swing.JTextField();
         txtMarca = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
         txtSerie = new javax.swing.JTextField();
-        txtNit = new javax.swing.JTextField();
+        txtNitCliente = new javax.swing.JTextField();
         txtPersonaRemitente = new javax.swing.JTextField();
-        txtEmpresaRemitente = new javax.swing.JTextField();
-        txtDireccion = new javax.swing.JTextField();
+        txtNombreCliente = new javax.swing.JTextField();
+        txtDireccionCliente = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        txtNombreContacto = new javax.swing.JTextField();
-        txtTelefonoContacto = new javax.swing.JTextField();
+        txtContactoCliente = new javax.swing.JTextField();
+        txtTelefonoCliente = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        txtCorreoContacto = new javax.swing.JTextField();
+        txtCorreoCliente = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
@@ -110,6 +129,7 @@ public class Entrada extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
         btnAplicar = new javax.swing.JButton();
         txtFecha = new com.toedter.calendar.JDateChooser();
+        btnBuscar = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -137,8 +157,12 @@ public class Entrada extends javax.swing.JFrame {
         jLabel6.setText("Clientes");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 50, 20));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 270, -1));
+        cmbClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbClientesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, -1));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 170, 10));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -195,16 +219,16 @@ public class Entrada extends javax.swing.JFrame {
         getContentPane().add(cmbTarjetaDeRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 50, -1));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 550, 10));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 200, 10));
-        getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 130, -1));
+        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 130, -1));
         getContentPane().add(txtElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 110, -1));
         getContentPane().add(txtPotencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 130, -1));
         getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 130, -1));
         getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 120, -1));
         getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 150, -1));
-        getContentPane().add(txtNit, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 120, -1));
+        getContentPane().add(txtNitCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 120, -1));
         getContentPane().add(txtPersonaRemitente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 140, -1));
-        getContentPane().add(txtEmpresaRemitente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 120, -1));
-        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 160, -1));
+        getContentPane().add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 120, -1));
+        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 160, -1));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
@@ -215,20 +239,26 @@ public class Entrada extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Dirección");
         getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 20));
-        getContentPane().add(txtNombreContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 110, -1));
-        getContentPane().add(txtTelefonoContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 80, -1));
+
+        txtContactoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContactoClienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 110, -1));
+        getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 100, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Correo");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 40, 20));
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 40, 20));
 
-        txtCorreoContacto.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoContactoActionPerformed(evt);
+                txtCorreoClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCorreoContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 160, -1));
+        getContentPane().add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 170, -1));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -361,6 +391,16 @@ public class Entrada extends javax.swing.JFrame {
         getContentPane().add(btnAplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 110, 30));
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 210, -1));
 
+        btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 80, 20));
+
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 480));
 
@@ -374,9 +414,9 @@ public class Entrada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
-    private void txtCorreoContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoContactoActionPerformed
+    private void txtCorreoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoContactoActionPerformed
+    }//GEN-LAST:event_txtCorreoClienteActionPerformed
 
     private void cmbGarantiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGarantiaActionPerformed
         // TODO add your handling code here:
@@ -712,6 +752,47 @@ public class Entrada extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_btnAplicarActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+
+        try {
+            
+            String guardar = cmbClientes.getSelectedItem().toString();
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                txtNitCliente.setText(rs.getString("nitcliente").trim());
+                txtNombreCliente.setText(rs.getString("nombrecliente").trim());
+                txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
+                txtDireccionCliente.setText(rs.getString("direccioncliente").trim());
+                txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
+                txtCorreoCliente.setText(rs.getString("correocliente").trim());
+                txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
+
+                //pst.setString(1, CMBID.getName());
+                //String guardar = txtBuscar.getText();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el usuario");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbClientesActionPerformed
+
+    private void txtContactoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactoClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactoClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -753,17 +834,18 @@ public class Entrada extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaObservaciones;
     private javax.swing.JButton btnAplicar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnGenerar;
     private javax.swing.JButton btnGuardar2;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbBasesPlasticas;
+    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JComboBox cmbConectorOriginal;
     private javax.swing.JComboBox cmbEstadoCarcasa;
     private javax.swing.JComboBox cmbGarantia;
     private javax.swing.JComboBox cmbParrilla;
     private javax.swing.JComboBox cmbTarjetaDeRed;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -801,20 +883,20 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField txtCiudad;
-    private javax.swing.JTextField txtCorreoContacto;
-    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtCiudadCliente;
+    private javax.swing.JTextField txtContactoCliente;
+    private javax.swing.JTextField txtCorreoCliente;
+    private javax.swing.JTextField txtDireccionCliente;
     private javax.swing.JTextField txtElemento;
-    private javax.swing.JTextField txtEmpresaRemitente;
     private com.toedter.calendar.JDateChooser txtFecha;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtMotivo;
-    private javax.swing.JTextField txtNit;
-    private javax.swing.JTextField txtNombreContacto;
+    private javax.swing.JTextField txtNitCliente;
+    private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtPersonaRemitente;
     private javax.swing.JTextField txtPotencia;
     private javax.swing.JTextField txtSerie;
-    private javax.swing.JTextField txtTelefonoContacto;
+    private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }

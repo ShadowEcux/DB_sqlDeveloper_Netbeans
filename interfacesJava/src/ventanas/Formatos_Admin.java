@@ -87,6 +87,11 @@ public class Formatos_Admin extends javax.swing.JFrame {
         btnEnvios.setBackground(new java.awt.Color(153, 204, 255));
         btnEnvios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnEnvios.setText("ENVIOS");
+        btnEnvios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviosActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEnvios, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 140, 30));
 
         btnSalir2.setBackground(new java.awt.Color(51, 153, 255));
@@ -181,6 +186,15 @@ public class Formatos_Admin extends javax.swing.JFrame {
         
 // TODO add your handling code here:
     }//GEN-LAST:event_btnSalidaActionPerformed
+
+    private void btnEnviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviosActionPerformed
+
+        Envios obj = new Envios();
+        obj.setVisible(true);
+        dispose();
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnEnviosActionPerformed
 
     /**
      * @param args the command line arguments

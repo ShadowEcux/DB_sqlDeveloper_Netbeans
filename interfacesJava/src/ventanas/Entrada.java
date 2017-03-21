@@ -217,7 +217,7 @@ public class Entrada extends javax.swing.JFrame {
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 50, 20));
 
         cmbTarjetaDeRed.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbTarjetaDeRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 50, -1));
+        getContentPane().add(cmbTarjetaDeRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 60, 20));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 550, 10));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 200, 10));
         getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 130, -1));
@@ -273,7 +273,7 @@ public class Entrada extends javax.swing.JFrame {
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 10, 150));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 10, 150));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
@@ -302,23 +302,23 @@ public class Entrada extends javax.swing.JFrame {
                 cmbGarantiaActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbGarantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 50, -1));
+        getContentPane().add(cmbGarantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 60, -1));
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Parrilla");
-        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, 20));
+        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, 20));
 
         cmbParrilla.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbParrilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 50, -1));
+        getContentPane().add(cmbParrilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 60, 20));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Bases Plasticas");
-        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 90, 20));
+        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 90, 20));
 
         cmbBasesPlasticas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbBasesPlasticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 50, -1));
+        getContentPane().add(cmbBasesPlasticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 60, 20));
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
@@ -334,12 +334,12 @@ public class Entrada extends javax.swing.JFrame {
         getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, 20));
 
         cmbConectorOriginal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbConectorOriginal, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 50, -1));
+        getContentPane().add(cmbConectorOriginal, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 60, 20));
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Observaciones");
-        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, 20));
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, 20));
         getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 240, 10));
 
         areaObservaciones.setColumns(20);
@@ -347,7 +347,7 @@ public class Entrada extends javax.swing.JFrame {
         jScrollPane1.setViewportView(areaObservaciones);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 280, 80));
-        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 130, 10));
+        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 120, 10));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, 170, 10));
 
         btnGenerar.setBackground(new java.awt.Color(153, 204, 255));
@@ -358,7 +358,7 @@ public class Entrada extends javax.swing.JFrame {
                 btnGenerarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 110, 30));
+        getContentPane().add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 110, 30));
 
         btnGuardar2.setBackground(new java.awt.Color(153, 204, 255));
         btnGuardar2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -368,7 +368,7 @@ public class Entrada extends javax.swing.JFrame {
                 btnGuardar2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 110, 30));
+        getContentPane().add(btnGuardar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 110, 30));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -389,7 +389,7 @@ public class Entrada extends javax.swing.JFrame {
                 btnAplicarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 110, 30));
+        getContentPane().add(btnAplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 110, 30));
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 190, -1));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));

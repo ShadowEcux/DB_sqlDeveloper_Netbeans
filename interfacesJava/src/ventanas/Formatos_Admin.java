@@ -72,6 +72,11 @@ public class Formatos_Admin extends javax.swing.JFrame {
         btnSalida.setBackground(new java.awt.Color(153, 204, 255));
         btnSalida.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSalida.setText("SALIDA");
+        btnSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalidaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 140, 30));
 
         btnCotizacion.setBackground(new java.awt.Color(153, 204, 255));
@@ -167,6 +172,15 @@ public class Formatos_Admin extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
+
+    private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
+
+        Salida obj = new Salida();
+        obj.setVisible(true);
+        dispose();
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnSalidaActionPerformed
 
     /**
      * @param args the command line arguments

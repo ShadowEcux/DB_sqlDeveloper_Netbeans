@@ -5,6 +5,28 @@
  */
 package ventanas;
 
+import conexionSQLDB.DataBaseConexion;
+import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook; //New imports to read XLSX format
+import org.apache.poi.xssf.usermodel.XSSFSheet; //New imports to read XLSX format
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator;
+import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator; //New imports to formula evaluator in XLSX
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import org.apache.poi.hssf.usermodel.HSSFRichTextString;
+
 /**
  *
  * @author CPU_SYS
@@ -17,9 +39,22 @@ public class Salida extends javax.swing.JFrame {
     public Salida() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("CPU System Service S.A.S - ENTRADA");
+        this.setTitle("CPU System Service S.A.S - SALIDA");
+        CargarCmbCliente();
     }
 
+    public void CargarCmbCliente(){
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery("SELECT NOMBRECLIENTE FROM CLIENTES ORDER BY NOMBRECLIENTE ASC");
+            while (rs.next()) {
+                this.cmbClientes.addItem(rs.getString("nombrecliente"));
+            }
+        } catch (Exception e) {
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,49 +68,45 @@ public class Salida extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        cmbClientes = new javax.swing.JComboBox();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        txtCiudad = new javax.swing.JTextField();
-        txtEmpresaRemitente = new javax.swing.JTextField();
-        txtDireccion = new javax.swing.JTextField();
+        txtCiudadCliente = new javax.swing.JTextField();
+        txtNombreCliente = new javax.swing.JTextField();
+        txtDireccionCliente = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        txtNombreContacto = new javax.swing.JTextField();
-        txtTelefonoContacto = new javax.swing.JTextField();
+        txtContactoCliente = new javax.swing.JTextField();
+        txtTelefonoCliente = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        txtCorreoContacto = new javax.swing.JTextField();
+        txtCorreoCliente = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         txtMotivo = new javax.swing.JTextField();
-        spnMes = new javax.swing.JSpinner();
-        spnDia = new javax.swing.JSpinner();
-        spnAño = new javax.swing.JSpinner();
         jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        areaComentario = new javax.swing.JTextArea();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         btnAplicar = new javax.swing.JButton();
         btnGuardar2 = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        btnGuardar3 = new javax.swing.JButton();
         txtMotivo1 = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         txtMotivo2 = new javax.swing.JTextField();
+        txtFecha = new com.toedter.calendar.JDateChooser();
+        btnBuscar = new javax.swing.JButton();
+        btnDescartar = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,14 +134,8 @@ public class Salida extends javax.swing.JFrame {
         jLabel6.setText("Clientes");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 50, 20));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 240, -1));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 240, 10));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Año");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 30, -1));
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, -1));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 150, 10));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,7 +145,7 @@ public class Salida extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Ciudad");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, 20));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -133,33 +158,33 @@ public class Salida extends javax.swing.JFrame {
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 150, -1));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 550, 10));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 200, 10));
-        getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 130, -1));
-        getContentPane().add(txtEmpresaRemitente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 200, -1));
-        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 210, -1));
+        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 130, -1));
+        getContentPane().add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 200, -1));
+        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 210, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Dirección");
         getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, 20));
-        getContentPane().add(txtNombreContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 110, -1));
-        getContentPane().add(txtTelefonoContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 80, -1));
+        getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 110, -1));
+        getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 80, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Correo");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 40, 20));
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 40, 20));
 
-        txtCorreoContacto.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoContactoActionPerformed(evt);
+                txtCorreoClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCorreoContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 160, -1));
+        getContentPane().add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 180, -1));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Telefono");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 50, 20));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 50, 20));
         getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 220, 10));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -170,24 +195,11 @@ public class Salida extends javax.swing.JFrame {
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 10, 120));
         getContentPane().add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 110, -1));
-        getContentPane().add(spnMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 50, -1));
-        getContentPane().add(spnDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 50, -1));
-        getContentPane().add(spnAño, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 70, -1));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(153, 255, 153));
         jLabel25.setText("FECHA");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 40, 20));
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("Dia");
-        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 20, -1));
-
-        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel27.setText("Mes");
-        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 50, -1));
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 40, 20));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,14 +209,14 @@ public class Salida extends javax.swing.JFrame {
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Comentario");
-        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, 20));
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, 20));
         getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 240, 10));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        areaComentario.setColumns(20);
+        areaComentario.setRows(5);
+        jScrollPane1.setViewportView(areaComentario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 310, 100));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 310, 110));
         getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 130, 20));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 190, 10));
 
@@ -216,7 +228,7 @@ public class Salida extends javax.swing.JFrame {
                 btnAplicarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 110, 20));
+        getContentPane().add(btnAplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 110, 20));
 
         btnGuardar2.setBackground(new java.awt.Color(153, 204, 255));
         btnGuardar2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -226,7 +238,7 @@ public class Salida extends javax.swing.JFrame {
                 btnGuardar2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, 110, -1));
+        getContentPane().add(btnGuardar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 110, -1));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -238,16 +250,6 @@ public class Salida extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, -1, -1));
-
-        btnGuardar3.setBackground(new java.awt.Color(153, 204, 255));
-        btnGuardar3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGuardar3.setText("Generar PDF");
-        btnGuardar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnGuardar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 110, 20));
 
         txtMotivo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,6 +268,27 @@ public class Salida extends javax.swing.JFrame {
         jLabel35.setText("Serie");
         getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 40, 20));
         getContentPane().add(txtMotivo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 130, -1));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 190, -1));
+
+        btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 70, 20));
+
+        btnDescartar.setBackground(new java.awt.Color(153, 204, 255));
+        btnDescartar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnDescartar.setText("DESCARTAR");
+        btnDescartar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescartarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 100, 30));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 460));
@@ -280,9 +303,9 @@ public class Salida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
-    private void txtCorreoContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoContactoActionPerformed
+    private void txtCorreoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoContactoActionPerformed
+    }//GEN-LAST:event_txtCorreoClienteActionPerformed
 
     private void btnAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarActionPerformed
         // TODO add your handling code here:
@@ -301,13 +324,57 @@ public class Salida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnGuardar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardar3ActionPerformed
-
     private void txtMotivo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMotivo1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMotivo1ActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+
+        try {
+
+            String guardar = cmbClientes.getSelectedItem().toString();
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                txtNombreCliente.setText(rs.getString("nombrecliente").trim());
+                txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
+                txtDireccionCliente.setText(rs.getString("direccioncliente").trim());
+                txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
+                txtCorreoCliente.setText(rs.getString("correocliente").trim());
+                txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
+
+                //pst.setString(1, CMBID.getName());
+                //String guardar = txtBuscar.getText();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el usuario");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
+
+      
+        txtNombreCliente.setText("");
+        txtTelefonoCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtCiudadCliente.setText("");
+        txtCorreoCliente.setText("");
+        txtContactoCliente.setText("");
+        txtMotivo.setText("");
+        areaComentario.setText("");
+        txtNombreCliente.requestFocus();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDescartarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,12 +419,14 @@ public class Salida extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea areaComentario;
     private javax.swing.JButton btnAplicar;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnGuardar2;
-    private javax.swing.JButton btnGuardar3;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -368,14 +437,11 @@ public class Salida extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -387,18 +453,15 @@ public class Salida extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JSpinner spnAño;
-    private javax.swing.JSpinner spnDia;
-    private javax.swing.JSpinner spnMes;
-    private javax.swing.JTextField txtCiudad;
-    private javax.swing.JTextField txtCorreoContacto;
-    private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtEmpresaRemitente;
+    private javax.swing.JTextField txtCiudadCliente;
+    private javax.swing.JTextField txtContactoCliente;
+    private javax.swing.JTextField txtCorreoCliente;
+    private javax.swing.JTextField txtDireccionCliente;
+    private com.toedter.calendar.JDateChooser txtFecha;
     private javax.swing.JTextField txtMotivo;
     private javax.swing.JTextField txtMotivo1;
     private javax.swing.JTextField txtMotivo2;
-    private javax.swing.JTextField txtNombreContacto;
-    private javax.swing.JTextField txtTelefonoContacto;
+    private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }

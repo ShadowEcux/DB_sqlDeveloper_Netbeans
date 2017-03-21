@@ -9,6 +9,7 @@ package ventanas;
  *
  * @author CPU_SYS
  */
+import conexionSQLDB.DataBaseConexion;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
@@ -25,10 +26,26 @@ public class Interfaz_Admin extends javax.swing.JFrame {
      */
     public Interfaz_Admin() {
         initComponents();
+        CargarCmbUsuarios();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("CPU System Service S.A.S");
+        
     }
+    
+    public void CargarCmbUsuarios(){
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery("SELECT NOMBRE_TIPO_USUARIO FROM TIPO_USUARIOS");
+            while (rs.next()) {
+                cmbUsuarios.addItem(rs.getString("nombre_tipo_usuario"));
+            }
+        } catch (Exception e) {
+        }
+    }
+    
+    
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/CPU_new_2.png"));
@@ -50,8 +67,10 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JButton();
         jLabelIcono = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        cmbUsuario = new javax.swing.JComboBox();
         txtPassword = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        txtNombreUsuario = new javax.swing.JTextField();
+        cmbUsuarios = new javax.swing.JComboBox();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,7 +92,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuario");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,17 +108,20 @@ public class Interfaz_Admin extends javax.swing.JFrame {
                 btnIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, 30));
+        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, 30));
 
         jLabelIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/img_3.png"))); // NOI18N
         getContentPane().add(jLabelIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 180, 190));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 290, 10));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 150, -1));
 
-        cmbUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Operario" }));
-        getContentPane().add(cmbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 140, -1));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Usuario");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
+        getContentPane().add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 150, -1));
 
-        txtPassword.setText("jPasswordField1");
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 140, -1));
+        getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 150, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/new_1.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 420));
@@ -121,17 +143,17 @@ public class Interfaz_Admin extends javax.swing.JFrame {
             Connection cn = DriverManager.getConnection("jdbc:odbc:Proyecto", "sa", "sasa");
 
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("Select tipo from Usuarios where nombre = '" + cmbUsuario.getSelectedIndex() + "' and password  = '" + txtPassword.getText() + "'");
+            ResultSet rs = st.executeQuery("Select tipo from Usuarios where nombre = '" + cmbUsuarios.getSelectedIndex() + "' and password  = '" + txtPassword.getText() + "'");
 
             if (rs.next()) {
 
-                int tipo = rs.getInt("Tipo");
+                int tipo = rs.getInt("TipoUsuario");
                 if (tipo == 1) {
                     dispose();
                     new Principal_Admin().setVisible(true);
                 }
 
-                if (tipo == 2) {
+                if (tipo == 3) {
                     
                     new Principal_Oper().setVisible(true);
                 }
@@ -222,12 +244,14 @@ public class Interfaz_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox cmbUsuario;
+    private javax.swing.JComboBox cmbUsuarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelIcono;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField txtNombreUsuario;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

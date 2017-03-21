@@ -5,9 +5,20 @@
  */
 package ventanas;
 
+import clasesPrincipales.clientes;
+import clasesPrincipales.usuarios;
+import conexionSQLDB.DataBaseConexion;
+import conexionSQLDB.clienteDB;
+import conexionSQLDB.usuarioDB;
 import java.awt.Image;
+import java.awt.event.FocusAdapter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +26,8 @@ import javax.swing.ImageIcon;
  */
 public class Nuevo_Usuario extends javax.swing.JFrame {
 
+    ArrayList<usuarios> usuario;
+    usuarioDB db = new usuarioDB();
     /**
      * Creates new form Registro_Clientes
      */
@@ -22,8 +35,20 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - NUEVO USUARIO");      
+        CargarCmbUsuarios();
         
-        
+    }
+    
+    public void CargarCmbUsuarios(){
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery("SELECT NOMBRE_TIPO_USUARIO FROM TIPO_USUARIOS");
+            while (rs.next()) {
+                cmbUsuarios.addItem(rs.getString("nombre_tipo_usuario"));
+            }
+        } catch (Exception e) {
+        }
     }
 
     /**
@@ -40,12 +65,12 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         btnSalir2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtnuevoUsuario = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         btnVolver = new javax.swing.JButton();
         btnDescartar = new javax.swing.JButton();
         btnGuardar1 = new javax.swing.JButton();
-        cmbTipoUsuario = new javax.swing.JComboBox();
+        cmbUsuarios = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -81,7 +106,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Ingrese Usuario");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 90, -1));
-        getContentPane().add(txtnuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 140, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 140, -1));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 350, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -98,6 +123,11 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         btnDescartar.setBackground(new java.awt.Color(153, 204, 255));
         btnDescartar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnDescartar.setText("DESCARTAR");
+        btnDescartar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescartarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, 30));
 
         btnGuardar1.setBackground(new java.awt.Color(153, 204, 255));
@@ -110,8 +140,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         });
         getContentPane().add(btnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 100, 30));
 
-        cmbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Tecnico", "Operario", " " }));
-        getContentPane().add(cmbTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 130, -1));
+        getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, 20));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setForeground(new java.awt.Color(102, 255, 153));
@@ -127,8 +156,6 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(204, 255, 255));
         jLabel5.setText("- Inicial de la persona, primer apellido, ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 220, 20));
-
-        txtPasswordUsuario.setText("jPasswordField1");
         getContentPane().add(txtPasswordUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2.png"))); // NOI18N
@@ -154,8 +181,33 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
-        // TODO add your handling code here:
+
+        usuarios usu = new usuarios();
+        usu.setNombre(txtNombre.getText());
+        usu.setPassword(txtPasswordUsuario.getText());
+        usu.setTipoUsuario(cmbUsuarios.getSelectedItem().toString());
+        
+        if (txtNombre.getText().equals("") || txtPasswordUsuario.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            db.insertarUsuario(usu);
+            JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+            txtNombre.setText("");
+            txtPasswordUsuario.setText("");
+            txtNombre.requestFocus();
+        }
+
+// TODO add your handling code here:
     }//GEN-LAST:event_btnGuardar1ActionPerformed
+
+    private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
+
+        txtNombre.setText("");
+        txtPasswordUsuario.setText("");
+        txtNombre.requestFocus();
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnDescartarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,7 +256,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnSalir2;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox cmbTipoUsuario;
+    private javax.swing.JComboBox cmbUsuarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -214,7 +266,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JPasswordField txtPasswordUsuario;
-    private javax.swing.JTextField txtnuevoUsuario;
     // End of variables declaration//GEN-END:variables
 }

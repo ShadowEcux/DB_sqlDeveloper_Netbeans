@@ -102,7 +102,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtnuevoUsuario">
+    <Component class="javax.swing.JTextField" name="txtNombre">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="20" y="70" width="140" height="-1"/>
@@ -148,6 +148,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="DESCARTAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDescartarActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="140" y="180" width="-1" height="30"/>
@@ -173,20 +176,15 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cmbTipoUsuario">
+    <Component class="javax.swing.JComboBox" name="cmbUsuarios">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Administrador"/>
-            <StringItem index="1" value="Tecnico"/>
-            <StringItem index="2" value="Operario"/>
-            <StringItem index="3" value=" "/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="190" y="120" width="130" height="-1"/>
+          <AbsoluteConstraints x="190" y="120" width="150" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -239,9 +237,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtPasswordUsuario">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="20" y="120" width="150" height="-1"/>

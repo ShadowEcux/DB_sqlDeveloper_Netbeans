@@ -100,10 +100,10 @@ public class Salida extends javax.swing.JFrame {
         btnAplicar = new javax.swing.JButton();
         btnGuardar2 = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        txtMotivo1 = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        txtMotivo2 = new javax.swing.JTextField();
+        txtSerie = new javax.swing.JTextField();
         txtFecha = new com.toedter.calendar.JDateChooser();
         btnBuscar = new javax.swing.JButton();
         btnDescartar = new javax.swing.JButton();
@@ -251,12 +251,12 @@ public class Salida extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, -1, -1));
 
-        txtMotivo1.addActionListener(new java.awt.event.ActionListener() {
+        txtModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMotivo1ActionPerformed(evt);
+                txtModeloActionPerformed(evt);
             }
         });
-        getContentPane().add(txtMotivo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 110, -1));
+        getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 110, -1));
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
@@ -267,7 +267,7 @@ public class Salida extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("Serie");
         getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 40, 20));
-        getContentPane().add(txtMotivo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 130, -1));
+        getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 130, -1));
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 190, -1));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
@@ -324,9 +324,9 @@ public class Salida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void txtMotivo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMotivo1ActionPerformed
+    private void txtModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMotivo1ActionPerformed
+    }//GEN-LAST:event_txtModeloActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
@@ -371,6 +371,8 @@ public class Salida extends javax.swing.JFrame {
         txtContactoCliente.setText("");
         txtMotivo.setText("");
         areaComentario.setText("");
+        txtModelo.setText("");
+        txtSerie.setText("");
         txtNombreCliente.requestFocus();
 
         // TODO add your handling code here:
@@ -458,10 +460,10 @@ public class Salida extends javax.swing.JFrame {
     private javax.swing.JTextField txtCorreoCliente;
     private javax.swing.JTextField txtDireccionCliente;
     private com.toedter.calendar.JDateChooser txtFecha;
+    private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtMotivo;
-    private javax.swing.JTextField txtMotivo1;
-    private javax.swing.JTextField txtMotivo2;
     private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextField txtSerie;
     private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }

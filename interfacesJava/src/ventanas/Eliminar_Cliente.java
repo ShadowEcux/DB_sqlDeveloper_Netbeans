@@ -15,6 +15,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -35,7 +36,8 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         ListarDatos();
         LimpirTabla();
         this.setLocationRelativeTo(null);
-        this.setTitle("CPU System Service S.A.S - TABLA DE CLIENTES");
+        this.setTitle("CPU System Service S.A.S - ELIMINAR CLIENTES");
+        CargarCmbCliente();
     }
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/CPU_new_2.png"));
@@ -58,7 +60,19 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         for (int i = tb.getRowCount() - 1; i >= 0; i--) {
             tb.removeRow(i);
         }
-    }   
+    }  
+    
+    public void CargarCmbCliente(){
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery("SELECT NOMBRECLIENTE FROM CLIENTES ORDER BY NOMBRECLIENTE ASC");
+            while (rs.next()) {
+                this.cmbClientes.addItem(rs.getString("nombrecliente"));
+            }
+        } catch (Exception e) {
+        }
+    }
     
     
 
@@ -93,6 +107,8 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         txtCorreoCliente = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtDireccionCliente = new javax.swing.JTextField();
+        cmbClientes = new javax.swing.JComboBox();
+        btnBuscar = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -208,6 +224,23 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
         getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 150, -1));
 
+        cmbClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbClientesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 250, -1));
+
+        btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 70, 20));
+
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 520));
 
@@ -286,6 +319,43 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_tabla_clientesMouseClicked
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+
+        try {
+
+            String guardar = cmbClientes.getSelectedItem().toString();
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                txtNitCliente.setText(rs.getString("nitcliente").trim());
+                txtNombreCliente.setText(rs.getString("nombrecliente").trim());
+                txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
+                txtDireccionCliente.setText(rs.getString("direccioncliente").trim());
+                txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
+                txtCorreoCliente.setText(rs.getString("correocliente").trim());
+                txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
+
+                //pst.setString(1, CMBID.getName());
+                //String guardar = txtBuscar.getText();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el usuario");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbClientesActionPerformed
+
         
     /**
      * @param args the command line arguments
@@ -355,9 +425,11 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brnListar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver1;
+    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

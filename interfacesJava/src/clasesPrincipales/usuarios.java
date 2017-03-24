@@ -15,6 +15,10 @@ public class usuarios {
     String password;
     String tipoUsuario;
 
+    public usuarios() {
+    }
+    
+    
     public usuarios(String nombre, String password, String tipoUsuario) {
         this.nombre = nombre;
         this.password = password;

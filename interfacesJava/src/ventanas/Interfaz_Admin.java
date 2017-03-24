@@ -144,7 +144,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
 
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("Select tipo from Usuarios where nombre = '" + cmbUsuarios.getSelectedIndex() + "' and password  = '" + txtPassword.getText() + "'");
-
+            //ResultSet rs = st.executeQuery("insert into USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIOS_ID_TIPO_USUARIO) VALUES ('fserrano1', '1234', 3)");   
             if (rs.next()) {
 
                 int tipo = rs.getInt("TipoUsuario");

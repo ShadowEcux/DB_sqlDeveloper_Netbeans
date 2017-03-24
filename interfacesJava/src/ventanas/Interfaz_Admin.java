@@ -133,7 +133,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
 
         System.exit(0);
         
-// TODO add your handling code here:
+// TODO add you  r handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -188,13 +189,13 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
 
         clientes cl = new clientes();
-        cl.setNit_cliente(txtNitCliente.getText());
-        cl.setNombre_cliente(txtNombreCliente.getText());
-        cl.setTelefono_cliente(txtTelefonoCliente.getText());
-        cl.setDireccion_cliente(txtDireccionCliente.getText());
-        cl.setCiudad_cliente(txtCiudadCliente.getText());
-        cl.setCorreo_cliente(txtCorreoCliente.getText());
-        cl.setNombre_contacto(txtContactoCliente.getText());
+        cl.setNit_cliente(txtNitCliente.getText().toUpperCase());
+        cl.setNombre_cliente(txtNombreCliente.getText().toUpperCase());
+        cl.setTelefono_cliente(txtTelefonoCliente.getText().toUpperCase());
+        cl.setDireccion_cliente(txtDireccionCliente.getText().toUpperCase());
+        cl.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
+        cl.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
+        cl.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -207,7 +208,8 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
             txtCiudadCliente.setText("");
             txtCorreoCliente.setText("");
             txtContactoCliente.setText("");
-            txtNitCliente.requestFocus();
+            txtNitCliente.requestFocus();          
+            
         }
     
         

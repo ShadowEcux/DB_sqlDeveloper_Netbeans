@@ -13,7 +13,9 @@ import conexionSQLDB.usuarioDB;
 import java.awt.Image;
 import java.awt.event.FocusAdapter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.Icon;
@@ -28,18 +30,19 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
 
     ArrayList<usuarios> usuario;
     usuarioDB db = new usuarioDB();
+
     /**
      * Creates new form Registro_Clientes
      */
     public Nuevo_Usuario() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("CPU System Service S.A.S - NUEVO USUARIO");      
-        CargarCmbUsuarios();
-        
+        this.setTitle("CPU System Service S.A.S - NUEVO USUARIO");
+        //CargarCmbUsuarios();
+
     }
-    
-    public void CargarCmbUsuarios(){
+
+    public void CargarCmbUsuarios() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
             Statement st = cnx.createStatement();
@@ -140,6 +143,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         });
         getContentPane().add(btnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 100, 30));
 
+        cmbUsuarios.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "3" }));
         getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, 20));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -183,15 +187,25 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
 
         usuarios usu = new usuarios();
+      
         usu.setNombre(txtNombre.getText());
         usu.setPassword(txtPasswordUsuario.getText());
-        usu.setTipoUsuario(cmbUsuarios.getSelectedItem().toString());
-        
+        usu.setTipoUsuario(Integer.parseInt(cmbUsuarios.getSelectedItem().toString()));
+
         if (txtNombre.getText().equals("") || txtPasswordUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            db.insertarUsuario(usu);
-            JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+            try {
+                Connection cnx = DataBaseConexion.getConnection();
+                PreparedStatement pst = cnx.prepareStatement("INSERT INTO USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIO) VALUES ('" + usu.getNombre() + "','" + usu.getPassword() + "'," + usu.getTipoUsuario() + ")");
+                //pst.setString(1, usu.getNombre());
+                //pst.setString(2, usu.getPassword());
+                //pst.setInt(3, tipo);
+                JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error al ingresar usuario", "", JOptionPane.INFORMATION_MESSAGE);
+            }
+
             txtNombre.setText("");
             txtPasswordUsuario.setText("");
             txtNombre.requestFocus();
@@ -205,7 +219,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         txtNombre.setText("");
         txtPasswordUsuario.setText("");
         txtNombre.requestFocus();
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnDescartarActionPerformed
 

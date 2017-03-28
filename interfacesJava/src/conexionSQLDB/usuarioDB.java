@@ -35,7 +35,7 @@ public class usuarioDB {
                 usuarios usu = new usuarios();
                 usu.setNombre(rs.getString("nombre_usuario"));
                 usu.setPassword(rs.getString("password_usuario"));
-                usu.setTipoUsuario(rs.getString("TIPO_USUARIOS_ID_TIPO_USUARIO"));
+                usu.setTipoUsuario(rs.getInt("TIPO_USUARIOS_ID_TIPO_USUARIO"));
                 
                 usuario.add(usu);
             }
@@ -53,7 +53,7 @@ public class usuarioDB {
             PreparedStatement pst = cnx.prepareStatement("insert into USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIOS_ID_TIPO_USUARIO) VALUES (?,?,?)");
             pst.setString(1, usuario.getNombre());
             pst.setString(2, usuario.getPassword());
-            pst.setString(3, usuario.getTipoUsuario());
+            pst.setInt(3, usuario.getTipoUsuario());
             pst.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

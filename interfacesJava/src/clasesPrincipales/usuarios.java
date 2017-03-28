@@ -13,13 +13,13 @@ public class usuarios {
     
     String nombre;
     String password;
-    String tipoUsuario;
+    int tipoUsuario;
 
     public usuarios() {
     }
     
     
-    public usuarios(String nombre, String password, String tipoUsuario) {
+    public usuarios(String nombre, String password, int tipoUsuario) {
         this.nombre = nombre;
         this.password = password;
         this.tipoUsuario = tipoUsuario;
@@ -41,11 +41,11 @@ public class usuarios {
         this.password = password;
     }
 
-    public String getTipoUsuario() {
+    public int getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(String tipoUsuario) {
+    public void setTipoUsuario(int tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
     

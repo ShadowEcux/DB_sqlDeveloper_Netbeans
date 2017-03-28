@@ -286,6 +286,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "¿Seguro desea Eliminar este cliente?", "", JOptionPane.OK_CANCEL_OPTION);
             db.EliminarCliente(cli);
+            CargarCmbCliente();
             JOptionPane.showMessageDialog(this, "Datos Eliminados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
             LimpirTabla();
             ListarDatos();

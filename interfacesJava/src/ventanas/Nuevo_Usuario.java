@@ -187,25 +187,18 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
 
         usuarios usu = new usuarios();
-      
+
         usu.setNombre(txtNombre.getText());
         usu.setPassword(txtPasswordUsuario.getText());
-        usu.setTipoUsuario(Integer.parseInt(cmbUsuarios.getSelectedItem().toString()));
+        usu.setTipoUsuario((cmbUsuarios.getSelectedIndex()));
 
         if (txtNombre.getText().equals("") || txtPasswordUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            try {
-                Connection cnx = DataBaseConexion.getConnection();
-                PreparedStatement pst = cnx.prepareStatement("INSERT INTO USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIO) VALUES ('" + usu.getNombre() + "','" + usu.getPassword() + "'," + usu.getTipoUsuario() + ")");
-                //pst.setString(1, usu.getNombre());
-                //pst.setString(2, usu.getPassword());
-                //pst.setInt(3, tipo);
-                JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Error al ingresar usuario", "", JOptionPane.INFORMATION_MESSAGE);
-            }
-
+            
+            db.insertarUsuario(usu);
+            JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+            
             txtNombre.setText("");
             txtPasswordUsuario.setText("");
             txtNombre.requestFocus();

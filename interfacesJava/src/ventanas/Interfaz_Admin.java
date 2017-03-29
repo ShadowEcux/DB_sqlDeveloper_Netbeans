@@ -9,6 +9,7 @@ package ventanas;
  *
  * @author CPU_SYS
  */
+import clasesPrincipales.usuarios;
 import conexionSQLDB.DataBaseConexion;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -134,12 +135,13 @@ public class Interfaz_Admin extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
-        String nombre = txtNombreUsuario.getText();
-        String password = txtPassword.getText();
+        usuarios usu = new usuarios();
+        usu.setNombre(txtNombreUsuario.getText());
+        usu.setPassword(txtPassword.getText());
         try {
             Connection cn = DataBaseConexion.getConnection();
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("Select Tipo_Usuario From Usuarios Where Nombre_Usuario = '" + nombre + "' And Password_Usuario  = '" + password + "'");
+            ResultSet rs = st.executeQuery("Select Tipo_Usuario From Usuarios Where Nombre_Usuario = '" + usu.getNombre() + "' And Password_Usuario  = '" + usu.getPassword() + "'");
             //ResultSet rs = st.executeQuery("insert into USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIOS_ID_TIPO_USUARIO) VALUES ('fserrano1', '1234', 3)");   
             if (rs.next()) {
 

@@ -61,6 +61,18 @@ public class usuarioDB {
         }
     }
     
+    public void EliminarUsuario(usuarios usu) {
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            PreparedStatement pst = cnx.prepareStatement("DELETE FROM USUARIOS "
+                    + " WHERE NOMBRE_USUARIO=?");
+            pst.setString(1, usu.getNombre());
+            pst.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(usuarioDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     
     
 }

@@ -97,6 +97,12 @@ public class Usuarios extends javax.swing.JFrame {
         brnListar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtTipoUsuario = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,8 +111,8 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuarios");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, -1));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 170, 10));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 170, 10));
 
         btnSalir1.setBackground(new java.awt.Color(51, 153, 255));
         btnSalir1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -117,7 +123,7 @@ public class Usuarios extends javax.swing.JFrame {
                 btnSalir1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
+        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
 
         btnVolver1.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -148,7 +154,7 @@ public class Usuarios extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla_usuarios);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 400, 200));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 480, 200));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 255, 153));
@@ -163,7 +169,7 @@ public class Usuarios extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 70, 20));
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 70, 20));
 
         cmbUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,8 +208,26 @@ public class Usuarios extends javax.swing.JFrame {
         });
         getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 90, 30));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Nombre ");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 60, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Password");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 150, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Tipo");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
+        getContentPane().add(txtTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 150, -1));
+
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 460));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -228,7 +252,11 @@ public class Usuarios extends javax.swing.JFrame {
 
         int seleccion = tabla_usuarios.getSelectedRow();
         tabla_usuarios.getSelectedColumn();
-
+        
+        txtNombre.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 0)));
+        txtPassword.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 1)));
+        txtTipoUsuario.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 2)));
+        
 // TODO add your handling code here:
     }//GEN-LAST:event_tabla_usuariosMouseClicked
 
@@ -300,10 +328,25 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
-        Eliminar_Cliente obj = new Eliminar_Cliente();
-        obj.setVisible(true);
-        dispose();
-
+        usuarios usu = new usuarios();
+        usu.setNombre(txtNombre.getText());
+        usu.setPassword(txtPassword.getText());
+        usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
+      
+        if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "¿Seguro desea Eliminar este usuario?", "", JOptionPane.OK_CANCEL_OPTION);
+            db.EliminarUsuario(usu);
+            CargarCmbUsuarios();
+            JOptionPane.showMessageDialog(this, "Datos Eliminados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+            LimpirTabla();
+            ListarDatos();
+            txtNombre.setText("");
+            txtPassword.setText("");
+            txtTipoUsuario.setText("");
+            txtNombre.requestFocus();
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -376,9 +419,15 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JComboBox cmbUsuarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable tabla_usuarios;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtTipoUsuario;
     // End of variables declaration//GEN-END:variables
 }

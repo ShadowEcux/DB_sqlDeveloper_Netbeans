@@ -166,7 +166,7 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
 
     private void btnVolver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolver1ActionPerformed
 
-        Principal_Admin obj = new Principal_Admin();
+        Principal_Oper obj = new Principal_Oper();
         obj.setVisible(true);
         dispose();
         

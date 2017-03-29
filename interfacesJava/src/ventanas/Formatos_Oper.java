@@ -132,59 +132,17 @@ public class Formatos_Oper extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalir2ActionPerformed
 
     private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaActionPerformed
-
-        
-        JFileChooser selector = new JFileChooser();
-        String directorio = "";
-        String extension = "";
-        boolean seleccion = false;
-
-        int resultado = selector.showOpenDialog(null);
-
-        switch (resultado) {
-            case JFileChooser.APPROVE_OPTION:
-                directorio = selector.getSelectedFile().getPath();
-
-                int i = directorio.lastIndexOf('.');
-                if (i >= 0) {
-                    extension = directorio.substring(i + 1);
-                }
-
-                seleccion = true;
-
-                JOptionPane.showMessageDialog(null, "Seleccionaste " + directorio);
-                break;
-            case JFileChooser.CANCEL_OPTION:
-                seleccion = false;
-                JOptionPane.showMessageDialog(null, "No seleccionaste nada.");
-                break;
-            case JFileChooser.ERROR_OPTION:
-                seleccion = false;
-                JOptionPane.showMessageDialog(null, "Ocurrio un Error.");
-                break;
-            default:
-                break;
-        }
-        
-        if (seleccion){
-             Entrada obj = new Entrada();
-        obj.setVisible(true);
-        dispose();  
-        }
-        
-        /*
+      
         Entrada obj = new Entrada();
         obj.setVisible(true);
         dispose();       
-         */            
-        
-        
+    
 // TODO add your handling code here:
     }//GEN-LAST:event_btnEntradaActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-        Principal_Admin obj = new Principal_Admin();
+        Principal_Oper obj = new Principal_Oper();
         obj.setVisible(true);
         dispose();
 

@@ -26,10 +26,6 @@ public class Principal_Admin extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - PRINCIPAL");
         
-        
-        this.jLabel1.add(this.txtconectado);
-        usuarios usu =new usuarios();
-        this.txtconectado.setText("Usuario: "+usu.getNombre());
     }
     
     public Image getIconImage() {
@@ -53,7 +49,6 @@ public class Principal_Admin extends javax.swing.JFrame {
         btnFormato = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        txtconectado = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,7 +101,6 @@ public class Principal_Admin extends javax.swing.JFrame {
         getContentPane().add(btnFormato, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 130, 40));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 200, 10));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 200, 10));
-        getContentPane().add(txtconectado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 170, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima_2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 310));
@@ -192,6 +186,5 @@ public class Principal_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField txtconectado;
     // End of variables declaration//GEN-END:variables
 }

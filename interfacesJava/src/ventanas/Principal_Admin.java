@@ -49,6 +49,7 @@ public class Principal_Admin extends javax.swing.JFrame {
         btnFormato = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
+        btnUsuarios = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,7 +69,7 @@ public class Principal_Admin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Principal");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 160, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 160, 40));
 
         btnNuevpCliente.setBackground(new java.awt.Color(153, 204, 255));
         btnNuevpCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -78,7 +79,7 @@ public class Principal_Admin extends javax.swing.JFrame {
                 btnNuevpClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNuevpCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 130, 40));
+        getContentPane().add(btnNuevpCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 40));
 
         btnClientes.setBackground(new java.awt.Color(153, 204, 255));
         btnClientes.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -88,7 +89,7 @@ public class Principal_Admin extends javax.swing.JFrame {
                 btnClientesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 130, 40));
+        getContentPane().add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 130, 40));
 
         btnFormato.setBackground(new java.awt.Color(153, 204, 255));
         btnFormato.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -98,12 +99,22 @@ public class Principal_Admin extends javax.swing.JFrame {
                 btnFormatoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFormato, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 130, 40));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 200, 10));
-        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 200, 10));
+        getContentPane().add(btnFormato, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 130, 40));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 300, 10));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 300, 10));
+
+        btnUsuarios.setBackground(new java.awt.Color(153, 204, 255));
+        btnUsuarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnUsuarios.setText("USUARIOS");
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuariosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 130, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima_2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 310));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -140,6 +151,15 @@ public class Principal_Admin extends javax.swing.JFrame {
         
 // TODO add your handling code here:
     }//GEN-LAST:event_btnNuevpClienteActionPerformed
+
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+
+        Usuarios obj = new Usuarios();
+        obj.setVisible(true);
+        dispose();
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +202,7 @@ public class Principal_Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnFormato;
     private javax.swing.JButton btnNuevpCliente;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnUsuarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;

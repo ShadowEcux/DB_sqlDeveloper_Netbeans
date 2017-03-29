@@ -73,6 +73,19 @@ public class usuarioDB {
         }
     }
     
+    public void EditarUsuario(usuarios usu) {
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            PreparedStatement pst = cnx.prepareStatement("UPDATE USUARIOS SET NOMBRE_USUARIO = ?, PASSWORD = ?, TIPO_USUARIO = ? WHERE NOMBRE_USUARIO = ?");
+            pst.setString(1, usu.getNombre());
+            pst.setString(2, usu.getPassword());
+            pst.setInt(3, usu.getTipoUsuario());
+            pst.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(usuarioDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
     
     
 }

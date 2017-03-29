@@ -352,9 +352,25 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
-        Editar_Cliente obj = new Editar_Cliente();
-        obj.setVisible(true);
-        dispose();
+        usuarios usu = new usuarios();
+        usu.setNombre(txtNombre.getText());
+        usu.setPassword(txtPassword.getText());
+        usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
+      
+        if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "¿Seguro desea Editar este usuario?", "", JOptionPane.OK_CANCEL_OPTION);
+            db.EditarUsuario(usu);
+            CargarCmbUsuarios();
+            JOptionPane.showMessageDialog(this, "Datos Editados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+            LimpirTabla();
+            ListarDatos();
+            txtNombre.setText("");
+            txtPassword.setText("");
+            txtTipoUsuario.setText("");
+            txtNombre.requestFocus();
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed

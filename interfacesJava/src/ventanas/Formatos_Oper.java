@@ -88,11 +88,21 @@ public class Formatos_Oper extends javax.swing.JFrame {
         btnSalida.setBackground(new java.awt.Color(153, 204, 255));
         btnSalida.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSalida.setText("SALIDA");
+        btnSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalidaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 140, 40));
 
         btnEnvios.setBackground(new java.awt.Color(153, 204, 255));
         btnEnvios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnEnvios.setText("ENVIOS");
+        btnEnvios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviosActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEnvios, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 140, 40));
 
         btnSalir2.setBackground(new java.awt.Color(51, 153, 255));
@@ -147,6 +157,14 @@ public class Formatos_Oper extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalidaActionPerformed
+
+    private void btnEnviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEnviosActionPerformed
 
     /**
      * @param args the command line arguments

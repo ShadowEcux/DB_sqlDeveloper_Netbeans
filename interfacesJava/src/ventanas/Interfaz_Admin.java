@@ -20,7 +20,7 @@ import javax.swing.ImageIcon;
 import java.sql.*;
 
 public class Interfaz_Admin extends javax.swing.JFrame {
- 
+
     /**
      * Creates new form Interfaz
      */
@@ -30,22 +30,21 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("CPU System Service S.A.S");
-        
+
     }
-    
-    public void CargarCmbUsuarios(){
+
+    public void CargarCmbUsuarios() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery("SELECT NOMBRE_TIPO_USUARIO FROM TIPO_USUARIOS");
             while (rs.next()) {
-                cmbUsuarios.addItem(rs.getString("nombre_tipo_usuario"));
+                //cmbUsuarios.addItem(rs.getString("nombre_tipo_usuario"));
             }
         } catch (Exception e) {
         }
     }
-    
-    
+
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/CPU_new_2.png"));
@@ -70,7 +69,6 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         txtNombreUsuario = new javax.swing.JTextField();
-        cmbUsuarios = new javax.swing.JComboBox();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,7 +89,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Usuario");
+        jLabel1.setText("TIPO");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -121,8 +119,6 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
         getContentPane().add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 150, -1));
 
-        getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 150, -1));
-
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/new_1.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 420));
 
@@ -132,30 +128,35 @@ public class Interfaz_Admin extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
 
         System.exit(0);
-        
+
 // TODO add you  r handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
+        String nombre = txtNombreUsuario.getText();
+        String password = txtPassword.getText();
         try {
             Connection cn = DataBaseConexion.getConnection();
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("Select tipo from Usuarios where nombre = '" + cmbUsuarios.getSelectedIndex() + "' and password  = '" + txtPassword.getText() + "'");
+            ResultSet rs = st.executeQuery("Select Tipo_Usuario From Usuarios Where Nombre_Usuario = '" + nombre + "' And Password_Usuario  = '" + password + "'");
             //ResultSet rs = st.executeQuery("insert into USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIOS_ID_TIPO_USUARIO) VALUES ('fserrano1', '1234', 3)");   
             if (rs.next()) {
 
-                int tipo = rs.getInt("TipoUsuario");
+                int tipo = rs.getInt("Tipo_Usuario");
                 if (tipo == 1) {
+
                     dispose();
                     new Principal_Admin().setVisible(true);
+                    dispose();
                 }
 
                 if (tipo == 3) {
-                    
+
                     new Principal_Oper().setVisible(true);
+                    dispose();
                 }
-                
+
             } else {
 
                 JOptionPane.showMessageDialog(null, "No existe usuario, por favor revise sus datos");
@@ -165,41 +166,40 @@ public class Interfaz_Admin extends javax.swing.JFrame {
             //JOptionPane.showMessageDialog(null, "Error " + e);
             System.out.println(e);
         }
-        
+
         /*
         
-        String usuario = txtUsuario.getText();
-        String password = txtUsuario.getText();
+         String usuario = txtUsuario.getText();
+         String password = txtUsuario.getText();
         
-        if (usuario.isEmpty()||password.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ingrese Usuario y contraseña");
+         if (usuario.isEmpty()||password.isEmpty()){
+         JOptionPane.showMessageDialog(null, "Ingrese Usuario y contraseña");
             
-        }else{
-            conexion conectar = new conexion();
-            Statement st = conectar.Conectar();
+         }else{
+         conexion conectar = new conexion();
+         Statement st = conectar.Conectar();
             
-            try {
-                ResultSet rs = st.executeQuery("select * from login usuario = '"+usuario+"' and password '"+password+"'");
-                rs.last();
-                int encontrado = rs.getRow();
-                if (encontrado == 1){
-                    JOptionPane.showMessageDialog(null, "Usuario y clave correcta", "Usuario y clave correcta", JOptionPane.INFORMATION_MESSAGE);
-                    Principal_Admin pl = new Principal_Admin();
-                    pl.setVisible(true);
-                    hide();
-                }else{
-                    txtUsuario.setText("");
-                    txtUsuario.setText("");
-                    JOptionPane.showMessageDialog(null, "ERROR", "Usuario y clave incorrectos", JOptionPane.INFORMATION_MESSAGE);
-                }
-            } catch (Exception e) {  
-                JOptionPane.showMessageDialog(null, e);
-            }
+         try {
+         ResultSet rs = st.executeQuery("select * from login usuario = '"+usuario+"' and password '"+password+"'");
+         rs.last();
+         int encontrado = rs.getRow();
+         if (encontrado == 1){
+         JOptionPane.showMessageDialog(null, "Usuario y clave correcta", "Usuario y clave correcta", JOptionPane.INFORMATION_MESSAGE);
+         Principal_Admin pl = new Principal_Admin();
+         pl.setVisible(true);
+         hide();
+         }else{
+         txtUsuario.setText("");
+         txtUsuario.setText("");
+         JOptionPane.showMessageDialog(null, "ERROR", "Usuario y clave incorrectos", JOptionPane.INFORMATION_MESSAGE);
+         }
+         } catch (Exception e) {  
+         JOptionPane.showMessageDialog(null, e);
+         }
             
-        }
+         }
         
-        */
-        
+         */
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIngresarActionPerformed
 
@@ -242,7 +242,6 @@ public class Interfaz_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox cmbUsuarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

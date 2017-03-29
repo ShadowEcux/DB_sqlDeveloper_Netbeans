@@ -148,12 +148,12 @@ public class Usuarios extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla_usuarios);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 400, 270));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 400, 200));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 255, 153));
         jLabel2.setText("Nombre De Usuarios");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -163,14 +163,14 @@ public class Usuarios extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 70, 20));
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 70, 20));
 
         cmbUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbUsuariosActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 190, 30));
+        getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 190, 30));
 
         brnListar.setBackground(new java.awt.Color(153, 204, 255));
         brnListar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

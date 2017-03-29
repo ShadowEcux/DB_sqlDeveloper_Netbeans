@@ -129,7 +129,7 @@ public class Principal_Oper extends javax.swing.JFrame {
 
     private void btnNuevpClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevpClienteActionPerformed
 
-        Nuevo_Cliente obj = new Nuevo_Cliente();
+        Nuevo_Cliente_Oper obj = new Nuevo_Cliente_Oper();
         obj.setVisible(true);
         dispose();
         

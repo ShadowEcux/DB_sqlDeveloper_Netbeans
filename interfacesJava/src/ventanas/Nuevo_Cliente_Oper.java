@@ -179,7 +179,7 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-        Principal_Admin obj = new Principal_Admin();
+        Principal_Oper obj = new Principal_Oper();
         obj.setVisible(true);
         dispose();
 

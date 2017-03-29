@@ -30,12 +30,12 @@ public class usuarioDB {
         try {
             Connection cnx = DataBaseConexion.getConnection();
             Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT ID_USUARIO, NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIOS_ID_TIPO_USUARIO FROM USUARIOS ORDER BY 2");
+            ResultSet rs = st.executeQuery("SELECT ID_USUARIO, NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIO FROM USUARIOS ORDER BY 2");
             while (rs.next()) {
                 usuarios usu = new usuarios();
-                usu.setNombre(rs.getString("nombre_usuario"));
-                usu.setPassword(rs.getString("password_usuario"));
-                usu.setTipoUsuario(rs.getInt("TIPO_USUARIOS_ID_TIPO_USUARIO"));
+                usu.setNombre(rs.getString("NOMBRE_USUARIO"));
+                usu.setPassword(rs.getString("PASSWORD_USUARIO"));
+                usu.setTipoUsuario(rs.getInt("TIPO_USUARIO"));
                 
                 usuario.add(usu);
             }

@@ -133,7 +133,7 @@ public class Formatos_Oper extends javax.swing.JFrame {
 
     private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaActionPerformed
       
-        Entrada obj = new Entrada();
+        Entrada_Oper obj = new Entrada_Oper();
         obj.setVisible(true);
         dispose();       
     

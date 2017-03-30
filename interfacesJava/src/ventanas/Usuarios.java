@@ -365,7 +365,7 @@ public class Usuarios extends javax.swing.JFrame {
         if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "¿Seguro desea Eliminar este usuario?", "", JOptionPane.OK_CANCEL_OPTION);
+            JOptionPane.showMessageDialog(this, "¿Seguro desea Eliminar este usuario?", "", JOptionPane.YES_NO_OPTION);
             db.EliminarUsuario(usu);
             CargarCmbUsuarios();
             JOptionPane.showMessageDialog(this, "Datos Eliminados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
@@ -376,6 +376,7 @@ public class Usuarios extends javax.swing.JFrame {
             txtTipoUsuario.setText("");
             txtNombre.requestFocus();
         }
+    
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 

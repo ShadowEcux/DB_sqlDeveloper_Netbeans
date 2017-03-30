@@ -11,4 +11,6 @@ package clasesPrincipales;
  */
 public class Entrada {
     
+    
+    
 }

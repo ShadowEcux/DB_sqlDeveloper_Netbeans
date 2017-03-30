@@ -39,7 +39,7 @@ public class Envios extends javax.swing.JFrame {
     public Envios() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("CPU System Service S.A.S - SALIDA");
+        this.setTitle("CPU System Service S.A.S - ENVIOS");
         CargarCmbCliente();
     }
 

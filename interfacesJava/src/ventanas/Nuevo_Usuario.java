@@ -143,7 +143,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         });
         getContentPane().add(btnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 100, 30));
 
-        cmbUsuarios.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "3" }));
+        cmbUsuarios.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMINISTRADOR", "OPERARIO" }));
         getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, 20));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -187,12 +187,20 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
 
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
 
+        int tipo=0;
         usuarios usu = new usuarios();
 
         usu.setNombre(txtNombre.getText());
         usu.setPassword(txtPasswordUsuario.getText());
-        usu.setTipoUsuario((cmbUsuarios.getSelectedIndex()));
-
+        if(cmbUsuarios.getSelectedItem()=="ADMINISTRADOR"){
+            tipo = 1;
+            usu.setTipoUsuario(tipo);
+        }else if(cmbUsuarios.getSelectedItem()=="OPERARIO"){
+            tipo = 3;
+            usu.setTipoUsuario(tipo);
+        }
+        //usu.setTipoUsuario((cmbUsuarios.getSelectedIndex()));
+        
         if (txtNombre.getText().equals("") || txtPasswordUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {

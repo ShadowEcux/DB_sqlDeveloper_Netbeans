@@ -50,7 +50,7 @@ public class usuarioDB {
     public void insertarUsuario(usuarios usuario) {
         try {
             Connection cnx = DataBaseConexion.getConnection();
-            PreparedStatement pst = cnx.prepareStatement("INSERT INTO USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIOS) VALUES (?,?,?)");
+            PreparedStatement pst = cnx.prepareStatement("INSERT INTO USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIO) VALUES (?,?,?)");
             pst.setString(1, usuario.getNombre());
             pst.setString(2, usuario.getPassword());
             pst.setInt(3, usuario.getTipoUsuario());

@@ -132,20 +132,20 @@ public class Salida extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
         jLabel6.setText("Clientes");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 50, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 50, 20));
 
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, -1));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 150, 10));
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 210, -1));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 150, 10));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Empresa");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 20));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, 20));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Ciudad");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 20));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, 20));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,16 +156,16 @@ public class Salida extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(153, 255, 153));
         jLabel16.setText("DATOS DEL CONTACTO");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 150, -1));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 610, 10));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 610, 10));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 230, 10));
-        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 200, -1));
-        getContentPane().add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 200, -1));
-        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 200, -1));
+        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 200, -1));
+        getContentPane().add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 200, -1));
+        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 200, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Dirección");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 20));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 20));
         getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 140, -1));
         getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 110, -1));
 
@@ -199,7 +199,7 @@ public class Salida extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(153, 255, 153));
         jLabel25.setText("FECHA");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 40, 20));
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 40, 20));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -268,7 +268,7 @@ public class Salida extends javax.swing.JFrame {
         jLabel35.setText("Serie");
         getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 40, 20));
         getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 130, -1));
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 190, -1));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 190, -1));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -278,7 +278,7 @@ public class Salida extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 70, 20));
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 70, 20));
 
         btnDescartar.setBackground(new java.awt.Color(153, 204, 255));
         btnDescartar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

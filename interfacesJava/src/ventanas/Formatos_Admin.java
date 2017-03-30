@@ -47,7 +47,6 @@ public class Formatos_Admin extends javax.swing.JFrame {
         btnEnvios = new javax.swing.JButton();
         btnSalir2 = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        btnNuevoUsuario = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -116,28 +115,6 @@ public class Formatos_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 70, -1));
 
-        btnNuevoUsuario.setBackground(new java.awt.Color(153, 204, 255));
-        btnNuevoUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnNuevoUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        btnNuevoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nuevo_peq.jpg"))); // NOI18N
-        btnNuevoUsuario.setText("Nuevo Usuario");
-        btnNuevoUsuario.setBorder(null);
-        btnNuevoUsuario.setBorderPainted(false);
-        btnNuevoUsuario.setContentAreaFilled(false);
-        btnNuevoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNuevoUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnNuevoUsuario.setIconTextGap(-1);
-        btnNuevoUsuario.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nuevo_peq.jpg"))); // NOI18N
-        btnNuevoUsuario.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/nuevo_usuario_1.jpg"))); // NOI18N
-        btnNuevoUsuario.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnNuevoUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoUsuarioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 90, 70));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 300));
 
@@ -168,15 +145,6 @@ public class Formatos_Admin extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
-
-    private void btnNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoUsuarioActionPerformed
-
-        Nuevo_Usuario obj = new Nuevo_Usuario();
-        obj.setVisible(true);
-        dispose();
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
 
@@ -236,7 +204,6 @@ public class Formatos_Admin extends javax.swing.JFrame {
     private javax.swing.JButton btnCotizacion;
     private javax.swing.JButton btnEntrada;
     private javax.swing.JButton btnEnvios;
-    private javax.swing.JButton btnNuevoUsuario;
     private javax.swing.JButton btnSalida;
     private javax.swing.JButton btnSalir2;
     private javax.swing.JButton btnVolver;

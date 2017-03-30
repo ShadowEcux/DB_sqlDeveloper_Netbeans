@@ -367,10 +367,10 @@ public class Usuarios extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "¿Seguro desea Eliminar este usuario?", "", JOptionPane.YES_NO_OPTION);
             db.EliminarUsuario(usu);
-            CargarCmbUsuarios();
             JOptionPane.showMessageDialog(this, "Datos Eliminados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
             LimpirTabla();
             ListarDatos();
+            CargarCmbUsuarios();
             txtNombre.setText("");
             txtPassword.setText("");
             txtTipoUsuario.setText("");

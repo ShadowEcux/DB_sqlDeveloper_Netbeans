@@ -70,7 +70,7 @@ public class clienteDB {
         }
     }
 
-    //Codigo para MODIFICAR datos.........................................................
+    //Codigo para EDITAR datos.........................................................
     public void Editar(clientes cli) {
         try {
             Connection cnx = DataBaseConexion.getConnection();

@@ -81,14 +81,11 @@ public class Envios extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
         jLabel33 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaComentario = new javax.swing.JTextArea();
         jSeparator9 = new javax.swing.JSeparator();
-        btnAplicar = new javax.swing.JButton();
-        btnGuardar2 = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnDescartar = new javax.swing.JButton();
@@ -97,6 +94,12 @@ public class Envios extends javax.swing.JFrame {
         txtFecha = new com.toedter.calendar.JDateChooser();
         jLabel25 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        btnPDF = new javax.swing.JButton();
+        jSeparator11 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
+        btnGuardar = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -162,9 +165,6 @@ public class Envios extends javax.swing.JFrame {
         jLabel22.setText("DATOS DEL EQUIPO");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
 
-        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 10, 90));
-
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Comentario");
@@ -177,26 +177,6 @@ public class Envios extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 310, 80));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 190, 10));
-
-        btnAplicar.setBackground(new java.awt.Color(153, 204, 255));
-        btnAplicar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnAplicar.setText("Aplicar");
-        btnAplicar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAplicarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 90, 30));
-
-        btnGuardar2.setBackground(new java.awt.Color(153, 204, 255));
-        btnGuardar2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGuardar2.setText("Guardar");
-        btnGuardar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnGuardar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 90, 30));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -248,6 +228,34 @@ public class Envios extends javax.swing.JFrame {
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 40, 20));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 150, 10));
 
+        btnPDF.setBackground(new java.awt.Color(153, 204, 255));
+        btnPDF.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnPDF.setText("PDF");
+        btnPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPDFActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 80, 30));
+        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 100, 10));
+
+        jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 10, 90));
+
+        btnGuardar.setBackground(new java.awt.Color(153, 204, 255));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, 80, 30));
+
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, 10, 90));
+        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 100, 10));
+
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 460));
 
@@ -260,14 +268,6 @@ public class Envios extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalir1ActionPerformed
-
-    private void btnAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAplicarActionPerformed
-
-    private void btnGuardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardar2ActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
@@ -327,6 +327,321 @@ public class Envios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCiudadActionPerformed
 
+    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
+
+        /*
+        String fecha = txtFecha.getDateFormatString();
+        String elemento = txtElemento.getText();
+        String potencia = txtPotencia.getText();
+        String marca = txtMarca.getText();
+        String modelo = txtModelo.getText();
+        String serie = txtSerie.getText();
+        String nit = txtNit.getText();
+        String empRemite = txtEmpresaRemitente.getText();
+        String ciudad = txtCiudad.getText();
+        String garantia = cmbGarantia.getSelectedItem().toString();
+        String direccion = txtDireccion.getText();
+        String preRemite = txtPersonaRemitente.getText();
+        String nombreContacto = txtNombreContacto.getText();
+        String telefonoContacto = txtTelefonoContacto.getText();
+        String correoContacto = txtCorreoContacto.getText();
+        String motivo = txtMotivo.getText();
+        String tarjetaDeRed = cmbTarjetaDeRed.getSelectedItem().toString();
+        String parrilla = cmbParrilla.getSelectedItem().toString();
+        String basesPals = cmbBasesPlasticas.getSelectedItem().toString();
+        String estadoCarcasa = cmbEstadoCarcasa.getSelectedItem().toString();
+        String conectorOrig = cmbConectorOriginal.getSelectedItem().toString();
+        String observaciones = areaObservaciones.getText();
+
+        */
+        JFileChooser selector = new JFileChooser();
+        String directorio = "";
+        String extension = "";
+        boolean seleccion = false;
+
+        int resultado = selector.showOpenDialog(null);
+
+        switch (resultado) {
+            case JFileChooser.APPROVE_OPTION:
+            directorio = selector.getSelectedFile().getPath();
+
+            int i = directorio.lastIndexOf('.');
+            if (i >= 0) {
+                extension = directorio.substring(i + 1);
+            }
+
+            seleccion = true;
+
+            JOptionPane.showMessageDialog(null, "Seleccionaste " + directorio);
+            break;
+            case JFileChooser.CANCEL_OPTION:
+            seleccion = false;
+            JOptionPane.showMessageDialog(null, "No seleccionaste nada.");
+            break;
+            case JFileChooser.ERROR_OPTION:
+            seleccion = false;
+            JOptionPane.showMessageDialog(null, "Ocurrio un Error.");
+            break;
+            default:
+            break;
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (seleccion) {
+
+            switch (extension) {
+                case "xls": {
+                    FileInputStream entrada = null;
+                    try {
+                        //Leer el archivo de Excel XLS
+                        entrada = new FileInputStream(new File(directorio));
+                        //Acceso al libro de trabajo
+                        HSSFWorkbook xls = new HSSFWorkbook(entrada);
+                        //Acceso a la hoja de trabajo
+                        HSSFSheet hoja = xls.getSheetAt(0);
+                        //Declaracion de fila y celda
+                        Row fila = null;
+                        Cell celda = null;
+                        try {
+                            //Asignando a valores a celdas con valores
+                            fila = hoja.getRow(13);
+                            celda = fila.getCell(6);
+                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
+                            celda.setCellValue(fecha);
+
+                            fila = hoja.getRow(4);
+                            celda = fila.getCell(1);
+                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
+                            celda.setCellValue(elemento);
+
+                            fila = hoja.getRow(4);
+                            celda = fila.getCell(4);
+                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
+                            celda.setCellValue(potencia);
+
+                            /*
+                            fila = hoja.getRow(1);
+
+                            celda = fila.getCell(0);
+                            celda.setCellValue(valor2);
+                            celda = fila.getCell(1);
+                            celda.setCellValue(valor4);
+                            */
+                        } catch (NullPointerException NPE) {
+                            //En caso de que las celdas esten vacias hay que crearlas
+
+                            fila = hoja.createRow(13);
+                            celda = fila.createCell(6);
+                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
+                            celda.setCellValue(fecha);
+
+                            fila = hoja.createRow(4);
+                            celda = fila.createCell(1);
+                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
+                            celda.setCellValue(elemento);
+
+                            fila = hoja.createRow(4);
+                            celda = fila.createCell(4);
+                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
+                            celda.setCellValue(potencia);
+
+                        }       //Evaluando formulas de todo el libro de excel
+                        HSSFFormulaEvaluator.evaluateAllFormulaCells(xls);
+                        //Cerrando archivo
+                        entrada.close();
+                        //Abriendo archivo para escritura
+                        FileOutputStream salida = new FileOutputStream(new File(directorio));
+                        //write changes
+                        xls.write(salida);
+                        //close the stream
+                        salida.close();
+                        break;
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+                    } finally {
+                        try {
+                            entrada.close();
+                        } catch (IOException ex) {
+                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }       //Evaluando formulas de todo el libro de excel
+                }
+                case "xlsx": {
+                    FileOutputStream salida = null;
+                    try {
+                        //Leer el archivo de Excel XLSX
+                        FileInputStream entrada = null;
+                        try {
+                            entrada = new FileInputStream(new File(directorio));
+                        } catch (FileNotFoundException ex) {
+                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        //Acceso al libro de trabajo
+                        XSSFWorkbook xlsx = null;
+                        try {
+                            xlsx = new XSSFWorkbook(entrada);
+                        } catch (IOException ex) {
+                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        //Acceso a la hoja de trabajo
+                        XSSFSheet hoja = xlsx.getSheetAt(0);
+                        //Declaracion de fila y celda
+                        Row fila = null;
+                        Cell celda = null;
+                        try {
+                            //Asignando a valores a celdas con valores
+                            fila = hoja.getRow(13);
+                            celda = fila.getCell(6);
+                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
+                            celda.setCellValue(fecha);
+
+                            fila = hoja.getRow(4);
+                            celda = fila.getCell(1);
+                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
+                            celda.setCellValue(elemento);
+
+                            fila = hoja.getRow(4);
+                            celda = fila.getCell(4);
+                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
+                            celda.setCellValue(potencia);
+
+                        } catch (NullPointerException NPE) {
+                            //En caso de que las celdas esten vacias hay que crearlas
+
+                            fila = hoja.createRow(13);
+                            celda = fila.createCell(6);
+                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
+                            celda.setCellValue(fecha);
+
+                            fila = hoja.createRow(4);
+                            celda = fila.createCell(1);
+                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
+                            celda.setCellValue(elemento);
+
+                            fila = hoja.createRow(4);
+                            celda = fila.createCell(4);
+                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
+                            celda.setCellValue(potencia);
+
+                        }       //Evaluando formulas de todo el libro de excel
+                        XSSFFormulaEvaluator.evaluateAllFormulaCells(xlsx);
+                        //Cerrando la entrada archivo
+                        entrada.close();
+                        //Abriendo archivo para escritura
+                        salida = new FileOutputStream(new File(directorio));
+                        //write changes
+                        xlsx.write(salida);
+                        //close the stream
+                        salida.close();
+                        break;
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+                    } finally {
+                        try {
+                            salida.close();
+                        } catch (IOException ex) {
+                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+            }
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPDFActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+
+        /*
+
+        Formatos_Oper obj = new Formatos_Oper();
+
+        if (seleccion) {
+            FileInputStream entrada = null;
+            try {
+                //Leer el archivo de Excel XLS
+                entrada = new FileInputStream(new File(directorio));
+                //Acceso al libro de trabajo
+                HSSFWorkbook xls = new HSSFWorkbook(entrada);
+                //Acceso a la hoja de trabajo
+                HSSFSheet hoja = xls.getSheetAt(0);
+                //Declaracion de fila y celda
+                Row fila = null;
+                Cell celda = null;
+                try {
+                    //Asignando a valores a celdas con valores
+                    fila = hoja.getRow(13);
+                    celda = fila.getCell(6);
+                    HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
+                    celda.setCellValue(fecha);
+
+                    fila = hoja.getRow(4);
+                    celda = fila.getCell(1);
+                    HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
+                    celda.setCellValue(elemento);
+
+                    fila = hoja.getRow(4);
+                    celda = fila.getCell(4);
+                    HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
+                    celda.setCellValue(potencia);
+
+                    fila = hoja.getRow(1);
+
+                    celda = fila.getCell(0);
+                    celda.setCellValue(valor2);
+                    celda = fila.getCell(1);
+                    celda.setCellValue(valor4);
+
+                } catch (NullPointerException NPE) {
+                    //En caso de que las celdas esten vacias hay que crearlas
+
+                    fila = hoja.createRow(13);
+                    celda = fila.createCell(6);
+                    HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
+                    celda.setCellValue(fecha);
+
+                    fila = hoja.createRow(4);
+                    celda = fila.createCell(1);
+                    HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
+                    celda.setCellValue(elemento);
+
+                    fila = hoja.createRow(4);
+                    celda = fila.createCell(4);
+                    HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
+                    celda.setCellValue(potencia);
+
+                }       //Evaluando formulas de todo el libro de excel
+                HSSFFormulaEvaluator.evaluateAllFormulaCells(xls);
+                //Cerrando archivo
+                entrada.close();
+                //Abriendo archivo para escritura
+                FileOutputStream salida = new FileOutputStream(new File(directorio));
+                //write changes
+                xls.write(salida);
+                //close the stream
+                salida.close();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    entrada.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }       //Evaluando formulas de todo el libro de excel
+        }
+
+        */
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -379,10 +694,10 @@ public class Envios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaComentario;
-    private javax.swing.JButton btnAplicar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnDescartar;
-    private javax.swing.JButton btnGuardar2;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnPDF;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbClientes;
@@ -400,11 +715,14 @@ public class Envios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField txtATN;
     private javax.swing.JTextField txtCiudad;

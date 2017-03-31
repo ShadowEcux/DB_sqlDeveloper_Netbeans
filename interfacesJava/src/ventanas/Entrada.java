@@ -126,7 +126,7 @@ public class Entrada extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JSeparator();
         btnGuardar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        btnAplicar = new javax.swing.JButton();
+        btnPDF = new javax.swing.JButton();
         txtFecha = new com.toedter.calendar.JDateChooser();
         btnBuscar = new javax.swing.JButton();
         btnDescartar = new javax.swing.JButton();
@@ -152,7 +152,7 @@ public class Entrada extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Formato De Entrada");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 270, 10));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 270, 10));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
@@ -210,7 +210,7 @@ public class Entrada extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(153, 255, 153));
         jLabel16.setText("DATOS DEL CONTACTO");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 150, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 150, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
@@ -220,7 +220,7 @@ public class Entrada extends javax.swing.JFrame {
         cmbTarjetaDeRed.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
         getContentPane().add(cmbTarjetaDeRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 60, 20));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 750, 10));
-        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 310, 10));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 310, 10));
         getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 150, -1));
         getContentPane().add(txtElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 150, -1));
         getContentPane().add(txtPotencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 150, -1));
@@ -378,15 +378,15 @@ public class Entrada extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 570, -1, -1));
 
-        btnAplicar.setBackground(new java.awt.Color(153, 204, 255));
-        btnAplicar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnAplicar.setText("Aplicar");
-        btnAplicar.addActionListener(new java.awt.event.ActionListener() {
+        btnPDF.setBackground(new java.awt.Color(153, 204, 255));
+        btnPDF.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnPDF.setText("PDF");
+        btnPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAplicarActionPerformed(evt);
+                btnPDFActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 80, 30));
+        getContentPane().add(btnPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 80, 30));
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 190, -1));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
@@ -443,7 +443,7 @@ public class Entrada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarActionPerformed
+    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
 
         /*
          String fecha = txtFecha.getDateFormatString();
@@ -668,7 +668,7 @@ public class Entrada extends javax.swing.JFrame {
         }
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_btnAplicarActionPerformed
+    }//GEN-LAST:event_btnPDFActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
@@ -865,10 +865,10 @@ public class Entrada extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaObservaciones;
-    private javax.swing.JButton btnAplicar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnPDF;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbBasesPlasticas;

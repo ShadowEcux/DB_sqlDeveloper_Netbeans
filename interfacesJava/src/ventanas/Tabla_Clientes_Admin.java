@@ -266,6 +266,7 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
             if (rs.next()) {
 
                 clientes cl = new clientes();
+                cl.setId_cliente(rs.getInt("IDCLIENTE"));
                 cl.setNit_cliente(rs.getString("NITCLIENTE"));
                 cl.setNombre_cliente(rs.getString("NOMBRECLIENTE"));
                 cl.setTelefono_cliente(rs.getString("TELEFONOCLIENTE"));

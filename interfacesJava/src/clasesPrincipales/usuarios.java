@@ -11,6 +11,7 @@ package clasesPrincipales;
  */
 public class usuarios {
     
+    int id_usuario;
     String nombre;
     String password;
     int tipoUsuario;
@@ -19,10 +20,19 @@ public class usuarios {
     }
     
     
-    public usuarios(String nombre, String password, int tipoUsuario) {
+    public usuarios(int id_usuario, String nombre, String password, int tipoUsuario) {
+        this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.password = password;
         this.tipoUsuario = tipoUsuario;
+    }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public String getNombre() {

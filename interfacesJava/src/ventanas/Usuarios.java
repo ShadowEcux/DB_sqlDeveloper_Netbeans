@@ -41,6 +41,7 @@ public class Usuarios extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - USUARIOS");
         CargarCmbUsuarios();
+        txtID.setEnabled(false);
     }
 
     // METODOS::::::::::::::::::::
@@ -48,7 +49,7 @@ public class Usuarios extends javax.swing.JFrame {
         usuario = db.ListUsuarios();
         DefaultTableModel tb = (DefaultTableModel) tabla_usuarios.getModel();
         for (usuarios usu : usuario) {
-            tb.addRow(new Object[]{usu.getNombre(), usu.getPassword(), usu.getTipoUsuario()});
+            tb.addRow(new Object[]{usu.getId_usuario(), usu.getNombre(), usu.getPassword(), usu.getTipoUsuario()});
         }
     }
 
@@ -104,6 +105,8 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtTipoUsuario = new javax.swing.JTextField();
         btnNuevoUsuario = new javax.swing.JButton();
+        txtID = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -124,7 +127,7 @@ public class Usuarios extends javax.swing.JFrame {
                 btnSalir1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
         btnVolver1.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -135,17 +138,17 @@ public class Usuarios extends javax.swing.JFrame {
                 btnVolver1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, 70, -1));
+        getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 450, 70, -1));
 
         tabla_usuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "NOMBRE", "PASSWORD", "TIPO"
+                "ID", "NOMBRE", "PASSWORD", "TIPO"
             }
         ));
         tabla_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,12 +158,12 @@ public class Usuarios extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla_usuarios);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 480, 200));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 560, 190));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 255, 153));
         jLabel2.setText("Nombre De Usuarios");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -170,14 +173,14 @@ public class Usuarios extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 70, 20));
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 70, 20));
 
         cmbUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbUsuariosActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 190, 30));
+        getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 190, 30));
 
         brnListar.setBackground(new java.awt.Color(153, 204, 255));
         brnListar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -187,7 +190,7 @@ public class Usuarios extends javax.swing.JFrame {
                 brnListarActionPerformed(evt);
             }
         });
-        getContentPane().add(brnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 80, 30));
+        getContentPane().add(brnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 80, 30));
 
         btnEliminar.setBackground(new java.awt.Color(153, 204, 255));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -197,7 +200,7 @@ public class Usuarios extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 80, 30));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 80, 30));
 
         btnEditar.setBackground(new java.awt.Color(153, 204, 255));
         btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -207,31 +210,31 @@ public class Usuarios extends javax.swing.JFrame {
                 btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 80, 30));
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 80, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nombre ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 60, -1));
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 60, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 150, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Password");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 150, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 150, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Tipo");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
         txtTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTipoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txtTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 150, -1));
+        getContentPane().add(txtTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 150, -1));
 
         btnNuevoUsuario.setBackground(new java.awt.Color(153, 204, 255));
         btnNuevoUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -253,10 +256,16 @@ public class Usuarios extends javax.swing.JFrame {
                 btnNuevoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 90, 70));
+        getContentPane().add(btnNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 90, 70));
+        getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 70, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("ID");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 460));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -282,9 +291,10 @@ public class Usuarios extends javax.swing.JFrame {
         int seleccion = tabla_usuarios.getSelectedRow();
         tabla_usuarios.getSelectedColumn();
         
-        txtNombre.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 0)));
-        txtPassword.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 1)));
-        txtTipoUsuario.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 2)));
+        txtID.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 0)));
+        txtNombre.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 1)));
+        txtPassword.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 2)));
+        txtTipoUsuario.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 3)));
         
 // TODO add your handling code here:
     }//GEN-LAST:event_tabla_usuariosMouseClicked
@@ -296,41 +306,18 @@ public class Usuarios extends javax.swing.JFrame {
             String guardar = cmbUsuarios.getSelectedItem().toString();
             Connection cnx = DataBaseConexion.getConnection();
             Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from usuarios where NOMBRE_USUARIO = ?");
+            PreparedStatement pst = cnx.prepareStatement("Select * from USUARIOS where NOMBRE_USUARIO = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
-            LimpirTabla();
             if (rs.next()) {
 
-                usuarios usu = new usuarios();
-                usu.setNombre(rs.getString("NOMBRE_USUARIO"));
-                usu.setPassword(rs.getString("PASSWORD_USUARIO"));
-                usu.setTipoUsuario(rs.getInt("TIPO_USUARIO"));
-                usuario.add(usu);
-                DefaultTableModel tb = (DefaultTableModel) tabla_usuarios.getModel();
-                tb.addRow(new Object[]{usu.getNombre(), usu.getPassword(), usu.getTipoUsuario()});
+                txtID.setText(rs.getString("id_cliente").trim());
+                txtNombre.setText(rs.getString("nombre_usuario").trim());
+                txtPassword.setText(rs.getString("password_usuario").trim());
+                txtTipoUsuario.setText(rs.getString("tipo_usuario").trim());
+                
 
-               // tabla_clientes.add(this, guardar.toString());
-                //tabla_clientes.setValueAt(rs.getString("nitcliente").trim(), 1);
-                //rs.getString("nitcliente").trim()
-               /*         
-                 txtNitCliente.setText(rs.getString("nitcliente").trim());
-                 txtNombreCliente.setText(rs.getString("nombrecliente").trim());
-                 txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
-                 txtDireccionCliente.setText(rs.getString("direccioncliente").trim());
-                 txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
-                 txtCorreoCliente.setText(rs.getString("correocliente").trim());
-                 txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
-
-                 txtNitCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 0)));
-                 txtNombreCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 1)));
-                 txtTelefonoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 2)));
-                 txtDireccionCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 3)));
-                 txtCiudadCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 4)));
-                 txtCorreoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 5)));
-                 txtContactoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 6)));
-                 */
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
             } else {
@@ -358,6 +345,7 @@ public class Usuarios extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
         usuarios usu = new usuarios();
+        usu.setId_usuario(Integer.parseInt(txtID.getText()));
         usu.setNombre(txtNombre.getText());
         usu.setPassword(txtPassword.getText());
         usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
@@ -370,6 +358,7 @@ public class Usuarios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Datos Eliminados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
             LimpirTabla();
             ListarDatos();
+            this.cmbUsuarios.removeAllItems();
             CargarCmbUsuarios();
             txtNombre.setText("");
             txtPassword.setText("");
@@ -383,6 +372,7 @@ public class Usuarios extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
         usuarios usu = new usuarios();
+        usu.setId_usuario(Integer.parseInt(txtID.getText()));
         usu.setNombre(txtNombre.getText());
         usu.setPassword(txtPassword.getText());
         usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
@@ -392,10 +382,13 @@ public class Usuarios extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "¿Seguro desea Editar este usuario?", "", JOptionPane.OK_CANCEL_OPTION);
             db.EditarUsuario(usu);
-            CargarCmbUsuarios();
             JOptionPane.showMessageDialog(this, "Datos Editados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
             LimpirTabla();
             ListarDatos();
+            this.cmbUsuarios.removeAllItems();
+            CargarCmbUsuarios();
+            
+            txtID.setText("");
             txtNombre.setText("");
             txtPassword.setText("");
             txtTipoUsuario.setText("");
@@ -478,6 +471,7 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver1;
     private javax.swing.JComboBox cmbUsuarios;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -486,6 +480,7 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable tabla_usuarios;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtTipoUsuario;

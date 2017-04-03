@@ -34,6 +34,7 @@ public class clienteDB {
                     + " FROM CLIENTES ORDER BY 2");
             while (rs.next()) {
                 clientes cl = new clientes();
+                cl.setId_cliente(rs.getInt("IDCLIENTE"));
                 cl.setNit_cliente(rs.getString("NITCLIENTE"));
                 cl.setNombre_cliente(rs.getString("NOMBRECLIENTE"));
                 cl.setTelefono_cliente(rs.getString("TELEFONOCLIENTE"));
@@ -75,7 +76,7 @@ public class clienteDB {
         try {
             Connection cnx = DataBaseConexion.getConnection();
             PreparedStatement pst = cnx.prepareStatement("UPDATE CLIENTES SET NITCLIENTE = ?, NOMBRECLIENTE = ?, TELEFONOCLIENTE = ?, DIRECCIONCLIENTE = ?, CIUDADCLIENTE = ?, CORREOCLIENTE = ?, NOMBRECONTACTO = ?\n" +
-"WHERE NOMBRECLIENTE = ?");
+"WHERE IDCLIENTE = ?");
             pst.setString(1, cli.getNit_cliente());
             pst.setString(2, cli.getNombre_cliente());
             pst.setString(3, cli.getTelefono_cliente());
@@ -83,7 +84,7 @@ public class clienteDB {
             pst.setString(5, cli.getCiudad_cliente());
             pst.setString(6, cli.getCorreo_cliente());
             pst.setString(7, cli.getNombre_contacto());
-            pst.setString(8, cli.getNombre_cliente());
+            pst.setInt(8, cli.getId_cliente());
             pst.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(clienteDB.class.getName()).log(Level.SEVERE, null, ex);

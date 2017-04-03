@@ -19,6 +19,7 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author CPU_SYS
@@ -27,7 +28,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
 
     ArrayList<clientes> cliente;
     clienteDB db = new clienteDB();
-    
+
     /**
      * Creates new form Tabla_Clientes
      */
@@ -38,20 +39,27 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ELIMINAR CLIENTES");
         CargarCmbCliente();
+        txtID.setEnabled(false);
+        txtNitCliente.setEnabled(false);
+        txtNombreCliente.setEnabled(false);
+        txtTelefonoCliente.setEnabled(false);
+        txtDireccionCliente.setEnabled(false);
+        txtCiudadCliente.setEnabled(false);
+        txtCorreoCliente.setEnabled(false);
+        txtContactoCliente.setEnabled(false);
     }
+
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/CPU_new_2.png"));
         return retValue;
     }
-    
-    
+
     // METODOS:::::::::::::::::::::::::
-    
     public void ListarDatos() {
         cliente = db.ListClientes();
         DefaultTableModel tb = (DefaultTableModel) tabla_clientes.getModel();
         for (clientes cl : cliente) {
-            tb.addRow(new Object[]{cl.getNit_cliente(), cl.getNombre_cliente(), cl.getTelefono_cliente(), cl.getDireccion_cliente(), cl.getCiudad_cliente(), cl.getCorreo_cliente(), cl.getNombre_contacto()});
+            tb.addRow(new Object[]{cl.getId_cliente(), cl.getNit_cliente(), cl.getNombre_cliente(), cl.getTelefono_cliente(), cl.getDireccion_cliente(), cl.getCiudad_cliente(), cl.getCorreo_cliente(), cl.getNombre_contacto()});
         }
     }
 
@@ -60,9 +68,9 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         for (int i = tb.getRowCount() - 1; i >= 0; i--) {
             tb.removeRow(i);
         }
-    }  
-    
-    public void CargarCmbCliente(){
+    }
+
+    public void CargarCmbCliente() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
             Statement st = cnx.createStatement();
@@ -73,8 +81,6 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -109,6 +115,8 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         txtDireccionCliente = new javax.swing.JTextField();
         cmbClientes = new javax.swing.JComboBox();
         btnBuscar = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -150,17 +158,17 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
                 btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 90, 30));
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 90, 30));
 
         tabla_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "NIT", "CLIENTE", "TELEFONO", "DIRECCION", "CIUDAD", "CORREO", "CONTACTO"
+                "ID", "NIT", "CLIENTE", "TELEFONO", "DIRECCION", "CIUDAD", "CORREO", "CONTACTO"
             }
         ));
         tabla_clientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -180,7 +188,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
                 brnListarActionPerformed(evt);
             }
         });
-        getContentPane().add(brnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 90, 30));
+        getContentPane().add(brnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 90, 30));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -229,7 +237,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
                 cmbClientesActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 250, -1));
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 250, -1));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -239,7 +247,13 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 70, 20));
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 70, 20));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("ID");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 160, -1, -1));
+        getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 180, 70, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 520));
@@ -250,7 +264,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
     private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
 
         System.exit(0);
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
@@ -259,7 +273,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         Tabla_Clientes_Admin obj = new Tabla_Clientes_Admin();
         obj.setVisible(true);
         dispose();
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnVolver1ActionPerformed
 
@@ -267,13 +281,14 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
 
         LimpirTabla();
         ListarDatos();
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_brnListarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
         clientes cli = new clientes();
+        cli.setId_cliente(Integer.parseInt(txtID.getText()));
         cli.setNit_cliente(txtNitCliente.getText());
         cli.setNombre_cliente(txtNombreCliente.getText());
         cli.setTelefono_cliente(txtTelefonoCliente.getText());
@@ -289,7 +304,9 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Datos Eliminados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
             LimpirTabla();
             ListarDatos();
+            this.cmbClientes.removeAllItems();
             CargarCmbCliente();
+            txtID.setText("");
             txtNitCliente.setText("");
             txtNombreCliente.setText("");
             txtTelefonoCliente.setText("");
@@ -299,24 +316,23 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
             txtContactoCliente.setText("");
             txtNitCliente.requestFocus();
         }
-        
-       
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void tabla_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_clientesMouseClicked
 
         int seleccion = tabla_clientes.getSelectedRow();
-        
-        txtNitCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 0)));
-        txtNombreCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 1)));
-        txtTelefonoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 2)));
-        txtDireccionCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 3)));
-        txtCiudadCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 4)));
-        txtCorreoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 5)));
-        txtContactoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 6)));
-        
+
+        txtID.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 0)));
+        txtNitCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 1)));
+        txtNombreCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 2)));
+        txtTelefonoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 3)));
+        txtDireccionCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 4)));
+        txtCiudadCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 5)));
+        txtCorreoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 6)));
+        txtContactoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 7)));
+
 // TODO add your handling code here:
     }//GEN-LAST:event_tabla_clientesMouseClicked
 
@@ -333,6 +349,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
+                txtID.setText(rs.getString("idcliente").trim());
                 txtNitCliente.setText(rs.getString("nitcliente").trim());
                 txtNombreCliente.setText(rs.getString("nombrecliente").trim());
                 txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
@@ -357,7 +374,6 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbClientesActionPerformed
 
-        
     /**
      * @param args the command line arguments
      */
@@ -432,6 +448,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver1;
     private javax.swing.JComboBox cmbClientes;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -447,6 +464,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtContactoCliente;
     private javax.swing.JTextField txtCorreoCliente;
     private javax.swing.JTextField txtDireccionCliente;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNitCliente;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtTelefonoCliente;

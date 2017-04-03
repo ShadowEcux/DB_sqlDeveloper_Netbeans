@@ -11,7 +11,7 @@ package clasesPrincipales;
  */
 public class clientes {
     
-     
+    int id_cliente;
     String nit_cliente;
     String nombre_cliente;
     String telefono_cliente;
@@ -24,6 +24,7 @@ public class clientes {
     }
 
     public clientes(int id_cliente, String nit_cliente, String nombre_cliente, String telefono_cliente, String direccion_cliente, String ciudad_cliente, String correo_cliente, String nombre_contacto) {
+        this.id_cliente = id_cliente;
         this.nit_cliente = nit_cliente;
         this.nombre_cliente = nombre_cliente;
         this.telefono_cliente = telefono_cliente;
@@ -33,7 +34,13 @@ public class clientes {
         this.nombre_contacto = nombre_contacto;
     }
 
-    
+     public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
+    }
 
     public String getNit_cliente() {
         return nit_cliente;

@@ -45,7 +45,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
     }
     
     
-    // METODOS::::::::::::::::::::
+    // METODOS:::::::::::::::::::::::::
     
     public void ListarDatos() {
         cliente = db.ListClientes();

@@ -272,13 +272,13 @@ public class Editar_Cliente extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
         clientes cli = new clientes();
-        cli.setNit_cliente(txtNitCliente.getText().toUpperCase());
-        cli.setNombre_cliente(txtNombreCliente.getText().toUpperCase());
-        cli.setTelefono_cliente(txtTelefonoCliente.getText().toUpperCase());
-        cli.setDireccion_cliente(txtDireccionCliente.getText().toUpperCase());
-        cli.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
-        cli.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
-        cli.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
+        cli.setNit_cliente(txtNitCliente.getText());
+        cli.setNombre_cliente(txtNombreCliente.getText());
+        cli.setTelefono_cliente(txtTelefonoCliente.getText());
+        cli.setDireccion_cliente(txtDireccionCliente.getText());
+        cli.setCiudad_cliente(txtCiudadCliente.getText());
+        cli.setCorreo_cliente(txtCorreoCliente.getText());
+        cli.setNombre_contacto(txtContactoCliente.getText());
         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {

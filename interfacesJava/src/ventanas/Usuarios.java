@@ -130,7 +130,7 @@ public class Usuarios extends javax.swing.JFrame {
                 btnSalir1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
 
         btnVolver1.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -141,7 +141,7 @@ public class Usuarios extends javax.swing.JFrame {
                 btnVolver1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 450, 70, -1));
+        getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 70, -1));
 
         tabla_usuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,7 +161,7 @@ public class Usuarios extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla_usuarios);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 560, 190));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 510, 190));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 255, 153));
@@ -259,16 +259,16 @@ public class Usuarios extends javax.swing.JFrame {
                 btnNuevoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 90, 70));
-        getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 70, -1));
+        getContentPane().add(btnNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 90, 70));
+        getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 70, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("ID");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 490));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -293,12 +293,12 @@ public class Usuarios extends javax.swing.JFrame {
 
         int seleccion = tabla_usuarios.getSelectedRow();
         tabla_usuarios.getSelectedColumn();
-        
+
         txtID.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 0)));
         txtNombre.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 1)));
         txtPassword.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 2)));
         txtTipoUsuario.setText(String.valueOf(tabla_usuarios.getValueAt(seleccion, 3)));
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_tabla_usuariosMouseClicked
 
@@ -319,7 +319,6 @@ public class Usuarios extends javax.swing.JFrame {
                 txtNombre.setText(rs.getString("nombre_usuario").trim());
                 txtPassword.setText(rs.getString("password_usuario").trim());
                 txtTipoUsuario.setText(rs.getString("tipo_usuario").trim());
-                
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
@@ -355,7 +354,7 @@ public class Usuarios extends javax.swing.JFrame {
         usu.setNombre(txtNombre.getText());
         usu.setPassword(txtPassword.getText());
         usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
-      
+
         if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -388,7 +387,7 @@ public class Usuarios extends javax.swing.JFrame {
                 txtNombre.requestFocus();
             }
         }
-    
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -399,12 +398,11 @@ public class Usuarios extends javax.swing.JFrame {
         usu.setNombre(txtNombre.getText());
         usu.setPassword(txtPassword.getText());
         usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
-      
         if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
             Object[] opciones = {"Aceptar", "Cancelar"};
-            int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",
+            int eleccion = JOptionPane.showOptionDialog(this, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",
                     JOptionPane.YES_NO_OPTION,
                     JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
             if (eleccion == JOptionPane.YES_OPTION) {

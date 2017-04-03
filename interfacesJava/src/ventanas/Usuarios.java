@@ -315,7 +315,7 @@ public class Usuarios extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
-                txtID.setText(rs.getString("id_cliente").trim());
+                txtID.setText(rs.getString("id_usuario").trim());
                 txtNombre.setText(rs.getString("nombre_usuario").trim());
                 txtPassword.setText(rs.getString("password_usuario").trim());
                 txtTipoUsuario.setText(rs.getString("tipo_usuario").trim());

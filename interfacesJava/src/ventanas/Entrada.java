@@ -317,7 +317,7 @@ public class Entrada extends javax.swing.JFrame {
         getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, 20));
 
         cmbParrilla.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbParrilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 60, 20));
+        getContentPane().add(cmbParrilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 60, 20));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
@@ -728,6 +728,7 @@ public class Entrada extends javax.swing.JFrame {
         txtMotivo.setText("");
         areaObservaciones.setText("");
         txtPersonaRemitente.setText("");
+        txtFecha.setDateFormatString("");
         txtNitCliente.requestFocus();
         
         // TODO add your handling code here:

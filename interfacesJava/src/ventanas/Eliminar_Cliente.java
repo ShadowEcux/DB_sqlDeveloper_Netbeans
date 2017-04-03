@@ -299,22 +299,42 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "¿Seguro desea Eliminar este cliente?", "", JOptionPane.OK_CANCEL_OPTION);
-            db.EliminarCliente(cli);
-            JOptionPane.showMessageDialog(this, "Datos Eliminados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-            LimpirTabla();
-            ListarDatos();
-            this.cmbClientes.removeAllItems();
-            CargarCmbCliente();
-            txtID.setText("");
-            txtNitCliente.setText("");
-            txtNombreCliente.setText("");
-            txtTelefonoCliente.setText("");
-            txtDireccionCliente.setText("");
-            txtCiudadCliente.setText("");
-            txtCorreoCliente.setText("");
-            txtContactoCliente.setText("");
-            txtNitCliente.requestFocus();
+            Object[] opciones = {"Aceptar", "Cancelar"};
+            int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea ELIMINAR este registro?", "Mensaje de Confirmacion",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+           if (eleccion == JOptionPane.YES_OPTION) {
+                db.EliminarCliente(cli);
+                JOptionPane.showMessageDialog(this, "Datos ELIMINADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+                LimpirTabla();
+                ListarDatos();
+                this.cmbClientes.removeAllItems();
+                CargarCmbCliente();
+                txtID.setText("");
+                txtNitCliente.setText("");
+                txtNombreCliente.setText("");
+                txtTelefonoCliente.setText("");
+                txtDireccionCliente.setText("");
+                txtCiudadCliente.setText("");
+                txtCorreoCliente.setText("");
+                txtContactoCliente.setText("");
+                txtNitCliente.requestFocus();
+
+            } else {
+                LimpirTabla();
+                ListarDatos();
+                this.cmbClientes.removeAllItems();
+                CargarCmbCliente();
+                txtID.setText("");
+                txtNitCliente.setText("");
+                txtNombreCliente.setText("");
+                txtTelefonoCliente.setText("");
+                txtDireccionCliente.setText("");
+                txtCiudadCliente.setText("");
+                txtCorreoCliente.setText("");
+                txtContactoCliente.setText("");
+                txtNitCliente.requestFocus();
+            }
         }
 
 // TODO add your handling code here:

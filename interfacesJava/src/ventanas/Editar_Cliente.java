@@ -69,8 +69,8 @@ public class Editar_Cliente extends javax.swing.JFrame {
             tb.removeRow(i);
         }
     }
-    
-     public void CargarCmbCliente(){
+
+    public void CargarCmbCliente() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
             Statement st = cnx.createStatement();
@@ -306,22 +306,42 @@ public class Editar_Cliente extends javax.swing.JFrame {
         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showConfirmDialog(this, "¿Seguro desea Editar este cliente?", "", JOptionPane.YES_NO_OPTION);
-            db.Editar(cli);
-            JOptionPane.showMessageDialog(this, "Datos Editados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-            LimpirTabla();
-            ListarDatos();
-            this.cmbClientes.removeAllItems();
-            CargarCmbCliente();
-            txtID.setText("");
-            txtNitCliente.setText("");
-            txtNombreCliente.setText("");
-            txtTelefonoCliente.setText("");
-            txtDireccionCliente.setText("");
-            txtCiudadCliente.setText("");
-            txtCorreoCliente.setText("");
-            txtContactoCliente.setText("");
-            txtNitCliente.requestFocus();
+            Object[] opciones = {"Aceptar", "Cancelar"};
+            int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+            if (eleccion == JOptionPane.YES_OPTION) {
+                db.Editar(cli);
+                JOptionPane.showMessageDialog(this, "Datos EDITADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+                LimpirTabla();
+                ListarDatos();
+                this.cmbClientes.removeAllItems();
+                CargarCmbCliente();
+                txtID.setText("");
+                txtNitCliente.setText("");
+                txtNombreCliente.setText("");
+                txtTelefonoCliente.setText("");
+                txtDireccionCliente.setText("");
+                txtCiudadCliente.setText("");
+                txtCorreoCliente.setText("");
+                txtContactoCliente.setText("");
+                txtNitCliente.requestFocus();
+
+            } else {
+                LimpirTabla();
+                ListarDatos();
+                this.cmbClientes.removeAllItems();
+                CargarCmbCliente();
+                txtID.setText("");
+                txtNitCliente.setText("");
+                txtNombreCliente.setText("");
+                txtTelefonoCliente.setText("");
+                txtDireccionCliente.setText("");
+                txtCiudadCliente.setText("");
+                txtCorreoCliente.setText("");
+                txtContactoCliente.setText("");
+                txtNitCliente.requestFocus();
+            }
         }
 
 // TODO add your handling code here:
@@ -344,7 +364,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_tabla_clientesMouseClicked
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        
+
         try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
@@ -381,7 +401,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
         txtCiudadCliente.setEnabled(true);
         txtCorreoCliente.setEnabled(true);
         txtContactoCliente.setEnabled(true);
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
 

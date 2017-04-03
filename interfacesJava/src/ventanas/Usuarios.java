@@ -359,17 +359,34 @@ public class Usuarios extends javax.swing.JFrame {
         if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "¿Seguro desea Eliminar este usuario?", "", JOptionPane.YES_NO_OPTION);
-            db.EliminarUsuario(usu);
-            JOptionPane.showMessageDialog(this, "Datos Eliminados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-            LimpirTabla();
-            ListarDatos();
-            this.cmbUsuarios.removeAllItems();
-            CargarCmbUsuarios();
-            txtNombre.setText("");
-            txtPassword.setText("");
-            txtTipoUsuario.setText("");
-            txtNombre.requestFocus();
+            Object[] opciones = {"Aceptar", "Cancelar"};
+            int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea ELIMINAR este registro?", "Mensaje de Confirmacion",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+            if (eleccion == JOptionPane.YES_OPTION) {
+                db.EliminarUsuario(usu);;
+                JOptionPane.showMessageDialog(this, "Datos ELIMINADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+                LimpirTabla();
+                ListarDatos();
+                this.cmbUsuarios.removeAllItems();
+                CargarCmbUsuarios();
+                txtID.setText("");
+                txtNombre.setText("");
+                txtPassword.setText("");
+                txtTipoUsuario.setText("");
+                txtNombre.requestFocus();
+
+            } else {
+                LimpirTabla();
+                ListarDatos();
+                this.cmbUsuarios.removeAllItems();
+                CargarCmbUsuarios();
+                txtID.setText("");
+                txtNombre.setText("");
+                txtPassword.setText("");
+                txtTipoUsuario.setText("");
+                txtNombre.requestFocus();
+            }
         }
     
         // TODO add your handling code here:
@@ -386,19 +403,34 @@ public class Usuarios extends javax.swing.JFrame {
         if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "¿Seguro desea Editar este usuario?", "", JOptionPane.OK_CANCEL_OPTION);
-            db.EditarUsuario(usu);
-            JOptionPane.showMessageDialog(this, "Datos Editados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-            LimpirTabla();
-            ListarDatos();
-            this.cmbUsuarios.removeAllItems();
-            CargarCmbUsuarios();
-            
-            txtID.setText("");
-            txtNombre.setText("");
-            txtPassword.setText("");
-            txtTipoUsuario.setText("");
-            txtNombre.requestFocus();
+            Object[] opciones = {"Aceptar", "Cancelar"};
+            int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+            if (eleccion == JOptionPane.YES_OPTION) {
+                db.EditarUsuario(usu);
+                JOptionPane.showMessageDialog(this, "Datos EDITAR exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+                LimpirTabla();
+                ListarDatos();
+                this.cmbUsuarios.removeAllItems();
+                CargarCmbUsuarios();
+                txtID.setText("");
+                txtNombre.setText("");
+                txtPassword.setText("");
+                txtTipoUsuario.setText("");
+                txtNombre.requestFocus();
+
+            } else {
+                LimpirTabla();
+                ListarDatos();
+                this.cmbUsuarios.removeAllItems();
+                CargarCmbUsuarios();
+                txtID.setText("");
+                txtNombre.setText("");
+                txtPassword.setText("");
+                txtTipoUsuario.setText("");
+                txtNombre.requestFocus();
+            }
         }
 
         // TODO add your handling code here:

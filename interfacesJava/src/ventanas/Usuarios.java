@@ -42,6 +42,9 @@ public class Usuarios extends javax.swing.JFrame {
         this.setTitle("CPU System Service S.A.S - USUARIOS");
         CargarCmbUsuarios();
         txtID.setEnabled(false);
+        txtNombre.setEnabled(false);
+        txtPassword.setEnabled(false);
+        txtTipoUsuario.setEnabled(false);
     }
 
     // METODOS::::::::::::::::::::
@@ -336,6 +339,9 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void brnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnListarActionPerformed
 
+        txtNombre.setEnabled(true);
+        txtPassword.setEnabled(true);
+        txtTipoUsuario.setEnabled(true);
         LimpirTabla();
         ListarDatos();
 

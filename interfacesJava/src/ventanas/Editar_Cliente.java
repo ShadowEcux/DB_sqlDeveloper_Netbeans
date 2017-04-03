@@ -40,6 +40,13 @@ public class Editar_Cliente extends javax.swing.JFrame {
         this.setTitle("CPU System Service S.A.S - TABLA DE CLIENTES");
         CargarCmbCliente();
         txtID.setEnabled(false);
+        txtNitCliente.setEnabled(false);
+        txtNombreCliente.setEnabled(false);
+        txtTelefonoCliente.setEnabled(false);
+        txtDireccionCliente.setEnabled(false);
+        txtCiudadCliente.setEnabled(false);
+        txtCorreoCliente.setEnabled(false);
+        txtContactoCliente.setEnabled(false);
     }
 
     public Image getIconImage() {
@@ -272,6 +279,13 @@ public class Editar_Cliente extends javax.swing.JFrame {
 
     private void brnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnListarActionPerformed
 
+        txtNitCliente.setEnabled(true);
+        txtNombreCliente.setEnabled(true);
+        txtTelefonoCliente.setEnabled(true);
+        txtDireccionCliente.setEnabled(true);
+        txtCiudadCliente.setEnabled(true);
+        txtCorreoCliente.setEnabled(true);
+        txtContactoCliente.setEnabled(true);
         LimpirTabla();
         ListarDatos();
 
@@ -330,7 +344,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_tabla_clientesMouseClicked
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
+        
         try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
@@ -360,6 +374,14 @@ public class Editar_Cliente extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
 
+        txtNitCliente.setEnabled(true);
+        txtNombreCliente.setEnabled(true);
+        txtTelefonoCliente.setEnabled(true);
+        txtDireccionCliente.setEnabled(true);
+        txtCiudadCliente.setEnabled(true);
+        txtCorreoCliente.setEnabled(true);
+        txtContactoCliente.setEnabled(true);
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
 

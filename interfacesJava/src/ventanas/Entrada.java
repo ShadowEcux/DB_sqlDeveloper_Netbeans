@@ -30,6 +30,8 @@ import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator; //New imports to form
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import org.apache.poi.hssf.usermodel.HSSFRichTextString;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -773,7 +775,13 @@ public class Entrada extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
         Entradas en = new Entradas();
-        en.setFecha(txtFecha.getDateFormatString());
+        
+        String formato = txtFecha.getDateFormatString();
+        Date date = txtFecha.getDate();
+        SimpleDateFormat sdf = new SimpleDateFormat(formato);
+        String dato = String.valueOf(sdf.format(date));
+        
+        en.setFecha(dato);
         en.setElemento(txtElemento.getText().toUpperCase());
         en.setPotencia(txtPotencia.getText().toUpperCase());
         en.setMarca(txtMarca.getText().toUpperCase());
@@ -823,7 +831,7 @@ public class Entrada extends javax.swing.JFrame {
                 txtFecha.setDateFormatString("");
                 txtElemento.requestFocus();
             } catch (Exception e) {
-                System.err.println("error"+e);
+                System.err.println("error" + e);
             }
 
         }

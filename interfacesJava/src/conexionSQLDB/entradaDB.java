@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -93,6 +95,42 @@ public class entradaDB {
             System.out.println(ex.getMessage());
             System.out.println("Error al insertar");
         }
+    }
+    
+    public void EditarEntrada(Entradas entrada) {
+        try {
+            //                                                               (FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
+            Connection cnx = DataBaseConexion.getConnection();
+            PreparedStatement pst = cnx.prepareStatement("UPDATE ENTRADAS SET FECHA = ?, ELEMENTO = ?, POTENCIA = ?, MARCA = ?, MODELO = ?, SERIE = ?, EMPRESA = ?, NIT = ?, PERSONA_REMITE = ?, CIUDAD = ?, DIRECCION = ?, NOMBRE_CONTACTO = ?, TELEFONO_CONTACTO = ?, CORREO = ?, MOTIVO = ?, TARJETA_RED = ?, PARRILLA = ?, BASES_PLASTICAS = ?, CONECTOR_ORIGI = ?, GARANTIA = ?, ESTADO_CARCASA = ?, OBSERVACIONES = ?\n" +
+"WHERE ID_ENTRADA = ?");
+            pst.setString(1, entrada.getFecha());
+            pst.setString(2, entrada.getElemento());
+            pst.setString(3, entrada.getPotencia());
+            pst.setString(4, entrada.getMarca());
+            pst.setString(5, entrada.getModelo());
+            pst.setString(6, entrada.getSerie());
+            pst.setString(7, entrada.getEmpresa());
+            pst.setString(8, entrada.getNit());
+            pst.setString(9, entrada.getPersona_remite());
+            pst.setString(10, entrada.getCiudad());
+            pst.setString(11, entrada.getDireccion());
+            pst.setString(12, entrada.getNombre_contacto());
+            pst.setString(13, entrada.getTelefono_contacto());
+            pst.setString(14, entrada.getCorreo());
+            pst.setString(15, entrada.getMotivo());
+            pst.setString(16, entrada.getTarjeta_red());
+            pst.setString(17, entrada.getParrilla());
+            pst.setString(18, entrada.getBases_plasticas());
+            pst.setString(19, entrada.getConector_origi());
+            pst.setString(20, entrada.getGarantia());
+            pst.setString(21, entrada.getEstado_carcasa());
+            pst.setString(22, entrada.getObservaciones());
+            pst.setInt(23, entrada.getId_entrada());
+            pst.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(entradaDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }

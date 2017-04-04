@@ -140,7 +140,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JSeparator();
         btnGuardar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        btnPDF = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnDescartar = new javax.swing.JButton();
         cmbFacturas = new javax.swing.JComboBox();
@@ -372,15 +372,15 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 570, -1, -1));
 
-        btnPDF.setBackground(new java.awt.Color(153, 255, 153));
-        btnPDF.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnPDF.setText("PDF");
-        btnPDF.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setBackground(new java.awt.Color(153, 255, 153));
+        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEditar.setText("EDITAR");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPDFActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 80, 30));
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 80, 30));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -457,10 +457,61 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
+        /*
+        clientes cli = new clientes();
+        cli.setId_cliente(Integer.parseInt(txtID.getText()));
+        cli.setNit_cliente(txtNitCliente.getText());
+        cli.setNombre_cliente(txtNombreCliente.getText());
+        cli.setTelefono_cliente(txtTelefonoCliente.getText());
+        cli.setDireccion_cliente(txtDireccionCliente.getText());
+        cli.setCiudad_cliente(txtCiudadCliente.getText());
+        cli.setCorreo_cliente(txtCorreoCliente.getText());
+        cli.setNombre_contacto(txtContactoCliente.getText());
+        if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            Object[] opciones = {"Aceptar", "Cancelar"};
+            int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+            if (eleccion == JOptionPane.YES_OPTION) {
+                db.Editar(cli);
+                JOptionPane.showMessageDialog(this, "Datos EDITADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+                LimpirTabla();
+                ListarDatos();
+                this.cmbClientes.removeAllItems();
+                CargarCmbCliente();
+                txtID.setText("");
+                txtNitCliente.setText("");
+                txtNombreCliente.setText("");
+                txtTelefonoCliente.setText("");
+                txtDireccionCliente.setText("");
+                txtCiudadCliente.setText("");
+                txtCorreoCliente.setText("");
+                txtContactoCliente.setText("");
+                txtNitCliente.requestFocus();
+
+            } else {
+                LimpirTabla();
+                ListarDatos();
+                this.cmbClientes.removeAllItems();
+                CargarCmbCliente();
+                txtID.setText("");
+                txtNitCliente.setText("");
+                txtNombreCliente.setText("");
+                txtTelefonoCliente.setText("");
+                txtDireccionCliente.setText("");
+                txtCiudadCliente.setText("");
+                txtCorreoCliente.setText("");
+                txtContactoCliente.setText("");
+                txtNitCliente.requestFocus();
+            }
+        }
+        */
 // TODO add your handling code here:
-    }//GEN-LAST:event_btnPDFActionPerformed
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
@@ -638,8 +689,8 @@ public class Facturas_Entrada extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscar1;
     private javax.swing.JButton btnDescartar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnPDF;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbClientes;

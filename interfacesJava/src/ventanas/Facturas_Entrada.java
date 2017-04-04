@@ -65,7 +65,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
+
     public void CargarCmbFacturas() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
@@ -359,7 +359,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 80, 30));
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 480, 80, 30));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -380,7 +380,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 80, 30));
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 80, 30));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -459,57 +459,100 @@ public class Facturas_Entrada extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
-        /*
-        clientes cli = new clientes();
-        cli.setId_cliente(Integer.parseInt(txtID.getText()));
-        cli.setNit_cliente(txtNitCliente.getText());
-        cli.setNombre_cliente(txtNombreCliente.getText());
-        cli.setTelefono_cliente(txtTelefonoCliente.getText());
-        cli.setDireccion_cliente(txtDireccionCliente.getText());
-        cli.setCiudad_cliente(txtCiudadCliente.getText());
-        cli.setCorreo_cliente(txtCorreoCliente.getText());
-        cli.setNombre_contacto(txtContactoCliente.getText());
-        if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
+        Entradas en = new Entradas();
+        en.setId_entrada(Integer.parseInt(cmbFacturas.getSelectedItem().toString()));
+        en.setFecha(txtFecha.getText().toUpperCase());
+        en.setElemento(txtElemento.getText().toUpperCase());
+        en.setPotencia(txtPotencia.getText().toUpperCase());
+        en.setMarca(txtMarca.getText().toUpperCase());
+        en.setModelo(txtModelo.getText().toUpperCase());
+        en.setSerie(txtSerie.getText().toUpperCase());
+        en.setEmpresa(txtEmpresa.getText().toUpperCase());
+        en.setNit(txtNitCliente.getText().toUpperCase());
+        en.setPersona_remite(txtPersonaRemitente.getText().toUpperCase());
+        en.setCiudad(txtCiudadCliente.getText().toUpperCase());
+        en.setDireccion(txtDireccionCliente.getText().toUpperCase());
+        en.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
+        en.setTelefono_contacto(txtTelefonoCliente.getText().toUpperCase());
+        en.setCorreo(txtCorreoCliente.getText().toUpperCase());
+        en.setMotivo(txtMotivo.getText().toUpperCase());
+        en.setTarjeta_red(txtTarjetaRed.getText().toUpperCase());
+        en.setParrilla(txtParrilla.getText().toUpperCase());
+        en.setBases_plasticas(txtBasesPlasticas.getText().toUpperCase());
+        en.setConector_origi(txtConector.getText().toUpperCase());
+        en.setGarantia(txtGarantia.getText().toUpperCase());
+        en.setEstado_carcasa(txtEstadoCarcasa.getText().toUpperCase());
+        en.setObservaciones(areaObservaciones.getText().toUpperCase());
+        if (txtFecha.getText().equals("") || txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
+                || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
             Object[] opciones = {"Aceptar", "Cancelar"};
             int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",
                     JOptionPane.YES_NO_OPTION,
                     JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
             if (eleccion == JOptionPane.YES_OPTION) {
-                db.Editar(cli);
+                db.EditarEntrada(en);
                 JOptionPane.showMessageDialog(this, "Datos EDITADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-                LimpirTabla();
-                ListarDatos();
+
                 this.cmbClientes.removeAllItems();
                 CargarCmbCliente();
-                txtID.setText("");
+                this.cmbFacturas.removeAllItems();
+                CargarCmbFacturas();
+
                 txtNitCliente.setText("");
-                txtNombreCliente.setText("");
+                txtEmpresa.setText("");
                 txtTelefonoCliente.setText("");
                 txtDireccionCliente.setText("");
                 txtCiudadCliente.setText("");
                 txtCorreoCliente.setText("");
                 txtContactoCliente.setText("");
-                txtNitCliente.requestFocus();
+                txtElemento.setText("");
+                txtPotencia.setText("");
+                txtMarca.setText("");
+                txtModelo.setText("");
+                txtSerie.setText("");
+                txtMotivo.setText("");
+                areaObservaciones.setText("");
+                txtPersonaRemitente.setText("");
+                txtFecha.setText("");
+                txtTarjetaRed.setText("");
+                txtParrilla.setText("");
+                txtBasesPlasticas.setText("");
+                txtConector.setText("");
+                txtGarantia.setText("");
+                txtEstadoCarcasa.setText("");
+                areaObservaciones.setText("");
+                txtElemento.requestFocus();
 
             } else {
-                LimpirTabla();
-                ListarDatos();
-                this.cmbClientes.removeAllItems();
-                CargarCmbCliente();
-                txtID.setText("");
                 txtNitCliente.setText("");
-                txtNombreCliente.setText("");
+                txtEmpresa.setText("");
                 txtTelefonoCliente.setText("");
                 txtDireccionCliente.setText("");
                 txtCiudadCliente.setText("");
                 txtCorreoCliente.setText("");
                 txtContactoCliente.setText("");
-                txtNitCliente.requestFocus();
+                txtElemento.setText("");
+                txtPotencia.setText("");
+                txtMarca.setText("");
+                txtModelo.setText("");
+                txtSerie.setText("");
+                txtMotivo.setText("");
+                areaObservaciones.setText("");
+                txtPersonaRemitente.setText("");
+                txtFecha.setText("");
+                txtTarjetaRed.setText("");
+                txtParrilla.setText("");
+                txtBasesPlasticas.setText("");
+                txtConector.setText("");
+                txtGarantia.setText("");
+                txtEstadoCarcasa.setText("");
+                areaObservaciones.setText("");
+                txtElemento.requestFocus();
             }
         }
-        */
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -572,6 +615,13 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         areaObservaciones.setText("");
         txtPersonaRemitente.setText("");
         txtFecha.setText("");
+        txtTarjetaRed.setText("");
+        txtParrilla.setText("");
+        txtBasesPlasticas.setText("");
+        txtConector.setText("");
+        txtGarantia.setText("");
+        txtEstadoCarcasa.setText("");
+        areaObservaciones.setText("");
         txtElemento.requestFocus();
 
         // TODO add your handling code here:
@@ -583,7 +633,6 @@ public class Facturas_Entrada extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
-        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -594,7 +643,6 @@ public class Facturas_Entrada extends javax.swing.JFrame {
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
 
         //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
-        
         try {
 
             String guardar = cmbFacturas.getSelectedItem().toString();
@@ -621,7 +669,6 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 txtTelefonoCliente.setText(rs.getString("TELEFONO_CONTACTO").trim());
                 txtCorreoCliente.setText(rs.getString("CORREO").trim());
                 txtMotivo.setText(rs.getString("MOTIVO").trim());
-                
                 txtTarjetaRed.setText(rs.getString("TARJETA_RED").trim());
                 txtParrilla.setText(rs.getString("PARRILLA").trim());
                 txtBasesPlasticas.setText(rs.getString("BASES_PLASTICAS").trim());
@@ -638,7 +685,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscar1ActionPerformed
 

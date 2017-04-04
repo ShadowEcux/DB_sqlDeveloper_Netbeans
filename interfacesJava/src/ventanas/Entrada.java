@@ -748,6 +748,7 @@ public class Entrada extends javax.swing.JFrame {
                 txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
                 txtCorreoCliente.setText(rs.getString("correocliente").trim());
                 txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
+                txtPersonaRemitente.setText(rs.getString("nombrecontacto").trim());
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
@@ -853,6 +854,10 @@ public class Entrada extends javax.swing.JFrame {
                 areaObservaciones.setText("");
                 txtPersonaRemitente.setText("");
                 txtFecha.setDateFormatString("");
+                this.cmbClientes.removeAllItems();
+                this.cmbFacturas.removeAllItems();
+                CargarCmbCliente();
+                CargarCmbFacturas();
                 txtElemento.requestFocus();
             } catch (Exception e) {
                 System.err.println("error" + e);

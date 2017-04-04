@@ -67,7 +67,7 @@ public class entradaDB {
         try {
             Connection cnx = DataBaseConexion.getConnection();
             PreparedStatement pst = cnx.prepareStatement("INSERT INTO ENTRADAS (FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES) \n"
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pst.setString(1, entrada.getFecha());
             pst.setString(2, entrada.getElemento());
             pst.setString(3, entrada.getPotencia());

@@ -5,7 +5,10 @@
  */
 package ventanas;
 
+import clasesPrincipales.Entradas;
+import clasesPrincipales.clientes;
 import conexionSQLDB.DataBaseConexion;
+import conexionSQLDB.entradaDB;
 import java.io.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -33,6 +37,9 @@ import org.apache.poi.hssf.usermodel.HSSFRichTextString;
  */
 public class Entrada extends javax.swing.JFrame {
 
+    ArrayList<Entradas> entrada;
+    entradaDB db = new entradaDB();
+
     //excel obj = new excel();
     /**
      * Creates new form Entrada
@@ -44,7 +51,7 @@ public class Entrada extends javax.swing.JFrame {
         CargarCmbCliente();
     }
 
-    public void CargarCmbCliente(){
+    public void CargarCmbCliente() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
             Statement st = cnx.createStatement();
@@ -55,7 +62,7 @@ public class Entrada extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,7 +99,7 @@ public class Entrada extends javax.swing.JFrame {
         txtSerie = new javax.swing.JTextField();
         txtNitCliente = new javax.swing.JTextField();
         txtPersonaRemitente = new javax.swing.JTextField();
-        txtNombreCliente = new javax.swing.JTextField();
+        txtEmpresa = new javax.swing.JTextField();
         txtDireccionCliente = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -232,7 +239,7 @@ public class Entrada extends javax.swing.JFrame {
         getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 150, -1));
         getContentPane().add(txtNitCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 150, -1));
         getContentPane().add(txtPersonaRemitente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 170, -1));
-        getContentPane().add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 170, -1));
+        getContentPane().add(txtEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 170, -1));
         getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 170, -1));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -698,7 +705,7 @@ public class Entrada extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
         try {
-            
+
             String guardar = cmbClientes.getSelectedItem().toString();
             Connection cnx = DataBaseConexion.getConnection();
             Statement st = cnx.createStatement();
@@ -709,7 +716,7 @@ public class Entrada extends javax.swing.JFrame {
             if (rs.next()) {
 
                 txtNitCliente.setText(rs.getString("nitcliente").trim());
-                txtNombreCliente.setText(rs.getString("nombrecliente").trim());
+                txtEmpresa.setText(rs.getString("nombrecliente").trim());
                 txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
                 txtDireccionCliente.setText(rs.getString("direccioncliente").trim());
                 txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
@@ -724,7 +731,7 @@ public class Entrada extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -739,7 +746,7 @@ public class Entrada extends javax.swing.JFrame {
     private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
 
         txtNitCliente.setText("");
-        txtNombreCliente.setText("");
+        txtEmpresa.setText("");
         txtTelefonoCliente.setText("");
         txtDireccionCliente.setText("");
         txtCiudadCliente.setText("");
@@ -754,8 +761,8 @@ public class Entrada extends javax.swing.JFrame {
         areaObservaciones.setText("");
         txtPersonaRemitente.setText("");
         txtFecha.setDateFormatString("");
-        txtNitCliente.requestFocus();
-        
+        txtElemento.requestFocus();
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDescartarActionPerformed
 
@@ -765,89 +772,144 @@ public class Entrada extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
-        /*
+        Entradas en = new Entradas();
+        en.setFecha(txtFecha.getDateFormatString());
+        en.setElemento(txtElemento.getText().toUpperCase());
+        en.setPotencia(txtPotencia.getText().toUpperCase());
+        en.setMarca(txtMarca.getText().toUpperCase());
+        en.setModelo(txtModelo.getText().toUpperCase());
+        en.setSerie(txtSerie.getText().toUpperCase());
+        en.setEmpresa(txtEmpresa.getText().toUpperCase());
+        en.setNit(txtNitCliente.getText().toUpperCase());
+        en.setPersona_remite(txtPersonaRemitente.getText().toUpperCase());
+        en.setCiudad(txtCiudadCliente.getText().toUpperCase());
+        en.setDireccion(txtDireccionCliente.getText().toUpperCase());
+        en.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
+        en.setTelefono_contacto(txtTelefonoCliente.getText().toUpperCase());
+        en.setCorreo(txtCorreoCliente.getText().toUpperCase());
+        en.setMotivo(txtMotivo.getText().toUpperCase());
+        en.setTarjeta_red(cmbTarjetaDeRed.getSelectedItem().toString().toUpperCase());
+        en.setParrilla(cmbParrilla.getSelectedItem().toString().toUpperCase());
+        en.setBases_plasticas(cmbBasesPlasticas.getSelectedItem().toString().toUpperCase());
+        en.setConector_origi(cmbConectorOriginal.getSelectedItem().toString().toUpperCase());
+        en.setGarantia(cmbGarantia.getSelectedItem().toString().toUpperCase());
+        en.setEstado_carcasa(cmbEstadoCarcasa.getSelectedItem().toString().toUpperCase());
+        en.setObservaciones(areaObservaciones.getText().toUpperCase());
 
-        Formatos_Oper obj = new Formatos_Oper();
+        if (txtFecha.getDateFormatString().equals("") || txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
+                || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
+        } else {
 
-        if (seleccion) {
-            FileInputStream entrada = null;
             try {
-                //Leer el archivo de Excel XLS
-                entrada = new FileInputStream(new File(directorio));
-                //Acceso al libro de trabajo
-                HSSFWorkbook xls = new HSSFWorkbook(entrada);
-                //Acceso a la hoja de trabajo
-                HSSFSheet hoja = xls.getSheetAt(0);
-                //Declaracion de fila y celda
-                Row fila = null;
-                Cell celda = null;
-                try {
-                    //Asignando a valores a celdas con valores
-                    fila = hoja.getRow(13);
-                    celda = fila.getCell(6);
-                    HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                    celda.setCellValue(fecha);
+                db.insertarEntrada(en);
+                JOptionPane.showMessageDialog(this, "Factura guardada exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
 
-                    fila = hoja.getRow(4);
-                    celda = fila.getCell(1);
-                    HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                    celda.setCellValue(elemento);
+                txtNitCliente.setText("");
+                txtEmpresa.setText("");
+                txtTelefonoCliente.setText("");
+                txtDireccionCliente.setText("");
+                txtCiudadCliente.setText("");
+                txtCorreoCliente.setText("");
+                txtContactoCliente.setText("");
+                txtElemento.setText("");
+                txtPotencia.setText("");
+                txtMarca.setText("");
+                txtModelo.setText("");
+                txtSerie.setText("");
+                txtMotivo.setText("");
+                areaObservaciones.setText("");
+                txtPersonaRemitente.setText("");
+                txtFecha.setDateFormatString("");
+                txtElemento.requestFocus();
+            } catch (Exception e) {
+                System.err.println("error"+e);
+            }
 
-                    fila = hoja.getRow(4);
-                    celda = fila.getCell(4);
-                    HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                    celda.setCellValue(potencia);
-
-                    fila = hoja.getRow(1);
-
-                    celda = fila.getCell(0);
-                    celda.setCellValue(valor2);
-                    celda = fila.getCell(1);
-                    celda.setCellValue(valor4);
-
-                } catch (NullPointerException NPE) {
-                    //En caso de que las celdas esten vacias hay que crearlas
-
-                    fila = hoja.createRow(13);
-                    celda = fila.createCell(6);
-                    HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                    celda.setCellValue(fecha);
-
-                    fila = hoja.createRow(4);
-                    celda = fila.createCell(1);
-                    HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                    celda.setCellValue(elemento);
-
-                    fila = hoja.createRow(4);
-                    celda = fila.createCell(4);
-                    HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                    celda.setCellValue(potencia);
-
-                }       //Evaluando formulas de todo el libro de excel
-                HSSFFormulaEvaluator.evaluateAllFormulaCells(xls);
-                //Cerrando archivo
-                entrada.close();
-                //Abriendo archivo para escritura
-                FileOutputStream salida = new FileOutputStream(new File(directorio));
-                //write changes
-                xls.write(salida);
-                //close the stream
-                salida.close();
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                try {
-                    entrada.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }       //Evaluando formulas de todo el libro de excel
         }
 
-        */
+        /*
 
+         Formatos_Oper obj = new Formatos_Oper();
+
+         if (seleccion) {
+         FileInputStream entrada = null;
+         try {
+         //Leer el archivo de Excel XLS
+         entrada = new FileInputStream(new File(directorio));
+         //Acceso al libro de trabajo
+         HSSFWorkbook xls = new HSSFWorkbook(entrada);
+         //Acceso a la hoja de trabajo
+         HSSFSheet hoja = xls.getSheetAt(0);
+         //Declaracion de fila y celda
+         Row fila = null;
+         Cell celda = null;
+         try {
+         //Asignando a valores a celdas con valores
+         fila = hoja.getRow(13);
+         celda = fila.getCell(6);
+         HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
+         celda.setCellValue(fecha);
+
+         fila = hoja.getRow(4);
+         celda = fila.getCell(1);
+         HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
+         celda.setCellValue(elemento);
+
+         fila = hoja.getRow(4);
+         celda = fila.getCell(4);
+         HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
+         celda.setCellValue(potencia);
+
+         fila = hoja.getRow(1);
+
+         celda = fila.getCell(0);
+         celda.setCellValue(valor2);
+         celda = fila.getCell(1);
+         celda.setCellValue(valor4);
+
+         } catch (NullPointerException NPE) {
+         //En caso de que las celdas esten vacias hay que crearlas
+
+         fila = hoja.createRow(13);
+         celda = fila.createCell(6);
+         HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
+         celda.setCellValue(fecha);
+
+         fila = hoja.createRow(4);
+         celda = fila.createCell(1);
+         HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
+         celda.setCellValue(elemento);
+
+         fila = hoja.createRow(4);
+         celda = fila.createCell(4);
+         HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
+         celda.setCellValue(potencia);
+
+         }       //Evaluando formulas de todo el libro de excel
+         HSSFFormulaEvaluator.evaluateAllFormulaCells(xls);
+         //Cerrando archivo
+         entrada.close();
+         //Abriendo archivo para escritura
+         FileOutputStream salida = new FileOutputStream(new File(directorio));
+         //write changes
+         xls.write(salida);
+         //close the stream
+         salida.close();
+         } catch (FileNotFoundException ex) {
+         Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (IOException ex) {
+         Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+         } finally {
+         try {
+         entrada.close();
+         } catch (IOException ex) {
+         Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         }       //Evaluando formulas de todo el libro de excel
+         }
+
+         */
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -959,12 +1021,12 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JTextField txtCorreoCliente;
     private javax.swing.JTextField txtDireccionCliente;
     private javax.swing.JTextField txtElemento;
+    private javax.swing.JTextField txtEmpresa;
     private com.toedter.calendar.JDateChooser txtFecha;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtMotivo;
     private javax.swing.JTextField txtNitCliente;
-    private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtPersonaRemitente;
     private javax.swing.JTextField txtPotencia;
     private javax.swing.JTextField txtSerie;

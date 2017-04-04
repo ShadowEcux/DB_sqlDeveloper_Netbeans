@@ -69,7 +69,7 @@ public class Principal_Admin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Principal");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 160, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 160, 40));
 
         btnNuevpCliente.setBackground(new java.awt.Color(153, 204, 255));
         btnNuevpCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -79,7 +79,7 @@ public class Principal_Admin extends javax.swing.JFrame {
                 btnNuevpClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNuevpCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 130, 40));
+        getContentPane().add(btnNuevpCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 130, 40));
 
         btnClientes.setBackground(new java.awt.Color(153, 204, 255));
         btnClientes.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -89,7 +89,7 @@ public class Principal_Admin extends javax.swing.JFrame {
                 btnClientesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 130, 40));
+        getContentPane().add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 130, 40));
 
         btnFormato.setBackground(new java.awt.Color(153, 204, 255));
         btnFormato.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -99,9 +99,9 @@ public class Principal_Admin extends javax.swing.JFrame {
                 btnFormatoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFormato, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 130, 40));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 300, 10));
-        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 300, 10));
+        getContentPane().add(btnFormato, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 130, 40));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 300, 10));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 300, 10));
 
         btnUsuarios.setBackground(new java.awt.Color(153, 204, 255));
         btnUsuarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -111,10 +111,10 @@ public class Principal_Admin extends javax.swing.JFrame {
                 btnUsuariosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 130, 40));
+        getContentPane().add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 130, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima_2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 260));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 240));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

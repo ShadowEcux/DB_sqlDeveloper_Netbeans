@@ -63,7 +63,7 @@ public class Principal_Oper extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Principal");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 160, 40));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 160, 40));
 
         btnNuevpCliente.setBackground(new java.awt.Color(153, 204, 255));
         btnNuevpCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -73,7 +73,7 @@ public class Principal_Oper extends javax.swing.JFrame {
                 btnNuevpClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNuevpCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 130, 40));
+        getContentPane().add(btnNuevpCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 130, 40));
 
         btnClientes.setBackground(new java.awt.Color(153, 204, 255));
         btnClientes.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -83,7 +83,7 @@ public class Principal_Oper extends javax.swing.JFrame {
                 btnClientesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 130, 40));
+        getContentPane().add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 130, 40));
 
         btnFormato.setBackground(new java.awt.Color(153, 204, 255));
         btnFormato.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -93,12 +93,12 @@ public class Principal_Oper extends javax.swing.JFrame {
                 btnFormatoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFormato, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 130, 40));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 200, 10));
-        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 200, 10));
+        getContentPane().add(btnFormato, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 130, 40));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 200, 10));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 200, 10));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima_2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 310));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 290));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

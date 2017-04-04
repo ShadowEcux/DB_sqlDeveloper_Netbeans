@@ -115,7 +115,7 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
                 btnSalir1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, -1, -1));
+        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 10, -1, -1));
 
         btnVolver1.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -126,7 +126,7 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
                 btnVolver1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 430, 70, -1));
+        getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 430, 70, -1));
 
         btnEliminar.setBackground(new java.awt.Color(153, 204, 255));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -166,7 +166,7 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla_clientes);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 820, 290));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1020, 290));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 255, 153));
@@ -195,8 +195,8 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
 
         getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 330, 30));
 
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 460));
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/amp-mas.png"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

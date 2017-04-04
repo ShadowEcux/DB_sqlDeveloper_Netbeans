@@ -37,7 +37,7 @@ import java.util.Date;
  *
  * @author CPU_SYS
  */
-public class Entrada extends javax.swing.JFrame {
+public class Facturas_Entrada extends javax.swing.JFrame {
 
     ArrayList<Entradas> entrada;
     entradaDB db = new entradaDB();
@@ -46,10 +46,10 @@ public class Entrada extends javax.swing.JFrame {
     /**
      * Creates new form Entrada
      */
-    public Entrada() {
+    public Facturas_Entrada() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("CPU System Service S.A.S - ENTRADA");
+        this.setTitle("CPU System Service S.A.S - FACTURAS DE ENTRADA");
         CargarCmbCliente();
         CargarCmbFacturas();
     }
@@ -103,7 +103,6 @@ public class Entrada extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        cmbTarjetaDeRed = new javax.swing.JComboBox();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         txtCiudadCliente = new javax.swing.JTextField();
@@ -125,39 +124,35 @@ public class Entrada extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
         jLabel23 = new javax.swing.JLabel();
         txtMotivo = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        cmbGarantia = new javax.swing.JComboBox();
         jLabel29 = new javax.swing.JLabel();
-        cmbParrilla = new javax.swing.JComboBox();
         jLabel30 = new javax.swing.JLabel();
-        cmbBasesPlasticas = new javax.swing.JComboBox();
         jLabel31 = new javax.swing.JLabel();
-        cmbEstadoCarcasa = new javax.swing.JComboBox();
         jLabel32 = new javax.swing.JLabel();
-        cmbConectorOriginal = new javax.swing.JComboBox();
         jLabel33 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaObservaciones = new javax.swing.JTextArea();
-        jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         btnGuardar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnPDF = new javax.swing.JButton();
-        txtFecha = new com.toedter.calendar.JDateChooser();
         btnBuscar = new javax.swing.JButton();
         btnDescartar = new javax.swing.JButton();
-        jSeparator10 = new javax.swing.JSeparator();
-        jSeparator11 = new javax.swing.JSeparator();
         cmbFacturas = new javax.swing.JComboBox();
         btnBuscar1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        btnFacturas = new javax.swing.JButton();
+        txtFecha = new javax.swing.JTextField();
+        txtParrilla = new javax.swing.JTextField();
+        txtBasesPlasticas = new javax.swing.JTextField();
+        txtConector = new javax.swing.JTextField();
+        txtGarantia = new javax.swing.JTextField();
+        txtTarjetaRed = new javax.swing.JTextField();
+        txtEstadoCarcasa = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -176,7 +171,7 @@ public class Entrada extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Formato De Entrada");
+        jLabel2.setText("Facturas De Entrada");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 270, 10));
 
@@ -201,7 +196,7 @@ public class Entrada extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Potencia");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 50, 20));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 50, 20));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -211,7 +206,7 @@ public class Entrada extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Serie");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, 20));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, 20));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -242,18 +237,15 @@ public class Entrada extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Garantia");
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 50, 20));
-
-        cmbTarjetaDeRed.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbTarjetaDeRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 60, 20));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 750, 10));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 310, 10));
-        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 150, -1));
-        getContentPane().add(txtElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 150, -1));
-        getContentPane().add(txtPotencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 150, -1));
+        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 140, -1));
+        getContentPane().add(txtElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 200, -1));
+        getContentPane().add(txtPotencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 140, -1));
         getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 180, -1));
-        getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 150, -1));
-        getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 150, -1));
-        getContentPane().add(txtNitCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 150, -1));
+        getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 200, -1));
+        getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 140, -1));
+        getContentPane().add(txtNitCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 140, -1));
         getContentPane().add(txtPersonaRemitente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 170, -1));
         getContentPane().add(txtEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 170, -1));
         getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 170, -1));
@@ -305,13 +297,10 @@ public class Entrada extends javax.swing.JFrame {
         jLabel22.setText("REVISIÓN DE LA MAQUINA");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, -1));
 
-        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 450, 10, 90));
-
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Estado Carcasa");
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, 20));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, -1, 20));
         getContentPane().add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 700, -1));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -329,61 +318,40 @@ public class Entrada extends javax.swing.JFrame {
         jLabel28.setText("Motivo");
         getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, 20));
 
-        cmbGarantia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        cmbGarantia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbGarantiaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbGarantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, 60, -1));
-
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Parrilla");
-        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, 20));
-
-        cmbParrilla.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbParrilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 60, 20));
+        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, -1, 20));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Bases Plasticas");
-        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 90, 20));
-
-        cmbBasesPlasticas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbBasesPlasticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 60, 20));
+        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 90, 20));
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("Conector original");
-        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, -1, 20));
-
-        cmbEstadoCarcasa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Buen Estado", "Mal Estado", " ", " " }));
-        getContentPane().add(cmbEstadoCarcasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 110, -1));
+        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, -1, 20));
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("Tarjeta de red");
-        getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, 20));
-
-        cmbConectorOriginal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbConectorOriginal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 60, 20));
+        getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, -1, 20));
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Observaciones");
-        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, 20));
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, 20));
         getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 240, 10));
 
         areaObservaciones.setColumns(20);
         areaObservaciones.setRows(5);
         jScrollPane1.setViewportView(areaObservaciones);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 520, 80));
-        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 540, 100, 10));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 330, 80));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 260, 10));
 
-        btnGuardar.setBackground(new java.awt.Color(153, 204, 255));
+        btnGuardar.setBackground(new java.awt.Color(153, 255, 153));
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -391,7 +359,7 @@ public class Entrada extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, 80, 30));
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 80, 30));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -404,7 +372,7 @@ public class Entrada extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 570, -1, -1));
 
-        btnPDF.setBackground(new java.awt.Color(153, 204, 255));
+        btnPDF.setBackground(new java.awt.Color(153, 255, 153));
         btnPDF.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnPDF.setText("PDF");
         btnPDF.addActionListener(new java.awt.event.ActionListener() {
@@ -412,8 +380,7 @@ public class Entrada extends javax.swing.JFrame {
                 btnPDFActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 80, 30));
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 190, -1));
+        getContentPane().add(btnPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 80, 30));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -434,10 +401,6 @@ public class Entrada extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 100, 30));
-
-        jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 10, 90));
-        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 100, 10));
 
         cmbFacturas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -460,16 +423,13 @@ public class Entrada extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(153, 255, 153));
         jLabel7.setText("CLIENTES");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 20));
-
-        btnFacturas.setBackground(new java.awt.Color(153, 255, 153));
-        btnFacturas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnFacturas.setText("FACTURAS");
-        btnFacturas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFacturasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, 250, 30));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 190, -1));
+        getContentPane().add(txtParrilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 60, -1));
+        getContentPane().add(txtBasesPlasticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 60, -1));
+        getContentPane().add(txtConector, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 400, 60, -1));
+        getContentPane().add(txtGarantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, 60, -1));
+        getContentPane().add(txtTarjetaRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 70, -1));
+        getContentPane().add(txtEstadoCarcasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 110, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -488,13 +448,9 @@ public class Entrada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoClienteActionPerformed
 
-    private void cmbGarantiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGarantiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbGarantiaActionPerformed
-
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-        Formatos_Admin obj = new Formatos_Admin();
+        Entrada obj = new Entrada();
         obj.setVisible(true);
         dispose();
 
@@ -502,228 +458,6 @@ public class Entrada extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
-
-        /*
-         String fecha = txtFecha.getDateFormatString();
-         String elemento = txtElemento.getText();
-         String potencia = txtPotencia.getText();
-         String marca = txtMarca.getText();
-         String modelo = txtModelo.getText();
-         String serie = txtSerie.getText();
-         String nit = txtNit.getText();
-         String empRemite = txtEmpresaRemitente.getText();
-         String ciudad = txtCiudad.getText();
-         String garantia = cmbGarantia.getSelectedItem().toString();
-         String direccion = txtDireccion.getText();
-         String preRemite = txtPersonaRemitente.getText();
-         String nombreContacto = txtNombreContacto.getText();
-         String telefonoContacto = txtTelefonoContacto.getText();
-         String correoContacto = txtCorreoContacto.getText();
-         String motivo = txtMotivo.getText();
-         String tarjetaDeRed = cmbTarjetaDeRed.getSelectedItem().toString();
-         String parrilla = cmbParrilla.getSelectedItem().toString();
-         String basesPals = cmbBasesPlasticas.getSelectedItem().toString();
-         String estadoCarcasa = cmbEstadoCarcasa.getSelectedItem().toString();
-         String conectorOrig = cmbConectorOriginal.getSelectedItem().toString();
-         String observaciones = areaObservaciones.getText();
-        
-         */
-        JFileChooser selector = new JFileChooser();
-        String directorio = "";
-        String extension = "";
-        boolean seleccion = false;
-
-        int resultado = selector.showOpenDialog(null);
-
-        switch (resultado) {
-            case JFileChooser.APPROVE_OPTION:
-                directorio = selector.getSelectedFile().getPath();
-
-                int i = directorio.lastIndexOf('.');
-                if (i >= 0) {
-                    extension = directorio.substring(i + 1);
-                }
-
-                seleccion = true;
-
-                JOptionPane.showMessageDialog(null, "Seleccionaste " + directorio);
-                break;
-            case JFileChooser.CANCEL_OPTION:
-                seleccion = false;
-                JOptionPane.showMessageDialog(null, "No seleccionaste nada.");
-                break;
-            case JFileChooser.ERROR_OPTION:
-                seleccion = false;
-                JOptionPane.showMessageDialog(null, "Ocurrio un Error.");
-                break;
-            default:
-                break;
-        }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if (seleccion) {
-
-            switch (extension) {
-                case "xls": {
-                    FileInputStream entrada = null;
-                    try {
-                        //Leer el archivo de Excel XLS
-                        entrada = new FileInputStream(new File(directorio));
-                        //Acceso al libro de trabajo
-                        HSSFWorkbook xls = new HSSFWorkbook(entrada);
-                        //Acceso a la hoja de trabajo
-                        HSSFSheet hoja = xls.getSheetAt(0);
-                        //Declaracion de fila y celda
-                        Row fila = null;
-                        Cell celda = null;
-                        try {
-                            //Asignando a valores a celdas con valores
-                            fila = hoja.getRow(13);
-                            celda = fila.getCell(6);
-                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                            celda.setCellValue(fecha);
-
-                            fila = hoja.getRow(4);
-                            celda = fila.getCell(1);
-                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                            celda.setCellValue(elemento);
-
-                            fila = hoja.getRow(4);
-                            celda = fila.getCell(4);
-                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                            celda.setCellValue(potencia);
-
-                            /*
-                             fila = hoja.getRow(1);
-
-                             celda = fila.getCell(0);
-                             celda.setCellValue(valor2);
-                             celda = fila.getCell(1);
-                             celda.setCellValue(valor4);
-                             */
-                        } catch (NullPointerException NPE) {
-                            //En caso de que las celdas esten vacias hay que crearlas
-
-                            fila = hoja.createRow(13);
-                            celda = fila.createCell(6);
-                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                            celda.setCellValue(fecha);
-
-                            fila = hoja.createRow(4);
-                            celda = fila.createCell(1);
-                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                            celda.setCellValue(elemento);
-
-                            fila = hoja.createRow(4);
-                            celda = fila.createCell(4);
-                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                            celda.setCellValue(potencia);
-
-                        }       //Evaluando formulas de todo el libro de excel
-                        HSSFFormulaEvaluator.evaluateAllFormulaCells(xls);
-                        //Cerrando archivo
-                        entrada.close();
-                        //Abriendo archivo para escritura
-                        FileOutputStream salida = new FileOutputStream(new File(directorio));
-                        //write changes
-                        xls.write(salida);
-                        //close the stream
-                        salida.close();
-                        break;
-                    } catch (FileNotFoundException ex) {
-                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (IOException ex) {
-                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                    } finally {
-                        try {
-                            entrada.close();
-                        } catch (IOException ex) {
-                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }       //Evaluando formulas de todo el libro de excel
-                }
-                case "xlsx": {
-                    FileOutputStream salida = null;
-                    try {
-                        //Leer el archivo de Excel XLSX
-                        FileInputStream entrada = null;
-                        try {
-                            entrada = new FileInputStream(new File(directorio));
-                        } catch (FileNotFoundException ex) {
-                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        //Acceso al libro de trabajo
-                        XSSFWorkbook xlsx = null;
-                        try {
-                            xlsx = new XSSFWorkbook(entrada);
-                        } catch (IOException ex) {
-                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        //Acceso a la hoja de trabajo
-                        XSSFSheet hoja = xlsx.getSheetAt(0);
-                        //Declaracion de fila y celda
-                        Row fila = null;
-                        Cell celda = null;
-                        try {
-                            //Asignando a valores a celdas con valores
-                            fila = hoja.getRow(13);
-                            celda = fila.getCell(6);
-                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                            celda.setCellValue(fecha);
-
-                            fila = hoja.getRow(4);
-                            celda = fila.getCell(1);
-                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                            celda.setCellValue(elemento);
-
-                            fila = hoja.getRow(4);
-                            celda = fila.getCell(4);
-                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                            celda.setCellValue(potencia);
-
-                        } catch (NullPointerException NPE) {
-                            //En caso de que las celdas esten vacias hay que crearlas
-
-                            fila = hoja.createRow(13);
-                            celda = fila.createCell(6);
-                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                            celda.setCellValue(fecha);
-
-                            fila = hoja.createRow(4);
-                            celda = fila.createCell(1);
-                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                            celda.setCellValue(elemento);
-
-                            fila = hoja.createRow(4);
-                            celda = fila.createCell(4);
-                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                            celda.setCellValue(potencia);
-
-                        }       //Evaluando formulas de todo el libro de excel
-                        XSSFFormulaEvaluator.evaluateAllFormulaCells(xlsx);
-                        //Cerrando la entrada archivo
-                        entrada.close();
-                        //Abriendo archivo para escritura
-                        salida = new FileOutputStream(new File(directorio));
-                        //write changes
-                        xlsx.write(salida);
-                        //close the stream
-                        salida.close();
-                        break;
-                    } catch (FileNotFoundException ex) {
-                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (IOException ex) {
-                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                    } finally {
-                        try {
-                            salida.close();
-                        } catch (IOException ex) {
-                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
-            }
-        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnPDFActionPerformed
@@ -786,7 +520,7 @@ public class Entrada extends javax.swing.JFrame {
         txtMotivo.setText("");
         areaObservaciones.setText("");
         txtPersonaRemitente.setText("");
-        txtFecha.setDateFormatString("");
+        txtFecha.setText("");
         txtElemento.requestFocus();
 
         // TODO add your handling code here:
@@ -798,150 +532,7 @@ public class Entrada extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
-        Entradas en = new Entradas();
         
-        String formato = txtFecha.getDateFormatString();
-        Date date = txtFecha.getDate();
-        SimpleDateFormat sdf = new SimpleDateFormat(formato);
-        String dato = String.valueOf(sdf.format(date));
-        
-        en.setFecha(dato);
-        en.setElemento(txtElemento.getText().toUpperCase());
-        en.setPotencia(txtPotencia.getText().toUpperCase());
-        en.setMarca(txtMarca.getText().toUpperCase());
-        en.setModelo(txtModelo.getText().toUpperCase());
-        en.setSerie(txtSerie.getText().toUpperCase());
-        en.setEmpresa(txtEmpresa.getText().toUpperCase());
-        en.setNit(txtNitCliente.getText().toUpperCase());
-        en.setPersona_remite(txtPersonaRemitente.getText().toUpperCase());
-        en.setCiudad(txtCiudadCliente.getText().toUpperCase());
-        en.setDireccion(txtDireccionCliente.getText().toUpperCase());
-        en.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
-        en.setTelefono_contacto(txtTelefonoCliente.getText().toUpperCase());
-        en.setCorreo(txtCorreoCliente.getText().toUpperCase());
-        en.setMotivo(txtMotivo.getText().toUpperCase());
-        en.setTarjeta_red(cmbTarjetaDeRed.getSelectedItem().toString().toUpperCase());
-        en.setParrilla(cmbParrilla.getSelectedItem().toString().toUpperCase());
-        en.setBases_plasticas(cmbBasesPlasticas.getSelectedItem().toString().toUpperCase());
-        en.setConector_origi(cmbConectorOriginal.getSelectedItem().toString().toUpperCase());
-        en.setGarantia(cmbGarantia.getSelectedItem().toString().toUpperCase());
-        en.setEstado_carcasa(cmbEstadoCarcasa.getSelectedItem().toString().toUpperCase());
-        en.setObservaciones(areaObservaciones.getText().toUpperCase());
-
-        if (txtFecha.getDateFormatString().equals("") || txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
-                || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-
-            try {
-                db.insertarEntrada(en);
-                JOptionPane.showMessageDialog(this, "Factura guardada exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-
-                txtNitCliente.setText("");
-                txtEmpresa.setText("");
-                txtTelefonoCliente.setText("");
-                txtDireccionCliente.setText("");
-                txtCiudadCliente.setText("");
-                txtCorreoCliente.setText("");
-                txtContactoCliente.setText("");
-                txtElemento.setText("");
-                txtPotencia.setText("");
-                txtMarca.setText("");
-                txtModelo.setText("");
-                txtSerie.setText("");
-                txtMotivo.setText("");
-                areaObservaciones.setText("");
-                txtPersonaRemitente.setText("");
-                txtFecha.setDateFormatString("");
-                txtElemento.requestFocus();
-            } catch (Exception e) {
-                System.err.println("error" + e);
-            }
-
-        }
-
-        /*
-
-         Formatos_Oper obj = new Formatos_Oper();
-
-         if (seleccion) {
-         FileInputStream entrada = null;
-         try {
-         //Leer el archivo de Excel XLS
-         entrada = new FileInputStream(new File(directorio));
-         //Acceso al libro de trabajo
-         HSSFWorkbook xls = new HSSFWorkbook(entrada);
-         //Acceso a la hoja de trabajo
-         HSSFSheet hoja = xls.getSheetAt(0);
-         //Declaracion de fila y celda
-         Row fila = null;
-         Cell celda = null;
-         try {
-         //Asignando a valores a celdas con valores
-         fila = hoja.getRow(13);
-         celda = fila.getCell(6);
-         HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-         celda.setCellValue(fecha);
-
-         fila = hoja.getRow(4);
-         celda = fila.getCell(1);
-         HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-         celda.setCellValue(elemento);
-
-         fila = hoja.getRow(4);
-         celda = fila.getCell(4);
-         HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-         celda.setCellValue(potencia);
-
-         fila = hoja.getRow(1);
-
-         celda = fila.getCell(0);
-         celda.setCellValue(valor2);
-         celda = fila.getCell(1);
-         celda.setCellValue(valor4);
-
-         } catch (NullPointerException NPE) {
-         //En caso de que las celdas esten vacias hay que crearlas
-
-         fila = hoja.createRow(13);
-         celda = fila.createCell(6);
-         HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-         celda.setCellValue(fecha);
-
-         fila = hoja.createRow(4);
-         celda = fila.createCell(1);
-         HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-         celda.setCellValue(elemento);
-
-         fila = hoja.createRow(4);
-         celda = fila.createCell(4);
-         HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-         celda.setCellValue(potencia);
-
-         }       //Evaluando formulas de todo el libro de excel
-         HSSFFormulaEvaluator.evaluateAllFormulaCells(xls);
-         //Cerrando archivo
-         entrada.close();
-         //Abriendo archivo para escritura
-         FileOutputStream salida = new FileOutputStream(new File(directorio));
-         //write changes
-         xls.write(salida);
-         //close the stream
-         salida.close();
-         } catch (FileNotFoundException ex) {
-         Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-         } catch (IOException ex) {
-         Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-         } finally {
-         try {
-         entrada.close();
-         } catch (IOException ex) {
-         Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         }       //Evaluando formulas de todo el libro de excel
-         }
-
-         */
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -964,7 +555,7 @@ public class Entrada extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
-                txtFecha.setToolTipText(rs.getString("FECHA").trim());
+                txtFecha.setText(rs.getString("FECHA").trim());
                 txtElemento.setText(rs.getString("ELEMENTO").trim());
                 txtPotencia.setText(rs.getString("POTENCIA").trim());
                 txtMarca.setText(rs.getString("MARCA").trim());
@@ -980,13 +571,13 @@ public class Entrada extends javax.swing.JFrame {
                 txtCorreoCliente.setText(rs.getString("CORREO").trim());
                 txtMotivo.setText(rs.getString("MOTIVO").trim());
                 
-                txtCorreoCliente.setText(rs.getString("correocliente").trim());
-                txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
-                txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
-                txtDireccionCliente.setText(rs.getString("direccioncliente").trim());
-                txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
-                txtCorreoCliente.setText(rs.getString("correocliente").trim());
-                txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
+                txtTarjetaRed.setText(rs.getString("TARJETA_RED").trim());
+                txtParrilla.setText(rs.getString("PARRILLA").trim());
+                txtBasesPlasticas.setText(rs.getString("BASES_PLASTICAS").trim());
+                txtConector.setText(rs.getString("CONECTOR_ORIGI").trim());
+                txtGarantia.setText(rs.getString("GARANTIA").trim());
+                txtEstadoCarcasa.setText(rs.getString("ESTADO_CARCASA").trim());
+                areaObservaciones.setText(rs.getString("OBSERVACIONES").trim());
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
@@ -999,15 +590,6 @@ public class Entrada extends javax.swing.JFrame {
         
 // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscar1ActionPerformed
-
-    private void btnFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasActionPerformed
-
-        Facturas_Entrada obj = new Facturas_Entrada();
-        obj.setVisible(true);
-        dispose();
-        
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnFacturasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1026,14 +608,18 @@ public class Entrada extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Facturas_Entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Facturas_Entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Facturas_Entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Facturas_Entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1042,7 +628,7 @@ public class Entrada extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Entrada().setVisible(true);
+                new Facturas_Entrada().setVisible(true);
             }
         });
     }
@@ -1052,19 +638,12 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscar1;
     private javax.swing.JButton btnDescartar;
-    private javax.swing.JButton btnFacturas;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnPDF;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox cmbBasesPlasticas;
     private javax.swing.JComboBox cmbClientes;
-    private javax.swing.JComboBox cmbConectorOriginal;
-    private javax.swing.JComboBox cmbEstadoCarcasa;
     private javax.swing.JComboBox cmbFacturas;
-    private javax.swing.JComboBox cmbGarantia;
-    private javax.swing.JComboBox cmbParrilla;
-    private javax.swing.JComboBox cmbTarjetaDeRed;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1095,30 +674,32 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTextField txtBasesPlasticas;
     private javax.swing.JTextField txtCiudadCliente;
+    private javax.swing.JTextField txtConector;
     private javax.swing.JTextField txtContactoCliente;
     private javax.swing.JTextField txtCorreoCliente;
     private javax.swing.JTextField txtDireccionCliente;
     private javax.swing.JTextField txtElemento;
     private javax.swing.JTextField txtEmpresa;
-    private com.toedter.calendar.JDateChooser txtFecha;
+    private javax.swing.JTextField txtEstadoCarcasa;
+    private javax.swing.JTextField txtFecha;
+    private javax.swing.JTextField txtGarantia;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtMotivo;
     private javax.swing.JTextField txtNitCliente;
+    private javax.swing.JTextField txtParrilla;
     private javax.swing.JTextField txtPersonaRemitente;
     private javax.swing.JTextField txtPotencia;
     private javax.swing.JTextField txtSerie;
+    private javax.swing.JTextField txtTarjetaRed;
     private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }

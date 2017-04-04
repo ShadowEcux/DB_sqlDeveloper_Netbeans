@@ -9,7 +9,7 @@ package clasesPrincipales;
  *
  * @author CPU_SYS
  */
-public class Entrada {
+public class Entradas {
     
     int id_entrada;
     String fecha;
@@ -35,10 +35,10 @@ public class Entrada {
     String estado_carcasa;
     String observaciones;
 
-    public Entrada() {
+    public Entradas() {
     }
 
-    public Entrada(int id_entrada, String fecha, String elemento, String potencia, String marca, String modelo, String serie, String empresa, String nit, String persona_remite, String ciudad, String direccion, String nombre_contacto, String telefono_contacto, String correo, String motivo, String tarjeta_red, String parrilla, String bases_plasticas, String conector_origi, String garantia, String estado_carcasa, String observaciones) {
+    public Entradas(int id_entrada, String fecha, String elemento, String potencia, String marca, String modelo, String serie, String empresa, String nit, String persona_remite, String ciudad, String direccion, String nombre_contacto, String telefono_contacto, String correo, String motivo, String tarjeta_red, String parrilla, String bases_plasticas, String conector_origi, String garantia, String estado_carcasa, String observaciones) {
         this.id_entrada = id_entrada;
         this.fecha = fecha;
         this.elemento = elemento;

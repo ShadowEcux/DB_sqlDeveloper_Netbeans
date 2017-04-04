@@ -349,15 +349,15 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
-        usuarios usu = new usuarios();
-        usu.setId_usuario(Integer.parseInt(txtID.getText()));
-        usu.setNombre(txtNombre.getText());
-        usu.setPassword(txtPassword.getText());
-        usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
-
         if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
+            usuarios usu = new usuarios();
+            usu.setId_usuario(Integer.parseInt(txtID.getText()));
+            usu.setNombre(txtNombre.getText());
+            usu.setPassword(txtPassword.getText());
+            usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
+
             Object[] opciones = {"Aceptar", "Cancelar"};
             int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea ELIMINAR este registro?", "Mensaje de Confirmacion",
                     JOptionPane.YES_NO_OPTION,
@@ -393,14 +393,15 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
-        usuarios usu = new usuarios();
-        usu.setId_usuario(Integer.parseInt(txtID.getText()));
-        usu.setNombre(txtNombre.getText());
-        usu.setPassword(txtPassword.getText());
-        usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
         if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
+            usuarios usu = new usuarios();
+            usu.setId_usuario(Integer.parseInt(txtID.getText()));
+            usu.setNombre(txtNombre.getText());
+            usu.setPassword(txtPassword.getText());
+            usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
+
             Object[] opciones = {"Aceptar", "Cancelar"};
             int eleccion = JOptionPane.showOptionDialog(this, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",
                     JOptionPane.YES_NO_OPTION,

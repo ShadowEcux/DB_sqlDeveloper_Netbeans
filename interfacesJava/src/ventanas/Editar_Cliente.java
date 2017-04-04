@@ -294,18 +294,19 @@ public class Editar_Cliente extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
-        clientes cli = new clientes();
-        cli.setId_cliente(Integer.parseInt(txtID.getText()));
-        cli.setNit_cliente(txtNitCliente.getText());
-        cli.setNombre_cliente(txtNombreCliente.getText());
-        cli.setTelefono_cliente(txtTelefonoCliente.getText());
-        cli.setDireccion_cliente(txtDireccionCliente.getText());
-        cli.setCiudad_cliente(txtCiudadCliente.getText());
-        cli.setCorreo_cliente(txtCorreoCliente.getText());
-        cli.setNombre_contacto(txtContactoCliente.getText());
         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
+            clientes cli = new clientes();
+            cli.setId_cliente(Integer.parseInt(txtID.getText()));
+            cli.setNit_cliente(txtNitCliente.getText());
+            cli.setNombre_cliente(txtNombreCliente.getText());
+            cli.setTelefono_cliente(txtTelefonoCliente.getText());
+            cli.setDireccion_cliente(txtDireccionCliente.getText());
+            cli.setCiudad_cliente(txtCiudadCliente.getText());
+            cli.setCorreo_cliente(txtCorreoCliente.getText());
+            cli.setNombre_contacto(txtContactoCliente.getText());
+
             Object[] opciones = {"Aceptar", "Cancelar"};
             int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",
                     JOptionPane.YES_NO_OPTION,

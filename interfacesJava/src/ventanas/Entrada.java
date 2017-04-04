@@ -65,7 +65,7 @@ public class Entrada extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
+
     public void CargarCmbFacturas() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
@@ -799,40 +799,40 @@ public class Entrada extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
-        Entradas en = new Entradas();
-        
-        String formato = txtFecha.getDateFormatString();
-        Date date = txtFecha.getDate();
-        SimpleDateFormat sdf = new SimpleDateFormat(formato);
-        String dato = String.valueOf(sdf.format(date));
-        
-        en.setFecha(dato);
-        en.setElemento(txtElemento.getText().toUpperCase());
-        en.setPotencia(txtPotencia.getText().toUpperCase());
-        en.setMarca(txtMarca.getText().toUpperCase());
-        en.setModelo(txtModelo.getText().toUpperCase());
-        en.setSerie(txtSerie.getText().toUpperCase());
-        en.setEmpresa(txtEmpresa.getText().toUpperCase());
-        en.setNit(txtNitCliente.getText().toUpperCase());
-        en.setPersona_remite(txtPersonaRemitente.getText().toUpperCase());
-        en.setCiudad(txtCiudadCliente.getText().toUpperCase());
-        en.setDireccion(txtDireccionCliente.getText().toUpperCase());
-        en.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
-        en.setTelefono_contacto(txtTelefonoCliente.getText().toUpperCase());
-        en.setCorreo(txtCorreoCliente.getText().toUpperCase());
-        en.setMotivo(txtMotivo.getText().toUpperCase());
-        en.setTarjeta_red(cmbTarjetaDeRed.getSelectedItem().toString().toUpperCase());
-        en.setParrilla(cmbParrilla.getSelectedItem().toString().toUpperCase());
-        en.setBases_plasticas(cmbBasesPlasticas.getSelectedItem().toString().toUpperCase());
-        en.setConector_origi(cmbConectorOriginal.getSelectedItem().toString().toUpperCase());
-        en.setGarantia(cmbGarantia.getSelectedItem().toString().toUpperCase());
-        en.setEstado_carcasa(cmbEstadoCarcasa.getSelectedItem().toString().toUpperCase());
-        en.setObservaciones(areaObservaciones.getText().toUpperCase());
-
         if (txtFecha.getDateFormatString().equals("") || txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
                 || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
+
+            Entradas en = new Entradas();
+
+            String formato = txtFecha.getDateFormatString();
+            Date date = txtFecha.getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat(formato);
+            String dato = String.valueOf(sdf.format(date));
+
+            en.setFecha(dato);
+            en.setElemento(txtElemento.getText().toUpperCase());
+            en.setPotencia(txtPotencia.getText().toUpperCase());
+            en.setMarca(txtMarca.getText().toUpperCase());
+            en.setModelo(txtModelo.getText().toUpperCase());
+            en.setSerie(txtSerie.getText().toUpperCase());
+            en.setEmpresa(txtEmpresa.getText().toUpperCase());
+            en.setNit(txtNitCliente.getText().toUpperCase());
+            en.setPersona_remite(txtPersonaRemitente.getText().toUpperCase());
+            en.setCiudad(txtCiudadCliente.getText().toUpperCase());
+            en.setDireccion(txtDireccionCliente.getText().toUpperCase());
+            en.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
+            en.setTelefono_contacto(txtTelefonoCliente.getText().toUpperCase());
+            en.setCorreo(txtCorreoCliente.getText().toUpperCase());
+            en.setMotivo(txtMotivo.getText().toUpperCase());
+            en.setTarjeta_red(cmbTarjetaDeRed.getSelectedItem().toString().toUpperCase());
+            en.setParrilla(cmbParrilla.getSelectedItem().toString().toUpperCase());
+            en.setBases_plasticas(cmbBasesPlasticas.getSelectedItem().toString().toUpperCase());
+            en.setConector_origi(cmbConectorOriginal.getSelectedItem().toString().toUpperCase());
+            en.setGarantia(cmbGarantia.getSelectedItem().toString().toUpperCase());
+            en.setEstado_carcasa(cmbEstadoCarcasa.getSelectedItem().toString().toUpperCase());
+            en.setObservaciones(areaObservaciones.getText().toUpperCase());
 
             try {
                 db.insertarEntrada(en);
@@ -957,7 +957,6 @@ public class Entrada extends javax.swing.JFrame {
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
 
         //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
-        
         try {
 
             String guardar = cmbFacturas.getSelectedItem().toString();
@@ -984,7 +983,7 @@ public class Entrada extends javax.swing.JFrame {
                 txtTelefonoCliente.setText(rs.getString("TELEFONO_CONTACTO").trim());
                 txtCorreoCliente.setText(rs.getString("CORREO").trim());
                 txtMotivo.setText(rs.getString("MOTIVO").trim());
-                
+
                 txtCorreoCliente.setText(rs.getString("correocliente").trim());
                 txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
                 txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
@@ -1001,7 +1000,7 @@ public class Entrada extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscar1ActionPerformed
 
@@ -1010,7 +1009,7 @@ public class Entrada extends javax.swing.JFrame {
         Facturas_Entrada obj = new Facturas_Entrada();
         obj.setVisible(true);
         dispose();
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnFacturasActionPerformed
 

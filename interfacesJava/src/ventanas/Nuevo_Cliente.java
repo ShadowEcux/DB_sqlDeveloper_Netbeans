@@ -22,16 +22,15 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
 
     ArrayList<clientes> cliente;
     clienteDB db = new clienteDB();
-    
+
     /**
      * Creates new form Registro_Clientes
      */
     public Nuevo_Cliente() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("CPU System Service S.A.S - NUEVO CLIENTE");      
-        
-        
+        this.setTitle("CPU System Service S.A.S - NUEVO CLIENTE");
+
     }
 
     /**
@@ -188,17 +187,19 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
 
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
 
-        clientes cl = new clientes();
-        cl.setNit_cliente(txtNitCliente.getText().toUpperCase());
-        cl.setNombre_cliente(txtNombreCliente.getText().toUpperCase());
-        cl.setTelefono_cliente(txtTelefonoCliente.getText().toUpperCase());
-        cl.setDireccion_cliente(txtDireccionCliente.getText().toUpperCase());
-        cl.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
-        cl.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
-        cl.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
+
+            clientes cl = new clientes();
+            cl.setNit_cliente(txtNitCliente.getText().toUpperCase());
+            cl.setNombre_cliente(txtNombreCliente.getText().toUpperCase());
+            cl.setTelefono_cliente(txtTelefonoCliente.getText().toUpperCase());
+            cl.setDireccion_cliente(txtDireccionCliente.getText().toUpperCase());
+            cl.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
+            cl.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
+            cl.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
+
             db.insertarClientes(cl);
             JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
             txtNitCliente.setText("");
@@ -208,25 +209,24 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
             txtCiudadCliente.setText("");
             txtCorreoCliente.setText("");
             txtContactoCliente.setText("");
-            txtNitCliente.requestFocus();          
-            
+            txtNitCliente.requestFocus();
+
         }
-    
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardar1ActionPerformed
 
     private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
 
-            txtNitCliente.setText("");
-            txtNombreCliente.setText("");
-            txtTelefonoCliente.setText("");
-            txtDireccionCliente.setText("");
-            txtCiudadCliente.setText("");
-            txtCorreoCliente.setText("");
-            txtContactoCliente.setText("");
-            txtNitCliente.requestFocus();
-        
+        txtNitCliente.setText("");
+        txtNombreCliente.setText("");
+        txtTelefonoCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtCiudadCliente.setText("");
+        txtCorreoCliente.setText("");
+        txtContactoCliente.setText("");
+        txtNitCliente.requestFocus();
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDescartarActionPerformed
 

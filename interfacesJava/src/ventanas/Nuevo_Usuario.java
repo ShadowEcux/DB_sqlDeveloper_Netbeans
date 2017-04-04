@@ -177,7 +177,6 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-        
         Usuarios obj = new Usuarios();
         obj.setVisible(true);
         dispose();
@@ -187,27 +186,26 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
 
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
 
-        int tipo=0;
-        usuarios usu = new usuarios();
-
-        usu.setNombre(txtNombre.getText());
-        usu.setPassword(txtPasswordUsuario.getText());
-        if(cmbUsuarios.getSelectedItem()=="ADMINISTRADOR"){
-            tipo = 1;
-            usu.setTipoUsuario(tipo);
-        }else if(cmbUsuarios.getSelectedItem()=="OPERARIO"){
-            tipo = 3;
-            usu.setTipoUsuario(tipo);
-        }
         //usu.setTipoUsuario((cmbUsuarios.getSelectedIndex()));
-        
         if (txtNombre.getText().equals("") || txtPasswordUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            
+
+            int tipo = 0;
+            usuarios usu = new usuarios();
+            usu.setNombre(txtNombre.getText());
+            usu.setPassword(txtPasswordUsuario.getText());
+            if (cmbUsuarios.getSelectedItem() == "ADMINISTRADOR") {
+                tipo = 1;
+                usu.setTipoUsuario(tipo);
+            } else if (cmbUsuarios.getSelectedItem() == "OPERARIO") {
+                tipo = 3;
+                usu.setTipoUsuario(tipo);
+            }
+
             db.insertarUsuario(usu);
             JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-            
+
             txtNombre.setText("");
             txtPasswordUsuario.setText("");
             txtNombre.requestFocus();

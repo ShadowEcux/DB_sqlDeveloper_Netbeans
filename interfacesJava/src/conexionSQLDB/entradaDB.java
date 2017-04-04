@@ -66,8 +66,8 @@ public class entradaDB {
     public void insertarEntrada(Entradas entrada) {
         try {
             Connection cnx = DataBaseConexion.getConnection();
-            PreparedStatement pst = cnx.prepareStatement("INSERT INTO ENTRADAS (FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES) \n"
-                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pst = cnx.prepareStatement("INSERT INTO ENTRADAS (FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)\n"
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pst.setString(1, entrada.getFecha());
             pst.setString(2, entrada.getElemento());
             pst.setString(3, entrada.getPotencia());
@@ -130,7 +130,18 @@ public class entradaDB {
         } catch (SQLException ex) {
             Logger.getLogger(entradaDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+    }
+    
+    public void EliminarEntrada(Entradas en) {
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            PreparedStatement pst = cnx.prepareStatement("DELETE FROM ENTRADAS "
+                    + " WHERE ID_ENTRADA=?");
+            pst.setInt(1, en.getId_entrada());
+            pst.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(entradaDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

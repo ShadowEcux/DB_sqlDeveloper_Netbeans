@@ -138,7 +138,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         areaObservaciones = new javax.swing.JTextArea();
         jSeparator9 = new javax.swing.JSeparator();
-        btnGuardar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
@@ -351,15 +351,15 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 330, 80));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 260, 10));
 
-        btnGuardar.setBackground(new java.awt.Color(153, 255, 153));
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setBackground(new java.awt.Color(153, 255, 153));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 480, 80, 30));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 480, 90, 30));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -380,7 +380,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 80, 30));
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 90, 30));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -631,10 +631,105 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoClienteActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+
+        Entradas en = new Entradas();
+        en.setId_entrada(Integer.parseInt(cmbFacturas.getSelectedItem().toString()));    
+        en.setFecha(txtFecha.getText().toUpperCase());
+        en.setElemento(txtElemento.getText().toUpperCase());
+        en.setPotencia(txtPotencia.getText().toUpperCase());
+        en.setMarca(txtMarca.getText().toUpperCase());
+        en.setModelo(txtModelo.getText().toUpperCase());
+        en.setSerie(txtSerie.getText().toUpperCase());
+        en.setEmpresa(txtEmpresa.getText().toUpperCase());
+        en.setNit(txtNitCliente.getText().toUpperCase());
+        en.setPersona_remite(txtPersonaRemitente.getText().toUpperCase());
+        en.setCiudad(txtCiudadCliente.getText().toUpperCase());
+        en.setDireccion(txtDireccionCliente.getText().toUpperCase());
+        en.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
+        en.setTelefono_contacto(txtTelefonoCliente.getText().toUpperCase());
+        en.setCorreo(txtCorreoCliente.getText().toUpperCase());
+        en.setMotivo(txtMotivo.getText().toUpperCase());
+        en.setTarjeta_red(txtTarjetaRed.getText().toUpperCase());
+        en.setParrilla(txtParrilla.getText().toUpperCase());
+        en.setBases_plasticas(txtBasesPlasticas.getText().toUpperCase());
+        en.setConector_origi(txtConector.getText().toUpperCase());
+        en.setGarantia(txtGarantia.getText().toUpperCase());
+        en.setEstado_carcasa(txtEstadoCarcasa.getText().toUpperCase());
+        en.setObservaciones(areaObservaciones.getText().toUpperCase());
+        
+        if (txtFecha.getText().equals("") || txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
+                || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            Object[] opciones = {"Aceptar", "Cancelar"};
+            int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+            if (eleccion == JOptionPane.YES_OPTION) {
+                db.EliminarEntrada(en);
+                JOptionPane.showMessageDialog(this, "Datos EDITADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+
+                this.cmbClientes.removeAllItems();
+                CargarCmbCliente();
+                this.cmbFacturas.removeAllItems();
+                CargarCmbFacturas();
+
+                txtNitCliente.setText("");
+                txtEmpresa.setText("");
+                txtTelefonoCliente.setText("");
+                txtDireccionCliente.setText("");
+                txtCiudadCliente.setText("");
+                txtCorreoCliente.setText("");
+                txtContactoCliente.setText("");
+                txtElemento.setText("");
+                txtPotencia.setText("");
+                txtMarca.setText("");
+                txtModelo.setText("");
+                txtSerie.setText("");
+                txtMotivo.setText("");
+                areaObservaciones.setText("");
+                txtPersonaRemitente.setText("");
+                txtFecha.setText("");
+                txtTarjetaRed.setText("");
+                txtParrilla.setText("");
+                txtBasesPlasticas.setText("");
+                txtConector.setText("");
+                txtGarantia.setText("");
+                txtEstadoCarcasa.setText("");
+                areaObservaciones.setText("");
+                txtElemento.requestFocus();
+
+            } else {
+                txtNitCliente.setText("");
+                txtEmpresa.setText("");
+                txtTelefonoCliente.setText("");
+                txtDireccionCliente.setText("");
+                txtCiudadCliente.setText("");
+                txtCorreoCliente.setText("");
+                txtContactoCliente.setText("");
+                txtElemento.setText("");
+                txtPotencia.setText("");
+                txtMarca.setText("");
+                txtModelo.setText("");
+                txtSerie.setText("");
+                txtMotivo.setText("");
+                areaObservaciones.setText("");
+                txtPersonaRemitente.setText("");
+                txtFecha.setText("");
+                txtTarjetaRed.setText("");
+                txtParrilla.setText("");
+                txtBasesPlasticas.setText("");
+                txtConector.setText("");
+                txtGarantia.setText("");
+                txtEstadoCarcasa.setText("");
+                areaObservaciones.setText("");
+                txtElemento.requestFocus();
+            }
+        }
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void cmbFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFacturasActionPerformed
         // TODO add your handling code here:
@@ -737,7 +832,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar1;
     private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbClientes;

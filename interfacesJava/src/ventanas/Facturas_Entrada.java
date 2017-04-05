@@ -50,12 +50,13 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - FACTURAS DE ENTRADA");
-        CargarCmbCliente();
+        //CargarCmbCliente();
         CargarCmbFacturas();
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
     }
 
+    /*
     public void CargarCmbCliente() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
@@ -67,6 +68,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    */
 
     public void CargarCmbFacturas() {
         try {
@@ -93,7 +95,6 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        cmbClientes = new javax.swing.JComboBox();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -143,11 +144,9 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
         btnDescartar = new javax.swing.JButton();
         cmbFacturas = new javax.swing.JComboBox();
         btnBuscar1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
         txtParrilla = new javax.swing.JTextField();
         txtBasesPlasticas = new javax.swing.JTextField();
@@ -185,14 +184,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
         jLabel6.setText("FACTURAS");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 70, 20));
-
-        cmbClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbClientesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 260, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 20));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 150, 10));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -389,16 +381,6 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         });
         getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 90, 30));
 
-        btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 70, 20));
-
         btnDescartar.setBackground(new java.awt.Color(153, 204, 255));
         btnDescartar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnDescartar.setText("DESCARTAR");
@@ -414,7 +396,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 cmbFacturasActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 160, -1));
+        getContentPane().add(cmbFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 160, -1));
 
         btnBuscar1.setBackground(new java.awt.Color(153, 204, 255));
         btnBuscar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -424,12 +406,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 btnBuscar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, 20));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 255, 153));
-        jLabel7.setText("CLIENTES");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 20));
+        getContentPane().add(btnBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, 20));
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 190, -1));
         getContentPane().add(txtParrilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 60, -1));
         getContentPane().add(txtBasesPlasticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 60, -1));
@@ -522,8 +499,8 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 db.EditarEntrada(en);
                 JOptionPane.showMessageDialog(this, "Datos EDITADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
 
-                this.cmbClientes.removeAllItems();
-                CargarCmbCliente();
+                //this.cmbClientes.removeAllItems();
+                //CargarCmbCliente();
                 this.cmbFacturas.removeAllItems();
                 CargarCmbFacturas();
 
@@ -582,43 +559,6 @@ public class Facturas_Entrada extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
-        try {
-
-            String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
-            pst.setString(1, guardar);
-            //pst.setString(1, CMBID.getName());
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-
-                txtNitCliente.setText(rs.getString("nitcliente").trim());
-                txtEmpresa.setText(rs.getString("nombrecliente").trim());
-                txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
-                txtDireccionCliente.setText(rs.getString("direccioncliente").trim());
-                txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
-                txtCorreoCliente.setText(rs.getString("correocliente").trim());
-                txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
-
-                //pst.setString(1, CMBID.getName());
-                //String guardar = txtBuscar.getText();
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el usuario");
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbClientesActionPerformed
 
     private void txtContactoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactoClienteActionPerformed
         // TODO add your handling code here:
@@ -698,8 +638,8 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 db.EliminarEntrada(en);
                 JOptionPane.showMessageDialog(this, "Datos ELIMINADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
 
-                this.cmbClientes.removeAllItems();
-                CargarCmbCliente();
+                //this.cmbClientes.removeAllItems();
+                //CargarCmbCliente();
                 this.cmbFacturas.removeAllItems();
                 CargarCmbFacturas();
 
@@ -864,7 +804,6 @@ public class Facturas_Entrada extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaObservaciones;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscar1;
     private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnEditar;
@@ -872,7 +811,6 @@ public class Facturas_Entrada extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnStart;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JComboBox cmbFacturas;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -898,7 +836,6 @@ public class Facturas_Entrada extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelFondo;

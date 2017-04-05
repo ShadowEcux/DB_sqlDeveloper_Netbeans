@@ -128,7 +128,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-
+ 
         usuarios usu = new usuarios();
         usu.setNombre(txtNombreUsuario.getText());
         usu.setPassword(txtPassword.getText());
@@ -142,15 +142,17 @@ public class Interfaz_Admin extends javax.swing.JFrame {
                 int tipo = rs.getInt("Tipo_Usuario");
                 if (tipo == 1) {
 
-                    dispose();
                     new Principal_Admin().setVisible(true);
                     dispose();
+                    this.setVisible(false);
+                    
                 }
 
                 if (tipo == 3) {
 
                     new Principal_Oper().setVisible(true);
                     dispose();
+                    this.setVisible(false);
                 }
 
             } else {

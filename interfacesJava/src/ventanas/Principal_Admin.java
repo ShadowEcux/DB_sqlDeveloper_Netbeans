@@ -26,6 +26,10 @@ public class Principal_Admin extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - PRINCIPAL");
         
+        this.jLabel1.add(this.lblonline);
+        usuarios usu = new usuarios();
+        this.lblonline.setText("Conectado: "+usu.getNombre());
+        
     }
     
     public Image getIconImage() {
@@ -50,6 +54,7 @@ public class Principal_Admin extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         btnUsuarios = new javax.swing.JButton();
+        lblonline = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,7 +69,7 @@ public class Principal_Admin extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,8 +118,11 @@ public class Principal_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 130, 40));
 
+        lblonline.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblonline, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 224, 130, 20));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima_2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 240));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -207,5 +215,6 @@ public class Principal_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel lblonline;
     // End of variables declaration//GEN-END:variables
 }

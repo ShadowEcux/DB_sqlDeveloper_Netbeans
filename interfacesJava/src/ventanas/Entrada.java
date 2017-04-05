@@ -51,7 +51,7 @@ public class Entrada extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENTRADA");
         CargarCmbCliente();
-        CargarCmbFacturas();
+       //CargarCmbFacturas();
     }
 
     public void CargarCmbCliente() {
@@ -65,7 +65,7 @@ public class Entrada extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-
+/*
     public void CargarCmbFacturas() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
@@ -77,6 +77,7 @@ public class Entrada extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -90,7 +91,6 @@ public class Entrada extends javax.swing.JFrame {
         btnSalir1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel6 = new javax.swing.JLabel();
         cmbClientes = new javax.swing.JComboBox();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
@@ -154,8 +154,6 @@ public class Entrada extends javax.swing.JFrame {
         btnDescartar = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
-        cmbFacturas = new javax.swing.JComboBox();
-        btnBuscar1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         btnFacturas = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
@@ -179,11 +177,6 @@ public class Entrada extends javax.swing.JFrame {
         jLabel2.setText("Formato De Entrada");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 270, 10));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 255, 153));
-        jLabel6.setText("FACTURAS");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 70, 20));
 
         cmbClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -438,23 +431,6 @@ public class Entrada extends javax.swing.JFrame {
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
         getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 10, 90));
         getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 100, 10));
-
-        cmbFacturas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbFacturasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 160, -1));
-
-        btnBuscar1.setBackground(new java.awt.Color(153, 204, 255));
-        btnBuscar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBuscar1.setText("Buscar");
-        btnBuscar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, 20));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 255, 153));
@@ -855,9 +831,9 @@ public class Entrada extends javax.swing.JFrame {
                 txtPersonaRemitente.setText("");
                 txtFecha.setDateFormatString("");
                 this.cmbClientes.removeAllItems();
-                this.cmbFacturas.removeAllItems();
+                //this.cmbFacturas.removeAllItems();
                 CargarCmbCliente();
-                CargarCmbFacturas();
+                //CargarCmbFacturas();
                 txtElemento.requestFocus();
             } catch (Exception e) {
                 System.err.println("error" + e);
@@ -950,60 +926,6 @@ public class Entrada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void cmbFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFacturasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbFacturasActionPerformed
-
-    private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
-
-        //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
-        try {
-
-            String guardar = cmbFacturas.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
-            pst.setString(1, guardar);
-            //pst.setString(1, CMBID.getName());
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-
-                txtFecha.setToolTipText(rs.getString("FECHA").trim());
-                txtElemento.setText(rs.getString("ELEMENTO").trim());
-                txtPotencia.setText(rs.getString("POTENCIA").trim());
-                txtMarca.setText(rs.getString("MARCA").trim());
-                txtModelo.setText(rs.getString("MODELO").trim());
-                txtSerie.setText(rs.getString("SERIE").trim());
-                txtEmpresa.setText(rs.getString("EMPRESA").trim());
-                txtNitCliente.setText(rs.getString("NIT").trim());
-                txtPersonaRemitente.setText(rs.getString("PERSONA_REMITE").trim());
-                txtCiudadCliente.setText(rs.getString("CIUDAD").trim());
-                txtDireccionCliente.setText(rs.getString("DIRECCION").trim());
-                txtContactoCliente.setText(rs.getString("NOMBRE_CONTACTO").trim());
-                txtTelefonoCliente.setText(rs.getString("TELEFONO_CONTACTO").trim());
-                txtCorreoCliente.setText(rs.getString("CORREO").trim());
-                txtMotivo.setText(rs.getString("MOTIVO").trim());
-
-                txtCorreoCliente.setText(rs.getString("correocliente").trim());
-                txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
-                txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
-                txtDireccionCliente.setText(rs.getString("direccioncliente").trim());
-                txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
-                txtCorreoCliente.setText(rs.getString("correocliente").trim());
-                txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
-
-                //pst.setString(1, CMBID.getName());
-                //String guardar = txtBuscar.getText();
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el usuario");
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscar1ActionPerformed
-
     private void btnFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasActionPerformed
 
         Facturas_Entrada obj = new Facturas_Entrada();
@@ -1054,7 +976,6 @@ public class Entrada extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaObservaciones;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnBuscar1;
     private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnFacturas;
     private javax.swing.JButton btnGuardar;
@@ -1065,7 +986,6 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JComboBox cmbClientes;
     private javax.swing.JComboBox cmbConectorOriginal;
     private javax.swing.JComboBox cmbEstadoCarcasa;
-    private javax.swing.JComboBox cmbFacturas;
     private javax.swing.JComboBox cmbGarantia;
     private javax.swing.JComboBox cmbParrilla;
     private javax.swing.JComboBox cmbTarjetaDeRed;
@@ -1092,7 +1012,6 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

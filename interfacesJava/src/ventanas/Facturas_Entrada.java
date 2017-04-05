@@ -816,8 +816,8 @@ public class Facturas_Entrada extends javax.swing.JFrame {
 
         btnEditar.setEnabled(true);
         btnEliminar.setEnabled(true);
-        
-// TODO add your handling code here:
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnStartActionPerformed
 
     /**

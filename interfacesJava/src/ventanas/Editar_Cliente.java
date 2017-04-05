@@ -95,7 +95,6 @@ public class Editar_Cliente extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         btnSalir1 = new javax.swing.JButton();
         btnVolver1 = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla_clientes = new javax.swing.JTable();
         brnListar = new javax.swing.JButton();
@@ -117,6 +116,8 @@ public class Editar_Cliente extends javax.swing.JFrame {
         cmbClientes = new javax.swing.JComboBox();
         txtID = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        btnEdit = new javax.swing.JButton();
+        btnBusca = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -150,16 +151,6 @@ public class Editar_Cliente extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 70, -1));
 
-        btnEditar.setBackground(new java.awt.Color(153, 204, 255));
-        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 90, 30));
-
         tabla_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -180,15 +171,24 @@ public class Editar_Cliente extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 820, 250));
 
-        brnListar.setBackground(new java.awt.Color(153, 204, 255));
+        brnListar.setBackground(new java.awt.Color(255, 255, 255));
         brnListar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        brnListar.setText("Listar");
+        brnListar.setForeground(new java.awt.Color(255, 255, 255));
+        brnListar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/list.png"))); // NOI18N
+        brnListar.setBorder(null);
+        brnListar.setBorderPainted(false);
+        brnListar.setContentAreaFilled(false);
+        brnListar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        brnListar.setIconTextGap(-1);
+        brnListar.setLabel("Listar");
+        brnListar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        brnListar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         brnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brnListarActionPerformed(evt);
             }
         });
-        getContentPane().add(brnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 90, 30));
+        getContentPane().add(brnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 40, 50));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -240,20 +240,57 @@ public class Editar_Cliente extends javax.swing.JFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 70, 20));
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 70, 20));
 
         cmbClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbClientesActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 250, -1));
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 250, -1));
         getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, 70, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("ID");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 160, -1, -1));
+
+        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
+        btnEdit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/edit.png"))); // NOI18N
+        btnEdit.setText("Editar");
+        btnEdit.setBorder(null);
+        btnEdit.setBorderPainted(false);
+        btnEdit.setContentAreaFilled(false);
+        btnEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEdit.setIconTextGap(-1);
+        btnEdit.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEdit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 40, 50));
+
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 40, 50));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 520));
@@ -292,9 +329,36 @@ public class Editar_Cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_brnListarActionPerformed
 
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+    private void tabla_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_clientesMouseClicked
 
-        if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
+        int seleccion = tabla_clientes.getSelectedRow();
+
+        txtID.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 0)));
+        txtNitCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 1)));
+        txtNombreCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 2)));
+        txtTelefonoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 3)));
+        txtDireccionCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 4)));
+        txtCiudadCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 5)));
+        txtCorreoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 6)));
+        txtContactoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 7)));
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_tabla_clientesMouseClicked
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+
+       
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbClientesActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+
+         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
             clientes cli = new clientes();
@@ -344,29 +408,13 @@ public class Editar_Cliente extends javax.swing.JFrame {
                 txtNitCliente.requestFocus();
             }
         }
-
+        
 // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarActionPerformed
+    }//GEN-LAST:event_btnEditActionPerformed
 
-    private void tabla_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_clientesMouseClicked
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
-        int seleccion = tabla_clientes.getSelectedRow();
-
-        txtID.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 0)));
-        txtNitCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 1)));
-        txtNombreCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 2)));
-        txtTelefonoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 3)));
-        txtDireccionCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 4)));
-        txtCiudadCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 5)));
-        txtCorreoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 6)));
-        txtContactoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 7)));
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_tabla_clientesMouseClicked
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
-        try {
+         try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
             Connection cnx = DataBaseConexion.getConnection();
@@ -402,13 +450,9 @@ public class Editar_Cliente extends javax.swing.JFrame {
         txtCiudadCliente.setEnabled(true);
         txtCorreoCliente.setEnabled(true);
         txtContactoCliente.setEnabled(true);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbClientesActionPerformed
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -462,8 +506,9 @@ public class Editar_Cliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brnListar;
+    private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver1;
     private javax.swing.JComboBox cmbClientes;

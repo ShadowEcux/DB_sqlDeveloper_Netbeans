@@ -52,6 +52,8 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         this.setTitle("CPU System Service S.A.S - FACTURAS DE ENTRADA");
         CargarCmbCliente();
         CargarCmbFacturas();
+        btnEditar.setEnabled(false);
+        btnEliminar.setEnabled(false);
     }
 
     public void CargarCmbCliente() {
@@ -153,6 +155,11 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         txtGarantia = new javax.swing.JTextField();
         txtTarjetaRed = new javax.swing.JTextField();
         txtEstadoCarcasa = new javax.swing.JTextField();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
+        btnStart = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -359,7 +366,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 480, 90, 30));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 90, 30));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -380,7 +387,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, 90, 30));
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 90, 30));
 
         btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -430,6 +437,24 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         getContentPane().add(txtGarantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, 60, -1));
         getContentPane().add(txtTarjetaRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 70, -1));
         getContentPane().add(txtEstadoCarcasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 110, -1));
+
+        jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, 10, 80));
+        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 570, 210, 10));
+
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 10, 80));
+        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, 210, 10));
+
+        btnStart.setBackground(new java.awt.Color(153, 255, 153));
+        btnStart.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/start_3.png"))); // NOI18N
+        btnStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 30, 20));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -787,6 +812,14 @@ public class Facturas_Entrada extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscar1ActionPerformed
 
+    private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
+
+        btnEditar.setEnabled(true);
+        btnEliminar.setEnabled(true);
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnStartActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -837,6 +870,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnSalir1;
+    private javax.swing.JButton btnStart;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbClientes;
     private javax.swing.JComboBox cmbFacturas;
@@ -870,11 +904,15 @@ public class Facturas_Entrada extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField txtBasesPlasticas;
     private javax.swing.JTextField txtCiudadCliente;

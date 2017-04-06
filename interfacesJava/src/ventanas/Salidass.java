@@ -5,6 +5,7 @@
  */
 package ventanas;
 
+import clasesPrincipales.Entradas;
 import clasesPrincipales.Salidas;
 import conexionSQLDB.DataBaseConexion;
 import conexionSQLDB.salidaDB;
@@ -36,14 +37,14 @@ import org.apache.poi.hssf.usermodel.HSSFRichTextString;
  *
  * @author CPU_SYS
  */
-public class Salida extends javax.swing.JFrame {
+public class Salidass extends javax.swing.JFrame {
 
-    ArrayList<Salidas> salida;
+    ArrayList<Salidass> salida;
     salidaDB db = new salidaDB();
     /**
      * Creates new form Entrada
      */
-    public Salida() {
+    public Salidass() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - SALIDA");
@@ -387,8 +388,8 @@ public class Salida extends javax.swing.JFrame {
 
     private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
       
-        
-        if (txtEmpresa.getText().equals("") || txtCiudad.getText().equals("") || txtDireccion.getText().equals("") || txtContacto.getText().equals("") || txtTelefono.getText().equals("") || txtCorreo.getText().equals("") || txtEquipo.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || areaComentario.getText().equals("")) {
+       if (txtEmpresa.getText().equals("") || txtCiudad.getText().equals("") || txtDireccion.getText().equals("") || txtContacto.getText().equals("") || txtTelefono.getText().equals("") || txtCorreo.getText().equals("")
+                || txtEquipo.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || areaComentario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
 
@@ -401,7 +402,6 @@ public class Salida extends javax.swing.JFrame {
 
             sal.setFecha(dato);
             sal.setEmpresa(txtEmpresa.getText().toUpperCase());
-            sal.setEmpresa(txtEmpresa.getText().toUpperCase());
             sal.setCiudad(txtCiudad.getText().toUpperCase());
             sal.setDireccion(txtDireccion.getText().toUpperCase());
             sal.setContacto(txtContacto.getText().toUpperCase());
@@ -411,23 +411,18 @@ public class Salida extends javax.swing.JFrame {
             sal.setModelo(txtModelo.getText().toUpperCase());
             sal.setSerie(txtSerie.getText().toUpperCase());
             sal.setComentario(areaComentario.getText().toUpperCase());
-            
+
             try {
                 db.insertarSalida(sal);
                 JOptionPane.showMessageDialog(this, "Factura guardada exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
 
-                txtFecha.setDateFormatString("");
+            
                 txtEmpresa.setText("");
-                txtCiudad.setText("");
-                txtDireccion.setText("");
-                txtContacto.setText("");
-                txtTelefono.setText("");
-                txtCorreo.setText("");
-                txtEquipo.setText("");
+            
                 txtModelo.setText("");
                 txtSerie.setText("");
-                areaComentario.setText("");
-                
+             
+                txtFecha.setDateFormatString("");
                 this.cmbClientes.removeAllItems();
                 //this.cmbFacturas.removeAllItems();
                 CargarCmbCliente();
@@ -438,89 +433,6 @@ public class Salida extends javax.swing.JFrame {
             }
 
         }
-        
-         /*
-
-        Formatos_Oper obj = new Formatos_Oper();
-
-        if (seleccion) {
-            FileInputStream entrada = null;
-            try {
-                //Leer el archivo de Excel XLS
-                entrada = new FileInputStream(new File(directorio));
-                //Acceso al libro de trabajo
-                HSSFWorkbook xls = new HSSFWorkbook(entrada);
-                //Acceso a la hoja de trabajo
-                HSSFSheet hoja = xls.getSheetAt(0);
-                //Declaracion de fila y celda
-                Row fila = null;
-                Cell celda = null;
-                try {
-                    //Asignando a valores a celdas con valores
-                    fila = hoja.getRow(13);
-                    celda = fila.getCell(6);
-                    HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                    celda.setCellValue(fecha);
-
-                    fila = hoja.getRow(4);
-                    celda = fila.getCell(1);
-                    HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                    celda.setCellValue(elemento);
-
-                    fila = hoja.getRow(4);
-                    celda = fila.getCell(4);
-                    HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                    celda.setCellValue(potencia);
-
-                    fila = hoja.getRow(1);
-
-                    celda = fila.getCell(0);
-                    celda.setCellValue(valor2);
-                    celda = fila.getCell(1);
-                    celda.setCellValue(valor4);
-
-                } catch (NullPointerException NPE) {
-                    //En caso de que las celdas esten vacias hay que crearlas
-
-                    fila = hoja.createRow(13);
-                    celda = fila.createCell(6);
-                    HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                    celda.setCellValue(fecha);
-
-                    fila = hoja.createRow(4);
-                    celda = fila.createCell(1);
-                    HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                    celda.setCellValue(elemento);
-
-                    fila = hoja.createRow(4);
-                    celda = fila.createCell(4);
-                    HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                    celda.setCellValue(potencia);
-
-                }       //Evaluando formulas de todo el libro de excel
-                HSSFFormulaEvaluator.evaluateAllFormulaCells(xls);
-                //Cerrando archivo
-                entrada.close();
-                //Abriendo archivo para escritura
-                FileOutputStream salida = new FileOutputStream(new File(directorio));
-                //write changes
-                xls.write(salida);
-                //close the stream
-                salida.close();
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                try {
-                    entrada.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }       //Evaluando formulas de todo el libro de excel
-        }
-
-        */
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardaActionPerformed
@@ -568,14 +480,38 @@ public class Salida extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Salida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Salidass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Salida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Salidass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Salida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Salidass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Salida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Salidass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -588,7 +524,7 @@ public class Salida extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Salida().setVisible(true);
+                new Salidass().setVisible(true);
             }
         });
     }

@@ -382,7 +382,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-        Salida obj = new Salida();
+        Salidass obj = new Salidass();
         obj.setVisible(true);
         dispose();
 

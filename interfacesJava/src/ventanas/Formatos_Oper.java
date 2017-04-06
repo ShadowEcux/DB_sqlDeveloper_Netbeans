@@ -187,7 +187,7 @@ public class Formatos_Oper extends javax.swing.JFrame {
 
     private void btnSalida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalida1ActionPerformed
 
-        Salida obj = new Salida();
+        Salidass obj = new Salidass();
         obj.setVisible(true);
         dispose();
 

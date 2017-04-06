@@ -189,7 +189,7 @@ public class Formatos_Admin extends javax.swing.JFrame {
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
 
-        Salida obj = new Salida();
+        Salidass obj = new Salidass();
         obj.setVisible(true);
         dispose();
         

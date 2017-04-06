@@ -95,10 +95,8 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         btnSalir1 = new javax.swing.JButton();
         btnVolver1 = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla_clientes = new javax.swing.JTable();
-        brnListar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtNitCliente = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -114,9 +112,11 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtDireccionCliente = new javax.swing.JTextField();
         cmbClientes = new javax.swing.JComboBox();
-        btnBuscar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
+        brnListar1 = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnBusca = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -150,16 +150,6 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 70, -1));
 
-        btnEditar.setBackground(new java.awt.Color(153, 204, 255));
-        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnEditar.setText("Eliminar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 90, 30));
-
         tabla_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -178,17 +168,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla_clientes);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 820, 250));
-
-        brnListar.setBackground(new java.awt.Color(153, 204, 255));
-        brnListar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        brnListar.setText("Listar");
-        brnListar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brnListarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(brnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 90, 30));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 820, 260));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -237,23 +217,69 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
                 cmbClientesActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 250, -1));
-
-        btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 70, 20));
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 250, 30));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("ID");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 160, -1, -1));
         getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 180, 70, -1));
+
+        brnListar1.setBackground(new java.awt.Color(255, 255, 255));
+        brnListar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        brnListar1.setForeground(new java.awt.Color(255, 255, 255));
+        brnListar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/list.png"))); // NOI18N
+        brnListar1.setBorder(null);
+        brnListar1.setBorderPainted(false);
+        brnListar1.setContentAreaFilled(false);
+        brnListar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        brnListar1.setIconTextGap(-1);
+        brnListar1.setLabel("Listar");
+        brnListar1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        brnListar1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        brnListar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brnListar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(brnListar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 40, 50));
+
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
+        btnDelete.setText("Eliminar");
+        btnDelete.setBorder(null);
+        btnDelete.setBorderPainted(false);
+        btnDelete.setContentAreaFilled(false);
+        btnDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDelete.setIconTextGap(-1);
+        btnDelete.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnDelete.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 50, 50));
+
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 40, 40));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 520));
@@ -277,15 +303,35 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_btnVolver1ActionPerformed
 
-    private void brnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnListarActionPerformed
+    private void tabla_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_clientesMouseClicked
+
+        int seleccion = tabla_clientes.getSelectedRow();
+
+        txtID.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 0)));
+        txtNitCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 1)));
+        txtNombreCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 2)));
+        txtTelefonoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 3)));
+        txtDireccionCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 4)));
+        txtCiudadCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 5)));
+        txtCorreoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 6)));
+        txtContactoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 7)));
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_tabla_clientesMouseClicked
+
+    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbClientesActionPerformed
+
+    private void brnListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnListar1ActionPerformed
 
         LimpirTabla();
         ListarDatos();
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_brnListarActionPerformed
+    }//GEN-LAST:event_brnListar1ActionPerformed
 
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
 
         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
@@ -337,27 +383,11 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
                 txtNitCliente.requestFocus();
             }
         }
-
+        
 // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void tabla_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_clientesMouseClicked
-
-        int seleccion = tabla_clientes.getSelectedRow();
-
-        txtID.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 0)));
-        txtNitCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 1)));
-        txtNombreCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 2)));
-        txtTelefonoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 3)));
-        txtDireccionCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 4)));
-        txtCiudadCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 5)));
-        txtCorreoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 6)));
-        txtContactoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 7)));
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_tabla_clientesMouseClicked
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
         try {
 
@@ -389,11 +419,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         }
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbClientesActionPerformed
+    }//GEN-LAST:event_btnBuscaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -462,9 +488,9 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton brnListar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton brnListar1;
+    private javax.swing.JButton btnBusca;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver1;
     private javax.swing.JComboBox cmbClientes;

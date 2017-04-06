@@ -125,7 +125,6 @@ public class Entrada extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
         jLabel23 = new javax.swing.JLabel();
         txtMotivo = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
@@ -144,18 +143,15 @@ public class Entrada extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaObservaciones = new javax.swing.JTextArea();
-        jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
-        btnGuardar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        btnPDF = new javax.swing.JButton();
         txtFecha = new com.toedter.calendar.JDateChooser();
-        btnBuscar = new javax.swing.JButton();
         btnDescartar = new javax.swing.JButton();
-        jSeparator10 = new javax.swing.JSeparator();
-        jSeparator11 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         btnFacturas = new javax.swing.JButton();
+        btnBusca = new javax.swing.JButton();
+        btnPdf = new javax.swing.JButton();
+        btnGuarda = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -176,151 +172,148 @@ public class Entrada extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Formato De Entrada");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 270, 10));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 270, 10));
 
         cmbClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbClientesActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 260, -1));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 150, 10));
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, -1));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 150, 10));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Elemento");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 20));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 20));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Potencia");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 50, 20));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 50, 20));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Modelo");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, 20));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Serie");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, 20));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, 20));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Empresa remitente");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, 20));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 20));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("NIT");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 30, 20));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 30, 20));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Ciudad");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, 20));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, 20));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Nombre");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, 20));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(153, 255, 153));
         jLabel16.setText("DATOS DEL CONTACTO");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 150, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 150, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Garantia");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 50, 20));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 390, 50, 20));
 
         cmbTarjetaDeRed.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbTarjetaDeRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 60, 20));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 750, 10));
-        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 310, 10));
-        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 150, -1));
-        getContentPane().add(txtElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 150, -1));
-        getContentPane().add(txtPotencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 150, -1));
-        getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 180, -1));
-        getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 150, -1));
-        getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 150, -1));
-        getContentPane().add(txtNitCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 150, -1));
-        getContentPane().add(txtPersonaRemitente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 170, -1));
-        getContentPane().add(txtEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 170, -1));
-        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 170, -1));
+        getContentPane().add(cmbTarjetaDeRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 60, 20));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 750, 10));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 310, 10));
+        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 150, -1));
+        getContentPane().add(txtElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 150, -1));
+        getContentPane().add(txtPotencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 150, -1));
+        getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 180, -1));
+        getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, -1));
+        getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 150, -1));
+        getContentPane().add(txtNitCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 150, -1));
+        getContentPane().add(txtPersonaRemitente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 170, -1));
+        getContentPane().add(txtEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 170, -1));
+        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 170, -1));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Persona remitente");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, 20));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 20));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Dirección");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 20));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 20));
 
         txtContactoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContactoClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 190, -1));
+        getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 190, -1));
 
         txtTelefonoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonoClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 150, -1));
+        getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 150, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Correo");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 40, 20));
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 40, 20));
 
         txtCorreoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 200, -1));
+        getContentPane().add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 200, -1));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Telefono");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 50, 20));
-        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 310, 10));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 50, 20));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 310, 10));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(153, 255, 153));
         jLabel22.setText("REVISIÓN DE LA MAQUINA");
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, -1, -1));
-
-        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 450, 10, 90));
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Estado Carcasa");
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, 20));
-        getContentPane().add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 700, -1));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, 20));
+        getContentPane().add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 700, -1));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Marca");
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, 40, 20));
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 40, 20));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(153, 255, 153));
         jLabel25.setText("FECHA");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 40, 20));
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 40, 20));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Motivo");
-        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, 20));
+        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, 20));
 
         cmbGarantia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
         cmbGarantia.addActionListener(new java.awt.event.ActionListener() {
@@ -328,63 +321,52 @@ public class Entrada extends javax.swing.JFrame {
                 cmbGarantiaActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbGarantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, 60, -1));
+        getContentPane().add(cmbGarantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 390, 60, -1));
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Parrilla");
-        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, 20));
+        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, 20));
 
         cmbParrilla.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbParrilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 60, 20));
+        getContentPane().add(cmbParrilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 60, 20));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Bases Plasticas");
-        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 90, 20));
+        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 90, 20));
 
         cmbBasesPlasticas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbBasesPlasticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 60, 20));
+        getContentPane().add(cmbBasesPlasticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 60, 20));
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("Conector original");
-        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, -1, 20));
+        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, 20));
 
         cmbEstadoCarcasa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Buen Estado", "Mal Estado", " ", " " }));
-        getContentPane().add(cmbEstadoCarcasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 110, -1));
+        getContentPane().add(cmbEstadoCarcasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 110, -1));
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("Tarjeta de red");
-        getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, 20));
+        getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, 20));
 
         cmbConectorOriginal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SI", "NO", " " }));
-        getContentPane().add(cmbConectorOriginal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 60, 20));
+        getContentPane().add(cmbConectorOriginal, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 60, 20));
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Observaciones");
-        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, 20));
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, 20));
         getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 240, 10));
 
         areaObservaciones.setColumns(20);
         areaObservaciones.setRows(5);
         jScrollPane1.setViewportView(areaObservaciones);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 520, 80));
-        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 540, 100, 10));
-        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 260, 10));
-
-        btnGuardar.setBackground(new java.awt.Color(153, 204, 255));
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, 80, 30));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 490, 80));
+        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 260, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -396,46 +378,22 @@ public class Entrada extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 570, -1, -1));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 190, -1));
 
-        btnPDF.setBackground(new java.awt.Color(153, 204, 255));
-        btnPDF.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnPDF.setText("PDF");
-        btnPDF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPDFActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 80, 30));
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 190, -1));
-
-        btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 70, 20));
-
-        btnDescartar.setBackground(new java.awt.Color(153, 204, 255));
+        btnDescartar.setBackground(new java.awt.Color(255, 255, 255));
         btnDescartar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnDescartar.setText("DESCARTAR");
+        btnDescartar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/limpiar2.png"))); // NOI18N
         btnDescartar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDescartarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 100, 30));
-
-        jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 10, 90));
-        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 100, 10));
+        getContentPane().add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 40, 40));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 255, 153));
         jLabel7.setText("CLIENTES");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, 20));
 
         btnFacturas.setBackground(new java.awt.Color(153, 255, 153));
         btnFacturas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -445,7 +403,63 @@ public class Entrada extends javax.swing.JFrame {
                 btnFacturasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, 250, 30));
+        getContentPane().add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 250, 30));
+
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 40, -1));
+
+        btnPdf.setBackground(new java.awt.Color(255, 255, 255));
+        btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnPdf.setForeground(new java.awt.Color(255, 255, 255));
+        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf3.png"))); // NOI18N
+        btnPdf.setText("PDF");
+        btnPdf.setBorder(null);
+        btnPdf.setBorderPainted(false);
+        btnPdf.setContentAreaFilled(false);
+        btnPdf.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPdf.setIconTextGap(-1);
+        btnPdf.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnPdf.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPdfActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 50, -1));
+
+        btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGuarda.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuarda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_1.png"))); // NOI18N
+        btnGuarda.setText("Guardar");
+        btnGuarda.setBorder(null);
+        btnGuarda.setBorderPainted(false);
+        btnGuarda.setContentAreaFilled(false);
+        btnGuarda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuarda.setIconTextGap(-1);
+        btnGuarda.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 50, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -477,234 +491,28 @@ public class Entrada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
+    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbClientesActionPerformed
 
-        /*
-         String fecha = txtFecha.getDateFormatString();
-         String elemento = txtElemento.getText();
-         String potencia = txtPotencia.getText();
-         String marca = txtMarca.getText();
-         String modelo = txtModelo.getText();
-         String serie = txtSerie.getText();
-         String nit = txtNit.getText();
-         String empRemite = txtEmpresaRemitente.getText();
-         String ciudad = txtCiudad.getText();
-         String garantia = cmbGarantia.getSelectedItem().toString();
-         String direccion = txtDireccion.getText();
-         String preRemite = txtPersonaRemitente.getText();
-         String nombreContacto = txtNombreContacto.getText();
-         String telefonoContacto = txtTelefonoContacto.getText();
-         String correoContacto = txtCorreoContacto.getText();
-         String motivo = txtMotivo.getText();
-         String tarjetaDeRed = cmbTarjetaDeRed.getSelectedItem().toString();
-         String parrilla = cmbParrilla.getSelectedItem().toString();
-         String basesPals = cmbBasesPlasticas.getSelectedItem().toString();
-         String estadoCarcasa = cmbEstadoCarcasa.getSelectedItem().toString();
-         String conectorOrig = cmbConectorOriginal.getSelectedItem().toString();
-         String observaciones = areaObservaciones.getText();
-        
-         */
-        JFileChooser selector = new JFileChooser();
-        String directorio = "";
-        String extension = "";
-        boolean seleccion = false;
+    private void txtContactoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactoClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactoClienteActionPerformed
 
-        int resultado = selector.showOpenDialog(null);
+    private void txtTelefonoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoClienteActionPerformed
 
-        switch (resultado) {
-            case JFileChooser.APPROVE_OPTION:
-                directorio = selector.getSelectedFile().getPath();
+    private void btnFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasActionPerformed
 
-                int i = directorio.lastIndexOf('.');
-                if (i >= 0) {
-                    extension = directorio.substring(i + 1);
-                }
-
-                seleccion = true;
-
-                JOptionPane.showMessageDialog(null, "Seleccionaste " + directorio);
-                break;
-            case JFileChooser.CANCEL_OPTION:
-                seleccion = false;
-                JOptionPane.showMessageDialog(null, "No seleccionaste nada.");
-                break;
-            case JFileChooser.ERROR_OPTION:
-                seleccion = false;
-                JOptionPane.showMessageDialog(null, "Ocurrio un Error.");
-                break;
-            default:
-                break;
-        }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if (seleccion) {
-
-            switch (extension) {
-                case "xls": {
-                    FileInputStream entrada = null;
-                    try {
-                        //Leer el archivo de Excel XLS
-                        entrada = new FileInputStream(new File(directorio));
-                        //Acceso al libro de trabajo
-                        HSSFWorkbook xls = new HSSFWorkbook(entrada);
-                        //Acceso a la hoja de trabajo
-                        HSSFSheet hoja = xls.getSheetAt(0);
-                        //Declaracion de fila y celda
-                        Row fila = null;
-                        Cell celda = null;
-                        try {
-                            //Asignando a valores a celdas con valores
-                            fila = hoja.getRow(13);
-                            celda = fila.getCell(6);
-                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                            celda.setCellValue(fecha);
-
-                            fila = hoja.getRow(4);
-                            celda = fila.getCell(1);
-                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                            celda.setCellValue(elemento);
-
-                            fila = hoja.getRow(4);
-                            celda = fila.getCell(4);
-                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                            celda.setCellValue(potencia);
-
-                            /*
-                             fila = hoja.getRow(1);
-
-                             celda = fila.getCell(0);
-                             celda.setCellValue(valor2);
-                             celda = fila.getCell(1);
-                             celda.setCellValue(valor4);
-                             */
-                        } catch (NullPointerException NPE) {
-                            //En caso de que las celdas esten vacias hay que crearlas
-
-                            fila = hoja.createRow(13);
-                            celda = fila.createCell(6);
-                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                            celda.setCellValue(fecha);
-
-                            fila = hoja.createRow(4);
-                            celda = fila.createCell(1);
-                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                            celda.setCellValue(elemento);
-
-                            fila = hoja.createRow(4);
-                            celda = fila.createCell(4);
-                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                            celda.setCellValue(potencia);
-
-                        }       //Evaluando formulas de todo el libro de excel
-                        HSSFFormulaEvaluator.evaluateAllFormulaCells(xls);
-                        //Cerrando archivo
-                        entrada.close();
-                        //Abriendo archivo para escritura
-                        FileOutputStream salida = new FileOutputStream(new File(directorio));
-                        //write changes
-                        xls.write(salida);
-                        //close the stream
-                        salida.close();
-                        break;
-                    } catch (FileNotFoundException ex) {
-                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (IOException ex) {
-                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                    } finally {
-                        try {
-                            entrada.close();
-                        } catch (IOException ex) {
-                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }       //Evaluando formulas de todo el libro de excel
-                }
-                case "xlsx": {
-                    FileOutputStream salida = null;
-                    try {
-                        //Leer el archivo de Excel XLSX
-                        FileInputStream entrada = null;
-                        try {
-                            entrada = new FileInputStream(new File(directorio));
-                        } catch (FileNotFoundException ex) {
-                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        //Acceso al libro de trabajo
-                        XSSFWorkbook xlsx = null;
-                        try {
-                            xlsx = new XSSFWorkbook(entrada);
-                        } catch (IOException ex) {
-                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        //Acceso a la hoja de trabajo
-                        XSSFSheet hoja = xlsx.getSheetAt(0);
-                        //Declaracion de fila y celda
-                        Row fila = null;
-                        Cell celda = null;
-                        try {
-                            //Asignando a valores a celdas con valores
-                            fila = hoja.getRow(13);
-                            celda = fila.getCell(6);
-                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                            celda.setCellValue(fecha);
-
-                            fila = hoja.getRow(4);
-                            celda = fila.getCell(1);
-                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                            celda.setCellValue(elemento);
-
-                            fila = hoja.getRow(4);
-                            celda = fila.getCell(4);
-                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                            celda.setCellValue(potencia);
-
-                        } catch (NullPointerException NPE) {
-                            //En caso de que las celdas esten vacias hay que crearlas
-
-                            fila = hoja.createRow(13);
-                            celda = fila.createCell(6);
-                            HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-                            celda.setCellValue(fecha);
-
-                            fila = hoja.createRow(4);
-                            celda = fila.createCell(1);
-                            HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-                            celda.setCellValue(elemento);
-
-                            fila = hoja.createRow(4);
-                            celda = fila.createCell(4);
-                            HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-                            celda.setCellValue(potencia);
-
-                        }       //Evaluando formulas de todo el libro de excel
-                        XSSFFormulaEvaluator.evaluateAllFormulaCells(xlsx);
-                        //Cerrando la entrada archivo
-                        entrada.close();
-                        //Abriendo archivo para escritura
-                        salida = new FileOutputStream(new File(directorio));
-                        //write changes
-                        xlsx.write(salida);
-                        //close the stream
-                        salida.close();
-                        break;
-                    } catch (FileNotFoundException ex) {
-                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (IOException ex) {
-                        Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                    } finally {
-                        try {
-                            salida.close();
-                        } catch (IOException ex) {
-                            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
-            }
-        }
+        Facturas_Entrada obj = new Facturas_Entrada();
+        obj.setVisible(true);
+        dispose();
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_btnPDFActionPerformed
+    }//GEN-LAST:event_btnFacturasActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
         try {
 
@@ -735,16 +543,8 @@ public class Entrada extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
 
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbClientesActionPerformed
-
-    private void txtContactoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactoClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContactoClienteActionPerformed
+    }//GEN-LAST:event_btnBuscaActionPerformed
 
     private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
 
@@ -769,11 +569,11 @@ public class Entrada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDescartarActionPerformed
 
-    private void txtTelefonoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoClienteActionPerformed
+    private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoClienteActionPerformed
+    }//GEN-LAST:event_btnPdfActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
 
         if (txtFecha.getDateFormatString().equals("") || txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
                 || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
@@ -840,100 +640,9 @@ public class Entrada extends javax.swing.JFrame {
             }
 
         }
-
-        /*
-
-         Formatos_Oper obj = new Formatos_Oper();
-
-         if (seleccion) {
-         FileInputStream entrada = null;
-         try {
-         //Leer el archivo de Excel XLS
-         entrada = new FileInputStream(new File(directorio));
-         //Acceso al libro de trabajo
-         HSSFWorkbook xls = new HSSFWorkbook(entrada);
-         //Acceso a la hoja de trabajo
-         HSSFSheet hoja = xls.getSheetAt(0);
-         //Declaracion de fila y celda
-         Row fila = null;
-         Cell celda = null;
-         try {
-         //Asignando a valores a celdas con valores
-         fila = hoja.getRow(13);
-         celda = fila.getCell(6);
-         HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-         celda.setCellValue(fecha);
-
-         fila = hoja.getRow(4);
-         celda = fila.getCell(1);
-         HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-         celda.setCellValue(elemento);
-
-         fila = hoja.getRow(4);
-         celda = fila.getCell(4);
-         HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-         celda.setCellValue(potencia);
-
-         fila = hoja.getRow(1);
-
-         celda = fila.getCell(0);
-         celda.setCellValue(valor2);
-         celda = fila.getCell(1);
-         celda.setCellValue(valor4);
-
-         } catch (NullPointerException NPE) {
-         //En caso de que las celdas esten vacias hay que crearlas
-
-         fila = hoja.createRow(13);
-         celda = fila.createCell(6);
-         HSSFRichTextString fecha = new HSSFRichTextString(txtFecha.getDateFormatString());
-         celda.setCellValue(fecha);
-
-         fila = hoja.createRow(4);
-         celda = fila.createCell(1);
-         HSSFRichTextString elemento = new HSSFRichTextString(txtElemento.getText());
-         celda.setCellValue(elemento);
-
-         fila = hoja.createRow(4);
-         celda = fila.createCell(4);
-         HSSFRichTextString potencia = new HSSFRichTextString(txtPotencia.getText());
-         celda.setCellValue(potencia);
-
-         }       //Evaluando formulas de todo el libro de excel
-         HSSFFormulaEvaluator.evaluateAllFormulaCells(xls);
-         //Cerrando archivo
-         entrada.close();
-         //Abriendo archivo para escritura
-         FileOutputStream salida = new FileOutputStream(new File(directorio));
-         //write changes
-         xls.write(salida);
-         //close the stream
-         salida.close();
-         } catch (FileNotFoundException ex) {
-         Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-         } catch (IOException ex) {
-         Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-         } finally {
-         try {
-         entrada.close();
-         } catch (IOException ex) {
-         Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         }       //Evaluando formulas de todo el libro de excel
-         }
-
-         */
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void btnFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasActionPerformed
-
-        Facturas_Entrada obj = new Facturas_Entrada();
-        obj.setVisible(true);
-        dispose();
-
+        
 // TODO add your handling code here:
-    }//GEN-LAST:event_btnFacturasActionPerformed
+    }//GEN-LAST:event_btnGuardaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -975,11 +684,11 @@ public class Entrada extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaObservaciones;
-    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnFacturas;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnPDF;
+    private javax.swing.JButton btnGuarda;
+    private javax.swing.JButton btnPdf;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbBasesPlasticas;
@@ -1018,15 +727,11 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField txtCiudadCliente;
     private javax.swing.JTextField txtContactoCliente;

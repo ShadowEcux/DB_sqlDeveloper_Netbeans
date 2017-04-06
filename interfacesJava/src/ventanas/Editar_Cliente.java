@@ -168,7 +168,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla_clientes);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 820, 250));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 820, 260));
 
         brnListar.setBackground(new java.awt.Color(255, 255, 255));
         brnListar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

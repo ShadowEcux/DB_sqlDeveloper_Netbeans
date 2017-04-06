@@ -141,12 +141,8 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         areaObservaciones = new javax.swing.JTextArea();
         jSeparator9 = new javax.swing.JSeparator();
-        btnEliminar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
-        btnDescartar = new javax.swing.JButton();
         cmbFacturas = new javax.swing.JComboBox();
-        btnBuscar1 = new javax.swing.JButton();
         txtFecha = new javax.swing.JTextField();
         txtParrilla = new javax.swing.JTextField();
         txtBasesPlasticas = new javax.swing.JTextField();
@@ -154,11 +150,15 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         txtGarantia = new javax.swing.JTextField();
         txtTarjetaRed = new javax.swing.JTextField();
         txtEstadoCarcasa = new javax.swing.JTextField();
+        btnBusca = new javax.swing.JButton();
+        btnBusca1 = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JSeparator();
-        jSeparator8 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
-        btnStart = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        btnDescartar = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -179,186 +179,176 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Facturas De Entrada");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 270, 10));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 270, 10));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
         jLabel6.setText("FACTURAS");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 20));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 150, 10));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, 20));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 150, 10));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Elemento");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 20));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 20));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Potencia");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 50, 20));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 50, 20));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Modelo");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, 20));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Serie");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, 20));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, -1, 20));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Empresa remitente");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, 20));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 20));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("NIT");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 30, 20));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 30, 20));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Ciudad");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, 20));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, 20));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Nombre");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, 20));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(153, 255, 153));
         jLabel16.setText("DATOS DEL CONTACTO");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 150, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 150, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Garantia");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 50, 20));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 750, 10));
-        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 310, 10));
-        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 140, -1));
-        getContentPane().add(txtElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 200, -1));
-        getContentPane().add(txtPotencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 140, -1));
-        getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 180, -1));
-        getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 200, -1));
-        getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 140, -1));
-        getContentPane().add(txtNitCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 140, -1));
-        getContentPane().add(txtPersonaRemitente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 170, -1));
-        getContentPane().add(txtEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 170, -1));
-        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 170, -1));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 50, 20));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 750, 10));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 310, 10));
+        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 140, -1));
+        getContentPane().add(txtElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 200, -1));
+        getContentPane().add(txtPotencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 140, -1));
+        getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 180, -1));
+        getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 200, -1));
+        getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 140, -1));
+        getContentPane().add(txtNitCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 140, -1));
+        getContentPane().add(txtPersonaRemitente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 170, -1));
+        getContentPane().add(txtEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 170, -1));
+        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 170, -1));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Persona remitente");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, 20));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 20));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Dirección");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 20));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 20));
 
         txtContactoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContactoClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 200, -1));
+        getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 200, -1));
 
         txtTelefonoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonoClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 150, -1));
+        getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 150, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Correo");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 40, 20));
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 40, 20));
 
         txtCorreoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 200, -1));
+        getContentPane().add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 200, -1));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Telefono");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 50, 20));
-        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 310, 10));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 50, 20));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 310, 10));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(153, 255, 153));
         jLabel22.setText("REVISIÓN DE LA MAQUINA");
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, -1, -1));
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Estado Carcasa");
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, -1, 20));
-        getContentPane().add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 700, -1));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, -1, 20));
+        getContentPane().add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 700, -1));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Marca");
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, 40, 20));
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 40, 20));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(153, 255, 153));
         jLabel25.setText("FECHA");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 40, 20));
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 40, 20));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Motivo");
-        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, 20));
+        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, 20));
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Parrilla");
-        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, -1, 20));
+        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, 20));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Bases Plasticas");
-        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 90, 20));
+        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 90, 20));
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("Conector original");
-        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, -1, 20));
+        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, -1, 20));
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("Tarjeta de red");
-        getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, -1, 20));
+        getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, -1, 20));
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Observaciones");
-        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, 20));
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, 20));
         getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 240, 10));
 
         areaObservaciones.setColumns(20);
         areaObservaciones.setRows(5);
         jScrollPane1.setViewportView(areaObservaciones);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 330, 80));
-        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 260, 10));
-
-        btnEliminar.setBackground(new java.awt.Color(153, 255, 153));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnEliminar.setText("ELIMINAR");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 90, 30));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 520, 70));
+        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 260, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -371,67 +361,111 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 570, -1, -1));
 
-        btnEditar.setBackground(new java.awt.Color(153, 255, 153));
-        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnEditar.setText("EDITAR");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, 90, 30));
-
-        btnDescartar.setBackground(new java.awt.Color(153, 204, 255));
-        btnDescartar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnDescartar.setText("DESCARTAR");
-        btnDescartar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDescartarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 100, 30));
-
         cmbFacturas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbFacturasActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 160, -1));
+        getContentPane().add(cmbFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 250, -1));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 190, -1));
+        getContentPane().add(txtParrilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 60, -1));
+        getContentPane().add(txtBasesPlasticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 60, -1));
+        getContentPane().add(txtConector, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 60, -1));
+        getContentPane().add(txtGarantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, 60, -1));
+        getContentPane().add(txtTarjetaRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 110, -1));
+        getContentPane().add(txtEstadoCarcasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 410, 110, -1));
 
-        btnBuscar1.setBackground(new java.awt.Color(153, 204, 255));
-        btnBuscar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBuscar1.setText("Buscar");
-        btnBuscar1.addActionListener(new java.awt.event.ActionListener() {
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscar1ActionPerformed(evt);
+                btnBuscaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, 20));
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 190, -1));
-        getContentPane().add(txtParrilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 60, -1));
-        getContentPane().add(txtBasesPlasticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 60, -1));
-        getContentPane().add(txtConector, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 400, 60, -1));
-        getContentPane().add(txtGarantia, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, 60, -1));
-        getContentPane().add(txtTarjetaRed, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 70, -1));
-        getContentPane().add(txtEstadoCarcasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 110, -1));
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 40, 40));
+
+        btnBusca1.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca1.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/juega.png"))); // NOI18N
+        btnBusca1.setBorder(null);
+        btnBusca1.setBorderPainted(false);
+        btnBusca1.setContentAreaFilled(false);
+        btnBusca1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca1.setIconTextGap(-1);
+        btnBusca1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusca1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, 30, 30));
+
+        btnEditar.setBackground(new java.awt.Color(255, 255, 255));
+        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEditar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/edit.png"))); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.setBorder(null);
+        btnEditar.setBorderPainted(false);
+        btnEditar.setContentAreaFilled(false);
+        btnEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEditar.setIconTextGap(-1);
+        btnEditar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 510, 40, 50));
+
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorder(null);
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEliminar.setIconTextGap(-1);
+        btnEliminar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 50, 50));
 
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, 10, 80));
-        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 570, 210, 10));
+        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 10, 70));
+        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 150, 10));
 
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 10, 80));
-        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, 210, 10));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, 10, 70));
+        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, 150, 10));
 
-        btnStart.setBackground(new java.awt.Color(153, 255, 153));
-        btnStart.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/start_3.png"))); // NOI18N
-        btnStart.addActionListener(new java.awt.event.ActionListener() {
+        btnDescartar.setBackground(new java.awt.Color(255, 255, 255));
+        btnDescartar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnDescartar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/limpiar2.png"))); // NOI18N
+        btnDescartar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStartActionPerformed(evt);
+                btnDescartarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 30, 20));
+        getContentPane().add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 40, 40));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -458,6 +492,75 @@ public class Facturas_Entrada extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void txtContactoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactoClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactoClienteActionPerformed
+
+    private void txtTelefonoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoClienteActionPerformed
+
+    private void cmbFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFacturasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbFacturasActionPerformed
+
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
+
+        //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
+        try {
+
+            String guardar = cmbFacturas.getSelectedItem().toString();
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            PreparedStatement pst = cnx.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                txtFecha.setText(rs.getString("FECHA").trim());
+                txtElemento.setText(rs.getString("ELEMENTO").trim());
+                txtPotencia.setText(rs.getString("POTENCIA").trim());
+                txtMarca.setText(rs.getString("MARCA").trim());
+                txtModelo.setText(rs.getString("MODELO").trim());
+                txtSerie.setText(rs.getString("SERIE").trim());
+                txtEmpresa.setText(rs.getString("EMPRESA").trim());
+                txtNitCliente.setText(rs.getString("NIT").trim());
+                txtPersonaRemitente.setText(rs.getString("PERSONA_REMITE").trim());
+                txtCiudadCliente.setText(rs.getString("CIUDAD").trim());
+                txtDireccionCliente.setText(rs.getString("DIRECCION").trim());
+                txtContactoCliente.setText(rs.getString("NOMBRE_CONTACTO").trim());
+                txtTelefonoCliente.setText(rs.getString("TELEFONO_CONTACTO").trim());
+                txtCorreoCliente.setText(rs.getString("CORREO").trim());
+                txtMotivo.setText(rs.getString("MOTIVO").trim());
+                txtTarjetaRed.setText(rs.getString("TARJETA_RED").trim());
+                txtParrilla.setText(rs.getString("PARRILLA").trim());
+                txtBasesPlasticas.setText(rs.getString("BASES_PLASTICAS").trim());
+                txtConector.setText(rs.getString("CONECTOR_ORIGI").trim());
+                txtGarantia.setText(rs.getString("GARANTIA").trim());
+                txtEstadoCarcasa.setText(rs.getString("ESTADO_CARCASA").trim());
+                areaObservaciones.setText(rs.getString("OBSERVACIONES").trim());
+
+                //pst.setString(1, CMBID.getName());
+                //String guardar = txtBuscar.getText();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el usuario");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscaActionPerformed
+
+    private void btnBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca1ActionPerformed
+
+        btnEditar.setEnabled(true);
+        btnEliminar.setEnabled(true);
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnBusca1ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
@@ -556,47 +659,9 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 txtElemento.requestFocus();
             }
         }
-
+        
 // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void txtContactoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactoClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContactoClienteActionPerformed
-
-    private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
-
-        txtNitCliente.setText("");
-        txtEmpresa.setText("");
-        txtTelefonoCliente.setText("");
-        txtDireccionCliente.setText("");
-        txtCiudadCliente.setText("");
-        txtCorreoCliente.setText("");
-        txtContactoCliente.setText("");
-        txtElemento.setText("");
-        txtPotencia.setText("");
-        txtMarca.setText("");
-        txtModelo.setText("");
-        txtSerie.setText("");
-        txtMotivo.setText("");
-        areaObservaciones.setText("");
-        txtPersonaRemitente.setText("");
-        txtFecha.setText("");
-        txtTarjetaRed.setText("");
-        txtParrilla.setText("");
-        txtBasesPlasticas.setText("");
-        txtConector.setText("");
-        txtGarantia.setText("");
-        txtEstadoCarcasa.setText("");
-        areaObservaciones.setText("");
-        txtElemento.requestFocus();
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDescartarActionPerformed
-
-    private void txtTelefonoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoClienteActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
@@ -695,70 +760,39 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 txtElemento.requestFocus();
             }
         }
-
-        // TODO add your handling code here:
+        
+// TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void cmbFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFacturasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbFacturasActionPerformed
+    private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
 
-    private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
-
-        //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
-        try {
-
-            String guardar = cmbFacturas.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
-            pst.setString(1, guardar);
-            //pst.setString(1, CMBID.getName());
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-
-                txtFecha.setText(rs.getString("FECHA").trim());
-                txtElemento.setText(rs.getString("ELEMENTO").trim());
-                txtPotencia.setText(rs.getString("POTENCIA").trim());
-                txtMarca.setText(rs.getString("MARCA").trim());
-                txtModelo.setText(rs.getString("MODELO").trim());
-                txtSerie.setText(rs.getString("SERIE").trim());
-                txtEmpresa.setText(rs.getString("EMPRESA").trim());
-                txtNitCliente.setText(rs.getString("NIT").trim());
-                txtPersonaRemitente.setText(rs.getString("PERSONA_REMITE").trim());
-                txtCiudadCliente.setText(rs.getString("CIUDAD").trim());
-                txtDireccionCliente.setText(rs.getString("DIRECCION").trim());
-                txtContactoCliente.setText(rs.getString("NOMBRE_CONTACTO").trim());
-                txtTelefonoCliente.setText(rs.getString("TELEFONO_CONTACTO").trim());
-                txtCorreoCliente.setText(rs.getString("CORREO").trim());
-                txtMotivo.setText(rs.getString("MOTIVO").trim());
-                txtTarjetaRed.setText(rs.getString("TARJETA_RED").trim());
-                txtParrilla.setText(rs.getString("PARRILLA").trim());
-                txtBasesPlasticas.setText(rs.getString("BASES_PLASTICAS").trim());
-                txtConector.setText(rs.getString("CONECTOR_ORIGI").trim());
-                txtGarantia.setText(rs.getString("GARANTIA").trim());
-                txtEstadoCarcasa.setText(rs.getString("ESTADO_CARCASA").trim());
-                areaObservaciones.setText(rs.getString("OBSERVACIONES").trim());
-
-                //pst.setString(1, CMBID.getName());
-                //String guardar = txtBuscar.getText();
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el usuario");
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscar1ActionPerformed
-
-    private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-
-        btnEditar.setEnabled(true);
-        btnEliminar.setEnabled(true);
+        txtNitCliente.setText("");
+        txtEmpresa.setText("");
+        txtTelefonoCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtCiudadCliente.setText("");
+        txtCorreoCliente.setText("");
+        txtContactoCliente.setText("");
+        txtElemento.setText("");
+        txtPotencia.setText("");
+        txtMarca.setText("");
+        txtModelo.setText("");
+        txtSerie.setText("");
+        txtMotivo.setText("");
+        areaObservaciones.setText("");
+        txtPersonaRemitente.setText("");
+        txtFecha.setText("");
+        txtTarjetaRed.setText("");
+        txtParrilla.setText("");
+        txtBasesPlasticas.setText("");
+        txtConector.setText("");
+        txtGarantia.setText("");
+        txtEstadoCarcasa.setText("");
+        areaObservaciones.setText("");
+        txtElemento.requestFocus();
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnStartActionPerformed
+    }//GEN-LAST:event_btnDescartarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -804,12 +838,12 @@ public class Facturas_Entrada extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaObservaciones;
-    private javax.swing.JButton btnBuscar1;
+    private javax.swing.JButton btnBusca;
+    private javax.swing.JButton btnBusca1;
     private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnSalir1;
-    private javax.swing.JButton btnStart;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbFacturas;
     private javax.swing.JLabel jLabel10;

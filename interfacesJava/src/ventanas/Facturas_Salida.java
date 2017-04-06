@@ -39,7 +39,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
     public Facturas_Salida() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("CPU System Service S.A.S - SALIDA");
+        this.setTitle("CPU System Service S.A.S - FACTURAS DE SALIDA");
         //CargarCmbCliente();
     }
 

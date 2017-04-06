@@ -112,7 +112,6 @@ public class Editar_Cliente extends javax.swing.JFrame {
         txtCorreoCliente = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtDireccionCliente = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
         cmbClientes = new javax.swing.JComboBox();
         txtID = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -232,22 +231,12 @@ public class Editar_Cliente extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
         getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 150, -1));
 
-        btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 70, 20));
-
         cmbClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbClientesActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 250, -1));
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 250, 30));
         getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, 70, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -290,7 +279,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
                 btnBuscaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 40, 50));
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 40, 40));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 520));
@@ -344,13 +333,6 @@ public class Editar_Cliente extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_tabla_clientesMouseClicked
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
-       
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
         // TODO add your handling code here:
@@ -507,7 +489,6 @@ public class Editar_Cliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brnListar;
     private javax.swing.JButton btnBusca;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver1;

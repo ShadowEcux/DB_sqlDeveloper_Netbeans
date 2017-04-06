@@ -63,8 +63,8 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         btnVolver = new javax.swing.JButton();
+        btnGuarda = new javax.swing.JButton();
         btnDescartar = new javax.swing.JButton();
-        btnGuardar1 = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,7 +74,7 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nuevo Cliente");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 350, 10));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 350, 10));
 
         btnSalir2.setBackground(new java.awt.Color(51, 153, 255));
         btnSalir2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -90,17 +90,17 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contacto");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Telefono");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Ciudad");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,7 +110,7 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Direccion");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,17 +120,17 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Correo");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
-        getContentPane().add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 150, -1));
-        getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 150, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
+        getContentPane().add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 150, -1));
+        getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 150, -1));
         getContentPane().add(txtNitCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 150, -1));
         getContentPane().add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 150, -1));
-        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 150, -1));
-        getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 150, -1));
-        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 150, -1));
+        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 150, -1));
+        getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 150, -1));
+        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 150, -1));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 10, 220));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 10, 190));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 350, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -142,30 +142,39 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
 
-        btnDescartar.setBackground(new java.awt.Color(153, 204, 255));
+        btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGuarda.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuarda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_1.png"))); // NOI18N
+        btnGuarda.setText("Guardar");
+        btnGuarda.setBorder(null);
+        btnGuarda.setBorderPainted(false);
+        btnGuarda.setContentAreaFilled(false);
+        btnGuarda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuarda.setIconTextGap(-1);
+        btnGuarda.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 50, -1));
+
+        btnDescartar.setBackground(new java.awt.Color(255, 255, 255));
         btnDescartar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnDescartar.setText("DESCARTAR");
+        btnDescartar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/limpiar2.png"))); // NOI18N
         btnDescartar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDescartarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, 30));
-
-        btnGuardar1.setBackground(new java.awt.Color(153, 204, 255));
-        btnGuardar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGuardar1.setText("GUARDAR");
-        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 100, 30));
+        getContentPane().add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 40, 40));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2.png"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 350));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,19 +195,21 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
+    private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
 
-        clientes cl = new clientes();
-        cl.setNit_cliente(txtNitCliente.getText().toUpperCase());
-        cl.setNombre_cliente(txtNombreCliente.getText().toUpperCase());
-        cl.setTelefono_cliente(txtTelefonoCliente.getText().toUpperCase());
-        cl.setDireccion_cliente(txtDireccionCliente.getText().toUpperCase());
-        cl.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
-        cl.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
-        cl.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
-        if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
+         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
+
+            clientes cl = new clientes();
+            cl.setNit_cliente(txtNitCliente.getText().toUpperCase());
+            cl.setNombre_cliente(txtNombreCliente.getText().toUpperCase());
+            cl.setTelefono_cliente(txtTelefonoCliente.getText().toUpperCase());
+            cl.setDireccion_cliente(txtDireccionCliente.getText().toUpperCase());
+            cl.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
+            cl.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
+            cl.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
+
             db.insertarClientes(cl);
             JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
             txtNitCliente.setText("");
@@ -208,25 +219,24 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
             txtCiudadCliente.setText("");
             txtCorreoCliente.setText("");
             txtContactoCliente.setText("");
-            txtNitCliente.requestFocus();          
-            
+            txtNitCliente.requestFocus();
+
         }
-    
-        
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardar1ActionPerformed
+         
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardaActionPerformed
 
     private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
 
-            txtNitCliente.setText("");
-            txtNombreCliente.setText("");
-            txtTelefonoCliente.setText("");
-            txtDireccionCliente.setText("");
-            txtCiudadCliente.setText("");
-            txtCorreoCliente.setText("");
-            txtContactoCliente.setText("");
-            txtNitCliente.requestFocus();
-        
+        txtNitCliente.setText("");
+        txtNombreCliente.setText("");
+        txtTelefonoCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtCiudadCliente.setText("");
+        txtCorreoCliente.setText("");
+        txtContactoCliente.setText("");
+        txtNitCliente.requestFocus();
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDescartarActionPerformed
 
@@ -394,7 +404,7 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDescartar;
-    private javax.swing.JButton btnGuardar1;
+    private javax.swing.JButton btnGuarda;
     private javax.swing.JButton btnSalir2;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel2;

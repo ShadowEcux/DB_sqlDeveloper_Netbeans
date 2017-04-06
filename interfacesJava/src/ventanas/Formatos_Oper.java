@@ -59,11 +59,11 @@ public class Formatos_Oper extends javax.swing.JFrame {
 
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        btnEntrada = new javax.swing.JButton();
-        btnSalida = new javax.swing.JButton();
-        btnEnvios = new javax.swing.JButton();
         btnSalir2 = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        btnEntrada1 = new javax.swing.JButton();
+        btnSalida1 = new javax.swing.JButton();
+        btnEnvios1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,36 +75,6 @@ public class Formatos_Oper extends javax.swing.JFrame {
         jLabel2.setText("Formatos");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
 
-        btnEntrada.setBackground(new java.awt.Color(153, 204, 255));
-        btnEntrada.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnEntrada.setText("ENTRADA");
-        btnEntrada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntradaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 140, 40));
-
-        btnSalida.setBackground(new java.awt.Color(153, 204, 255));
-        btnSalida.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnSalida.setText("SALIDA");
-        btnSalida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalidaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 140, 40));
-
-        btnEnvios.setBackground(new java.awt.Color(153, 204, 255));
-        btnEnvios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnEnvios.setText("ENVIOS");
-        btnEnvios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviosActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEnvios, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 140, 40));
-
         btnSalir2.setBackground(new java.awt.Color(51, 153, 255));
         btnSalir2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSalir2.setForeground(new java.awt.Color(255, 255, 255));
@@ -114,7 +84,7 @@ public class Formatos_Oper extends javax.swing.JFrame {
                 btnSalir2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
+        getContentPane().add(btnSalir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -125,10 +95,67 @@ public class Formatos_Oper extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 70, -1));
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 70, -1));
+
+        btnEntrada1.setBackground(new java.awt.Color(255, 255, 255));
+        btnEntrada1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEntrada1.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrada1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/entrad.png"))); // NOI18N
+        btnEntrada1.setText("ENTRADA");
+        btnEntrada1.setBorder(null);
+        btnEntrada1.setBorderPainted(false);
+        btnEntrada1.setContentAreaFilled(false);
+        btnEntrada1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEntrada1.setIconTextGap(-1);
+        btnEntrada1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEntrada1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEntrada1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrada1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEntrada1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 90, 90));
+
+        btnSalida1.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalida1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSalida1.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalida1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salid.png"))); // NOI18N
+        btnSalida1.setText("SALIDA");
+        btnSalida1.setBorder(null);
+        btnSalida1.setBorderPainted(false);
+        btnSalida1.setContentAreaFilled(false);
+        btnSalida1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSalida1.setIconTextGap(-1);
+        btnSalida1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnSalida1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSalida1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalida1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSalida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 90, 90));
+
+        btnEnvios1.setBackground(new java.awt.Color(255, 255, 255));
+        btnEnvios1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEnvios1.setForeground(new java.awt.Color(255, 255, 255));
+        btnEnvios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/envi.png"))); // NOI18N
+        btnEnvios1.setText("ENVIOS");
+        btnEnvios1.setBorder(null);
+        btnEnvios1.setBorderPainted(false);
+        btnEnvios1.setContentAreaFilled(false);
+        btnEnvios1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEnvios1.setIconTextGap(-1);
+        btnEnvios1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEnvios1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEnvios1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnvios1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEnvios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 90, 90));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 270));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 200));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -140,15 +167,6 @@ public class Formatos_Oper extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_btnSalir2ActionPerformed
 
-    private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaActionPerformed
-      
-        Entrada_Oper obj = new Entrada_Oper();
-        obj.setVisible(true);
-        dispose();       
-    
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnEntradaActionPerformed
-
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
         Principal_Oper obj = new Principal_Oper();
@@ -158,13 +176,32 @@ public class Formatos_Oper extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalidaActionPerformed
+    private void btnEntrada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrada1ActionPerformed
 
-    private void btnEnviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviosActionPerformed
+        Entrada_Oper obj = new Entrada_Oper();
+        obj.setVisible(true);
+        dispose(); 
+
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEnviosActionPerformed
+    }//GEN-LAST:event_btnEntrada1ActionPerformed
+
+    private void btnSalida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalida1ActionPerformed
+
+        Salida obj = new Salida();
+        obj.setVisible(true);
+        dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalida1ActionPerformed
+
+    private void btnEnvios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnvios1ActionPerformed
+
+        Envios obj = new Envios();
+        obj.setVisible(true);
+        dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEnvios1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,9 +242,9 @@ public class Formatos_Oper extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEntrada;
-    private javax.swing.JButton btnEnvios;
-    private javax.swing.JButton btnSalida;
+    private javax.swing.JButton btnEntrada1;
+    private javax.swing.JButton btnEnvios1;
+    private javax.swing.JButton btnSalida1;
     private javax.swing.JButton btnSalir2;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;

@@ -64,20 +64,19 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         btnSalir2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         btnVolver = new javax.swing.JButton();
-        btnDescartar = new javax.swing.JButton();
-        btnGuardar1 = new javax.swing.JButton();
         cmbUsuarios = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtPasswordUsuario = new javax.swing.JPasswordField();
+        btnGuarda = new javax.swing.JButton();
+        btnDescartar1 = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,7 +86,6 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nuevo Usuario");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 350, 10));
 
         btnSalir2.setBackground(new java.awt.Color(51, 153, 255));
         btnSalir2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -121,27 +119,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
-
-        btnDescartar.setBackground(new java.awt.Color(153, 204, 255));
-        btnDescartar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnDescartar.setText("DESCARTAR");
-        btnDescartar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDescartarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, 30));
-
-        btnGuardar1.setBackground(new java.awt.Color(153, 204, 255));
-        btnGuardar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGuardar1.setText("GUARDAR");
-        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 100, 30));
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
         cmbUsuarios.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMINISTRADOR", "OPERARIO" }));
         getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, 20));
@@ -162,8 +140,37 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 220, 20));
         getContentPane().add(txtPasswordUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, -1));
 
+        btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGuarda.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuarda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_1.png"))); // NOI18N
+        btnGuarda.setText("Guardar");
+        btnGuarda.setBorder(null);
+        btnGuarda.setBorderPainted(false);
+        btnGuarda.setContentAreaFilled(false);
+        btnGuarda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuarda.setIconTextGap(-1);
+        btnGuarda.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 50, -1));
+
+        btnDescartar1.setBackground(new java.awt.Color(255, 255, 255));
+        btnDescartar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnDescartar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/limpiar2.png"))); // NOI18N
+        btnDescartar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescartar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDescartar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 40, 40));
+
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2.png"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 230));
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 220));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,9 +191,9 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
+    private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
 
-        //usu.setTipoUsuario((cmbUsuarios.getSelectedIndex()));
+       //usu.setTipoUsuario((cmbUsuarios.getSelectedIndex()));
         if (txtNombre.getText().equals("") || txtPasswordUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -211,17 +218,17 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
             txtNombre.requestFocus();
         }
 
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardaActionPerformed
 
-    private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
+    private void btnDescartar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartar1ActionPerformed
 
         txtNombre.setText("");
         txtPasswordUsuario.setText("");
         txtNombre.requestFocus();
 
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnDescartarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDescartar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,8 +273,8 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDescartar;
-    private javax.swing.JButton btnGuardar1;
+    private javax.swing.JButton btnDescartar1;
+    private javax.swing.JButton btnGuarda;
     private javax.swing.JButton btnSalir2;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbUsuarios;
@@ -278,7 +285,6 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelFondo;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JPasswordField txtPasswordUsuario;

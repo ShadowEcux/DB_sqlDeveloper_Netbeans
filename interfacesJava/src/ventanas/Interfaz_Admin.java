@@ -130,8 +130,8 @@ public class Interfaz_Admin extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
  
         usuarios usu = new usuarios();
-        usu.setNombre(txtNombreUsuario.getText());
-        usu.setPassword(txtPassword.getText());
+        usu.setNombre(this.txtNombreUsuario.getText());
+        usu.setPassword(this.txtPassword.getText());
         try {
             Connection cn = DataBaseConexion.getConnection();
             Statement st = cn.createStatement();
@@ -167,35 +167,35 @@ public class Interfaz_Admin extends javax.swing.JFrame {
 
         /*
         
-         String usuario = txtUsuario.getText();
-         String password = txtUsuario.getText();
-        
-         if (usuario.isEmpty()||password.isEmpty()){
-         JOptionPane.showMessageDialog(null, "Ingrese Usuario y contraseña");
-            
-         }else{
-         conexion conectar = new conexion();
-         Statement st = conectar.Conectar();
-            
-         try {
-         ResultSet rs = st.executeQuery("select * from login usuario = '"+usuario+"' and password '"+password+"'");
-         rs.last();
-         int encontrado = rs.getRow();
-         if (encontrado == 1){
-         JOptionPane.showMessageDialog(null, "Usuario y clave correcta", "Usuario y clave correcta", JOptionPane.INFORMATION_MESSAGE);
-         Principal_Admin pl = new Principal_Admin();
-         pl.setVisible(true);
-         hide();
-         }else{
-         txtUsuario.setText("");
-         txtUsuario.setText("");
-         JOptionPane.showMessageDialog(null, "ERROR", "Usuario y clave incorrectos", JOptionPane.INFORMATION_MESSAGE);
-         }
-         } catch (Exception e) {  
-         JOptionPane.showMessageDialog(null, e);
-         }
-            
-         }
+         Cusuario usu=new Cusuario();
+
+      //Cencriptación encrip=new Cencriptación();
+       usu.setUsuario(this.txtusuario.getText());
+       // this.txtcontraseña.setText(encrip.Encriptar(this.txtcontraseña.getText(),3));
+       usu.setContraseña(this.txtcontraseña.getText());
+
+        frm_Principal frm=new frm_Principal();
+
+        if(usu.ValidarUsuario()>0)
+        {
+
+              frm.setVisible(true);
+             this.setVisible(false);
+              if(usu.TipoUsuario()==2)
+        {
+
+             frm.getJMenuBar().getMenu(2).setVisible(false);
+        }
+        }
+
+      else
+        {
+
+            this.lblusuario.setText("Usuario o Contraseña Incorrecta!");
+
+        }
+
+
         
          */
         // TODO add your handling code here:

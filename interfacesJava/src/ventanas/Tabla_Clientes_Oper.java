@@ -90,9 +90,9 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla_clientes = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        brnListar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
         cmbClientes = new javax.swing.JComboBox();
+        brnListar1 = new javax.swing.JButton();
+        btnBusca = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,7 +113,7 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
                 btnSalir1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, -1, -1));
+        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 10, -1, -1));
 
         btnVolver1.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -124,7 +124,7 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
                 btnVolver1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 430, 70, -1));
+        getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 430, 70, -1));
 
         tabla_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -144,37 +144,54 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla_clientes);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 820, 290));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 1020, 300));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 255, 153));
         jLabel2.setText("Nombre del cliente");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        brnListar.setBackground(new java.awt.Color(153, 204, 255));
-        brnListar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        brnListar.setText("Listar");
-        brnListar.addActionListener(new java.awt.event.ActionListener() {
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 330, 30));
+
+        brnListar1.setBackground(new java.awt.Color(255, 255, 255));
+        brnListar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        brnListar1.setForeground(new java.awt.Color(255, 255, 255));
+        brnListar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/list.png"))); // NOI18N
+        brnListar1.setBorder(null);
+        brnListar1.setBorderPainted(false);
+        brnListar1.setContentAreaFilled(false);
+        brnListar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        brnListar1.setIconTextGap(-1);
+        brnListar1.setLabel("Listar");
+        brnListar1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        brnListar1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        brnListar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brnListarActionPerformed(evt);
+                brnListar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(brnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 90, 30));
+        getContentPane().add(brnListar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 40, 50));
 
-        btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+                btnBuscaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 70, 20));
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 40, 40));
 
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 330, 30));
-
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 460));
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/amp-mas.png"))); // NOI18N
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -195,14 +212,6 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_btnVolver1ActionPerformed
 
-    private void brnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnListarActionPerformed
-
-        LimpirTabla();
-        ListarDatos();
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_brnListarActionPerformed
-
     private void tabla_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_clientesMouseClicked
 
         int seleccion = tabla_clientes.getSelectedRow();
@@ -211,9 +220,17 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_tabla_clientesMouseClicked
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void brnListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnListar1ActionPerformed
 
-        try {
+        LimpirTabla();
+        ListarDatos();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_brnListar1ActionPerformed
+
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
+
+       try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
             Connection cnx = DataBaseConexion.getConnection();
@@ -236,30 +253,7 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
                 cliente.add(cl);
                 DefaultTableModel tb = (DefaultTableModel) tabla_clientes.getModel();
                 tb.addRow(new Object[]{cl.getNit_cliente(), cl.getNombre_cliente(), cl.getTelefono_cliente(), cl.getDireccion_cliente(), cl.getCiudad_cliente(), cl.getCorreo_cliente(), cl.getNombre_contacto()});
-                
-
-               // tabla_clientes.add(this, guardar.toString());
-                //tabla_clientes.setValueAt(rs.getString("nitcliente").trim(), 1);
-                //rs.getString("nitcliente").trim()
-               /*         
-                 txtNitCliente.setText(rs.getString("nitcliente").trim());
-                 txtNombreCliente.setText(rs.getString("nombrecliente").trim());
-                 txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
-                 txtDireccionCliente.setText(rs.getString("direccioncliente").trim());
-                 txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
-                 txtCorreoCliente.setText(rs.getString("correocliente").trim());
-                 txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
-
-                 txtNitCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 0)));
-                 txtNombreCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 1)));
-                 txtTelefonoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 2)));
-                 txtDireccionCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 3)));
-                 txtCiudadCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 4)));
-                 txtCorreoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 5)));
-                 txtContactoCliente.setText(String.valueOf(tabla_clientes.getValueAt(seleccion, 6)));
-                 */
-                //pst.setString(1, CMBID.getName());
-                //String guardar = txtBuscar.getText();
+            
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el usuario");
             }
@@ -268,7 +262,7 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
         }
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    }//GEN-LAST:event_btnBuscaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,8 +315,8 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton brnListar;
-    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton brnListar1;
+    private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver1;
     private javax.swing.JComboBox cmbClientes;

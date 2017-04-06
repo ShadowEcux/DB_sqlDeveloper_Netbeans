@@ -101,17 +101,13 @@ public class Salida extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         txtSerie = new javax.swing.JTextField();
         txtFecha = new com.toedter.calendar.JDateChooser();
-        btnBuscar = new javax.swing.JButton();
-        btnDescartar = new javax.swing.JButton();
-        jSeparator11 = new javax.swing.JSeparator();
-        btnPDF = new javax.swing.JButton();
-        jSeparator10 = new javax.swing.JSeparator();
-        jSeparator8 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
-        btnGuardar = new javax.swing.JButton();
-        btnBuscar1 = new javax.swing.JButton();
         cmbFacturas = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
+        btnBusca = new javax.swing.JButton();
+        btnGuarda = new javax.swing.JButton();
+        btnPdf = new javax.swing.JButton();
+        btnBusca1 = new javax.swing.JButton();
+        btnDescartar1 = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -139,7 +135,7 @@ public class Salida extends javax.swing.JFrame {
         jLabel6.setText("CLIENTES");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 20));
 
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 220, -1));
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 210, -1));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 130, 10));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -218,7 +214,7 @@ public class Salida extends javax.swing.JFrame {
         areaComentario.setRows(5);
         jScrollPane1.setViewportView(areaComentario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 310, 100));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 420, 90));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 220, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -251,64 +247,6 @@ public class Salida extends javax.swing.JFrame {
         getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 130, -1));
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 170, 20));
 
-        btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 70, 20));
-
-        btnDescartar.setBackground(new java.awt.Color(153, 204, 255));
-        btnDescartar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnDescartar.setText("DESCARTAR");
-        btnDescartar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDescartarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 100, 30));
-        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 100, 10));
-
-        btnPDF.setBackground(new java.awt.Color(153, 204, 255));
-        btnPDF.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnPDF.setText("PDF");
-        btnPDF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPDFActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, 80, 30));
-
-        jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 10, 90));
-        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 100, 10));
-
-        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 10, 90));
-
-        btnGuardar.setBackground(new java.awt.Color(153, 204, 255));
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 80, 30));
-
-        btnBuscar1.setBackground(new java.awt.Color(153, 204, 255));
-        btnBuscar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBuscar1.setText("Buscar");
-        btnBuscar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, 20));
-
         cmbFacturas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbFacturasActionPerformed(evt);
@@ -320,6 +258,85 @@ public class Salida extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(153, 255, 153));
         jLabel7.setText("FACTURAS");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 70, 20));
+
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 40, -1));
+
+        btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGuarda.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuarda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_1.png"))); // NOI18N
+        btnGuarda.setText("Guardar");
+        btnGuarda.setBorder(null);
+        btnGuarda.setBorderPainted(false);
+        btnGuarda.setContentAreaFilled(false);
+        btnGuarda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuarda.setIconTextGap(-1);
+        btnGuarda.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, 50, -1));
+
+        btnPdf.setBackground(new java.awt.Color(255, 255, 255));
+        btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnPdf.setForeground(new java.awt.Color(255, 255, 255));
+        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf3.png"))); // NOI18N
+        btnPdf.setText("PDF");
+        btnPdf.setBorder(null);
+        btnPdf.setBorderPainted(false);
+        btnPdf.setContentAreaFilled(false);
+        btnPdf.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPdf.setIconTextGap(-1);
+        btnPdf.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnPdf.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 50, -1));
+
+        btnBusca1.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca1.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca1.setBorder(null);
+        btnBusca1.setBorderPainted(false);
+        btnBusca1.setContentAreaFilled(false);
+        btnBusca1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca1.setIconTextGap(-1);
+        btnBusca1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusca1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 40, -1));
+
+        btnDescartar1.setBackground(new java.awt.Color(255, 255, 255));
+        btnDescartar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnDescartar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/limpiar2.png"))); // NOI18N
+        btnDescartar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescartar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDescartar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 40, 40));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 530));
@@ -351,7 +368,11 @@ public class Salida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtModeloActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void cmbFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFacturasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbFacturasActionPerformed
+
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
         try {
 
@@ -381,35 +402,80 @@ public class Salida extends javax.swing.JFrame {
         }
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    }//GEN-LAST:event_btnBuscaActionPerformed
 
-    private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
-
+    private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
       
-        txtNombreCliente.setText("");
-        txtTelefonoCliente.setText("");
-        txtDireccionCliente.setText("");
-        txtCiudadCliente.setText("");
-        txtCorreoCliente.setText("");
-        txtContactoCliente.setText("");
-        txtMotivo.setText("");
-        areaComentario.setText("");
-        txtModelo.setText("");
-        txtSerie.setText("");
-        txtNombreCliente.requestFocus();
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDescartarActionPerformed
-
-    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
-
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPDFActionPerformed
-
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
         /*
+        if (txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
+            || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+
+            Entradas en = new Entradas();
+
+            String formato = txtFecha.getDateFormatString();
+            Date date = txtFecha.getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat(formato);
+            String dato = String.valueOf(sdf.format(date));
+
+            en.setFecha(dato);
+            en.setElemento(txtElemento.getText().toUpperCase());
+            en.setPotencia(txtPotencia.getText().toUpperCase());
+            en.setMarca(txtMarca.getText().toUpperCase());
+            en.setModelo(txtModelo.getText().toUpperCase());
+            en.setSerie(txtSerie.getText().toUpperCase());
+            en.setEmpresa(txtEmpresa.getText().toUpperCase());
+            en.setNit(txtNitCliente.getText().toUpperCase());
+            en.setPersona_remite(txtPersonaRemitente.getText().toUpperCase());
+            en.setCiudad(txtCiudadCliente.getText().toUpperCase());
+            en.setDireccion(txtDireccionCliente.getText().toUpperCase());
+            en.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
+            en.setTelefono_contacto(txtTelefonoCliente.getText().toUpperCase());
+            en.setCorreo(txtCorreoCliente.getText().toUpperCase());
+            en.setMotivo(txtMotivo.getText().toUpperCase());
+            en.setTarjeta_red(cmbTarjetaDeRed.getSelectedItem().toString().toUpperCase());
+            en.setParrilla(cmbParrilla.getSelectedItem().toString().toUpperCase());
+            en.setBases_plasticas(cmbBasesPlasticas.getSelectedItem().toString().toUpperCase());
+            en.setConector_origi(cmbConectorOriginal.getSelectedItem().toString().toUpperCase());
+            en.setGarantia(cmbGarantia.getSelectedItem().toString().toUpperCase());
+            en.setEstado_carcasa(cmbEstadoCarcasa.getSelectedItem().toString().toUpperCase());
+            en.setObservaciones(areaObservaciones.getText().toUpperCase());
+
+            try {
+                db.insertarEntrada(en);
+                JOptionPane.showMessageDialog(this, "Factura guardada exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+
+                txtNitCliente.setText("");
+                txtEmpresa.setText("");
+                txtTelefonoCliente.setText("");
+                txtDireccionCliente.setText("");
+                txtCiudadCliente.setText("");
+                txtCorreoCliente.setText("");
+                txtContactoCliente.setText("");
+                txtElemento.setText("");
+                txtPotencia.setText("");
+                txtMarca.setText("");
+                txtModelo.setText("");
+                txtSerie.setText("");
+                txtMotivo.setText("");
+                areaObservaciones.setText("");
+                txtPersonaRemitente.setText("");
+                txtFecha.setDateFormatString("");
+                this.cmbClientes.removeAllItems();
+                //this.cmbFacturas.removeAllItems();
+                CargarCmbCliente();
+                //CargarCmbFacturas();
+                txtElemento.requestFocus();
+            } catch (Exception e) {
+                System.err.println("error" + e);
+            }
+
+        }/*
+        //////////////////////////////////////////////////////////////////////////////////////////////////
+        */
+        
+         /*
 
         Formatos_Oper obj = new Formatos_Oper();
 
@@ -493,15 +559,75 @@ public class Salida extends javax.swing.JFrame {
         */
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_btnGuardaActionPerformed
 
-    private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscar1ActionPerformed
+    private void btnBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca1ActionPerformed
 
-    private void cmbFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFacturasActionPerformed
+        /*
+        //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
+        try {
+
+            String guardar = cmbFacturas.getSelectedItem().toString();
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            PreparedStatement pst = cnx.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                txtFecha.setText(rs.getString("FECHA").trim());
+                txtElemento.setText(rs.getString("ELEMENTO").trim());
+                txtPotencia.setText(rs.getString("POTENCIA").trim());
+                txtMarca.setText(rs.getString("MARCA").trim());
+                txtModelo.setText(rs.getString("MODELO").trim());
+                txtSerie.setText(rs.getString("SERIE").trim());
+                txtEmpresa.setText(rs.getString("EMPRESA").trim());
+                txtNitCliente.setText(rs.getString("NIT").trim());
+                txtPersonaRemitente.setText(rs.getString("PERSONA_REMITE").trim());
+                txtCiudadCliente.setText(rs.getString("CIUDAD").trim());
+                txtDireccionCliente.setText(rs.getString("DIRECCION").trim());
+                txtContactoCliente.setText(rs.getString("NOMBRE_CONTACTO").trim());
+                txtTelefonoCliente.setText(rs.getString("TELEFONO_CONTACTO").trim());
+                txtCorreoCliente.setText(rs.getString("CORREO").trim());
+                txtMotivo.setText(rs.getString("MOTIVO").trim());
+                txtTarjetaRed.setText(rs.getString("TARJETA_RED").trim());
+                txtParrilla.setText(rs.getString("PARRILLA").trim());
+                txtBasesPlasticas.setText(rs.getString("BASES_PLASTICAS").trim());
+                txtConector.setText(rs.getString("CONECTOR_ORIGI").trim());
+                txtGarantia.setText(rs.getString("GARANTIA").trim());
+                txtEstadoCarcasa.setText(rs.getString("ESTADO_CARCASA").trim());
+                areaObservaciones.setText(rs.getString("OBSERVACIONES").trim());
+
+                //pst.setString(1, CMBID.getName());
+                //String guardar = txtBuscar.getText();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el usuario");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        */
+        
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbFacturasActionPerformed
+    }//GEN-LAST:event_btnBusca1ActionPerformed
+
+    private void btnDescartar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartar1ActionPerformed
+
+        txtNombreCliente.setText("");
+        txtTelefonoCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtCiudadCliente.setText("");
+        txtCorreoCliente.setText("");
+        txtContactoCliente.setText("");
+        txtMotivo.setText("");
+        areaComentario.setText("");
+        txtModelo.setText("");
+        txtSerie.setText("");
+        txtNombreCliente.requestFocus();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDescartar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -547,11 +673,11 @@ public class Salida extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaComentario;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnBuscar1;
-    private javax.swing.JButton btnDescartar;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnPDF;
+    private javax.swing.JButton btnBusca;
+    private javax.swing.JButton btnBusca1;
+    private javax.swing.JButton btnDescartar1;
+    private javax.swing.JButton btnGuarda;
+    private javax.swing.JButton btnPdf;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbClientes;
@@ -575,15 +701,11 @@ public class Salida extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField txtCiudadCliente;
     private javax.swing.JTextField txtContactoCliente;

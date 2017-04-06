@@ -150,7 +150,6 @@ public class Entrada extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         btnFacturas = new javax.swing.JButton();
         btnBusca = new javax.swing.JButton();
-        btnPdf = new javax.swing.JButton();
         btnGuarda = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
@@ -423,25 +422,6 @@ public class Entrada extends javax.swing.JFrame {
         });
         getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 40, -1));
 
-        btnPdf.setBackground(new java.awt.Color(255, 255, 255));
-        btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnPdf.setForeground(new java.awt.Color(255, 255, 255));
-        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf3.png"))); // NOI18N
-        btnPdf.setText("PDF");
-        btnPdf.setBorder(null);
-        btnPdf.setBorderPainted(false);
-        btnPdf.setContentAreaFilled(false);
-        btnPdf.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPdf.setIconTextGap(-1);
-        btnPdf.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnPdf.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnPdf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPdfActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 50, -1));
-
         btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
         btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGuarda.setForeground(new java.awt.Color(255, 255, 255));
@@ -459,7 +439,7 @@ public class Entrada extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 50, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 50, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -569,13 +549,9 @@ public class Entrada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDescartarActionPerformed
 
-    private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPdfActionPerformed
-
     private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
 
-        if (txtFecha.getDateFormatString().equals("") || txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
+        if (txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
                 || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -688,7 +664,6 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnFacturas;
     private javax.swing.JButton btnGuarda;
-    private javax.swing.JButton btnPdf;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbBasesPlasticas;

@@ -96,11 +96,7 @@ public class Usuarios extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla_usuarios = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
         cmbUsuarios = new javax.swing.JComboBox();
-        brnListar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -110,6 +106,10 @@ public class Usuarios extends javax.swing.JFrame {
         btnNuevoUsuario = new javax.swing.JButton();
         txtID = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        brnListar1 = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnBusca = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -141,7 +141,7 @@ public class Usuarios extends javax.swing.JFrame {
                 btnVolver1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 70, -1));
+        getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 460, 70, -1));
 
         tabla_usuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,83 +161,43 @@ public class Usuarios extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla_usuarios);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 510, 190));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 510, 190));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 255, 153));
         jLabel2.setText("Nombre De Usuarios");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
-
-        btnBuscar.setBackground(new java.awt.Color(153, 204, 255));
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 70, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         cmbUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbUsuariosActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 190, 30));
-
-        brnListar.setBackground(new java.awt.Color(153, 204, 255));
-        brnListar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        brnListar.setText("Listar");
-        brnListar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brnListarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(brnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 80, 30));
-
-        btnEliminar.setBackground(new java.awt.Color(153, 204, 255));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 80, 30));
-
-        btnEditar.setBackground(new java.awt.Color(153, 204, 255));
-        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 80, 30));
+        getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 190, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nombre ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 60, -1));
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 150, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 60, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 150, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Password");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 150, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 150, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Tipo");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
         txtTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTipoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txtTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 150, -1));
+        getContentPane().add(txtTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 150, -1));
 
         btnNuevoUsuario.setBackground(new java.awt.Color(153, 204, 255));
         btnNuevoUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -259,13 +219,88 @@ public class Usuarios extends javax.swing.JFrame {
                 btnNuevoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 90, 70));
-        getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 70, -1));
+        getContentPane().add(btnNuevoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 90, 70));
+        getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 70, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("ID");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, -1, -1));
+
+        brnListar1.setBackground(new java.awt.Color(255, 255, 255));
+        brnListar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        brnListar1.setForeground(new java.awt.Color(255, 255, 255));
+        brnListar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/list.png"))); // NOI18N
+        brnListar1.setBorder(null);
+        brnListar1.setBorderPainted(false);
+        brnListar1.setContentAreaFilled(false);
+        brnListar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        brnListar1.setIconTextGap(-1);
+        brnListar1.setLabel("Listar");
+        brnListar1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        brnListar1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        brnListar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brnListar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(brnListar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 40, 50));
+
+        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
+        btnEdit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/edit.png"))); // NOI18N
+        btnEdit.setText("Editar");
+        btnEdit.setBorder(null);
+        btnEdit.setBorderPainted(false);
+        btnEdit.setContentAreaFilled(false);
+        btnEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEdit.setIconTextGap(-1);
+        btnEdit.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEdit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 40, 50));
+
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 40, 40));
+
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
+        btnDelete.setText("Eliminar");
+        btnDelete.setBorder(null);
+        btnDelete.setBorderPainted(false);
+        btnDelete.setContentAreaFilled(false);
+        btnDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDelete.setIconTextGap(-1);
+        btnDelete.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnDelete.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 50, 50));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 490));
@@ -302,41 +337,24 @@ public class Usuarios extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_tabla_usuariosMouseClicked
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
-        try {
-
-            String guardar = cmbUsuarios.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from USUARIOS where NOMBRE_USUARIO = ?");
-            pst.setString(1, guardar);
-            //pst.setString(1, CMBID.getName());
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-
-                txtID.setText(rs.getString("id_usuario").trim());
-                txtNombre.setText(rs.getString("nombre_usuario").trim());
-                txtPassword.setText(rs.getString("password_usuario").trim());
-                txtTipoUsuario.setText(rs.getString("tipo_usuario").trim());
-
-                //pst.setString(1, CMBID.getName());
-                //String guardar = txtBuscar.getText();
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el usuario");
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
     private void cmbUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUsuariosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbUsuariosActionPerformed
 
-    private void brnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnListarActionPerformed
+    private void btnNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoUsuarioActionPerformed
+
+        Nuevo_Usuario obj = new Nuevo_Usuario();
+        obj.setVisible(true);
+        dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
+
+    private void txtTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTipoUsuarioActionPerformed
+
+    private void brnListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnListar1ActionPerformed
 
         txtNombre.setEnabled(true);
         txtPassword.setEnabled(true);
@@ -345,53 +363,9 @@ public class Usuarios extends javax.swing.JFrame {
         ListarDatos();
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_brnListarActionPerformed
+    }//GEN-LAST:event_brnListar1ActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
-        if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            usuarios usu = new usuarios();
-            usu.setId_usuario(Integer.parseInt(txtID.getText()));
-            usu.setNombre(txtNombre.getText());
-            usu.setPassword(txtPassword.getText());
-            usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
-
-            Object[] opciones = {"Aceptar", "Cancelar"};
-            int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea ELIMINAR este registro?", "Mensaje de Confirmacion",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
-            if (eleccion == JOptionPane.YES_OPTION) {
-                db.EliminarUsuario(usu);;
-                JOptionPane.showMessageDialog(this, "Datos ELIMINADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-                LimpirTabla();
-                ListarDatos();
-                this.cmbUsuarios.removeAllItems();
-                CargarCmbUsuarios();
-                txtID.setText("");
-                txtNombre.setText("");
-                txtPassword.setText("");
-                txtTipoUsuario.setText("");
-                txtNombre.requestFocus();
-
-            } else {
-                LimpirTabla();
-                ListarDatos();
-                this.cmbUsuarios.removeAllItems();
-                CargarCmbUsuarios();
-                txtID.setText("");
-                txtNombre.setText("");
-                txtPassword.setText("");
-                txtTipoUsuario.setText("");
-                txtNombre.requestFocus();
-            }
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
 
         if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
@@ -433,20 +407,85 @@ public class Usuarios extends javax.swing.JFrame {
         }
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditarActionPerformed
+    }//GEN-LAST:event_btnEditActionPerformed
 
-    private void btnNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoUsuarioActionPerformed
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
-        Nuevo_Usuario obj = new Nuevo_Usuario();
-        obj.setVisible(true);
-        dispose();
+        try {
+
+            String guardar = cmbUsuarios.getSelectedItem().toString();
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            PreparedStatement pst = cnx.prepareStatement("Select * from USUARIOS where NOMBRE_USUARIO = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                txtID.setText(rs.getString("id_usuario").trim());
+                txtNombre.setText(rs.getString("nombre_usuario").trim());
+                txtPassword.setText(rs.getString("password_usuario").trim());
+                txtTipoUsuario.setText(rs.getString("tipo_usuario").trim());
+
+                txtNombre.setEnabled(true);
+                txtPassword.setEnabled(true);
+                txtTipoUsuario.setEnabled(true);
+
+                //pst.setString(1, CMBID.getName());
+                //String guardar = txtBuscar.getText();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el usuario");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
+    }//GEN-LAST:event_btnBuscaActionPerformed
 
-    private void txtTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoUsuarioActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+
+        if (txtNombre.getText().equals("") || txtPassword.getText().equals("") || txtTipoUsuario.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Selecciones un registro de la tabla", "", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            usuarios usu = new usuarios();
+            usu.setId_usuario(Integer.parseInt(txtID.getText()));
+            usu.setNombre(txtNombre.getText());
+            usu.setPassword(txtPassword.getText());
+            usu.setTipoUsuario(Integer.parseInt(txtTipoUsuario.getText()));
+
+            Object[] opciones = {"Aceptar", "Cancelar"};
+            int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea ELIMINAR este registro?", "Mensaje de Confirmacion",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+            if (eleccion == JOptionPane.YES_OPTION) {
+                db.EliminarUsuario(usu);;
+                JOptionPane.showMessageDialog(this, "Datos ELIMINADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+                LimpirTabla();
+                ListarDatos();
+                this.cmbUsuarios.removeAllItems();
+                CargarCmbUsuarios();
+                txtID.setText("");
+                txtNombre.setText("");
+                txtPassword.setText("");
+                txtTipoUsuario.setText("");
+                txtNombre.requestFocus();
+
+            } else {
+                LimpirTabla();
+                ListarDatos();
+                this.cmbUsuarios.removeAllItems();
+                CargarCmbUsuarios();
+                txtID.setText("");
+                txtNombre.setText("");
+                txtPassword.setText("");
+                txtTipoUsuario.setText("");
+                txtNombre.requestFocus();
+            }
+        }
+
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTipoUsuarioActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -499,10 +538,10 @@ public class Usuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton brnListar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton brnListar1;
+    private javax.swing.JButton btnBusca;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnNuevoUsuario;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver1;

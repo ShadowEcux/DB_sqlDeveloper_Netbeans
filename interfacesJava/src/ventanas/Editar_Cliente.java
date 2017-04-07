@@ -345,13 +345,13 @@ public class Editar_Cliente extends javax.swing.JFrame {
         } else {
             clientes cli = new clientes();
             cli.setId_cliente(Integer.parseInt(txtID.getText()));
-            cli.setNit_cliente(txtNitCliente.getText());
-            cli.setNombre_cliente(txtNombreCliente.getText());
-            cli.setTelefono_cliente(txtTelefonoCliente.getText());
-            cli.setDireccion_cliente(txtDireccionCliente.getText());
-            cli.setCiudad_cliente(txtCiudadCliente.getText());
-            cli.setCorreo_cliente(txtCorreoCliente.getText());
-            cli.setNombre_contacto(txtContactoCliente.getText());
+            cli.setNit_cliente(txtNitCliente.getText().toUpperCase());
+            cli.setNombre_cliente(txtNombreCliente.getText().toUpperCase());
+            cli.setTelefono_cliente(txtTelefonoCliente.getText().toUpperCase());
+            cli.setDireccion_cliente(txtDireccionCliente.getText().toUpperCase());
+            cli.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
+            cli.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
+            cli.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
 
             Object[] opciones = {"Aceptar", "Cancelar"};
             int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",

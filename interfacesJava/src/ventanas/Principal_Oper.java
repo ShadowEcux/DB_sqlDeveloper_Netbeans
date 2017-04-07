@@ -23,10 +23,11 @@ public class Principal_Oper extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - PRINCIPAL");
-        
+        /*
         this.jLabel1.add(this.lblonline);
         usuarios usu = new usuarios();
         this.lblonline.setText("Conectado: "+usu.getNombre());
+        */
     }
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/CPU_new_2.png"));
@@ -49,8 +50,8 @@ public class Principal_Oper extends javax.swing.JFrame {
         btnNuevoCliente = new javax.swing.JButton();
         btnClientes1 = new javax.swing.JButton();
         btnFormatos = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         lblonline = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -130,11 +131,11 @@ public class Principal_Oper extends javax.swing.JFrame {
         });
         getContentPane().add(btnFormatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 90, 90));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima_2.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 270));
-
         lblonline.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(lblonline, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 224, 130, 20));
+        getContentPane().add(lblonline, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 130, 20));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima_2.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 250));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

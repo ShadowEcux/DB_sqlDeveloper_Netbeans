@@ -288,7 +288,7 @@ public class Salidass extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 50, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 50, -1));
 
         btnPdf.setBackground(new java.awt.Color(255, 255, 255));
         btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -302,7 +302,7 @@ public class Salidass extends javax.swing.JFrame {
         btnPdf.setIconTextGap(-1);
         btnPdf.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnPdf.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 50, -1));
+        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 50, -1));
 
         btnDescartar1.setBackground(new java.awt.Color(255, 255, 255));
         btnDescartar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

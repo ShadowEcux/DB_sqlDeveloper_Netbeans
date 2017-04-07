@@ -269,7 +269,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
         btnPdf.setIconTextGap(-1);
         btnPdf.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnPdf.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 50, -1));
+        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, 50, -1));
 
         btnBusca1.setBackground(new java.awt.Color(255, 255, 255));
         btnBusca1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

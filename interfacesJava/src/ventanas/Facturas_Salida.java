@@ -38,7 +38,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
 
     ArrayList<Salidass> salida;
     salidaDB db = new salidaDB();
-    
+
     /**
      * Creates new form Entrada
      */
@@ -53,18 +53,18 @@ public class Facturas_Salida extends javax.swing.JFrame {
     }
 
     /*
-    public void CargarCmbCliente(){
-        try {
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT NOMBRECLIENTE FROM CLIENTES ORDER BY NOMBRECLIENTE ASC");
-            while (rs.next()) {
-                this.cmbClientes.addItem(rs.getString("nombrecliente"));
-            }
-        } catch (Exception e) {
-        }
-    }
-    */
+     public void CargarCmbCliente(){
+     try {
+     Connection cnx = DataBaseConexion.getConnection();
+     Statement st = cnx.createStatement();
+     ResultSet rs = st.executeQuery("SELECT NOMBRECLIENTE FROM CLIENTES ORDER BY NOMBRECLIENTE ASC");
+     while (rs.next()) {
+     this.cmbClientes.addItem(rs.getString("nombrecliente"));
+     }
+     } catch (Exception e) {
+     }
+     }
+     */
     public void CargarCmbEntrada() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
@@ -76,7 +76,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
+
     public void CargarCmbSalidas() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
@@ -88,7 +88,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -126,7 +126,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
         areaComentario = new javax.swing.JTextArea();
         jSeparator9 = new javax.swing.JSeparator();
         btnVolver = new javax.swing.JButton();
-        txtModel = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         txtSerie = new javax.swing.JTextField();
@@ -183,7 +183,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Nombre");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, 20));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(153, 255, 153));
@@ -199,25 +199,25 @@ public class Facturas_Salida extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Dirección");
         getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, 20));
-        getContentPane().add(txtContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 140, -1));
-        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 110, -1));
+        getContentPane().add(txtContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 140, -1));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 110, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Correo");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 40, 20));
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 70, 20));
 
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 180, -1));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 210, -1));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Telefono");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 50, 20));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 50, 20));
         getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 270, 10));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -255,12 +255,12 @@ public class Facturas_Salida extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 500, -1, -1));
 
-        txtModel.addActionListener(new java.awt.event.ActionListener() {
+        txtModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtModelActionPerformed(evt);
+                txtModeloActionPerformed(evt);
             }
         });
-        getContentPane().add(txtModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 150, -1));
+        getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 150, -1));
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
@@ -478,9 +478,9 @@ public class Facturas_Salida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void txtModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModelActionPerformed
+    private void txtModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtModelActionPerformed
+    }//GEN-LAST:event_txtModeloActionPerformed
 
     private void cmbEntradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEntradasActionPerformed
         // TODO add your handling code here:
@@ -488,7 +488,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
 
     private void btnBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca1ActionPerformed
 
-       try {
+        try {
 
             String guardar = cmbSalidas.getSelectedItem().toString();
             Connection cnx = DataBaseConexion.getConnection();
@@ -500,16 +500,16 @@ public class Facturas_Salida extends javax.swing.JFrame {
             if (rs.next()) {
 
                 txtFechaFact.setText(rs.getString("FECHA").trim());
-                txtEmpresa.setText(rs.getString("ELEMENTO").trim());
+                txtEmpresa.setText(rs.getString("EMPRESA").trim());
                 txtCiudad.setText(rs.getString("CIUDAD").trim());
                 txtDireccion.setText(rs.getString("DIRECCION").trim());
-                txtContacto.setText(rs.getString("NOMBRE_CONTACTO").trim());
-                txtTelefono.setText(rs.getString("TELEFONO_CONTACTO").trim());
+                txtContacto.setText(rs.getString("CONTACTO").trim());
+                txtTelefono.setText(rs.getString("TELEFONO").trim());
                 txtCorreo.setText(rs.getString("CORREO").trim());
-                txtEquipo.setText(rs.getString("ELEMENTO"));
-                txtModel.setText(rs.getString("MODELO"));
+                txtEquipo.setText(rs.getString("EQUIPO"));
+                txtModelo.setText(rs.getString("MODELO"));
                 txtSerie.setText(rs.getString("SERIE").trim());
-                areaComentario.setText(rs.getString("OBSERVACIONES").trim());
+                areaComentario.setText(rs.getString("COMENTARIO").trim());
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
@@ -519,12 +519,13 @@ public class Facturas_Salida extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBusca1ActionPerformed
 
     private void btnDescartar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartar1ActionPerformed
 
+        txtFechaFact.setText("");
         txtEmpresa.setText("");
         txtTelefono.setText("");
         txtDireccion.setText("");
@@ -533,7 +534,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
         txtContacto.setText("");
         txtEquipo.setText("");
         areaComentario.setText("");
-        txtModel.setText("");
+        txtModelo.setText("");
         txtSerie.setText("");
         txtEmpresa.requestFocus();
 
@@ -542,206 +543,133 @@ public class Facturas_Salida extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
-        /*
-        if (txtFecha.getText().equals("") || txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
-            || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
+        if (txtEmpresa.getText().equals("") || txtCiudad.getText().equals("") || txtDireccion.getText().equals("") || txtContacto.getText().equals("") || txtTelefono.getText().equals("") || txtCorreo.getText().equals("")
+                || txtEquipo.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || areaComentario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
 
-            Entradas en = new Entradas();
-            en.setId_entrada(Integer.parseInt(cmbFacturas.getSelectedItem().toString()));
-            en.setFecha(txtFecha.getText().toUpperCase());
-            en.setElemento(txtElemento.getText().toUpperCase());
-            en.setPotencia(txtPotencia.getText().toUpperCase());
-            en.setMarca(txtMarca.getText().toUpperCase());
-            en.setModelo(txtModelo.getText().toUpperCase());
-            en.setSerie(txtSerie.getText().toUpperCase());
-            en.setEmpresa(txtEmpresa.getText().toUpperCase());
-            en.setNit(txtNitCliente.getText().toUpperCase());
-            en.setPersona_remite(txtPersonaRemitente.getText().toUpperCase());
-            en.setCiudad(txtCiudadCliente.getText().toUpperCase());
-            en.setDireccion(txtDireccionCliente.getText().toUpperCase());
-            en.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
-            en.setTelefono_contacto(txtTelefonoCliente.getText().toUpperCase());
-            en.setCorreo(txtCorreoCliente.getText().toUpperCase());
-            en.setMotivo(txtMotivo.getText().toUpperCase());
-            en.setTarjeta_red(txtTarjetaRed.getText().toUpperCase());
-            en.setParrilla(txtParrilla.getText().toUpperCase());
-            en.setBases_plasticas(txtBasesPlasticas.getText().toUpperCase());
-            en.setConector_origi(txtConector.getText().toUpperCase());
-            en.setGarantia(txtGarantia.getText().toUpperCase());
-            en.setEstado_carcasa(txtEstadoCarcasa.getText().toUpperCase());
-            en.setObservaciones(areaObservaciones.getText().toUpperCase());
+            Salidas sal = new Salidas();
+            sal.setId_salida(Integer.parseInt(cmbSalidas.getSelectedItem().toString()));
+            sal.setFecha(txtFechaFact.getText().toUpperCase());
+            sal.setEmpresa(txtEmpresa.getText().toUpperCase());
+            sal.setCiudad(txtCiudad.getText().toUpperCase());
+            sal.setDireccion(txtDireccion.getText().toUpperCase());
+            sal.setContacto(txtContacto.getText().toUpperCase());
+            sal.setTelefono(txtTelefono.getText().toUpperCase());
+            sal.setCorreo(txtCorreo.getText().toUpperCase());
+            sal.setEquipo(txtEquipo.getText().toUpperCase());
+            sal.setModelo(txtModelo.getText().toUpperCase());
+            sal.setSerie(txtSerie.getText().toUpperCase());
+            sal.setComentario(areaComentario.getText().toUpperCase());
 
             Object[] opciones = {"Aceptar", "Cancelar"};
-            int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+            int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea ELIMINAR este registro?", "Mensaje de Confirmacion",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
             if (eleccion == JOptionPane.YES_OPTION) {
-                db.EliminarEntrada(en);
+                db.EliminarSalida(sal);
                 JOptionPane.showMessageDialog(this, "Datos ELIMINADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
 
                 //this.cmbClientes.removeAllItems();
                 //CargarCmbCliente();
-                this.cmbFacturas.removeAllItems();
-                CargarCmbFacturas();
+                this.cmbSalidas.removeAllItems();
+                CargarCmbSalidas();
 
-                txtNitCliente.setText("");
+                txtFechaFact.setText("");
                 txtEmpresa.setText("");
-                txtTelefonoCliente.setText("");
-                txtDireccionCliente.setText("");
-                txtCiudadCliente.setText("");
-                txtCorreoCliente.setText("");
-                txtContactoCliente.setText("");
-                txtElemento.setText("");
-                txtPotencia.setText("");
-                txtMarca.setText("");
+                txtTelefono.setText("");
+                txtDireccion.setText("");
+                txtCiudad.setText("");
+                txtCorreo.setText("");
+                txtContacto.setText("");
+                txtEquipo.setText("");
+                areaComentario.setText("");
                 txtModelo.setText("");
                 txtSerie.setText("");
-                txtMotivo.setText("");
-                areaObservaciones.setText("");
-                txtPersonaRemitente.setText("");
-                txtFecha.setText("");
-                txtTarjetaRed.setText("");
-                txtParrilla.setText("");
-                txtBasesPlasticas.setText("");
-                txtConector.setText("");
-                txtGarantia.setText("");
-                txtEstadoCarcasa.setText("");
-                areaObservaciones.setText("");
-                txtElemento.requestFocus();
+                txtEmpresa.requestFocus();
 
             } else {
-                txtNitCliente.setText("");
+                
+                txtFechaFact.setText("");
                 txtEmpresa.setText("");
-                txtTelefonoCliente.setText("");
-                txtDireccionCliente.setText("");
-                txtCiudadCliente.setText("");
-                txtCorreoCliente.setText("");
-                txtContactoCliente.setText("");
-                txtElemento.setText("");
-                txtPotencia.setText("");
-                txtMarca.setText("");
+                txtTelefono.setText("");
+                txtDireccion.setText("");
+                txtCiudad.setText("");
+                txtCorreo.setText("");
+                txtContacto.setText("");
+                txtEquipo.setText("");
+                areaComentario.setText("");
                 txtModelo.setText("");
                 txtSerie.setText("");
-                txtMotivo.setText("");
-                areaObservaciones.setText("");
-                txtPersonaRemitente.setText("");
-                txtFecha.setText("");
-                txtTarjetaRed.setText("");
-                txtParrilla.setText("");
-                txtBasesPlasticas.setText("");
-                txtConector.setText("");
-                txtGarantia.setText("");
-                txtEstadoCarcasa.setText("");
-                areaObservaciones.setText("");
-                txtElemento.requestFocus();
+                txtEmpresa.requestFocus();
             }
         }
-        */
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
-        /*
-        if (txtFecha.getText().equals("") || txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
-            || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
+        if (txtEmpresa.getText().equals("") || txtCiudad.getText().equals("") || txtDireccion.getText().equals("") || txtContacto.getText().equals("") || txtTelefono.getText().equals("") || txtCorreo.getText().equals("")
+                || txtEquipo.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || areaComentario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
 
-            Entradas en = new Entradas();
-            en.setId_entrada(Integer.parseInt(cmbFacturas.getSelectedItem().toString()));
-            en.setFecha(txtFecha.getText().toUpperCase());
-            en.setElemento(txtElemento.getText().toUpperCase());
-            en.setPotencia(txtPotencia.getText().toUpperCase());
-            en.setMarca(txtMarca.getText().toUpperCase());
-            en.setModelo(txtModelo.getText().toUpperCase());
-            en.setSerie(txtSerie.getText().toUpperCase());
-            en.setEmpresa(txtEmpresa.getText().toUpperCase());
-            en.setNit(txtNitCliente.getText().toUpperCase());
-            en.setPersona_remite(txtPersonaRemitente.getText().toUpperCase());
-            en.setCiudad(txtCiudadCliente.getText().toUpperCase());
-            en.setDireccion(txtDireccionCliente.getText().toUpperCase());
-            en.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
-            en.setTelefono_contacto(txtTelefonoCliente.getText().toUpperCase());
-            en.setCorreo(txtCorreoCliente.getText().toUpperCase());
-            en.setMotivo(txtMotivo.getText().toUpperCase());
-            en.setTarjeta_red(txtTarjetaRed.getText().toUpperCase());
-            en.setParrilla(txtParrilla.getText().toUpperCase());
-            en.setBases_plasticas(txtBasesPlasticas.getText().toUpperCase());
-            en.setConector_origi(txtConector.getText().toUpperCase());
-            en.setGarantia(txtGarantia.getText().toUpperCase());
-            en.setEstado_carcasa(txtEstadoCarcasa.getText().toUpperCase());
-            en.setObservaciones(areaObservaciones.getText().toUpperCase());
+            Salidas sal = new Salidas();
+            sal.setId_salida(Integer.parseInt(cmbSalidas.getSelectedItem().toString()));
+            sal.setFecha(txtFechaFact.getText().toUpperCase());
+            sal.setEmpresa(txtEmpresa.getText().toUpperCase());
+            sal.setCiudad(txtCiudad.getText().toUpperCase());
+            sal.setDireccion(txtDireccion.getText().toUpperCase());
+            sal.setContacto(txtContacto.getText().toUpperCase());
+            sal.setTelefono(txtTelefono.getText().toUpperCase());
+            sal.setCorreo(txtCorreo.getText().toUpperCase());
+            sal.setEquipo(txtEquipo.getText().toUpperCase());
+            sal.setModelo(txtModelo.getText().toUpperCase());
+            sal.setSerie(txtSerie.getText().toUpperCase());
+            sal.setComentario(areaComentario.getText().toUpperCase());
 
             Object[] opciones = {"Aceptar", "Cancelar"};
             int eleccion = JOptionPane.showOptionDialog(rootPane, "¿En realidad desea EDITAR este registro?", "Mensaje de Confirmacion",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
             if (eleccion == JOptionPane.YES_OPTION) {
-                db.EditarEntrada(en);
+                db.EditarSalida(sal);
                 JOptionPane.showMessageDialog(this, "Datos EDITADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
 
                 //this.cmbClientes.removeAllItems();
                 //CargarCmbCliente();
-                this.cmbFacturas.removeAllItems();
-                CargarCmbFacturas();
+                this.cmbSalidas.removeAllItems();
+                CargarCmbSalidas();
 
-                txtNitCliente.setText("");
+                txtFechaFact.setText("");
                 txtEmpresa.setText("");
-                txtTelefonoCliente.setText("");
-                txtDireccionCliente.setText("");
-                txtCiudadCliente.setText("");
-                txtCorreoCliente.setText("");
-                txtContactoCliente.setText("");
-                txtElemento.setText("");
-                txtPotencia.setText("");
-                txtMarca.setText("");
+                txtTelefono.setText("");
+                txtDireccion.setText("");
+                txtCiudad.setText("");
+                txtCorreo.setText("");
+                txtContacto.setText("");
+                txtEquipo.setText("");
+                areaComentario.setText("");
                 txtModelo.setText("");
                 txtSerie.setText("");
-                txtMotivo.setText("");
-                areaObservaciones.setText("");
-                txtPersonaRemitente.setText("");
-                txtFecha.setText("");
-                txtTarjetaRed.setText("");
-                txtParrilla.setText("");
-                txtBasesPlasticas.setText("");
-                txtConector.setText("");
-                txtGarantia.setText("");
-                txtEstadoCarcasa.setText("");
-                areaObservaciones.setText("");
-                txtElemento.requestFocus();
+                txtEmpresa.requestFocus();
 
             } else {
-                txtNitCliente.setText("");
+                txtFechaFact.setText("");
                 txtEmpresa.setText("");
-                txtTelefonoCliente.setText("");
-                txtDireccionCliente.setText("");
-                txtCiudadCliente.setText("");
-                txtCorreoCliente.setText("");
-                txtContactoCliente.setText("");
-                txtElemento.setText("");
-                txtPotencia.setText("");
-                txtMarca.setText("");
+                txtTelefono.setText("");
+                txtDireccion.setText("");
+                txtCiudad.setText("");
+                txtCorreo.setText("");
+                txtContacto.setText("");
+                txtEquipo.setText("");
+                areaComentario.setText("");
                 txtModelo.setText("");
                 txtSerie.setText("");
-                txtMotivo.setText("");
-                areaObservaciones.setText("");
-                txtPersonaRemitente.setText("");
-                txtFecha.setText("");
-                txtTarjetaRed.setText("");
-                txtParrilla.setText("");
-                txtBasesPlasticas.setText("");
-                txtConector.setText("");
-                txtGarantia.setText("");
-                txtEstadoCarcasa.setText("");
-                areaObservaciones.setText("");
-                txtElemento.requestFocus();
+                txtEmpresa.requestFocus();
             }
         }
-        */
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -773,14 +701,14 @@ public class Facturas_Salida extends javax.swing.JFrame {
             if (rs.next()) {
 
                 txtFechaFact.setText(rs.getString("FECHA").trim());
-                txtEmpresa.setText(rs.getString("ELEMENTO").trim());
+                txtEmpresa.setText(rs.getString("EMPRESA").trim());
                 txtCiudad.setText(rs.getString("CIUDAD").trim());
                 txtDireccion.setText(rs.getString("DIRECCION").trim());
                 txtContacto.setText(rs.getString("NOMBRE_CONTACTO").trim());
                 txtTelefono.setText(rs.getString("TELEFONO_CONTACTO").trim());
                 txtCorreo.setText(rs.getString("CORREO").trim());
                 txtEquipo.setText(rs.getString("ELEMENTO"));
-                txtModel.setText(rs.getString("MODELO"));
+                txtModelo.setText(rs.getString("MODELO"));
                 txtSerie.setText(rs.getString("SERIE").trim());
                 areaComentario.setText(rs.getString("OBSERVACIONES").trim());
 
@@ -803,12 +731,11 @@ public class Facturas_Salida extends javax.swing.JFrame {
     private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
 
         if (txtEmpresa.getText().equals("") || txtCiudad.getText().equals("") || txtDireccion.getText().equals("") || txtContacto.getText().equals("") || txtTelefono.getText().equals("") || txtCorreo.getText().equals("")
-            || txtEquipo.getText().equals("") || txtModel.getText().equals("") || txtSerie.getText().equals("") || areaComentario.getText().equals("")) {
+                || txtEquipo.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || areaComentario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
 
             Salidas sal = new Salidas();
-
 
             sal.setFecha(txtFechaFact.getText().toUpperCase());
             sal.setEmpresa(txtEmpresa.getText().toUpperCase());
@@ -818,7 +745,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
             sal.setTelefono(txtTelefono.getText().toUpperCase());
             sal.setCorreo(txtCorreo.getText().toUpperCase());
             sal.setEquipo(txtEquipo.getText().toUpperCase());
-            sal.setModelo(txtModel.getText().toUpperCase());
+            sal.setModelo(txtModelo.getText().toUpperCase());
             sal.setSerie(txtSerie.getText().toUpperCase());
             sal.setComentario(areaComentario.getText().toUpperCase());
 
@@ -834,7 +761,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
                 txtTelefono.setText("");
                 txtCorreo.setText("");
                 txtEquipo.setText("");
-                txtModel.setText("");
+                txtModelo.setText("");
                 txtSerie.setText("");
                 txtFechaFact.setText("");
                 areaComentario.setText("");
@@ -951,7 +878,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmpresa;
     private javax.swing.JTextField txtEquipo;
     private javax.swing.JTextField txtFechaFact;
-    private javax.swing.JTextField txtModel;
+    private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtSerie;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables

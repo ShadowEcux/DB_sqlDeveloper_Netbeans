@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -74,6 +76,40 @@ public class salidaDB {
         }
     }
     
+    public void EditarSalida(Salidas salida) {
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            PreparedStatement pst = cnx.prepareStatement("UPDATE SALIDAS SET FECHA = ?, EMPRESA = ?, CIUDAD = ?, DIRECCION = ?, CONTACTO= ?, TELEFONO = ?, CORREO = ?, EQUIPO = ?, MODELO = ?, SERIE = ?, COMENTARIO = ?\n" +
+"WHERE ID_SALIDA = ?");
+            pst.setString(1, salida.getFecha());
+            pst.setString(2, salida.getEmpresa());
+            pst.setString(3, salida.getCiudad());
+            pst.setString(4, salida.getDireccion());
+            pst.setString(5, salida.getContacto());
+            pst.setString(6, salida.getTelefono());
+            pst.setString(7, salida.getCorreo());
+            pst.setString(8, salida.getEquipo());
+            pst.setString(9, salida.getModelo());
+            pst.setString(10, salida.getSerie());
+            pst.setString(11, salida.getComentario());
+            pst.setInt(12, salida.getId_salida());
+          
+         pst.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(salidaDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
+    public void EliminarSalida(Salidas sal) {
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            PreparedStatement pst = cnx.prepareStatement("DELETE FROM SALIDAS "
+                    + " WHERE ID_SALIDA=?");
+            pst.setInt(1, sal.getId_salida());
+            pst.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(salidaDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

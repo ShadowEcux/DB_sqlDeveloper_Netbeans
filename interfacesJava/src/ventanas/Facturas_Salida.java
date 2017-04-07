@@ -5,7 +5,9 @@
  */
 package ventanas;
 
+import clasesPrincipales.Salidas;
 import conexionSQLDB.DataBaseConexion;
+import conexionSQLDB.salidaDB;
 import java.io.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -33,6 +36,9 @@ import org.apache.poi.hssf.usermodel.HSSFRichTextString;
  */
 public class Facturas_Salida extends javax.swing.JFrame {
 
+    ArrayList<Salidass> salida;
+    salidaDB db = new salidaDB();
+    
     /**
      * Creates new form Entrada
      */
@@ -40,7 +46,9 @@ public class Facturas_Salida extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - FACTURAS DE SALIDA");
-        //CargarCmbCliente();
+        CargarCmbEntrada();
+        btnEditar.setEnabled(false);
+        btnEliminar.setEnabled(false);
     }
 
     /*
@@ -56,6 +64,17 @@ public class Facturas_Salida extends javax.swing.JFrame {
         }
     }
     */
+    public void CargarCmbEntrada() {
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery("SELECT ID_ENTRADA FROM ENTRADAS ORDER BY ID_ENTRADA DESC");
+            while (rs.next()) {
+                this.cmbEntradas.addItem(rs.getString("ID_ENTRADA"));
+            }
+        } catch (Exception e) {
+        }
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,26 +88,24 @@ public class Facturas_Salida extends javax.swing.JFrame {
         btnSalir1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        txtCiudadCliente = new javax.swing.JTextField();
-        txtNombreCliente = new javax.swing.JTextField();
-        txtDireccionCliente = new javax.swing.JTextField();
+        txtCiudad = new javax.swing.JTextField();
+        txtEmpresa = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        txtContactoCliente = new javax.swing.JTextField();
-        txtTelefonoCliente = new javax.swing.JTextField();
+        txtContacto = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        txtCorreoCliente = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
-        txtMotivo = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
+        txtEquipo = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
@@ -96,12 +113,11 @@ public class Facturas_Salida extends javax.swing.JFrame {
         areaComentario = new javax.swing.JTextArea();
         jSeparator9 = new javax.swing.JSeparator();
         btnVolver = new javax.swing.JButton();
-        txtModelo = new javax.swing.JTextField();
+        txtModel = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         txtSerie = new javax.swing.JTextField();
-        txtFecha = new com.toedter.calendar.JDateChooser();
-        cmbFacturas = new javax.swing.JComboBox();
+        cmbEntradas = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         btnPdf = new javax.swing.JButton();
         btnBusca1 = new javax.swing.JButton();
@@ -113,6 +129,12 @@ public class Facturas_Salida extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
         btnBusca2 = new javax.swing.JButton();
         jSeparator11 = new javax.swing.JSeparator();
+        cmbSalidas = new javax.swing.JComboBox();
+        btnBusca3 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        txtFechaFact = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        btnGuarda = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -131,20 +153,19 @@ public class Facturas_Salida extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Formato De Salida");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+        jLabel2.setText("SALIDA");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 240, 10));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 130, 10));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Empresa");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 20));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 20));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Ciudad");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 20));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, 20));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,28 +178,28 @@ public class Facturas_Salida extends javax.swing.JFrame {
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 150, -1));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 660, 10));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 260, 10));
-        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 200, -1));
-        getContentPane().add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 200, -1));
-        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 200, -1));
+        getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 200, -1));
+        getContentPane().add(txtEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 200, -1));
+        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 200, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Dirección");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 20));
-        getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 140, -1));
-        getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 110, -1));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, 20));
+        getContentPane().add(txtContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 140, -1));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 110, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Correo");
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 40, 20));
 
-        txtCorreoCliente.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoClienteActionPerformed(evt);
+                txtCorreoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 180, -1));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 180, -1));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,12 +211,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
         jLabel22.setForeground(new java.awt.Color(153, 255, 153));
         jLabel22.setText("DATOS DEL EQUIPO");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
-        getContentPane().add(txtMotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 130, -1));
-
-        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(153, 255, 153));
-        jLabel25.setText("FECHA");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 40, 20));
+        getContentPane().add(txtEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 130, -1));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,13 +222,13 @@ public class Facturas_Salida extends javax.swing.JFrame {
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Comentario");
         getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, 20));
-        getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 240, 10));
+        getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 240, 10));
 
         areaComentario.setColumns(20);
         areaComentario.setRows(5);
         jScrollPane1.setViewportView(areaComentario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 440, 90));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 400, 90));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 250, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -226,12 +242,12 @@ public class Facturas_Salida extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 500, -1, -1));
 
-        txtModelo.addActionListener(new java.awt.event.ActionListener() {
+        txtModel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtModeloActionPerformed(evt);
+                txtModelActionPerformed(evt);
             }
         });
-        getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 150, -1));
+        getContentPane().add(txtModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 150, -1));
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
@@ -243,18 +259,17 @@ public class Facturas_Salida extends javax.swing.JFrame {
         jLabel35.setText("Serie");
         getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 40, 20));
         getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 130, -1));
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 170, 20));
 
-        cmbFacturas.addActionListener(new java.awt.event.ActionListener() {
+        cmbEntradas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbFacturasActionPerformed(evt);
+                cmbEntradasActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, -1));
+        getContentPane().add(cmbEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 110, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 255, 153));
-        jLabel7.setText("FACTURAS");
+        jLabel7.setText("SALIDAS");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 20));
 
         btnPdf.setBackground(new java.awt.Color(255, 255, 255));
@@ -287,7 +302,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
                 btnBusca1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 40, -1));
+        getContentPane().add(btnBusca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 40, -1));
 
         btnDescartar1.setBackground(new java.awt.Color(255, 255, 255));
         btnDescartar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -363,6 +378,67 @@ public class Facturas_Salida extends javax.swing.JFrame {
         getContentPane().add(btnBusca2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 30, 30));
         getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, 150, 10));
 
+        cmbSalidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSalidasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmbSalidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 110, -1));
+
+        btnBusca3.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca3.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca3.setBorder(null);
+        btnBusca3.setBorderPainted(false);
+        btnBusca3.setContentAreaFilled(false);
+        btnBusca3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca3.setIconTextGap(-1);
+        btnBusca3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusca3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 40, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(153, 255, 153));
+        jLabel8.setText("ENTRADAS");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 70, 20));
+
+        txtFechaFact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaFactActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtFechaFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 110, -1));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("FECHA");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, 20));
+
+        btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGuarda.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuarda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar_1.png"))); // NOI18N
+        btnGuarda.setText("Guardar");
+        btnGuarda.setBorder(null);
+        btnGuarda.setBorderPainted(false);
+        btnGuarda.setContentAreaFilled(false);
+        btnGuarda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuarda.setIconTextGap(-1);
+        btnGuarda.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 50, -1));
+
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 530));
 
@@ -376,9 +452,9 @@ public class Facturas_Salida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
-    private void txtCorreoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoClienteActionPerformed
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoClienteActionPerformed
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
@@ -389,13 +465,13 @@ public class Facturas_Salida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void txtModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloActionPerformed
+    private void txtModelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtModeloActionPerformed
+    }//GEN-LAST:event_txtModelActionPerformed
 
-    private void cmbFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFacturasActionPerformed
+    private void cmbEntradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEntradasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbFacturasActionPerformed
+    }//GEN-LAST:event_cmbEntradasActionPerformed
 
     private void btnBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca1ActionPerformed
 
@@ -450,17 +526,17 @@ public class Facturas_Salida extends javax.swing.JFrame {
 
     private void btnDescartar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartar1ActionPerformed
 
-        txtNombreCliente.setText("");
-        txtTelefonoCliente.setText("");
-        txtDireccionCliente.setText("");
-        txtCiudadCliente.setText("");
-        txtCorreoCliente.setText("");
-        txtContactoCliente.setText("");
-        txtMotivo.setText("");
+        txtEmpresa.setText("");
+        txtTelefono.setText("");
+        txtDireccion.setText("");
+        txtCiudad.setText("");
+        txtCorreo.setText("");
+        txtContacto.setText("");
+        txtEquipo.setText("");
         areaComentario.setText("");
-        txtModelo.setText("");
+        txtModel.setText("");
         txtSerie.setText("");
-        txtNombreCliente.requestFocus();
+        txtEmpresa.requestFocus();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDescartar1ActionPerformed
@@ -679,6 +755,104 @@ public class Facturas_Salida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBusca2ActionPerformed
 
+    private void cmbSalidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSalidasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSalidasActionPerformed
+
+    private void btnBusca3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca3ActionPerformed
+
+        //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
+        try {
+
+            String guardar = cmbEntradas.getSelectedItem().toString();
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            PreparedStatement pst = cnx.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                txtFechaFact.setText(rs.getString("FECHA").trim());
+                txtEmpresa.setText(rs.getString("ELEMENTO").trim());
+                txtCiudad.setText(rs.getString("CIUDAD").trim());
+                txtDireccion.setText(rs.getString("DIRECCION").trim());
+                txtContacto.setText(rs.getString("NOMBRE_CONTACTO").trim());
+                txtTelefono.setText(rs.getString("TELEFONO_CONTACTO").trim());
+                txtCorreo.setText(rs.getString("CORREO").trim());
+                txtEquipo.setText(rs.getString("ELEMENTO"));
+                txtModel.setText(rs.getString("MODELO"));
+                txtSerie.setText(rs.getString("SERIE").trim());
+                areaComentario.setText(rs.getString("OBSERVACIONES").trim());
+
+                //pst.setString(1, CMBID.getName());
+                //String guardar = txtBuscar.getText();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe la factura");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBusca3ActionPerformed
+
+    private void txtFechaFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaFactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaFactActionPerformed
+
+    private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
+
+        if (txtEmpresa.getText().equals("") || txtCiudad.getText().equals("") || txtDireccion.getText().equals("") || txtContacto.getText().equals("") || txtTelefono.getText().equals("") || txtCorreo.getText().equals("")
+            || txtEquipo.getText().equals("") || txtModel.getText().equals("") || txtSerie.getText().equals("") || areaComentario.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+
+            Salidas sal = new Salidas();
+
+
+            sal.setFecha(txtFechaFact.getText().toUpperCase());
+            sal.setEmpresa(txtEmpresa.getText().toUpperCase());
+            sal.setCiudad(txtCiudad.getText().toUpperCase());
+            sal.setDireccion(txtDireccion.getText().toUpperCase());
+            sal.setContacto(txtContacto.getText().toUpperCase());
+            sal.setTelefono(txtTelefono.getText().toUpperCase());
+            sal.setCorreo(txtCorreo.getText().toUpperCase());
+            sal.setEquipo(txtEquipo.getText().toUpperCase());
+            sal.setModelo(txtModel.getText().toUpperCase());
+            sal.setSerie(txtSerie.getText().toUpperCase());
+            sal.setComentario(areaComentario.getText().toUpperCase());
+
+            try {
+                db.insertarSalida(sal);
+                JOptionPane.showMessageDialog(this, "Factura guardada exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+
+                txtEmpresa.setText("");
+                txtEmpresa.setText("");
+                txtCiudad.setText("");
+                txtDireccion.setText("");
+                txtContacto.setText("");
+                txtTelefono.setText("");
+                txtCorreo.setText("");
+                txtEquipo.setText("");
+                txtModel.setText("");
+                txtSerie.setText("");
+                txtFechaFact.setText("");
+                areaComentario.setText("");
+                this.cmbEntradas.removeAllItems();
+                //this.cmbFacturas.removeAllItems();
+                CargarCmbEntrada();
+                //CargarCmbFacturas();
+                txtEmpresa.requestFocus();
+            } catch (Exception e) {
+                System.err.println("error" + e);
+            }
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -733,14 +907,18 @@ public class Facturas_Salida extends javax.swing.JFrame {
     private javax.swing.JTextArea areaComentario;
     private javax.swing.JButton btnBusca1;
     private javax.swing.JButton btnBusca2;
+    private javax.swing.JButton btnBusca3;
     private javax.swing.JButton btnDescartar1;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuarda;
     private javax.swing.JButton btnPdf;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox cmbFacturas;
+    private javax.swing.JComboBox cmbEntradas;
+    private javax.swing.JComboBox cmbSalidas;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -749,18 +927,17 @@ public class Facturas_Salida extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
@@ -768,15 +945,15 @@ public class Facturas_Salida extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField txtCiudadCliente;
-    private javax.swing.JTextField txtContactoCliente;
-    private javax.swing.JTextField txtCorreoCliente;
-    private javax.swing.JTextField txtDireccionCliente;
-    private com.toedter.calendar.JDateChooser txtFecha;
-    private javax.swing.JTextField txtModelo;
-    private javax.swing.JTextField txtMotivo;
-    private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextField txtCiudad;
+    private javax.swing.JTextField txtContacto;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtEmpresa;
+    private javax.swing.JTextField txtEquipo;
+    private javax.swing.JTextField txtFechaFact;
+    private javax.swing.JTextField txtModel;
     private javax.swing.JTextField txtSerie;
-    private javax.swing.JTextField txtTelefonoCliente;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

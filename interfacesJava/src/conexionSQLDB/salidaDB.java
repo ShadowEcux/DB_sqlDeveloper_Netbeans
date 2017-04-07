@@ -53,7 +53,7 @@ public class salidaDB {
     public void insertarSalida(Salidas salida) {
         try {
             Connection cnx = DataBaseConexion.getConnection();
-            PreparedStatement pst = cnx.prepareStatement("INSERT INTO ENTRADAS (FECHA, EMPRESA, CIUDAD, DIRECCION, CONTACTO, TELEFONO, CORREO, EQUIPO, MODELO, SERIE, COMENTARIO) \n"
+            PreparedStatement pst = cnx.prepareStatement("INSERT INTO SALIDAS (FECHA, EMPRESA, CIUDAD, DIRECCION, CONTACTO, TELEFONO, CORREO, EQUIPO, MODELO, SERIE, COMENTARIO) \n"
                     + " VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             pst.setString(1, salida.getFecha());
             pst.setString(2, salida.getEmpresa());

@@ -47,6 +47,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - FACTURAS DE SALIDA");
         CargarCmbEntrada();
+        CargarCmbSalidas();
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
     }
@@ -71,6 +72,18 @@ public class Facturas_Salida extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery("SELECT ID_ENTRADA FROM ENTRADAS ORDER BY ID_ENTRADA DESC");
             while (rs.next()) {
                 this.cmbEntradas.addItem(rs.getString("ID_ENTRADA"));
+            }
+        } catch (Exception e) {
+        }
+    }
+    
+    public void CargarCmbSalidas() {
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery("SELECT ID_SALIDA FROM SALIDAS ORDER BY ID_SALIDA DESC");
+            while (rs.next()) {
+                this.cmbSalidas.addItem(rs.getString("ID_SALIDA"));
             }
         } catch (Exception e) {
         }
@@ -475,51 +488,37 @@ public class Facturas_Salida extends javax.swing.JFrame {
 
     private void btnBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca1ActionPerformed
 
-        /*
-        //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
-        try {
+       try {
 
-            String guardar = cmbFacturas.getSelectedItem().toString();
+            String guardar = cmbSalidas.getSelectedItem().toString();
             Connection cnx = DataBaseConexion.getConnection();
             Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
+            PreparedStatement pst = cnx.prepareStatement("Select * from SALIDAS where ID_SALIDA = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
-                txtFecha.setText(rs.getString("FECHA").trim());
-                txtElemento.setText(rs.getString("ELEMENTO").trim());
-                txtPotencia.setText(rs.getString("POTENCIA").trim());
-                txtMarca.setText(rs.getString("MARCA").trim());
-                txtModelo.setText(rs.getString("MODELO").trim());
+                txtFechaFact.setText(rs.getString("FECHA").trim());
+                txtEmpresa.setText(rs.getString("ELEMENTO").trim());
+                txtCiudad.setText(rs.getString("CIUDAD").trim());
+                txtDireccion.setText(rs.getString("DIRECCION").trim());
+                txtContacto.setText(rs.getString("NOMBRE_CONTACTO").trim());
+                txtTelefono.setText(rs.getString("TELEFONO_CONTACTO").trim());
+                txtCorreo.setText(rs.getString("CORREO").trim());
+                txtEquipo.setText(rs.getString("ELEMENTO"));
+                txtModel.setText(rs.getString("MODELO"));
                 txtSerie.setText(rs.getString("SERIE").trim());
-                txtEmpresa.setText(rs.getString("EMPRESA").trim());
-                txtNitCliente.setText(rs.getString("NIT").trim());
-                txtPersonaRemitente.setText(rs.getString("PERSONA_REMITE").trim());
-                txtCiudadCliente.setText(rs.getString("CIUDAD").trim());
-                txtDireccionCliente.setText(rs.getString("DIRECCION").trim());
-                txtContactoCliente.setText(rs.getString("NOMBRE_CONTACTO").trim());
-                txtTelefonoCliente.setText(rs.getString("TELEFONO_CONTACTO").trim());
-                txtCorreoCliente.setText(rs.getString("CORREO").trim());
-                txtMotivo.setText(rs.getString("MOTIVO").trim());
-                txtTarjetaRed.setText(rs.getString("TARJETA_RED").trim());
-                txtParrilla.setText(rs.getString("PARRILLA").trim());
-                txtBasesPlasticas.setText(rs.getString("BASES_PLASTICAS").trim());
-                txtConector.setText(rs.getString("CONECTOR_ORIGI").trim());
-                txtGarantia.setText(rs.getString("GARANTIA").trim());
-                txtEstadoCarcasa.setText(rs.getString("ESTADO_CARCASA").trim());
-                areaObservaciones.setText(rs.getString("OBSERVACIONES").trim());
+                areaComentario.setText(rs.getString("OBSERVACIONES").trim());
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
             } else {
-                JOptionPane.showMessageDialog(null, "No existe el usuario");
+                JOptionPane.showMessageDialog(null, "No existe la factura");
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        */
         
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBusca1ActionPerformed
@@ -840,9 +839,9 @@ public class Facturas_Salida extends javax.swing.JFrame {
                 txtFechaFact.setText("");
                 areaComentario.setText("");
                 this.cmbEntradas.removeAllItems();
-                //this.cmbFacturas.removeAllItems();
+                this.cmbSalidas.removeAllItems();
                 CargarCmbEntrada();
-                //CargarCmbFacturas();
+                CargarCmbSalidas();
                 txtEmpresa.requestFocus();
             } catch (Exception e) {
                 System.err.println("error" + e);

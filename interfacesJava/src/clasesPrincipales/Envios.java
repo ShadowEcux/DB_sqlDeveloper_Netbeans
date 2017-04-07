@@ -19,11 +19,7 @@ public class Envios {
     String ciudad;
     String comentario;
     
-
-    public Envios() {
-    }
-    
-    public Envios(int id_envio, String fecha, String destinatario, String ATN, String direccion, String telefono, String ciudad, String comentario) {
+public Envios(int id_envio, String fecha, String destinatario, String ATN, String direccion, String telefono, String ciudad, String comentario) {
         this.id_envio = id_envio;
         this.fecha = fecha;
         this.destinatario = destinatario;
@@ -33,6 +29,10 @@ public class Envios {
         this.ciudad = ciudad;
         this.comentario = comentario;
     }
+
+    public Envios() {
+    }
+   
 
     public int getId_envio() {
         return id_envio;

@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  */
 public class salidaDB {
     
-    public ArrayList<Salidas> ListEntradas() {
+    public ArrayList<Salidas> ListSalidas() {
         ArrayList<Salidas> salida = new ArrayList();
         try {
             Connection cnx = DataBaseConexion.getConnection();

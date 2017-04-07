@@ -130,7 +130,7 @@ public class Usuarios extends javax.swing.JFrame {
                 btnSalir1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
+        getContentPane().add(btnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
         btnVolver1.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -310,7 +310,9 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
 
-        System.exit(0);
+        Bienvenida obj = new Bienvenida();
+        obj.setVisible(true);
+        dispose();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnSalir1ActionPerformed

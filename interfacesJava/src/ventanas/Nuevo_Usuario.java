@@ -119,7 +119,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
 
         cmbUsuarios.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMINISTRADOR", "OPERARIO" }));
         getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, 20));
@@ -177,7 +177,9 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
 
     private void btnSalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir2ActionPerformed
 
-        System.exit(0);
+        Bienvenida obj = new Bienvenida();
+        obj.setVisible(true);
+        dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalir2ActionPerformed

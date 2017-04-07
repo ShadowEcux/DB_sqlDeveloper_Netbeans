@@ -460,7 +460,9 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
 
     private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
 
-        System.exit(0);
+        Bienvenida obj = new Bienvenida();
+        obj.setVisible(true);
+        dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalir1ActionPerformed

@@ -49,7 +49,7 @@ public class Salidass extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - SALIDA");
         CargarCmbCliente();
-        CargarCmbFacturas();
+        //CargarCmbFacturas();
     }
 
     public void CargarCmbCliente(){
@@ -63,7 +63,7 @@ public class Salidass extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
+    /*
     public void CargarCmbFacturas() {
         try {
             Connection cnx = DataBaseConexion.getConnection();
@@ -75,6 +75,7 @@ public class Salidass extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    */
     
     
     /**
@@ -125,9 +126,6 @@ public class Salidass extends javax.swing.JFrame {
         btnGuarda = new javax.swing.JButton();
         btnDescartar1 = new javax.swing.JButton();
         btnFacturas = new javax.swing.JButton();
-        cmbFacturas = new javax.swing.JComboBox();
-        jLabel7 = new javax.swing.JLabel();
-        btnBusca1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         txtModel = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
@@ -314,36 +312,6 @@ public class Salidass extends javax.swing.JFrame {
         });
         getContentPane().add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 250, 30));
 
-        cmbFacturas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbFacturasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 110, -1));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 255, 153));
-        jLabel7.setText("ENTRADAS");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 70, 20));
-
-        btnBusca1.setBackground(new java.awt.Color(255, 255, 255));
-        btnBusca1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBusca1.setForeground(new java.awt.Color(255, 255, 255));
-        btnBusca1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
-        btnBusca1.setBorder(null);
-        btnBusca1.setBorderPainted(false);
-        btnBusca1.setContentAreaFilled(false);
-        btnBusca1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnBusca1.setIconTextGap(-1);
-        btnBusca1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnBusca1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnBusca1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBusca1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBusca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 40, -1));
-
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Empresa");
@@ -485,50 +453,6 @@ public class Salidass extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFacturasActionPerformed
 
-    private void cmbFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFacturasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbFacturasActionPerformed
-
-    private void btnBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca1ActionPerformed
-
-        
-        //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
-        try {
-
-            String guardar = cmbFacturas.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
-            pst.setString(1, guardar);
-            //pst.setString(1, CMBID.getName());
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-
-                //txtFecha.setText(rs.getString("FECHA").trim());
-                txtEmpresa.setText(rs.getString("ELEMENTO").trim());
-                txtCiudad.setText(rs.getString("CIUDAD").trim());
-                txtDireccion.setText(rs.getString("DIRECCION").trim());
-                txtContacto.setText(rs.getString("NOMBRE_CONTACTO").trim());
-                txtTelefono.setText(rs.getString("TELEFONO_CONTACTO").trim());
-                txtCorreo.setText(rs.getString("CORREO").trim());
-                txtEquipo.setText(rs.getString("ELEMENTO"));
-                txtModel.setText(rs.getString("MODELO"));
-                txtSerie.setText(rs.getString("SERIE").trim());
-                areaComentario.setText(rs.getString("OBSERVACIONES").trim());
-  
-                //pst.setString(1, CMBID.getName());
-                //String guardar = txtBuscar.getText();
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe la factura");
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-      
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBusca1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -598,14 +522,12 @@ public class Salidass extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaComentario;
     private javax.swing.JButton btnBusca;
-    private javax.swing.JButton btnBusca1;
     private javax.swing.JButton btnDescartar1;
     private javax.swing.JButton btnFacturas;
     private javax.swing.JButton btnGuarda;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbClientes;
-    private javax.swing.JComboBox cmbFacturas;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -621,7 +543,6 @@ public class Salidass extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

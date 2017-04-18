@@ -87,14 +87,14 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         btnSalir1 = new javax.swing.JButton();
         btnVolver1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabla_clientes = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         cmbClientes = new javax.swing.JComboBox();
         brnListar1 = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnBusca = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla_clientes = new javax.swing.JTable();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -127,26 +127,6 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 450, 70, -1));
-
-        tabla_clientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "NIT", "CLIENTE", "TELEFONO", "DIRECCION", "CIUDAD", "CORREO", "CONTACTO"
-            }
-        ));
-        tabla_clientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabla_clientesMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(tabla_clientes);
-
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 1020, 320));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 255, 153));
@@ -230,6 +210,26 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 40, 40));
 
+        tabla_clientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "NIT", "CLIENTE", "TELEFONO", "DIRECCION", "CIUDAD", "CORREO", "CONTACTO"
+            }
+        ));
+        tabla_clientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_clientesMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tabla_clientes);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 1020, 300));
+
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/amp-mas.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 480));
 
@@ -253,14 +253,6 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btnVolver1ActionPerformed
-
-    private void tabla_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_clientesMouseClicked
-
-        int seleccion = tabla_clientes.getSelectedRow();
-        tabla_clientes.getSelectedColumn();
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_tabla_clientesMouseClicked
 
     private void brnListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnListar1ActionPerformed
 
@@ -323,6 +315,14 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscaActionPerformed
+
+    private void tabla_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_clientesMouseClicked
+
+        int seleccion = tabla_clientes.getSelectedRow();
+        tabla_clientes.getSelectedColumn();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabla_clientesMouseClicked
 
     /**
      * @param args the command line arguments

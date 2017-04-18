@@ -91,10 +91,10 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
         tabla_clientes = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         cmbClientes = new javax.swing.JComboBox();
-        btnBusca = new javax.swing.JButton();
         brnListar1 = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        btnBusca = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -155,24 +155,6 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
 
         getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 330, 30));
 
-        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
-        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
-        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
-        btnBusca.setBorder(null);
-        btnBusca.setBorderPainted(false);
-        btnBusca.setContentAreaFilled(false);
-        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnBusca.setIconTextGap(-1);
-        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnBusca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 40, 40));
-
         brnListar1.setBackground(new java.awt.Color(255, 255, 255));
         brnListar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         brnListar1.setForeground(new java.awt.Color(255, 255, 255));
@@ -230,6 +212,24 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 50, 50));
 
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 40, 40));
+
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/amp-mas.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 480));
 
@@ -262,44 +262,6 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_tabla_clientesMouseClicked
 
-    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
-
-        try {
-
-            String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
-            pst.setString(1, guardar);
-            //pst.setString(1, CMBID.getName());
-            ResultSet rs = pst.executeQuery();
-            LimpirTabla();
-            if (rs.next()) {
-
-                clientes cl = new clientes();
-                cl.setId_cliente(rs.getInt("IDCLIENTE"));
-                cl.setNit_cliente(rs.getString("NITCLIENTE"));
-                cl.setNombre_cliente(rs.getString("NOMBRECLIENTE"));
-                cl.setTelefono_cliente(rs.getString("TELEFONOCLIENTE"));
-                cl.setDireccion_cliente(rs.getString("DIRECCIONCLIENTE"));
-                cl.setCiudad_cliente(rs.getString("CIUDADCLIENTE"));
-                cl.setCorreo_cliente(rs.getString("CORREOCLIENTE"));
-                cl.setNombre_contacto(rs.getString("NOMBRECONTACTO"));
-                cliente.add(cl);
-                DefaultTableModel tb = (DefaultTableModel) tabla_clientes.getModel();
-                tb.addRow(new Object[]{cl.getNit_cliente(), cl.getNombre_cliente(), cl.getTelefono_cliente(), cl.getDireccion_cliente(), cl.getCiudad_cliente(), cl.getCorreo_cliente(), cl.getNombre_contacto()});
-                
-
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el usuario");
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscaActionPerformed
-
     private void brnListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnListar1ActionPerformed
 
         LimpirTabla();
@@ -325,6 +287,42 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
+
+        try {
+
+            String guardar = cmbClientes.getSelectedItem().toString();
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            LimpirTabla();
+            if (rs.next()) {
+
+                clientes cl = new clientes();
+                cl.setNit_cliente(rs.getString("NITCLIENTE"));
+                cl.setNombre_cliente(rs.getString("NOMBRECLIENTE"));
+                cl.setTelefono_cliente(rs.getString("TELEFONOCLIENTE"));
+                cl.setDireccion_cliente(rs.getString("DIRECCIONCLIENTE"));
+                cl.setCiudad_cliente(rs.getString("CIUDADCLIENTE"));
+                cl.setCorreo_cliente(rs.getString("CORREOCLIENTE"));
+                cl.setNombre_contacto(rs.getString("NOMBRECONTACTO"));
+                cliente.add(cl);
+                DefaultTableModel tb = (DefaultTableModel) tabla_clientes.getModel();
+                tb.addRow(new Object[]{cl.getNit_cliente(), cl.getNombre_cliente(), cl.getTelefono_cliente(), cl.getDireccion_cliente(), cl.getCiudad_cliente(), cl.getCorreo_cliente(), cl.getNombre_contacto()});
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el usuario");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscaActionPerformed
 
     /**
      * @param args the command line arguments

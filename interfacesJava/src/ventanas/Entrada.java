@@ -8,6 +8,7 @@ package ventanas;
 import clasesPrincipales.Entradas;
 import clasesPrincipales.clientes;
 import conexionSQLDB.DataBaseConexion;
+import conexionSQLDB.GenerarNumeros;
 import conexionSQLDB.entradaDB;
 import java.io.*;
 import java.io.FileInputStream;
@@ -65,6 +66,44 @@ public class Entrada extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    
+    void numeros(){
+        int j;
+        String c = "";       
+        String SQL = "SELECT MAX(ID_ENTRADA) AS ID_ENTRADA FROM ENTRADAS";
+        try {
+            Connection cnx = DataBaseConexion.getConnection();
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if(rs.next()){
+                c = rs.getString("ID_ENTRADA");
+            }
+            System.out.println(c);
+            
+            if(c==null){
+                no_rem.setText("CP0001");
+            }else{
+                char r1 = c.charAt(2);
+                char r2 = c.charAt(3);
+                char r3 = c.charAt(4);
+                char r4 = c.charAt(5);
+                System.out.println(""+r1+r2+r3+r4);
+                String juntar = ""+r1+r2+r3+r4;
+                int var = Integer.parseInt(juntar);
+                System.out.println("\n lo que vale: "+var);
+                GenerarNumeros gen = new GenerarNumeros();
+                gen.generar(var);
+                
+                no_rem.setDisabledTextColor(java.awt.Color.BLUE);
+                no_rem.setText(gen.serie());
+            }
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 /*
     public void CargarCmbFacturas() {
         try {
@@ -151,6 +190,9 @@ public class Entrada extends javax.swing.JFrame {
         btnFacturas = new javax.swing.JButton();
         btnBusca = new javax.swing.JButton();
         btnGuarda = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel26 = new javax.swing.JLabel();
+        no_rem = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -179,7 +221,7 @@ public class Entrada extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, -1));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 150, 10));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 150, 10));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -306,8 +348,8 @@ public class Entrada extends javax.swing.JFrame {
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(153, 255, 153));
-        jLabel25.setText("FECHA");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 40, 20));
+        jLabel25.setText("No. REM");
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 60, 20));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -364,7 +406,7 @@ public class Entrada extends javax.swing.JFrame {
         areaObservaciones.setRows(5);
         jScrollPane1.setViewportView(areaObservaciones);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 490, 80));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 520, 100));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 260, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -404,7 +446,7 @@ public class Entrada extends javax.swing.JFrame {
                 btnFacturasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 250, 30));
+        getContentPane().add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, 250, 30));
 
         btnBusca.setBackground(new java.awt.Color(255, 255, 255));
         btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -442,6 +484,13 @@ public class Entrada extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 50, -1));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 150, 10));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(153, 255, 153));
+        jLabel26.setText("FECHA");
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 40, 20));
+        getContentPane().add(no_rem, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 200, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -517,6 +566,7 @@ public class Entrada extends javax.swing.JFrame {
                 txtCorreoCliente.setText(rs.getString("correocliente").trim());
                 txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
                 txtPersonaRemitente.setText(rs.getString("nombrecontacto").trim());
+                
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
@@ -567,6 +617,8 @@ public class Entrada extends javax.swing.JFrame {
             SimpleDateFormat sdf = new SimpleDateFormat(formato);
             String dato = String.valueOf(sdf.format(date));
 
+            //no_rem.setDisabledTextColor(java.awt.Color.BLUE);
+            
             en.setFecha(dato);
             en.setElemento(txtElemento.getText().toUpperCase());
             en.setPotencia(txtPotencia.getText().toUpperCase());
@@ -694,6 +746,7 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
@@ -710,8 +763,10 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTextField no_rem;
     private javax.swing.JTextField txtCiudadCliente;
     private javax.swing.JTextField txtContactoCliente;
     private javax.swing.JTextField txtCorreoCliente;

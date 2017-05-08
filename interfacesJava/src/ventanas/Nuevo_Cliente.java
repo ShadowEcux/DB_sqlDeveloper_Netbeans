@@ -13,6 +13,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import conMySql.clienteMySql;
 
 /**
  *
@@ -21,7 +22,8 @@ import javax.swing.JTextField;
 public class Nuevo_Cliente extends javax.swing.JFrame {
 
     ArrayList<clientes> cliente;
-    clienteDB db = new clienteDB();
+    //clienteDB db = new clienteDB();
+    clienteMySql db = new clienteMySql();
 
     /**
      * Creates new form Registro_Clientes
@@ -202,26 +204,28 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-
-            clientes cl = new clientes();
-            cl.setNit_cliente(txtNitCliente.getText().toUpperCase());
-            cl.setNombre_cliente(txtNombreCliente.getText().toUpperCase());
-            cl.setTelefono_cliente(txtTelefonoCliente.getText().toUpperCase());
-            cl.setDireccion_cliente(txtDireccionCliente.getText().toUpperCase());
-            cl.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
-            cl.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
-            cl.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
-
-            db.insertarClientes(cl);
-            JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-            txtNitCliente.setText("");
-            txtNombreCliente.setText("");
-            txtTelefonoCliente.setText("");
-            txtDireccionCliente.setText("");
-            txtCiudadCliente.setText("");
-            txtCorreoCliente.setText("");
-            txtContactoCliente.setText("");
-            txtNitCliente.requestFocus();
+            try {
+                clientes cl = new clientes();
+                cl.setNit_cliente(txtNitCliente.getText().toUpperCase());
+                cl.setNombre_cliente(txtNombreCliente.getText().toUpperCase());
+                cl.setTelefono_cliente(txtTelefonoCliente.getText().toUpperCase());
+                cl.setDireccion_cliente(txtDireccionCliente.getText().toUpperCase());
+                cl.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
+                cl.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
+                cl.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
+                db.insertarCliente(cl);
+                JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+                txtNitCliente.setText("");
+                txtNombreCliente.setText("");
+                txtTelefonoCliente.setText("");
+                txtDireccionCliente.setText("");
+                txtCiudadCliente.setText("");
+                txtCorreoCliente.setText("");
+                txtContactoCliente.setText("");
+                txtNitCliente.requestFocus();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e);
+            }
 
         }
 

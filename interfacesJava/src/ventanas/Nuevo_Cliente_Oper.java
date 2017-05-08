@@ -6,6 +6,7 @@
 package ventanas;
 
 import clasesPrincipales.clientes;
+import conMySql.clienteMySql;
 import conexionSQLDB.clienteDB;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -21,7 +22,8 @@ import javax.swing.JTextField;
 public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
 
     ArrayList<clientes> cliente;
-    clienteDB db = new clienteDB();
+    //clienteDB db = new clienteDB();
+    clienteMySql db = new clienteMySql();
     
     /**
      * Creates new form Registro_Clientes
@@ -212,7 +214,7 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
             cl.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
             cl.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
 
-            db.insertarClientes(cl);
+            db.insertarCliente(cl);
             JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
             txtNitCliente.setText("");
             txtNombreCliente.setText("");

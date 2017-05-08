@@ -34,11 +34,13 @@ public class Entradas {
     String garantia;
     String estado_carcasa;
     String observaciones;
+    int mo_rem;
 
     public Entradas() {
     }
 
-    public Entradas(int id_entrada, String fecha, String elemento, String potencia, String marca, String modelo, String serie, String empresa, String nit, String persona_remite, String ciudad, String direccion, String nombre_contacto, String telefono_contacto, String correo, String motivo, String tarjeta_red, String parrilla, String bases_plasticas, String conector_origi, String garantia, String estado_carcasa, String observaciones) {
+    /*
+    public Entradas(int id_entrada, String fecha, String elemento, String potencia, String marca, String modelo, String serie, String empresa, String nit, String persona_remite, String ciudad, String direccion, String nombre_contacto, String telefono_contacto, String correo, String motivo, String tarjeta_red, String parrilla, String bases_plasticas, String conector_origi, String garantia, String estado_carcasa, String observaciones, int no_rem) {
         this.id_entrada = id_entrada;
         this.fecha = fecha;
         this.elemento = elemento;
@@ -63,6 +65,36 @@ public class Entradas {
         this.estado_carcasa = estado_carcasa;
         this.observaciones = observaciones;
     }
+    */
+
+    public Entradas(int id_entrada, String fecha, String elemento, String potencia, String marca, String modelo, String serie, String empresa, String nit, String persona_remite, String ciudad, String direccion, String nombre_contacto, String telefono_contacto, String correo, String motivo, String tarjeta_red, String parrilla, String bases_plasticas, String conector_origi, String garantia, String estado_carcasa, String observaciones, int mo_rem) {
+        this.id_entrada = id_entrada;
+        this.fecha = fecha;
+        this.elemento = elemento;
+        this.potencia = potencia;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.serie = serie;
+        this.empresa = empresa;
+        this.nit = nit;
+        this.persona_remite = persona_remite;
+        this.ciudad = ciudad;
+        this.direccion = direccion;
+        this.nombre_contacto = nombre_contacto;
+        this.telefono_contacto = telefono_contacto;
+        this.correo = correo;
+        this.motivo = motivo;
+        this.tarjeta_red = tarjeta_red;
+        this.parrilla = parrilla;
+        this.bases_plasticas = bases_plasticas;
+        this.conector_origi = conector_origi;
+        this.garantia = garantia;
+        this.estado_carcasa = estado_carcasa;
+        this.observaciones = observaciones;
+        this.mo_rem = mo_rem;
+    }
+    
+    
 
     public int getId_entrada() {
         return id_entrada;
@@ -246,6 +278,14 @@ public class Entradas {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public int getMo_rem() {
+        return mo_rem;
+    }
+
+    public void setMo_rem(int mo_rem) {
+        this.mo_rem = mo_rem;
     }
     
     

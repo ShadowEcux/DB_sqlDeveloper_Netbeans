@@ -17,8 +17,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import ventanas.Nuevo_Cliente;
 //import run.Main;
 
 
@@ -62,8 +60,7 @@ public class clienteMySql {
     //Codigo para INSERTAR DATOS.........................................................
     public void insertarCliente(clientes cliente) {
         try {
-            Connection cn;
-            cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             PreparedStatement pst =  cn.prepareStatement("INSERT INTO clientes(nit_cli, nombre_cli, telefono_cli, direccion_cli, ciudad_cli, correo_cli, contacto_cli) VALUES (?,?,?,?,?,?,?)");
             //pst.setInt(1, cliente.getId_cliente());
             pst.setString(1, cliente.getNit_cliente());
@@ -74,7 +71,6 @@ public class clienteMySql {
             pst.setString(6, cliente.getCorreo_cliente());
             pst.setString(7, cliente.getNombre_contacto());
             pst.executeUpdate();
-            //JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
             System.out.println("Error al insertar: \n"+ex.getMessage());
             //JOptionPane.showMessageDialog(null, "Error en listado \n"+ex.getMessage());  

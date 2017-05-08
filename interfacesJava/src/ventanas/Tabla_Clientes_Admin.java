@@ -6,6 +6,7 @@
 package ventanas;
 
 import clasesPrincipales.clientes;
+import conMySql.clienteMySql;
 import conexionSQLDB.DataBaseConexion;
 import conexionSQLDB.clienteDB;
 import java.awt.Image;
@@ -27,7 +28,8 @@ import javax.swing.JOptionPane;
 public class Tabla_Clientes_Admin extends javax.swing.JFrame {
 
     ArrayList<clientes> cliente;
-    clienteDB db = new clienteDB();
+    //clienteDB db = new clienteDB();
+    clienteMySql db = new clienteMySql();
 
     /**
      * Creates new form Tabla_Clientes
@@ -64,15 +66,18 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
 
     public void CargarCmbCliente() {
         try {
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT NOMBRECLIENTE FROM CLIENTES ORDER BY NOMBRECLIENTE ASC");
+            Class.forName("org.gjt.mm.mysql.Driver").newInstance();
+            Connection cn;
+            cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes ORDER BY nombre_cli ASC");
             while (rs.next()) {
-                this.cmbClientes.addItem(rs.getString("nombrecliente"));
+                this.cmbClientes.addItem(rs.getString("nombre_cli"));
             }
         } catch (Exception e) {
         }
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -283,25 +288,24 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
         try {
-
             String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
             LimpirTabla();
             if (rs.next()) {
-
+                
                 clientes cl = new clientes();
-                cl.setNit_cliente(rs.getString("NITCLIENTE"));
-                cl.setNombre_cliente(rs.getString("NOMBRECLIENTE"));
-                cl.setTelefono_cliente(rs.getString("TELEFONOCLIENTE"));
-                cl.setDireccion_cliente(rs.getString("DIRECCIONCLIENTE"));
-                cl.setCiudad_cliente(rs.getString("CIUDADCLIENTE"));
-                cl.setCorreo_cliente(rs.getString("CORREOCLIENTE"));
-                cl.setNombre_contacto(rs.getString("NOMBRECONTACTO"));
+                cl.setNit_cliente(rs.getString("nit_cli"));
+                cl.setNombre_cliente(rs.getString("nombre_cli"));
+                cl.setTelefono_cliente(rs.getString("telefono_cli"));
+                cl.setDireccion_cliente(rs.getString("direccion_cli"));
+                cl.setCiudad_cliente(rs.getString("ciudad_cli"));
+                cl.setCorreo_cliente(rs.getString("correo_cli"));
+                cl.setNombre_contacto(rs.getString("contacto_cli"));
                 cliente.add(cl);
                 DefaultTableModel tb = (DefaultTableModel) tabla_clientes.getModel();
                 tb.addRow(new Object[]{cl.getNit_cliente(), cl.getNombre_cliente(), cl.getTelefono_cliente(), cl.getDireccion_cliente(), cl.getCiudad_cliente(), cl.getCorreo_cliente(), cl.getNombre_contacto()});

@@ -11,9 +11,7 @@ package ventanas;
  */
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
+
 
 public class Bienvenida extends javax.swing.JFrame {
 

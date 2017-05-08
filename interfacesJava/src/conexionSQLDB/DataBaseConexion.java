@@ -10,7 +10,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+
+
 
 /**
  *
@@ -21,6 +22,7 @@ public class DataBaseConexion {
         try {
             
             Class.forName("oracle.jdbc.driver.OracleDriver");
+            //String DB = "jdbc:oracle:thin:@localhost:1521:XE";
             String DB = "jdbc:oracle:thin:@localhost:1521:XE";
             String usuario = "cpudb";
             String password = "1234";

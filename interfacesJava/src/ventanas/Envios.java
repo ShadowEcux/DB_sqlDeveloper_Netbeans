@@ -206,6 +206,8 @@ public class Envios extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 170, -1));
+
+        txtFecha.setDateFormatString("yyyy/MM/dd");
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 180, -1));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

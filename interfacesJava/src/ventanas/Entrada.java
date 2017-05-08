@@ -377,6 +377,8 @@ public class Entrada extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 570, -1, -1));
+
+        txtFecha.setDateFormatString("yyyy/MM/dd");
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 190, -1));
 
         btnDescartar.setBackground(new java.awt.Color(255, 255, 255));

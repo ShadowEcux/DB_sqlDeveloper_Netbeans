@@ -253,6 +253,8 @@ public class Salidass extends javax.swing.JFrame {
         jLabel35.setText("Serie");
         getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 40, 20));
         getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 150, -1));
+
+        txtFecha.setDateFormatString("yyyy/MM/dd");
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 170, 30));
 
         btnBusca.setBackground(new java.awt.Color(255, 255, 255));

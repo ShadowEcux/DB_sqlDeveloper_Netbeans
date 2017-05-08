@@ -420,7 +420,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
                 txtDireccionCliente.setText(rs.getString("direccion_cli").trim());
                 txtCiudadCliente.setText(rs.getString("ciudad_cli").trim());
                 txtCorreoCliente.setText(rs.getString("correo_cli").trim());
-                txtContactoCliente.setText(rs.getString("contacto").trim());
+                txtContactoCliente.setText(rs.getString("contacto_cli").trim());
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();

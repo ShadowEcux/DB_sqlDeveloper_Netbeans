@@ -76,7 +76,7 @@ public class clienteMySql {
             //JOptionPane.showMessageDialog(null, "Error en listado \n"+ex.getMessage());  
         }
     }
-    
+    /*
     public void insertarUsuarios(clientes cliente) {
         try {
             Connection cnx = DataBaseConexion.getConnection();
@@ -95,6 +95,7 @@ public class clienteMySql {
             System.out.println("Error en listado");
         }
     }
+    */
 
     //Codigo para MODIFICAR datos
     public void EditarCliente(clientes cli) {

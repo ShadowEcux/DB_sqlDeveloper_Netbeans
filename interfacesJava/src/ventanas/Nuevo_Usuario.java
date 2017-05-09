@@ -5,21 +5,14 @@
  */
 package ventanas;
 
-import clasesPrincipales.clientes;
+
 import clasesPrincipales.usuarios;
-import conexionSQLDB.DataBaseConexion;
-import conexionSQLDB.clienteDB;
-import conexionSQLDB.usuarioDB;
-import java.awt.Image;
-import java.awt.event.FocusAdapter;
+import conMySql.usuarioMySQLDB;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,7 +22,8 @@ import javax.swing.JOptionPane;
 public class Nuevo_Usuario extends javax.swing.JFrame {
 
     ArrayList<usuarios> usuario;
-    usuarioDB db = new usuarioDB();
+    //usuarioDB db = new usuarioDB();
+    usuarioMySQLDB db = new usuarioMySQLDB();
 
     /**
      * Creates new form Registro_Clientes
@@ -41,18 +35,19 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         //CargarCmbUsuarios();
 
     }
-
+/*
     public void CargarCmbUsuarios() {
         try {
-            Connection cnx = DataBaseConexion.getConnection();
+            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT NOMBRE_TIPO_USUARIO FROM TIPO_USUARIOS");
+            ResultSet rs = st.executeQuery("SELECT tipo FROM tipo_usuario");
             while (rs.next()) {
-                cmbUsuarios.addItem(rs.getString("nombre_tipo_usuario"));
+                cmbUsuarios.addItem(rs.getString("tipo"));
             }
         } catch (Exception e) {
         }
     }
+    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,7 +116,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         });
         getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
 
-        cmbUsuarios.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMINISTRADOR", "OPERARIO" }));
+        cmbUsuarios.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMINISTRADOR", "OPERARIO", "TECNICO" }));
         getContentPane().add(cmbUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, 20));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -200,7 +195,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
 
-            int tipo = 0;
+            int tipo;
             usuarios usu = new usuarios();
             usu.setNombre(txtNombre.getText());
             usu.setPassword(txtPasswordUsuario.getText());
@@ -208,10 +203,12 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
                 tipo = 1;
                 usu.setTipoUsuario(tipo);
             } else if (cmbUsuarios.getSelectedItem() == "OPERARIO") {
+                tipo = 2;
+                usu.setTipoUsuario(tipo);
+            }else if (cmbUsuarios.getSelectedItem() == "TECNICO") {
                 tipo = 3;
                 usu.setTipoUsuario(tipo);
             }
-
             db.insertarUsuario(usu);
             JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
 

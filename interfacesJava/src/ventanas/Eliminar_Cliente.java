@@ -6,6 +6,8 @@
 package ventanas;
 
 import clasesPrincipales.clientes;
+import conMySql.clienteMySql;
+import conMySql.usuarioMySQLDB;
 import conexionSQLDB.DataBaseConexion;
 import conexionSQLDB.clienteDB;
 import java.awt.Image;
@@ -27,7 +29,8 @@ import javax.swing.JOptionPane;
 public class Eliminar_Cliente extends javax.swing.JFrame {
 
     ArrayList<clientes> cliente;
-    clienteDB db = new clienteDB();
+    //clienteDB db = new clienteDB();
+    clienteMySql db = new clienteMySql();
 
     /**
      * Creates new form Tabla_Clientes
@@ -49,6 +52,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         txtContactoCliente.setEnabled(false);
     }
 
+    @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/CPU_new_2.png"));
         return retValue;
@@ -72,11 +76,11 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
 
     public void CargarCmbCliente() {
         try {
-            Connection cnx = DataBaseConexion.getConnection();
+            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT NOMBRECLIENTE FROM CLIENTES ORDER BY NOMBRECLIENTE ASC");
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes ORDER BY nombre_cli ASC");
             while (rs.next()) {
-                this.cmbClientes.addItem(rs.getString("nombrecliente"));
+                this.cmbClientes.addItem(rs.getString("nombre_cli"));
             }
         } catch (Exception e) {
         }
@@ -394,22 +398,22 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
+            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
+            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where nombre_cli = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
-                txtID.setText(rs.getString("idcliente").trim());
-                txtNitCliente.setText(rs.getString("nitcliente").trim());
-                txtNombreCliente.setText(rs.getString("nombrecliente").trim());
-                txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
-                txtDireccionCliente.setText(rs.getString("direccioncliente").trim());
-                txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
-                txtCorreoCliente.setText(rs.getString("correocliente").trim());
-                txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
+                txtID.setText(rs.getString("id_cli").trim());
+                txtNitCliente.setText(rs.getString("nit_cli").trim());
+                txtNombreCliente.setText(rs.getString("nombre_cli").trim());
+                txtTelefonoCliente.setText(rs.getString("telefono_cli").trim());
+                txtDireccionCliente.setText(rs.getString("direccion_cli").trim());
+                txtCiudadCliente.setText(rs.getString("ciudad_cli").trim());
+                txtCorreoCliente.setText(rs.getString("correo_cli").trim());
+                txtContactoCliente.setText(rs.getString("contacto_cli").trim());
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();

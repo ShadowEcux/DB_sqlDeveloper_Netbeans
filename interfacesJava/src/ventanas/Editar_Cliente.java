@@ -7,8 +7,6 @@ package ventanas;
 
 import clasesPrincipales.clientes;
 import conMySql.clienteMySql;
-import conexionSQLDB.DataBaseConexion;
-import conexionSQLDB.clienteDB;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.Connection;

@@ -5,8 +5,6 @@
  */
 package ventanas;
 
-
-import clasesPrincipales.usuarios;
 import java.awt.Image;
 import java.awt.Toolkit;
 

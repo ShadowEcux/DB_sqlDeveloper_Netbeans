@@ -8,27 +8,13 @@ package ventanas;
 import clasesPrincipales.Salidas;
 import conexionSQLDB.DataBaseConexion;
 import conexionSQLDB.salidaDB;
-import java.io.*;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook; //New imports to read XLSX format
-import org.apache.poi.xssf.usermodel.XSSFSheet; //New imports to read XLSX format
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator;
-import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator; //New imports to formula evaluator in XLSX
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import org.apache.poi.hssf.usermodel.HSSFRichTextString;
 
 /**
  *

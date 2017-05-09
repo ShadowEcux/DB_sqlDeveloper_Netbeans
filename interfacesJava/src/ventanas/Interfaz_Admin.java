@@ -16,8 +16,6 @@ import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import java.sql.*;
 
 public class Interfaz_Admin extends javax.swing.JFrame {
@@ -135,13 +133,13 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         usu.setNombre(this.txtNombreUsuario.getText());
         usu.setPassword(this.txtPassword.getText());
         try {
-            Connection cn = DataBaseConexion.getConnection();
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("Select Tipo_Usuario From Usuarios Where Nombre_Usuario = '" + usu.getNombre() + "' And Password_Usuario  = '" + usu.getPassword() + "'");
+            ResultSet rs = st.executeQuery("Select id_tipo_usu From Usuarios Where nombre_usu = '" + usu.getNombre() + "' And password_usu  = '" + usu.getPassword() + "'");
             //ResultSet rs = st.executeQuery("insert into USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIOS_ID_TIPO_USUARIO) VALUES ('fserrano1', '1234', 3)");   
             if (rs.next()) {
 
-                int tipo = rs.getInt("Tipo_Usuario");
+                int tipo = rs.getInt("id_tipo_usu");
                 if (tipo == 1) {
 
                     new Principal_Admin().setVisible(true);
@@ -150,7 +148,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
                     
                 }
 
-                if (tipo == 3) {
+                if (tipo == 2) {
 
                     new Principal_Oper().setVisible(true);
                     dispose();

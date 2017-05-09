@@ -5,20 +5,10 @@
  */
 package ventanas;
 
-import clasesPrincipales.clientes;
 import clasesPrincipales.usuarios;
 import conMySql.usuarioMySQLDB;
-import conexionSQLDB.DataBaseConexion;
-import conexionSQLDB.clienteDB;
-import conexionSQLDB.usuarioDB;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

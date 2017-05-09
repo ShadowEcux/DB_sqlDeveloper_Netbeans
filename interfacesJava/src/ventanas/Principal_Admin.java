@@ -5,13 +5,6 @@
  */
 package ventanas;
 
-
-import clasesPrincipales.usuarios;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.Dimension;
-import javax.swing.UIManager;
-
 /**
  *
  * @author CPU_SYS

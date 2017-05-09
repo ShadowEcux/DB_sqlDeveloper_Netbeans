@@ -6,13 +6,8 @@
 package ventanas;
 
 import clasesPrincipales.clientes;
-import conexionSQLDB.clienteDB;
-import java.awt.Image;
 import java.util.ArrayList;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import conMySql.clienteMySql;
 
 /**

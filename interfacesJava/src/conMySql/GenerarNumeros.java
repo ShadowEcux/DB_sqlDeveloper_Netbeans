@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conexionSQLDB;
+package conMySql;
 
 /**
  *
@@ -37,7 +37,7 @@ public class GenerarNumeros {
         if(this.dato == 0){
             int can = cont+this.dato;
             num = "CP000"+can;
-        }   
+        }
     }
     public String serie(){
         return this.num;

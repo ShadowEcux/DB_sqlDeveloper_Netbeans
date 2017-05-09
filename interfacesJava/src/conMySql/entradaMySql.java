@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conexionSQLDB;
+package conMySql;
 
+import conexionSQLDB.*;
 import clasesPrincipales.Entradas;
-import clasesPrincipales.clientes;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,39 +21,39 @@ import java.util.logging.Logger;
  *
  * @author CPU_SYS
  */
-public class entradaDB {
+public class entradaMySql {
 
     public ArrayList<Entradas> ListEntradas() {
         ArrayList<Entradas> entrada = new ArrayList();
         try {
-            Connection cnx = DataBaseConexion.getConnection();
+            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT ID_ENTRADA, FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES FROM ENTRADAS ORDER BY 2");
+            ResultSet rs = st.executeQuery("SELECT id_entra, fecha, no_rem, elemento, potencia, marca, modelo, serie, empresa, nit, persona_remite, ciudad, direccion, contacto, telefono, correo, motivo, terjeta_red, parrilla, bases_plas, conector_ori, garantia, estado_car, observaciones FROM entradas ORDER BY 2");
             while (rs.next()) {
                 Entradas en = new Entradas();
-                en.setId_entrada(rs.getInt("ID_ENTRADA"));
-                en.setFecha(rs.getString("FECHA"));
-                en.setElemento(rs.getString("ELEMENTO"));
-                en.setPotencia(rs.getString("POTENCIA"));
-                en.setMarca(rs.getString("MARCA"));
-                en.setModelo(rs.getString("MODELO"));
-                en.setSerie(rs.getString("SERIE"));
-                en.setEmpresa(rs.getString("EMPRESA"));
-                en.setNit(rs.getString("NIT"));
-                en.setPersona_remite(rs.getString("PERSONA_REMITE"));
-                en.setCiudad(rs.getString("CIUDAD"));
-                en.setDireccion(rs.getString("DIRECCION"));
-                en.setNombre_contacto(rs.getString("NOMBRE_CONTACTO"));
-                en.setTelefono_contacto(rs.getString("TELEFONO_CONTACTO"));
-                en.setCorreo(rs.getString("CORREO"));
-                en.setMotivo(rs.getString("MOTIVO"));
-                en.setTarjeta_red(rs.getString("TARJETA_RED"));
-                en.setParrilla(rs.getString("PARRILLA"));
-                en.setBases_plasticas(rs.getString("BASES_PLASTICAS"));
-                en.setConector_origi(rs.getString("CONECTOR_ORIGI"));
-                en.setGarantia(rs.getString("GARANTIA"));
-                en.setEstado_carcasa(rs.getString("ESTADO_CARCASA"));
-                en.setObservaciones(rs.getString("OBSERVACIONES"));
+                en.setId_entrada(rs.getInt("id_entra"));
+                en.setFecha(rs.getString("fecha"));
+                en.setElemento(rs.getString("elemento"));
+                en.setPotencia(rs.getString("potencia"));
+                en.setMarca(rs.getString("marca"));
+                en.setModelo(rs.getString("modelo"));
+                en.setSerie(rs.getString("serie"));
+                en.setEmpresa(rs.getString("empresa"));
+                en.setNit(rs.getString("nit"));
+                en.setPersona_remite(rs.getString("persona_remite"));
+                en.setCiudad(rs.getString("ciudad"));
+                en.setDireccion(rs.getString("direccion"));
+                en.setNombre_contacto(rs.getString("contacto"));
+                en.setTelefono_contacto(rs.getString("telefono"));
+                en.setCorreo(rs.getString("correo"));
+                en.setMotivo(rs.getString("motivo"));
+                en.setTarjeta_red(rs.getString("tarjeta_red"));
+                en.setParrilla(rs.getString("parrilla"));
+                en.setBases_plasticas(rs.getString("bases_plas"));
+                en.setConector_origi(rs.getString("conector_ori"));
+                en.setGarantia(rs.getString("garantia"));
+                en.setEstado_carcasa(rs.getString("estado_car"));
+                en.setObservaciones(rs.getString("observaciones"));
                 entrada.add(en);
             }
         } catch (SQLException ex) {
@@ -65,9 +66,8 @@ public class entradaDB {
     //Codigo para INSERTAR DATOS.........................................................
     public void insertarEntrada(Entradas entrada) {
         try {
-            Connection cnx = DataBaseConexion.getConnection();
-            PreparedStatement pst = cnx.prepareStatement("INSERT INTO ENTRADAS (FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES, no_rem) \n"
-                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            PreparedStatement pst =  cn.prepareStatement("INSERT INTO entradas(fecha, elemento, potencia, marca, modelo, serie, empresa, nit, persona_remite, ciudad, direccion, contacto, telefono, correo, motivo, terjeta_red, parrilla, bases_plas, conector_ori, garantia, estado_car, observaciones, numero) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pst.setString(1, entrada.getFecha());
             pst.setString(2, entrada.getElemento());
             pst.setString(3, entrada.getPotencia());
@@ -90,6 +90,7 @@ public class entradaDB {
             pst.setString(20, entrada.getGarantia());
             pst.setString(21, entrada.getEstado_carcasa());
             pst.setString(22, entrada.getObservaciones());
+            pst.setString(23, entrada.getNumero());
             pst.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -128,7 +129,7 @@ public class entradaDB {
             pst.setInt(23, entrada.getId_entrada());
             pst.executeQuery();
         } catch (SQLException ex) {
-            Logger.getLogger(entradaDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(entradaMySql.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -140,7 +141,7 @@ public class entradaDB {
             pst.setInt(1, en.getId_entrada());
             pst.executeQuery();
         } catch (SQLException ex) {
-            Logger.getLogger(entradaDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(entradaMySql.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

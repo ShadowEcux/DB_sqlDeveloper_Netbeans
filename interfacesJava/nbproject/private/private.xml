@@ -29,7 +29,6 @@
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/Salidas.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/salidaDB.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/DataBaseConexion.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Entrada_Oper.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Salidass_Oper.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Entrada_Oper.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Salida_Oper.java</file>
@@ -43,6 +42,7 @@
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Tabla_Clientes_Oper.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Principal_Admin.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/entradaMySql.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Entrada_Oper.java</file>
         </group>
     </open-files>
 </project-private>

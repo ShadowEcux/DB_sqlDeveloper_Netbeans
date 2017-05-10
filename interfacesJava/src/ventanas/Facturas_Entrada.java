@@ -9,6 +9,7 @@ import clasesPrincipales.Entradas;
 import conexionSQLDB.DataBaseConexion;
 import conexionSQLDB.entradaDB;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -55,11 +56,11 @@ public class Facturas_Entrada extends javax.swing.JFrame {
 
     public void CargarCmbFacturas() {
         try {
-            Connection cnx = DataBaseConexion.getConnection();
+            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT ID_ENTRADA FROM ENTRADAS ORDER BY ID_ENTRADA DESC");
+            ResultSet rs = st.executeQuery("SELECT numero FROM ENTRADAS ORDER BY numero DESC");
             while (rs.next()) {
-                this.cmbFacturas.addItem(rs.getString("ID_ENTRADA"));
+                this.cmbFacturas.addItem(rs.getString("numero"));
             }
         } catch (Exception e) {
         }
@@ -143,6 +144,9 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
         btnDescartar = new javax.swing.JButton();
         btnPdf = new javax.swing.JButton();
+        txtsec = new javax.swing.JTextField();
+        jSeparator12 = new javax.swing.JSeparator();
+        jLabel26 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -293,8 +297,8 @@ public class Facturas_Entrada extends javax.swing.JFrame {
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(153, 255, 153));
-        jLabel25.setText("FECHA");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 40, 20));
+        jLabel25.setText("No. REM");
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 50, 20));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -469,6 +473,13 @@ public class Facturas_Entrada extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, 50, -1));
+        getContentPane().add(txtsec, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 190, -1));
+        getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 140, 10));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(153, 255, 153));
+        jLabel26.setText("FECHA");
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 40, 20));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -516,36 +527,37 @@ public class Facturas_Entrada extends javax.swing.JFrame {
         try {
 
             String guardar = cmbFacturas.getSelectedItem().toString();
-            Connection cn = DataBaseConexion.getConnection();
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
+            PreparedStatement pst = cn.prepareStatement("Select * from ENTRADAS where numero = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
-                txtFecha.setText(rs.getString("FECHA").trim());
-                txtElemento.setText(rs.getString("ELEMENTO").trim());
-                txtPotencia.setText(rs.getString("POTENCIA").trim());
-                txtMarca.setText(rs.getString("MARCA").trim());
-                txtModelo.setText(rs.getString("MODELO").trim());
-                txtSerie.setText(rs.getString("SERIE").trim());
-                txtEmpresa.setText(rs.getString("EMPRESA").trim());
-                txtNitCliente.setText(rs.getString("NIT").trim());
-                txtPersonaRemitente.setText(rs.getString("PERSONA_REMITE").trim());
-                txtCiudadCliente.setText(rs.getString("CIUDAD").trim());
-                txtDireccionCliente.setText(rs.getString("DIRECCION").trim());
-                txtContactoCliente.setText(rs.getString("NOMBRE_CONTACTO").trim());
-                txtTelefonoCliente.setText(rs.getString("TELEFONO_CONTACTO").trim());
-                txtCorreoCliente.setText(rs.getString("CORREO").trim());
-                txtMotivo.setText(rs.getString("MOTIVO").trim());
-                txtTarjetaRed.setText(rs.getString("TARJETA_RED").trim());
-                txtParrilla.setText(rs.getString("PARRILLA").trim());
-                txtBasesPlasticas.setText(rs.getString("BASES_PLASTICAS").trim());
-                txtConector.setText(rs.getString("CONECTOR_ORIGI").trim());
-                txtGarantia.setText(rs.getString("GARANTIA").trim());
-                txtEstadoCarcasa.setText(rs.getString("ESTADO_CARCASA").trim());
-                areaObservaciones.setText(rs.getString("OBSERVACIONES").trim());
+                txtFecha.setText(rs.getString("fecha").trim());
+                txtElemento.setText(rs.getString("elemento").trim());
+                txtPotencia.setText(rs.getString("potencia").trim());
+                txtMarca.setText(rs.getString("marca").trim());
+                txtModelo.setText(rs.getString("modelo").trim());
+                txtSerie.setText(rs.getString("serie").trim());
+                txtEmpresa.setText(rs.getString("empresa").trim());
+                txtNitCliente.setText(rs.getString("nit").trim());
+                txtPersonaRemitente.setText(rs.getString("persona_remite").trim());
+                txtCiudadCliente.setText(rs.getString("ciudad").trim());
+                txtDireccionCliente.setText(rs.getString("direccion").trim());
+                txtContactoCliente.setText(rs.getString("contacto").trim());
+                txtTelefonoCliente.setText(rs.getString("telefono").trim());
+                txtCorreoCliente.setText(rs.getString("correo").trim());
+                txtMotivo.setText(rs.getString("motivo").trim());
+                txtTarjetaRed.setText(rs.getString("tarjeta_red").trim());
+                txtParrilla.setText(rs.getString("parrilla").trim());
+                txtBasesPlasticas.setText(rs.getString("bases_plas").trim());
+                txtConector.setText(rs.getString("conector ori").trim());
+                txtGarantia.setText(rs.getString("garantia").trim());
+                txtEstadoCarcasa.setText(rs.getString("estado_car").trim());
+                areaObservaciones.setText(rs.getString("observaciones").trim());
+                txtsec.setText(rs.getString("numero").trim());
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
@@ -874,6 +886,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
@@ -888,6 +901,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -917,5 +931,6 @@ public class Facturas_Entrada extends javax.swing.JFrame {
     private javax.swing.JTextField txtSerie;
     private javax.swing.JTextField txtTarjetaRed;
     private javax.swing.JTextField txtTelefonoCliente;
+    private javax.swing.JTextField txtsec;
     // End of variables declaration//GEN-END:variables
 }

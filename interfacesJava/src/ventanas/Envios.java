@@ -304,9 +304,9 @@ public class Envios extends javax.swing.JFrame {
        try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
+            Connection cn = DataBaseConexion.getConnection();
+            Statement st = cn.createStatement();
+            PreparedStatement pst = cn.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
@@ -324,6 +324,7 @@ public class Envios extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el usuario");
             }
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

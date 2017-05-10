@@ -395,9 +395,9 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where nombre_cli = ?");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            PreparedStatement pst = cn.prepareStatement("Select * from Clientes where nombre_cli = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
@@ -417,6 +417,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el usuario");
             }
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

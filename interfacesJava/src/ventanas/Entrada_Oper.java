@@ -6,14 +6,17 @@
 package ventanas;
 
 import clasesPrincipales.Entradas;
-import conexionSQLDB.DataBaseConexion;
-import conexionSQLDB.entradaDB;
+import conMySql.GenerarNumeros;
+import conMySql.entradaMySql;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,7 +28,8 @@ import java.util.Date;
 public class Entrada_Oper extends javax.swing.JFrame {
 
     ArrayList<Entradas> entrada;
-    entradaDB db = new entradaDB();
+    //entradaDB db = new entradaDB();
+    entradaMySql db = new entradaMySql();
 
     //excel obj = new excel();
     /**
@@ -36,34 +40,74 @@ public class Entrada_Oper extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENTRADA");
         CargarCmbCliente();
-       //CargarCmbFacturas();
+        numeros();
+        //CargarCmbFacturas();
     }
 
     public void CargarCmbCliente() {
         try {
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT NOMBRECLIENTE FROM CLIENTES ORDER BY NOMBRECLIENTE ASC");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes ORDER BY nombre_cli ASC");
             while (rs.next()) {
-                this.cmbClientes.addItem(rs.getString("nombrecliente"));
+                this.cmbClientes.addItem(rs.getString("nombre_cli"));   
             }
+            cn.close();
         } catch (Exception e) {
         }
     }
-/*
-    public void CargarCmbFacturas() {
-        try {
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT ID_ENTRADA FROM ENTRADAS ORDER BY ID_ENTRADA DESC");
-            while (rs.next()) {
-                this.cmbFacturas.addItem(rs.getString("ID_ENTRADA"));
-            }
-        } catch (Exception e) {
-        }
-    }
-    */
 
+    void numeros() {
+        int j;
+        String c = "";
+        String SQL = "SELECT MAX(numero) AS numero FROM ENTRADAS";
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                c = rs.getString("numero");
+            }
+            System.out.println(c);
+            if (c == null) {
+                txtSec.setText("NR0001");
+                System.out.println(c);
+            } else {
+                char r1 = c.charAt(2);
+                char r2 = c.charAt(3);
+                char r3 = c.charAt(4);
+                char r4 = c.charAt(5);
+
+                System.out.println("" + r1 + r2 + r3 + r4);
+                String juntar = "" + r1 + r2 + r3 + r4;
+
+                int var = Integer.parseInt(juntar);
+                System.out.println("\n lo que vale: " + var);
+                GenerarNumeros gen = new GenerarNumeros();
+                gen.generar(var);
+
+                txtSec.setDisabledTextColor(java.awt.Color.BLUE);
+                txtSec.setText(gen.serie());
+                cn.close();
+            }
+        } catch (SQLException | NumberFormatException ex) {
+            Logger.getLogger(Entrada_Oper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /*
+     public void CargarCmbFacturas() {
+     try {
+     Connection cnx = DataBaseConexion.getConnection();
+     Statement st = cnx.createStatement();
+     ResultSet rs = st.executeQuery("SELECT ID_ENTRADA FROM ENTRADAS ORDER BY ID_ENTRADA DESC");
+     while (rs.next()) {
+     this.cmbFacturas.addItem(rs.getString("ID_ENTRADA"));
+     }
+     } catch (Exception e) {
+     }
+     }
+     */
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -136,6 +180,9 @@ public class Entrada_Oper extends javax.swing.JFrame {
         btnFacturas = new javax.swing.JButton();
         btnBusca = new javax.swing.JButton();
         btnGuarda = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel26 = new javax.swing.JLabel();
+        txtSec = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -164,7 +211,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, -1));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 150, 10));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 150, 10));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -291,8 +338,8 @@ public class Entrada_Oper extends javax.swing.JFrame {
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(153, 255, 153));
-        jLabel25.setText("FECHA");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 40, 20));
+        jLabel25.setText("No. REM");
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 60, 20));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -349,7 +396,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
         areaObservaciones.setRows(5);
         jScrollPane1.setViewportView(areaObservaciones);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 490, 80));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 520, 100));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 260, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -389,7 +436,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
                 btnFacturasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 250, 30));
+        getContentPane().add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, 250, 30));
 
         btnBusca.setBackground(new java.awt.Color(255, 255, 255));
         btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -427,6 +474,13 @@ public class Entrada_Oper extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 50, -1));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 150, 10));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(153, 255, 153));
+        jLabel26.setText("FECHA");
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 40, 20));
+        getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 200, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -474,7 +528,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
 
     private void btnFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasActionPerformed
 
-        Facturas_Entrada_Oper obj = new Facturas_Entrada_Oper();
+        Facturas_Entrada obj = new Facturas_Entrada();
         obj.setVisible(true);
         dispose();
 
@@ -486,28 +540,29 @@ public class Entrada_Oper extends javax.swing.JFrame {
         try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            PreparedStatement pst = cn.prepareStatement("Select * from Clientes where nombre_cli = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
-                txtNitCliente.setText(rs.getString("nitcliente").trim());
-                txtEmpresa.setText(rs.getString("nombrecliente").trim());
-                txtTelefonoCliente.setText(rs.getString("telefonocliente").trim());
-                txtDireccionCliente.setText(rs.getString("direccioncliente").trim());
-                txtCiudadCliente.setText(rs.getString("ciudadcliente").trim());
-                txtCorreoCliente.setText(rs.getString("correocliente").trim());
-                txtContactoCliente.setText(rs.getString("nombrecontacto").trim());
-                txtPersonaRemitente.setText(rs.getString("nombrecontacto").trim());
+                txtNitCliente.setText(rs.getString("nit_cli").trim());
+                txtEmpresa.setText(rs.getString("nombre_cli").trim());
+                txtTelefonoCliente.setText(rs.getString("telefono_cli").trim());
+                txtDireccionCliente.setText(rs.getString("direccion_cli").trim());
+                txtCiudadCliente.setText(rs.getString("ciudad_cli").trim());
+                txtCorreoCliente.setText(rs.getString("correo_cli").trim());
+                txtContactoCliente.setText(rs.getString("contacto_cli").trim());
+                txtPersonaRemitente.setText(rs.getString("contacto_cli").trim());
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el usuario");
             }
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -544,41 +599,42 @@ public class Entrada_Oper extends javax.swing.JFrame {
                 || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-
-            Entradas en = new Entradas();
-
-            String formato = txtFecha.getDateFormatString();
-            Date date = txtFecha.getDate();
-            SimpleDateFormat sdf = new SimpleDateFormat(formato);
-            String dato = String.valueOf(sdf.format(date));
-
-            en.setFecha(dato);
-            en.setElemento(txtElemento.getText().toUpperCase());
-            en.setPotencia(txtPotencia.getText().toUpperCase());
-            en.setMarca(txtMarca.getText().toUpperCase());
-            en.setModelo(txtModelo.getText().toUpperCase());
-            en.setSerie(txtSerie.getText().toUpperCase());
-            en.setEmpresa(txtEmpresa.getText().toUpperCase());
-            en.setNit(txtNitCliente.getText().toUpperCase());
-            en.setPersona_remite(txtPersonaRemitente.getText().toUpperCase());
-            en.setCiudad(txtCiudadCliente.getText().toUpperCase());
-            en.setDireccion(txtDireccionCliente.getText().toUpperCase());
-            en.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
-            en.setTelefono_contacto(txtTelefonoCliente.getText().toUpperCase());
-            en.setCorreo(txtCorreoCliente.getText().toUpperCase());
-            en.setMotivo(txtMotivo.getText().toUpperCase());
-            en.setTarjeta_red(cmbTarjetaDeRed.getSelectedItem().toString().toUpperCase());
-            en.setParrilla(cmbParrilla.getSelectedItem().toString().toUpperCase());
-            en.setBases_plasticas(cmbBasesPlasticas.getSelectedItem().toString().toUpperCase());
-            en.setConector_origi(cmbConectorOriginal.getSelectedItem().toString().toUpperCase());
-            en.setGarantia(cmbGarantia.getSelectedItem().toString().toUpperCase());
-            en.setEstado_carcasa(cmbEstadoCarcasa.getSelectedItem().toString().toUpperCase());
-            en.setObservaciones(areaObservaciones.getText().toUpperCase());
-
             try {
+                Entradas en = new Entradas();
+
+                String formato = txtFecha.getDateFormatString();
+                Date date = txtFecha.getDate();
+                SimpleDateFormat sdf = new SimpleDateFormat(formato);
+                String dato = String.valueOf(sdf.format(date));
+                //no_rem.setDisabledTextColor(java.awt.Color.BLUE);
+                en.setFecha(dato);
+                en.setElemento(txtElemento.getText().toUpperCase());
+                en.setPotencia(txtPotencia.getText().toUpperCase());
+                en.setMarca(txtMarca.getText().toUpperCase());
+                en.setModelo(txtModelo.getText().toUpperCase());
+                en.setSerie(txtSerie.getText().toUpperCase());
+                en.setEmpresa(txtEmpresa.getText().toUpperCase());
+                en.setNit(txtNitCliente.getText().toUpperCase());
+                en.setPersona_remite(txtPersonaRemitente.getText().toUpperCase());
+                en.setCiudad(txtCiudadCliente.getText().toUpperCase());
+                en.setDireccion(txtDireccionCliente.getText().toUpperCase());
+                en.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
+                en.setTelefono_contacto(txtTelefonoCliente.getText().toUpperCase());
+                en.setCorreo(txtCorreoCliente.getText().toUpperCase());
+                en.setMotivo(txtMotivo.getText().toUpperCase());
+                en.setTarjeta_red(cmbTarjetaDeRed.getSelectedItem().toString().toUpperCase());
+                en.setParrilla(cmbParrilla.getSelectedItem().toString().toUpperCase());
+                en.setBases_plasticas(cmbBasesPlasticas.getSelectedItem().toString().toUpperCase());
+                en.setConector_origi(cmbConectorOriginal.getSelectedItem().toString().toUpperCase());
+                en.setGarantia(cmbGarantia.getSelectedItem().toString().toUpperCase());
+                en.setEstado_carcasa(cmbEstadoCarcasa.getSelectedItem().toString().toUpperCase());
+                en.setObservaciones(areaObservaciones.getText().toUpperCase());
+                en.setNumero(txtSec.getText());
+
                 db.insertarEntrada(en);
                 JOptionPane.showMessageDialog(this, "Factura guardada exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
 
+                numeros();
                 txtNitCliente.setText("");
                 txtEmpresa.setText("");
                 txtTelefonoCliente.setText("");
@@ -605,7 +661,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
             }
 
         }
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardaActionPerformed
 
@@ -683,6 +739,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
@@ -699,6 +756,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField txtCiudadCliente;
@@ -714,6 +772,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
     private javax.swing.JTextField txtNitCliente;
     private javax.swing.JTextField txtPersonaRemitente;
     private javax.swing.JTextField txtPotencia;
+    private javax.swing.JTextField txtSec;
     private javax.swing.JTextField txtSerie;
     private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables

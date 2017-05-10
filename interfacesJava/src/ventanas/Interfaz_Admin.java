@@ -11,6 +11,7 @@ package ventanas;
  */
 import clasesPrincipales.usuarios;
 import conexionSQLDB.DataBaseConexion;
+import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
@@ -159,8 +160,8 @@ public class Interfaz_Admin extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(null, "No existe usuario, por favor revise sus datos");
             }
-
-        } catch (Exception e) {
+            cn.close();
+        } catch (SQLException | HeadlessException e) {
             //JOptionPane.showMessageDialog(null, "Error " + e);
             System.out.println(e);
         }

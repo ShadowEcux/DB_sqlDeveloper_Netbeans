@@ -71,7 +71,7 @@ public class Entrada extends javax.swing.JFrame {
             }
             System.out.println(c);
             if (c == null) {
-                txtIdSec.setText("NR0001");
+                txtSec.setText("NR0001");
                 System.out.println(c);
             } else {
                 char r1 = c.charAt(2);
@@ -87,8 +87,8 @@ public class Entrada extends javax.swing.JFrame {
                 GenerarNumeros gen = new GenerarNumeros();
                 gen.generar(var);
 
-                txtIdSec.setDisabledTextColor(java.awt.Color.BLUE);
-                txtIdSec.setText(gen.serie());
+                txtSec.setDisabledTextColor(java.awt.Color.BLUE);
+                txtSec.setText(gen.serie());
             }
         } catch (SQLException | NumberFormatException ex) {
             Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
@@ -182,7 +182,7 @@ public class Entrada extends javax.swing.JFrame {
         btnGuarda = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
-        txtIdSec = new javax.swing.JTextField();
+        txtSec = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -480,7 +480,7 @@ public class Entrada extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(153, 255, 153));
         jLabel26.setText("FECHA");
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 40, 20));
-        getContentPane().add(txtIdSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 200, -1));
+        getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 200, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -540,9 +540,9 @@ public class Entrada extends javax.swing.JFrame {
         try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from Clientes where nombre_cli = ?");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            PreparedStatement pst = cn.prepareStatement("Select * from Clientes where nombre_cli = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
@@ -562,6 +562,7 @@ public class Entrada extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el usuario");
             }
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -628,7 +629,7 @@ public class Entrada extends javax.swing.JFrame {
                 en.setGarantia(cmbGarantia.getSelectedItem().toString().toUpperCase());
                 en.setEstado_carcasa(cmbEstadoCarcasa.getSelectedItem().toString().toUpperCase());
                 en.setObservaciones(areaObservaciones.getText().toUpperCase());
-                en.setNumero(txtIdSec.getText());
+                en.setNumero(txtSec.getText());
 
                 db.insertarEntrada(en);
                 JOptionPane.showMessageDialog(this, "Factura guardada exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
@@ -761,13 +762,13 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JTextField txtElemento;
     private javax.swing.JTextField txtEmpresa;
     private com.toedter.calendar.JDateChooser txtFecha;
-    private javax.swing.JTextField txtIdSec;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtMotivo;
     private javax.swing.JTextField txtNitCliente;
     private javax.swing.JTextField txtPersonaRemitente;
     private javax.swing.JTextField txtPotencia;
+    private javax.swing.JTextField txtSec;
     private javax.swing.JTextField txtSerie;
     private javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables

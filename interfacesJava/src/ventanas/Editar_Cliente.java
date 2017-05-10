@@ -80,6 +80,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
             while (rs.next()) {
                 this.cmbClientes.addItem(rs.getString("nombre_cli"));
             }
+            cn.close();
         } catch (Exception e) {
         }
     }
@@ -425,6 +426,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el usuario");
             }
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

@@ -253,6 +253,7 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el usuario");
             }
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

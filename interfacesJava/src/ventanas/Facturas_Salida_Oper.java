@@ -479,9 +479,9 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
         try {
 
             String guardar = cmbSalidas.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from SALIDAS where ID_SALIDA = ?");
+            Connection cn = DataBaseConexion.getConnection();
+            Statement st = cn.createStatement();
+            PreparedStatement pst = cn.prepareStatement("Select * from SALIDAS where ID_SALIDA = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
@@ -504,6 +504,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "No existe la factura");
             }
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -680,9 +681,9 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
         try {
 
             String guardar = cmbEntradas.getSelectedItem().toString();
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            PreparedStatement pst = cnx.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
+            Connection cn = DataBaseConexion.getConnection();
+            Statement st = cn.createStatement();
+            PreparedStatement pst = cn.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
@@ -705,6 +706,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "No existe la factura");
             }
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

@@ -40,6 +40,7 @@ public class usuarioMySQLDB {
                 usu.setTipoUsuario(rs.getInt("id_tipo_usu"));
                 usuario.add(usu);
             }
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             System.out.println("Error en listado");
@@ -56,6 +57,7 @@ public class usuarioMySQLDB {
             pst.setString(2, usuario.getPassword());
             pst.setInt(3, usuario.getTipoUsuario());
             pst.executeUpdate();
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             System.out.println("Error al insertar");
@@ -81,6 +83,7 @@ public class usuarioMySQLDB {
             PreparedStatement pst = (PreparedStatement) cn.prepareStatement("DELETE FROM usuarios WHERE nombre_usu=?");
             pst.setString(1, usu.getNombre());
             pst.executeUpdate();
+            cn.close();
         } catch (SQLException ex) {
             Logger.getLogger(clienteMySql.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -95,6 +98,7 @@ public class usuarioMySQLDB {
             pst.setInt(3, usu.getTipoUsuario());
             pst.setInt(4, usu.getId_usuario());
             pst.executeUpdate();
+            cn.close();
         } catch (SQLException ex) {
             Logger.getLogger(usuarioMySQLDB.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -104,8 +108,8 @@ public class usuarioMySQLDB {
     public clientes Buscar(String buscar) {
         clientes c = null;
         try {
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
+            Connection cn = DataBaseConexion.getConnection();
+            Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM USUARIOS "
                     + " WHERE NOMBRE='"+buscar+"'");
             while (rs.next()) {
@@ -114,9 +118,8 @@ public class usuarioMySQLDB {
                 usu.setNombre(rs.getString(2));
                 usu.setPassword(rs.getString(3));
                 usu.setTipoUsuario(rs.getInt(4));
-             
-
             }
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

@@ -26,8 +26,8 @@ public class entradaMySql {
     public ArrayList<Entradas> ListEntradas() {
         ArrayList<Entradas> entrada = new ArrayList();
         try {
-            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
-            Statement st = cnx.createStatement();
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT id_entra, fecha, no_rem, elemento, potencia, marca, modelo, serie, empresa, nit, persona_remite, ciudad, direccion, contacto, telefono, correo, motivo, terjeta_red, parrilla, bases_plas, conector_ori, garantia, estado_car, observaciones FROM entradas ORDER BY 2");
             while (rs.next()) {
                 Entradas en = new Entradas();
@@ -56,6 +56,7 @@ public class entradaMySql {
                 en.setObservaciones(rs.getString("observaciones"));
                 entrada.add(en);
             }
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             System.out.println("Error en listado");
@@ -92,6 +93,7 @@ public class entradaMySql {
             pst.setString(22, entrada.getObservaciones());
             pst.setString(23, entrada.getNumero());
             pst.executeUpdate();
+            cn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             System.out.println("Error al insertar");
@@ -101,8 +103,8 @@ public class entradaMySql {
     public void EditarEntrada(Entradas entrada) {
         try {
             //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
-            Connection cnx = DataBaseConexion.getConnection();
-            PreparedStatement pst = cnx.prepareStatement("UPDATE ENTRADAS SET FECHA = ?, ELEMENTO = ?, POTENCIA = ?, MARCA = ?, MODELO = ?, SERIE = ?, EMPRESA = ?, NIT = ?, PERSONA_REMITE = ?, CIUDAD = ?, DIRECCION = ?, NOMBRE_CONTACTO = ?, TELEFONO_CONTACTO = ?, CORREO = ?, MOTIVO = ?, TARJETA_RED = ?, PARRILLA = ?, BASES_PLASTICAS = ?, CONECTOR_ORIGI = ?, GARANTIA = ?, ESTADO_CARCASA = ?, OBSERVACIONES = ?\n" +
+            Connection cn = DataBaseConexion.getConnection();
+            PreparedStatement pst = cn.prepareStatement("UPDATE ENTRADAS SET FECHA = ?, ELEMENTO = ?, POTENCIA = ?, MARCA = ?, MODELO = ?, SERIE = ?, EMPRESA = ?, NIT = ?, PERSONA_REMITE = ?, CIUDAD = ?, DIRECCION = ?, NOMBRE_CONTACTO = ?, TELEFONO_CONTACTO = ?, CORREO = ?, MOTIVO = ?, TARJETA_RED = ?, PARRILLA = ?, BASES_PLASTICAS = ?, CONECTOR_ORIGI = ?, GARANTIA = ?, ESTADO_CARCASA = ?, OBSERVACIONES = ?\n" +
 "WHERE ID_ENTRADA = ?");
             pst.setString(1, entrada.getFecha());
             pst.setString(2, entrada.getElemento());
@@ -128,6 +130,7 @@ public class entradaMySql {
             pst.setString(22, entrada.getObservaciones());
             pst.setInt(23, entrada.getId_entrada());
             pst.executeQuery();
+            cn.close();
         } catch (SQLException ex) {
             Logger.getLogger(entradaMySql.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -135,11 +138,12 @@ public class entradaMySql {
     
     public void EliminarEntrada(Entradas en) {
         try {
-            Connection cnx = DataBaseConexion.getConnection();
-            PreparedStatement pst = cnx.prepareStatement("DELETE FROM ENTRADAS "
+            Connection cn = DataBaseConexion.getConnection();
+            PreparedStatement pst = cn.prepareStatement("DELETE FROM ENTRADAS "
                     + " WHERE ID_ENTRADA=?");
             pst.setInt(1, en.getId_entrada());
             pst.executeQuery();
+            cn.close();
         } catch (SQLException ex) {
             Logger.getLogger(entradaMySql.class.getName()).log(Level.SEVERE, null, ex);
         }

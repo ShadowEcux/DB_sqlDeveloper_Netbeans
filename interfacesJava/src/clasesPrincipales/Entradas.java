@@ -39,8 +39,9 @@ public class Entradas {
     public Entradas() {
     }
 
-    public Entradas(int id_entrada, String fecha, String elemento, String potencia, String marca, String modelo, String serie, String empresa, String nit, String persona_remite, String ciudad, String direccion, String nombre_contacto, String telefono_contacto, String correo, String motivo, String tarjeta_red, String parrilla, String bases_plasticas, String conector_origi, String garantia, String estado_carcasa, String observaciones, String numero) {
+    public Entradas(int id_entrada, String numero, String fecha, String elemento, String potencia, String marca, String modelo, String serie, String empresa, String nit, String persona_remite, String ciudad, String direccion, String nombre_contacto, String telefono_contacto, String correo, String motivo, String tarjeta_red, String parrilla, String bases_plasticas, String conector_origi, String garantia, String estado_carcasa, String observaciones) {
         this.id_entrada = id_entrada;
+        this.numero = numero;
         this.fecha = fecha;
         this.elemento = elemento;
         this.potencia = potencia;
@@ -63,7 +64,7 @@ public class Entradas {
         this.garantia = garantia;
         this.estado_carcasa = estado_carcasa;
         this.observaciones = observaciones;
-        this.numero = numero;
+        
     }
 
     public int getId_entrada() {

@@ -17,19 +17,19 @@ public class GenerarNumeros {
     public void generar(int dato){
         this.dato = dato;
        
-        if((this.dato >= 1000)||(this.dato < 10000)){
+        if((this.dato >= 1000)&&(this.dato < 10000)){
             int can = cont+this.dato;
             num = "NR"+can;
         }
-        if((this.dato >= 100)||(this.dato < 1000)){
+        if((this.dato >= 100)&&(this.dato < 1000)){
             int can = cont+this.dato;
             num = "NR0"+can;
         }
-        if((this.dato >= 9)||(this.dato < 100)){
+        if((this.dato >= 9)&&(this.dato < 100)){
             int can = cont+this.dato;
             num = "NR00"+can;
         }
-        if((this.dato >= 1)||(this.dato < 9)){
+        if((this.dato >= 1)&&(this.dato < 9)){
             int can = cont+this.dato;
             num = "NR000"+can;
         }

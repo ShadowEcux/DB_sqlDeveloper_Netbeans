@@ -37,6 +37,7 @@ public class Facturas_Entrada_Oper extends javax.swing.JFrame {
         CargarCmbFacturas();
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
+        
     }
 
     /*

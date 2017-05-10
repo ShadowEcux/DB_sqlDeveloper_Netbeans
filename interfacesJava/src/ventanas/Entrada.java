@@ -43,6 +43,7 @@ public class Entrada extends javax.swing.JFrame {
         this.setTitle("CPU System Service S.A.S - ENTRADA");
         CargarCmbCliente();
         numeros();
+        txtSec.setEnabled(false);
         //CargarCmbFacturas();
     }
 

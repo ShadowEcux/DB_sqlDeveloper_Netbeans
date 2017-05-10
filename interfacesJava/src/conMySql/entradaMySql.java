@@ -28,10 +28,11 @@ public class entradaMySql {
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT id_entra, fecha, no_rem, elemento, potencia, marca, modelo, serie, empresa, nit, persona_remite, ciudad, direccion, contacto, telefono, correo, motivo, terjeta_red, parrilla, bases_plas, conector_ori, garantia, estado_car, observaciones FROM entradas ORDER BY 2");
+            ResultSet rs = st.executeQuery("SELECT id_entra,  numero, fecha, elemento, potencia, marca, modelo, serie, empresa, nit, persona_remite, ciudad, direccion, contacto, telefono, correo, motivo, parrilla, bases_plas, conector_ori, garantia, estado_car, observaciones, tarjeta FROM entradas ORDER BY 2");
             while (rs.next()) {
                 Entradas en = new Entradas();
                 en.setId_entrada(rs.getInt("id_entra"));
+                en.setNumero(rs.getString("numero"));
                 en.setFecha(rs.getString("fecha"));
                 en.setElemento(rs.getString("elemento"));
                 en.setPotencia(rs.getString("potencia"));
@@ -47,13 +48,13 @@ public class entradaMySql {
                 en.setTelefono_contacto(rs.getString("telefono"));
                 en.setCorreo(rs.getString("correo"));
                 en.setMotivo(rs.getString("motivo"));
-                en.setTarjeta_red(rs.getString("tarjeta_red"));
                 en.setParrilla(rs.getString("parrilla"));
                 en.setBases_plasticas(rs.getString("bases_plas"));
                 en.setConector_origi(rs.getString("conector_ori"));
                 en.setGarantia(rs.getString("garantia"));
                 en.setEstado_carcasa(rs.getString("estado_car"));
                 en.setObservaciones(rs.getString("observaciones"));
+                en.setTarjeta_red(rs.getString("tarjeta"));
                 entrada.add(en);
             }
             cn.close();
@@ -68,30 +69,30 @@ public class entradaMySql {
     public void insertarEntrada(Entradas entrada) {
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
-            PreparedStatement pst =  cn.prepareStatement("INSERT INTO entradas(fecha, elemento, potencia, marca, modelo, serie, empresa, nit, persona_remite, ciudad, direccion, contacto, telefono, correo, motivo, terjeta_red, parrilla, bases_plas, conector_ori, garantia, estado_car, observaciones, numero) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            pst.setString(1, entrada.getFecha());
-            pst.setString(2, entrada.getElemento());
-            pst.setString(3, entrada.getPotencia());
-            pst.setString(4, entrada.getMarca());
-            pst.setString(5, entrada.getModelo());
-            pst.setString(6, entrada.getSerie());
-            pst.setString(7, entrada.getEmpresa());
-            pst.setString(8, entrada.getNit());
-            pst.setString(9, entrada.getPersona_remite());
-            pst.setString(10, entrada.getCiudad());
-            pst.setString(11, entrada.getDireccion());
-            pst.setString(12, entrada.getNombre_contacto());
-            pst.setString(13, entrada.getTelefono_contacto());
-            pst.setString(14, entrada.getCorreo());
-            pst.setString(15, entrada.getMotivo());
-            pst.setString(16, entrada.getTarjeta_red());
+            PreparedStatement pst =  cn.prepareStatement("INSERT INTO entradas(numero, fecha, elemento, potencia, marca, modelo, serie, empresa, nit, persona_remite, ciudad, direccion, contacto, telefono, correo, motivo, parrilla, bases_plas, conector_ori, garantia, estado_car, observaciones, tarjeta) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            pst.setString(1, entrada.getNumero());
+            pst.setString(2, entrada.getFecha());
+            pst.setString(3, entrada.getElemento());
+            pst.setString(4, entrada.getPotencia());
+            pst.setString(5, entrada.getMarca());
+            pst.setString(6, entrada.getModelo());
+            pst.setString(7, entrada.getSerie());
+            pst.setString(8, entrada.getEmpresa());
+            pst.setString(9, entrada.getNit());
+            pst.setString(10, entrada.getPersona_remite());
+            pst.setString(11, entrada.getCiudad());
+            pst.setString(12, entrada.getDireccion());
+            pst.setString(13, entrada.getNombre_contacto());
+            pst.setString(14, entrada.getTelefono_contacto());
+            pst.setString(15, entrada.getCorreo());
+            pst.setString(16, entrada.getMotivo());   
             pst.setString(17, entrada.getParrilla());
             pst.setString(18, entrada.getBases_plasticas());
             pst.setString(19, entrada.getConector_origi());
             pst.setString(20, entrada.getGarantia());
             pst.setString(21, entrada.getEstado_carcasa());
             pst.setString(22, entrada.getObservaciones());
-            pst.setString(23, entrada.getNumero());
+            pst.setString(23, entrada.getTarjeta_red());
             pst.executeUpdate();
             cn.close();
         } catch (SQLException ex) {
@@ -103,9 +104,8 @@ public class entradaMySql {
     public void EditarEntrada(Entradas entrada) {
         try {
             //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
-            Connection cn = DataBaseConexion.getConnection();
-            PreparedStatement pst = cn.prepareStatement("UPDATE ENTRADAS SET FECHA = ?, ELEMENTO = ?, POTENCIA = ?, MARCA = ?, MODELO = ?, SERIE = ?, EMPRESA = ?, NIT = ?, PERSONA_REMITE = ?, CIUDAD = ?, DIRECCION = ?, NOMBRE_CONTACTO = ?, TELEFONO_CONTACTO = ?, CORREO = ?, MOTIVO = ?, TARJETA_RED = ?, PARRILLA = ?, BASES_PLASTICAS = ?, CONECTOR_ORIGI = ?, GARANTIA = ?, ESTADO_CARCASA = ?, OBSERVACIONES = ?\n" +
-"WHERE ID_ENTRADA = ?");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            PreparedStatement pst = (PreparedStatement) cn.prepareStatement("UPDATE entradas SET fecha=?,elemento=?,potencia=?,marca=?,modelo=?,serie=?,empresa=?,nit=?,persona_remite=?,ciudad=?,direccion=?,contacto=?,telefono=?,correo=?,motivo=?,parrilla=?,bases_plas=?,conector_ori=?,garantia=?,estado_car=?,observaciones=?,tarjeta=? WHERE numero = ?");
             pst.setString(1, entrada.getFecha());
             pst.setString(2, entrada.getElemento());
             pst.setString(3, entrada.getPotencia());
@@ -121,15 +121,15 @@ public class entradaMySql {
             pst.setString(13, entrada.getTelefono_contacto());
             pst.setString(14, entrada.getCorreo());
             pst.setString(15, entrada.getMotivo());
-            pst.setString(16, entrada.getTarjeta_red());
-            pst.setString(17, entrada.getParrilla());
-            pst.setString(18, entrada.getBases_plasticas());
-            pst.setString(19, entrada.getConector_origi());
-            pst.setString(20, entrada.getGarantia());
-            pst.setString(21, entrada.getEstado_carcasa());
-            pst.setString(22, entrada.getObservaciones());
-            pst.setInt(23, entrada.getId_entrada());
-            pst.executeQuery();
+            pst.setString(16, entrada.getParrilla());
+            pst.setString(17, entrada.getBases_plasticas());
+            pst.setString(18, entrada.getConector_origi());
+            pst.setString(19, entrada.getGarantia());
+            pst.setString(20, entrada.getEstado_carcasa());
+            pst.setString(21, entrada.getObservaciones());
+            pst.setString(22, entrada.getTarjeta_red());
+            pst.setString(23, entrada.getNumero());
+            pst.executeUpdate();
             cn.close();
         } catch (SQLException ex) {
             Logger.getLogger(entradaMySql.class.getName()).log(Level.SEVERE, null, ex);
@@ -138,11 +138,11 @@ public class entradaMySql {
     
     public void EliminarEntrada(Entradas en) {
         try {
-            Connection cn = DataBaseConexion.getConnection();
-            PreparedStatement pst = cn.prepareStatement("DELETE FROM ENTRADAS "
-                    + " WHERE ID_ENTRADA=?");
-            pst.setInt(1, en.getId_entrada());
-            pst.executeQuery();
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            PreparedStatement pst = (PreparedStatement) cn.prepareStatement("DELETE FROM entradas "
+                    + " WHERE numero=?");
+            pst.setString(1, en.getNumero());
+            pst.executeUpdate();
             cn.close();
         } catch (SQLException ex) {
             Logger.getLogger(entradaMySql.class.getName()).log(Level.SEVERE, null, ex);

@@ -61,27 +61,27 @@ public class Entrada extends javax.swing.JFrame {
     void numeros() {
         int j;
         String c = "";
-        String SQL = "SELECT MAX(id_entra) AS id_entra FROM ENTRADAS";
+        String SQL = "SELECT MAX(numero) AS numero FROM ENTRADAS";
         try {
-            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
-            Statement st = cnx.createStatement();
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             if (rs.next()) {
-                c = rs.getString("id_entra");
+                c = rs.getString("numero");
             }
             System.out.println(c);
-
             if (c == null) {
-                txtIdSec.setText("CP0001");
+                txtIdSec.setText("NR0001");
+                System.out.println(c);
             } else {
-                char r1 = c.charAt(0);
-                //char r2 = c.charAt(1);
-                //char r3 = c.charAt(2);
-                //char r4 = c.charAt(3);
-                System.out.println("" + r1);
-                String juntar = "" + r1;
-                //System.out.println(""+r1+r2+r3+r4);
-                //String juntar = ""+r1+r2+r3+r4;
+                char r1 = c.charAt(2);
+                char r2 = c.charAt(3);
+                char r3 = c.charAt(4);
+                char r4 = c.charAt(5);
+
+                System.out.println("" + r1 + r2 + r3 + r4);
+                String juntar = "" + r1 + r2 + r3 + r4;
+
                 int var = Integer.parseInt(juntar);
                 System.out.println("\n lo que vale: " + var);
                 GenerarNumeros gen = new GenerarNumeros();
@@ -90,8 +90,7 @@ public class Entrada extends javax.swing.JFrame {
                 txtIdSec.setDisabledTextColor(java.awt.Color.BLUE);
                 txtIdSec.setText(gen.serie());
             }
-
-        } catch (Exception ex) {
+        } catch (SQLException | NumberFormatException ex) {
             Logger.getLogger(Entrada.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

@@ -567,7 +567,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 
-                txtSec.setText(rs.getString("numero").trim());
+                
                 txtFecha.setText(rs.getString("fecha").trim());
                 txtElemento.setText(rs.getString("elemento").trim());
                 txtPotencia.setText(rs.getString("potencia").trim());
@@ -590,6 +590,9 @@ public class Facturas_Entrada extends javax.swing.JFrame {
                 txtGarantia.setText(rs.getString("garantia").trim());
                 txtConector.setText(rs.getString("conector_ori").trim());
                 txtTarjetaDeRed.setText(rs.getString("tarjeta"));
+                
+                txtSec.setDisabledTextColor(java.awt.Color.BLUE);
+                txtSec.setText(rs.getString("numero").trim());
                 
 
                 //pst.setString(1, CMBID.getName());

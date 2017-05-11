@@ -72,44 +72,8 @@ public class Entrada extends javax.swing.JFrame {
             }
             System.out.println(c);
             if (c == null) {
-                txtSec.setText("NR000001");
+                txtSec.setText("NR000000001");
                 System.out.println(c);
-            }else if("NR999999".equals(c)){
-                char r1 = c.charAt(2);
-                char r2 = c.charAt(3);
-                char r3 = c.charAt(4);
-                char r4 = c.charAt(5);
-                char r5 = c.charAt(6);
-                char r6 = c.charAt(7);
-
-                System.out.println("" + r1 + r2 + r3 + r4 + r5 + r6);
-                String juntar = "" + r1 + r2 + r3 + r4 + r5 + r6;
-                int var = Integer.parseInt(juntar);
-                
-                GenerarNumeros gen = new GenerarNumeros();
-                gen.generar(var);
-                
-                txtSec.setDisabledTextColor(java.awt.Color.BLUE);
-                txtSec.setText(gen.serie());
-                
-            }else if(("NR1000000".equals(c))){
-                char r1 = c.charAt(2);
-                char r2 = c.charAt(3);
-                char r3 = c.charAt(4);
-                char r4 = c.charAt(5);
-                char r5 = c.charAt(6);
-                char r6 = c.charAt(7);
-                char r7 = c.charAt(8);
-                
-                System.out.println("" + r1 + r2 + r3 + r4 + r5 + r6 + r7);
-                String juntar = "" + r1 + r2 + r3 + r4 + r5 + r6 + r7;
-                int var = Integer.parseInt(juntar);
-                
-                GenerarNumeros gen = new GenerarNumeros();
-                gen.generar(var);
-                
-                txtSec.setDisabledTextColor(java.awt.Color.BLUE);
-                txtSec.setText(gen.serie());
             }else{
                 char r1 = c.charAt(2);
                 char r2 = c.charAt(3);
@@ -117,9 +81,12 @@ public class Entrada extends javax.swing.JFrame {
                 char r4 = c.charAt(5);
                 char r5 = c.charAt(6);
                 char r6 = c.charAt(7);
+                char r7 = c.charAt(8);
+                char r8 = c.charAt(9);
+                char r9 = c.charAt(10);
 
-                System.out.println("" + r1 + r2 + r3 + r4 + r5 + r6);
-                String juntar = "" + r1 + r2 + r3 + r4 + r5 + r6;
+                System.out.println("" + r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9);
+                String juntar = "" + r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9;
                 int var = Integer.parseInt(juntar);
                 
                 System.out.println("\n lo que vale: " + var);

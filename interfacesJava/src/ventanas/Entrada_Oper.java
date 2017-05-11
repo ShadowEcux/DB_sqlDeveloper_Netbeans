@@ -6,8 +6,10 @@
 package ventanas;
 
 import clasesPrincipales.Entradas;
+import conexionSQLDB.DataBaseConexion;
 import conMySql.GenerarNumeros;
 import conMySql.entradaMySql;
+import conexionSQLDB.entradaDB;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -47,13 +49,12 @@ public class Entrada_Oper extends javax.swing.JFrame {
 
     public void CargarCmbCliente() {
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
-            Statement st = cn.createStatement();
+            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes ORDER BY nombre_cli ASC");
             while (rs.next()) {
-                this.cmbClientes.addItem(rs.getString("nombre_cli"));   
+                this.cmbClientes.addItem(rs.getString("nombre_cli"));
             }
-            cn.close();
         } catch (Exception e) {
         }
     }
@@ -71,25 +72,29 @@ public class Entrada_Oper extends javax.swing.JFrame {
             }
             System.out.println(c);
             if (c == null) {
-                txtSec.setText("NR0001");
+                txtSec.setText("NR000000001");
                 System.out.println(c);
-            } else {
+            }else{
                 char r1 = c.charAt(2);
                 char r2 = c.charAt(3);
                 char r3 = c.charAt(4);
                 char r4 = c.charAt(5);
+                char r5 = c.charAt(6);
+                char r6 = c.charAt(7);
+                char r7 = c.charAt(8);
+                char r8 = c.charAt(9);
+                char r9 = c.charAt(10);
 
-                System.out.println("" + r1 + r2 + r3 + r4);
-                String juntar = "" + r1 + r2 + r3 + r4;
-
+                System.out.println("" + r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9);
+                String juntar = "" + r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9;
                 int var = Integer.parseInt(juntar);
+                
                 System.out.println("\n lo que vale: " + var);
                 GenerarNumeros gen = new GenerarNumeros();
                 gen.generar(var);
 
                 txtSec.setDisabledTextColor(java.awt.Color.BLUE);
                 txtSec.setText(gen.serie());
-                cn.close();
             }
         } catch (SQLException | NumberFormatException ex) {
             Logger.getLogger(Entrada_Oper.class.getName()).log(Level.SEVERE, null, ex);
@@ -212,7 +217,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, -1));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 140, 10));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 150, 10));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -481,7 +486,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(153, 255, 153));
         jLabel26.setText("FECHA");
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 40, 20));
-        getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 190, -1));
+        getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 200, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -529,7 +534,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
 
     private void btnFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasActionPerformed
 
-        Facturas_Entrada obj = new Facturas_Entrada();
+        Facturas_Entrada_Oper obj = new Facturas_Entrada_Oper();
         obj.setVisible(true);
         dispose();
 

@@ -91,7 +91,7 @@ public class Entrada extends javax.swing.JFrame {
                 
                 System.out.println("\n lo que vale: " + var);
                 GenerarNumeros gen = new GenerarNumeros();
-                gen.generar(var);
+                gen.generarEntradas(var);
 
                 txtSec.setDisabledTextColor(java.awt.Color.BLUE);
                 txtSec.setText(gen.serie());

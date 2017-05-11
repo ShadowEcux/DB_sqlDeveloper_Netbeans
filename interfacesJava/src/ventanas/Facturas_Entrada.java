@@ -202,7 +202,7 @@ public class Facturas_Entrada extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
-        jLabel6.setText("FACTURAS");
+        jLabel6.setText("ENTRADAS");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, 20));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 150, 10));
 
@@ -655,7 +655,6 @@ public class Facturas_Entrada extends javax.swing.JFrame {
             if (eleccion == JOptionPane.YES_OPTION) {
                 db.EditarEntrada(en);
                 JOptionPane.showMessageDialog(this, "Datos EDITADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-
                 //this.cmbClientes.removeAllItems();
                 //CargarCmbCliente();
                 this.cmbFacturas.removeAllItems();

@@ -12,6 +12,7 @@ package clasesPrincipales;
 public class Entradas {
     
     int id_entrada;
+    String numero;
     String fecha;
     String elemento;
     String potencia;
@@ -34,7 +35,6 @@ public class Entradas {
     String garantia;
     String estado_carcasa;
     String observaciones;
-    String numero;
 
     public Entradas() {
     }
@@ -64,7 +64,6 @@ public class Entradas {
         this.garantia = garantia;
         this.estado_carcasa = estado_carcasa;
         this.observaciones = observaciones;
-        
     }
 
     public int getId_entrada() {

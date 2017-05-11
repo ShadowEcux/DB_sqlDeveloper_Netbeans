@@ -6,14 +6,19 @@
 package ventanas;
 
 import clasesPrincipales.Salidas;
+import conMySql.GenerarNumeros;
+import conMySql.salidaMySql;
 import conexionSQLDB.DataBaseConexion;
 import conexionSQLDB.salidaDB;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,7 +28,8 @@ import javax.swing.JOptionPane;
 public class Facturas_Salida extends javax.swing.JFrame {
 
     ArrayList<Salidass> salida;
-    salidaDB db = new salidaDB();
+    //salidaDB db = new salidaDB();
+    salidaMySql db = new salidaMySql();
 
     /**
      * Creates new form Entrada
@@ -34,6 +40,8 @@ public class Facturas_Salida extends javax.swing.JFrame {
         this.setTitle("CPU System Service S.A.S - FACTURAS DE SALIDA");
         CargarCmbEntrada();
         CargarCmbSalidas();
+        numeros();
+        txtSec.setEnabled(false);
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
     }
@@ -53,25 +61,67 @@ public class Facturas_Salida extends javax.swing.JFrame {
      */
     public void CargarCmbEntrada() {
         try {
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT ID_ENTRADA FROM ENTRADAS ORDER BY ID_ENTRADA DESC");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT numero FROM entradas ORDER BY numero DESC");
             while (rs.next()) {
-                this.cmbEntradas.addItem(rs.getString("ID_ENTRADA"));
+                this.cmbEntradas.addItem(rs.getString("numero"));
             }
+            cn.close();
         } catch (Exception e) {
         }
     }
 
     public void CargarCmbSalidas() {
         try {
-            Connection cnx = DataBaseConexion.getConnection();
+            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT ID_SALIDA FROM SALIDAS ORDER BY ID_SALIDA DESC");
+            ResultSet rs = st.executeQuery("SELECT numero FROM salidas ORDER BY numero DESC");
             while (rs.next()) {
-                this.cmbSalidas.addItem(rs.getString("ID_SALIDA"));
+                this.cmbSalidas.addItem(rs.getString("numero"));
             }
         } catch (Exception e) {
+        }
+    }
+    void numeros() {
+        int j;
+        String c = "";
+        String SQL = "SELECT MAX(numero) AS numero FROM salidas";
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                c = rs.getString("numero");
+            }
+            System.out.println(c);
+            if (c == null) {
+                txtSec.setText("NS000000001");
+                System.out.println(c);
+            } else {
+                char r1 = c.charAt(2);
+                char r2 = c.charAt(3);
+                char r3 = c.charAt(4);
+                char r4 = c.charAt(5);
+                char r5 = c.charAt(6);
+                char r6 = c.charAt(7);
+                char r7 = c.charAt(8);
+                char r8 = c.charAt(9);
+                char r9 = c.charAt(10);
+
+                System.out.println("" + r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9);
+                String juntar = "" + r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9;
+                int var = Integer.parseInt(juntar);
+
+                System.out.println("\n lo que vale: " + var);
+                GenerarNumeros gen = new GenerarNumeros();
+                gen.generarSalidas(var);
+
+                txtSec.setDisabledTextColor(java.awt.Color.BLUE);
+                txtSec.setText(gen.serie());
+            }
+        } catch (SQLException | NumberFormatException ex) {
+            Logger.getLogger(Facturas_Salida.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -134,6 +184,8 @@ public class Facturas_Salida extends javax.swing.JFrame {
         txtFechaFact = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         btnGuarda = new javax.swing.JButton();
+        txtSec = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -264,12 +316,12 @@ public class Facturas_Salida extends javax.swing.JFrame {
                 cmbEntradasActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 110, -1));
+        getContentPane().add(cmbEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 160, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 255, 153));
         jLabel7.setText("SALIDAS");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 70, 20));
 
         btnPdf.setBackground(new java.awt.Color(255, 255, 255));
         btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -301,7 +353,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
                 btnBusca1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 40, -1));
+        getContentPane().add(btnBusca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 40, -1));
 
         btnDescartar1.setBackground(new java.awt.Color(255, 255, 255));
         btnDescartar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -382,7 +434,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
                 cmbSalidasActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbSalidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 110, -1));
+        getContentPane().add(cmbSalidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 160, -1));
 
         btnBusca3.setBackground(new java.awt.Color(255, 255, 255));
         btnBusca3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -400,24 +452,24 @@ public class Facturas_Salida extends javax.swing.JFrame {
                 btnBusca3ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 40, -1));
+        getContentPane().add(btnBusca3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 40, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 255, 153));
         jLabel8.setText("ENTRADAS");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 70, 20));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, 20));
 
         txtFechaFact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechaFactActionPerformed(evt);
             }
         });
-        getContentPane().add(txtFechaFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 110, -1));
+        getContentPane().add(txtFechaFact, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, 110, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("FECHA");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, 20));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, -1, 20));
 
         btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
         btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -437,6 +489,18 @@ public class Facturas_Salida extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 50, -1));
+
+        txtSec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSecActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 160, -1));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(153, 255, 153));
+        jLabel26.setText("No. REM");
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 60, 20));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 530));
@@ -769,6 +833,10 @@ public class Facturas_Salida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardaActionPerformed
 
+    private void txtSecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSecActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -843,6 +911,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -869,6 +938,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
     private javax.swing.JTextField txtEquipo;
     private javax.swing.JTextField txtFechaFact;
     private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtSec;
     private javax.swing.JTextField txtSerie;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables

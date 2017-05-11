@@ -12,6 +12,7 @@ package clasesPrincipales;
 public class Salidas {
     
     int id_salida;
+    String numero;
     String fecha;
     String empresa;
     String ciudad;
@@ -23,11 +24,12 @@ public class Salidas {
     String modelo;
     String serie;
     String comentario;
+    
 
     public Salidas() {
     }
 
-    public Salidas(int id_salida, String fecha, String empresa, String ciudad, String direccion, String contacto, String telefono, String correo, String equipo, String modelo, String serie, String comentario) {
+    public Salidas(int id_salida, String numero, String fecha, String empresa, String ciudad, String direccion, String contacto, String telefono, String correo, String equipo, String modelo, String serie, String comentario) {
         this.id_salida = id_salida;
         this.fecha = fecha;
         this.empresa = empresa;
@@ -40,6 +42,7 @@ public class Salidas {
         this.modelo = modelo;
         this.serie = serie;
         this.comentario = comentario;
+        this.numero = numero;
     }
 
     public int getId_salida() {
@@ -48,6 +51,14 @@ public class Salidas {
 
     public void setId_salida(int id_salida) {
         this.id_salida = id_salida;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getFecha() {

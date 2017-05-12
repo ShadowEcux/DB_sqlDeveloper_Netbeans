@@ -88,12 +88,6 @@ public class Salidass_Oper extends javax.swing.JFrame {
         txtEmpresa.requestFocus();
     }
     public void limpiar2() {
-        txtEmpresa.setText("");
-        txtCiudad.setText("");
-        txtDireccion.setText("");
-        txtContacto.setText("");
-        txtTelefono.setText("");
-        txtCorreo.setText("");
         areaComentario.setText("");
         txtEquipo.setText("");
         txtModel.setText("");
@@ -375,7 +369,7 @@ public class Salidass_Oper extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 50, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, 50, -1));
 
         btnDescartar1.setBackground(new java.awt.Color(255, 255, 255));
         btnDescartar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -443,7 +437,7 @@ public class Salidass_Oper extends javax.swing.JFrame {
         btnGuarda1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGuarda1.setForeground(new java.awt.Color(255, 255, 255));
         btnGuarda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
-        btnGuarda1.setText("Generar");
+        btnGuarda1.setText("Go");
         btnGuarda1.setBorder(null);
         btnGuarda1.setBorderPainted(false);
         btnGuarda1.setContentAreaFilled(false);
@@ -456,7 +450,7 @@ public class Salidass_Oper extends javax.swing.JFrame {
                 btnGuarda1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, 50, -1));
+        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 50, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 530));
@@ -488,7 +482,6 @@ public class Salidass_Oper extends javax.swing.JFrame {
 
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
-        limpiar2();
         try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
@@ -509,6 +502,7 @@ public class Salidass_Oper extends javax.swing.JFrame {
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
+                limpiar2();
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el usuario");
             }

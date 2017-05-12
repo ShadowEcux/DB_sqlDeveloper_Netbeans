@@ -469,7 +469,7 @@ public class Entrada extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 50, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 50, -1));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 150, 10));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -495,7 +495,7 @@ public class Entrada extends javax.swing.JFrame {
                 btnGuarda1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, 50, 70));
+        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 440, 50, 70));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));

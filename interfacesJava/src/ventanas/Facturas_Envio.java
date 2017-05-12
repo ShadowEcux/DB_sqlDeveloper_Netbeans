@@ -38,18 +38,18 @@ public class Facturas_Envio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENVIOS");
-        CargarCmbCliente();
+        CargarCmbEnvios();
         numerosEnvios();
         txtSec.setEnabled(false);
     }
 
-    public void CargarCmbCliente(){
+    public void CargarCmbEnvios(){
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes ORDER BY nombre_cli ASC");
             while (rs.next()) {
-                this.cmbClientes.addItem(rs.getString("nombre_cli"));
+                this.cmbEnvios.addItem(rs.getString("nombre_cli"));
             }
             cn.close();
         } catch (Exception e) {
@@ -122,7 +122,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        cmbClientes = new javax.swing.JComboBox();
+        cmbEnvios = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -180,7 +180,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
         jLabel6.setText("Clientes");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 50, 20));
 
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, -1));
+        getContentPane().add(cmbEnvios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -375,7 +375,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
 
        try {
 
-            String guardar = cmbClientes.getSelectedItem().toString();
+            String guardar = cmbEnvios.getSelectedItem().toString();
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
             PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
@@ -542,7 +542,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
     private javax.swing.JButton btnPdf;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox cmbClientes;
+    private javax.swing.JComboBox cmbEnvios;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;

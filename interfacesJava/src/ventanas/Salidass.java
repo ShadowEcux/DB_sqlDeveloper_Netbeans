@@ -88,12 +88,6 @@ public class Salidass extends javax.swing.JFrame {
         txtEmpresa.requestFocus();
     }
     public void limpiar2() {
-        txtEmpresa.setText("");
-        txtCiudad.setText("");
-        txtDireccion.setText("");
-        txtContacto.setText("");
-        txtTelefono.setText("");
-        txtCorreo.setText("");
         areaComentario.setText("");
         txtEquipo.setText("");
         txtModel.setText("");
@@ -375,7 +369,7 @@ public class Salidass extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 50, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 50, -1));
 
         btnDescartar1.setBackground(new java.awt.Color(255, 255, 255));
         btnDescartar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -443,7 +437,7 @@ public class Salidass extends javax.swing.JFrame {
         btnGuarda1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGuarda1.setForeground(new java.awt.Color(255, 255, 255));
         btnGuarda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
-        btnGuarda1.setText("Generar");
+        btnGuarda1.setText("Go");
         btnGuarda1.setBorder(null);
         btnGuarda1.setBorderPainted(false);
         btnGuarda1.setContentAreaFilled(false);
@@ -456,7 +450,7 @@ public class Salidass extends javax.swing.JFrame {
                 btnGuarda1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, 50, -1));
+        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 50, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 530));
@@ -488,27 +482,28 @@ public class Salidass extends javax.swing.JFrame {
 
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
-        limpiar2();
+        //limpiar2();
         try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
+            PreparedStatement pst = cn.prepareStatement("Select * from Clientes where nombre_cli = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
                 txtEmpresa.setText(rs.getString("nombre_cli").trim());
-                txtTelefono.setText(rs.getString("telefono_cli").trim());
-                txtDireccion.setText(rs.getString("direccion_cli").trim());
                 txtCiudad.setText(rs.getString("ciudad_cli").trim());
-                txtCorreo.setText(rs.getString("correo_cli").trim());
+                txtDireccion.setText(rs.getString("direccion_cli").trim());
                 txtContacto.setText(rs.getString("contacto_cli").trim());
+                txtTelefono.setText(rs.getString("telefono_cli").trim());
+                txtCorreo.setText(rs.getString("correo_cli").trim());
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
+                limpiar2();
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el usuario");
             }
@@ -516,6 +511,7 @@ public class Salidass extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscaActionPerformed

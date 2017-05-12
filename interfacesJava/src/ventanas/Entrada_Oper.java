@@ -469,7 +469,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 50, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 50, -1));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 150, 10));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -482,7 +482,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
         btnGuarda1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGuarda1.setForeground(new java.awt.Color(255, 255, 255));
         btnGuarda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
-        btnGuarda1.setText("Generar");
+        btnGuarda1.setText("Go");
         btnGuarda1.setBorder(null);
         btnGuarda1.setBorderPainted(false);
         btnGuarda1.setContentAreaFilled(false);
@@ -495,7 +495,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
                 btnGuarda1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 450, 50, -1));
+        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, 50, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));

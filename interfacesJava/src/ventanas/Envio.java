@@ -223,14 +223,14 @@ public class Envio extends javax.swing.JFrame {
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Comentario");
-        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, 20));
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, 20));
         getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 240, 10));
 
         areaComentario.setColumns(20);
         areaComentario.setRows(5);
         jScrollPane1.setViewportView(areaComentario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 380, 70));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 380, 100));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 190, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -296,8 +296,8 @@ public class Envio extends javax.swing.JFrame {
         btnPdf.setBackground(new java.awt.Color(255, 255, 255));
         btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnPdf.setForeground(new java.awt.Color(255, 255, 255));
-        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf3.png"))); // NOI18N
-        btnPdf.setText("PDF");
+        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
+        btnPdf.setText("Go");
         btnPdf.setBorder(null);
         btnPdf.setBorderPainted(false);
         btnPdf.setContentAreaFilled(false);
@@ -310,7 +310,7 @@ public class Envio extends javax.swing.JFrame {
                 btnPdfActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 60, 70));
+        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 60, 70));
 
         btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
         btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -329,7 +329,7 @@ public class Envio extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 60, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 60, -1));
         getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 200, -1));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 150, 10));
 

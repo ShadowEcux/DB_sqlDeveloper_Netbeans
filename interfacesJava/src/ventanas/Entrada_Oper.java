@@ -62,7 +62,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
     void numeros() {
         int j;
         String c = "";
-        String SQL = "SELECT MAX(numero) AS numero FROM ENTRADAS";
+        String SQL = "SELECT MAX(numero) AS numero FROM entradas";
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
@@ -72,9 +72,9 @@ public class Entrada_Oper extends javax.swing.JFrame {
             }
             System.out.println(c);
             if (c == null) {
-                txtSec.setText("NR000000001");
+                txtSec.setText("NE000000001");
                 System.out.println(c);
-            }else{
+            } else {
                 char r1 = c.charAt(2);
                 char r2 = c.charAt(3);
                 char r3 = c.charAt(4);
@@ -88,7 +88,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
                 System.out.println("" + r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9);
                 String juntar = "" + r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9;
                 int var = Integer.parseInt(juntar);
-                
+
                 System.out.println("\n lo que vale: " + var);
                 GenerarNumeros gen = new GenerarNumeros();
                 gen.generarEntradas(var);
@@ -601,10 +601,6 @@ public class Entrada_Oper extends javax.swing.JFrame {
 
     private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
 
-        if (txtElemento.getText().equals("") || txtPotencia.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("") || txtSerie.getText().equals("") || txtEmpresa.getText().equals("")
-                || txtNitCliente.getText().equals("") || txtPersonaRemitente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtContactoCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtMotivo.getText().equals("") || areaObservaciones.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
-        } else {
             try {
                 Entradas en = new Entradas();
 
@@ -666,8 +662,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
                 System.err.println("error" + e);
             }
 
-        }
-
+       
 // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardaActionPerformed
 

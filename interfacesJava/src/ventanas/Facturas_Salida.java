@@ -39,7 +39,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - FACTURAS DE SALIDA");
         CargarCmbSalidas();
-        numeros();
+        //numeros();
         txtSec.setEnabled(false);
         btnEditar.setEnabled(false);
         btnEliminar.setEnabled(false);
@@ -71,6 +71,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    /*
     void numeros() {
         int j;
         String c = "";
@@ -112,6 +113,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
             Logger.getLogger(Facturas_Salida.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -496,7 +498,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
             String guardar = cmbSalidas.getSelectedItem().toString();
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from salidas where ID_SALIDA = ?");
+            PreparedStatement pst = cn.prepareStatement("Select * from salidas where numero = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();

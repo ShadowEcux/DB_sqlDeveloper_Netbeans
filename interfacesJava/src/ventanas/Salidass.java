@@ -41,6 +41,7 @@ public class Salidass extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - SALIDA");
         CargarCmbCliente();
+        CargarCmbEntadas();
         numeros();
         txtSec.setEnabled(false);
         //CargarCmbFacturas();
@@ -58,6 +59,17 @@ public class Salidass extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    public void CargarCmbEntadas() {
+        try {
+            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery("SELECT numero FROM entradas ORDER BY numero DESC");
+            while (rs.next()) {
+                this.cmbEntradas.addItem(rs.getString("numero"));
+            }
+        } catch (Exception e) {
+        }
+    }
 
     public void limpiar() {
         txtEmpresa.setText("");
@@ -71,6 +83,21 @@ public class Salidass extends javax.swing.JFrame {
         txtModel.setText("");
         txtSerie.setText("");
         txtFecha.setDateFormatString("");
+        this.cmbClientes.removeAllItems();
+        CargarCmbCliente();
+        txtEmpresa.requestFocus();
+    }
+    public void limpiar2() {
+        txtEmpresa.setText("");
+        txtCiudad.setText("");
+        txtDireccion.setText("");
+        txtContacto.setText("");
+        txtTelefono.setText("");
+        txtCorreo.setText("");
+        areaComentario.setText("");
+        txtEquipo.setText("");
+        txtModel.setText("");
+        txtSerie.setText("");
         this.cmbClientes.removeAllItems();
         CargarCmbCliente();
         txtEmpresa.requestFocus();
@@ -288,7 +315,7 @@ public class Salidass extends javax.swing.JFrame {
         areaComentario.setRows(5);
         jScrollPane1.setViewportView(areaComentario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 420, 90));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 420, 140));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 230, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -461,6 +488,7 @@ public class Salidass extends javax.swing.JFrame {
 
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
+        limpiar2();
         try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
@@ -493,11 +521,7 @@ public class Salidass extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscaActionPerformed
 
     private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
-
-        if (txtEmpresa.getText().equals("") || txtCiudad.getText().equals("") || txtDireccion.getText().equals("") || txtContacto.getText().equals("") || txtTelefono.getText().equals("") || txtCorreo.getText().equals("")
-                || txtEquipo.getText().equals("") || txtModel.getText().equals("") || txtSerie.getText().equals("") || areaComentario.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
-        } else {
+ 
             try {
                 Salidas sal = new Salidas();
                 String formato = txtFecha.getDateFormatString();
@@ -524,7 +548,6 @@ public class Salidass extends javax.swing.JFrame {
                 System.err.println("error" + e);
             }
 
-        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardaActionPerformed
@@ -560,24 +583,24 @@ public class Salidass extends javax.swing.JFrame {
         try {
 
             String guardar = cmbEntradas.getSelectedItem().toString();
-            Connection cn = DataBaseConexion.getConnection();
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
+            PreparedStatement pst = cn.prepareStatement("Select * from entradas where numero = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
-                txtEmpresa.setText(rs.getString("EMPRESA").trim());
-                txtCiudad.setText(rs.getString("CIUDAD").trim());
-                txtDireccion.setText(rs.getString("DIRECCION").trim());
-                txtContacto.setText(rs.getString("NOMBRE_CONTACTO").trim());
-                txtTelefono.setText(rs.getString("TELEFONO_CONTACTO").trim());
-                txtCorreo.setText(rs.getString("CORREO").trim());
-                txtEquipo.setText(rs.getString("ELEMENTO"));
-                txtModel.setText(rs.getString("MODELO"));
-                txtSerie.setText(rs.getString("SERIE").trim());
-                areaComentario.setText(rs.getString("OBSERVACIONES").trim());
+                txtEmpresa.setText(rs.getString("empresa").trim());
+                txtCiudad.setText(rs.getString("ciudad").trim());
+                txtDireccion.setText(rs.getString("direccion").trim());
+                txtContacto.setText(rs.getString("contacto").trim());
+                txtTelefono.setText(rs.getString("telefono").trim());
+                txtCorreo.setText(rs.getString("correo").trim());
+                txtEquipo.setText(rs.getString("elemento"));
+                txtModel.setText(rs.getString("modelo"));
+                txtSerie.setText(rs.getString("serie").trim());
+                areaComentario.setText(rs.getString("observaciones").trim());
 
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();

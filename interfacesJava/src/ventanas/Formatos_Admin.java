@@ -199,7 +199,7 @@ public class Formatos_Admin extends javax.swing.JFrame {
 
     private void btnEnviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviosActionPerformed
 
-        Envios obj = new Envios();
+        Envio obj = new Envio();
         obj.setVisible(true);
         dispose();
         

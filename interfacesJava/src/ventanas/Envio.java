@@ -5,39 +5,109 @@
  */
 package ventanas;
 
+import clasesPrincipales.Entradas;
+import clasesPrincipales.Envios;
+import clasesPrincipales.Salidas;
+import conMySql.GenerarNumeros;
+import conMySql.envioMySql;
 import conexionSQLDB.DataBaseConexion;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author CPU_SYS
  */
-public class Envios extends javax.swing.JFrame {
+public class Envio extends javax.swing.JFrame {
 
+    ArrayList<Entradas> entrada;
+    envioMySql db = new envioMySql();
+    
     /**
      * Creates new form Entrada
      */
-    public Envios() {
+    public Envio() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENVIOS");
         CargarCmbCliente();
+        numerosEnvios();
+        txtSec.setEnabled(false);
     }
 
     public void CargarCmbCliente(){
         try {
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT NOMBRECLIENTE FROM CLIENTES ORDER BY NOMBRECLIENTE ASC");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes ORDER BY nombre_cli ASC");
             while (rs.next()) {
-                this.cmbClientes.addItem(rs.getString("nombrecliente"));
+                this.cmbClientes.addItem(rs.getString("nombre_cli"));
             }
+            cn.close();
         } catch (Exception e) {
+        }
+    }
+    
+    public void limpiar(){
+        txtSec.setText("");
+        txtDestinatario.setText("");
+        txtATN.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+        txtCiudad.setText("");
+        areaComentario.setText("");
+        txtDestinatario.requestFocus();
+    }
+    
+    void numerosEnvios() {
+        int j;
+        String c = "";
+        String SQL = "SELECT MAX(numero) AS numero FROM envios";
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                c = rs.getString("numero");
+            }
+            System.out.println(c);
+            if (c == null) {
+                txtSec.setText("EN000000001");
+                System.out.println(c);
+            } else {
+                char r1 = c.charAt(2);
+                char r2 = c.charAt(3);
+                char r3 = c.charAt(4);
+                char r4 = c.charAt(5);
+                char r5 = c.charAt(6);
+                char r6 = c.charAt(7);
+                char r7 = c.charAt(8);
+                char r8 = c.charAt(9);
+                char r9 = c.charAt(10);
+
+                System.out.println("" + r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9);
+                String juntar = "" + r1 + r2 + r3 + r4 + r5 + r6 + r7 + r8 + r9;
+                int var = Integer.parseInt(juntar);
+
+                System.out.println("\n lo que vale: " + var);
+                GenerarNumeros gen = new GenerarNumeros();
+                gen.generarEnvios(var);
+
+                txtSec.setDisabledTextColor(java.awt.Color.BLUE);
+                txtSec.setText(gen.serie());
+            }
+        } catch (SQLException | NumberFormatException ex) {
+            Logger.getLogger(Envio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -82,6 +152,9 @@ public class Envios extends javax.swing.JFrame {
         btnBusca = new javax.swing.JButton();
         btnPdf = new javax.swing.JButton();
         btnGuarda = new javax.swing.JButton();
+        txtSec = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel26 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -194,13 +267,13 @@ public class Envios extends javax.swing.JFrame {
         getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 170, -1));
 
         txtFecha.setDateFormatString("yyyy/MM/dd");
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 180, -1));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 150, -1));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(153, 255, 153));
         jLabel25.setText("FECHA");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 40, 20));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 140, 10));
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 40, 20));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 110, 10));
 
         btnBusca.setBackground(new java.awt.Color(255, 255, 255));
         btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -257,6 +330,13 @@ public class Envios extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 60, -1));
+        getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 200, -1));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 150, 10));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(153, 255, 153));
+        jLabel26.setText("No. REM");
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 60, 20));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 460));
@@ -284,13 +364,7 @@ public class Envios extends javax.swing.JFrame {
 
     private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
 
-      
-        txtDestinatario.setText("");
-        txtTelefono.setText("");
-        txtATN.setText("");
-        txtDireccion.setText("");
-        areaComentario.setText("");
-        txtDestinatario.requestFocus();
+      limpiar();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDescartarActionPerformed
@@ -304,21 +378,19 @@ public class Envios extends javax.swing.JFrame {
        try {
 
             String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cn = DataBaseConexion.getConnection();
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from Clientes where NOMBRECLIENTE = ?");
+            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
-                txtDestinatario.setText(rs.getString("nombrecliente").trim());
-                txtTelefono.setText(rs.getString("telefonocliente").trim());
-                txtDireccion.setText(rs.getString("direccioncliente").trim());
-                txtATN.setText(rs.getString("ciudadcliente").trim());
-                txtCiudad.setText(rs.getString("ciudadcliente").trim());
-               
-
+                txtDestinatario.setText(rs.getString("nombre_cli").trim());
+                txtTelefono.setText(rs.getString("telefono_cli").trim());
+                txtDireccion.setText(rs.getString("direccion_cli").trim());
+                txtATN.setText(rs.getString("contacto_cli").trim());
+                txtCiudad.setText(rs.getString("ciudad_cli").trim());
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
             } else {
@@ -337,6 +409,32 @@ public class Envios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPdfActionPerformed
 
     private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
+
+        try {
+                Envios en = new Envios();
+                
+                String formato = txtFecha.getDateFormatString();
+                Date date = txtFecha.getDate();
+                SimpleDateFormat sdf = new SimpleDateFormat(formato);
+                String dato = String.valueOf(sdf.format(date));
+                //no_rem.setDisabledTextColor(java.awt.Color.BLUE);
+                en.setFecha(dato);
+                
+                en.setNumero(txtSec.getText());
+                en.setDestinatario(txtDestinatario.getText().toUpperCase());
+                en.setATN(txtATN.getText().toUpperCase());
+                en.setDireccion(txtDireccion.getText().toUpperCase());
+                en.setTelefono(txtTelefono.getText().toUpperCase());
+                en.setCiudad(txtCiudad.getText().toUpperCase());
+                en.setComentario(areaComentario.getText().toUpperCase());
+                db.insertarEnvio(en);
+                JOptionPane.showMessageDialog(this, "Envio guardado exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+                numerosEnvios();
+                limpiar();
+            } catch (Exception e) {
+                System.err.println("error" + e);
+            }
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardaActionPerformed
 
@@ -357,14 +455,30 @@ public class Envios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Envios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Envios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Envios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Envios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -385,7 +499,7 @@ public class Envios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Envios().setVisible(true);
+                new Envio().setVisible(true);
             }
         });
     }
@@ -408,12 +522,14 @@ public class Envios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator7;
@@ -423,6 +539,7 @@ public class Envios extends javax.swing.JFrame {
     private javax.swing.JTextField txtDestinatario;
     private javax.swing.JTextField txtDireccion;
     private com.toedter.calendar.JDateChooser txtFecha;
+    private javax.swing.JTextField txtSec;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

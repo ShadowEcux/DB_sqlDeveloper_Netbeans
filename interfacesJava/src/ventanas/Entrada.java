@@ -183,12 +183,12 @@ public class Entrada extends javax.swing.JFrame {
         txtFecha = new com.toedter.calendar.JDateChooser();
         btnDescartar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        btnFacturas = new javax.swing.JButton();
         btnBusca = new javax.swing.JButton();
         btnGuarda = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
         txtSec = new javax.swing.JTextField();
+        btnGuarda1 = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -402,7 +402,7 @@ public class Entrada extends javax.swing.JFrame {
         areaObservaciones.setRows(5);
         jScrollPane1.setViewportView(areaObservaciones);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 520, 100));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 500, 100));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 260, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -433,16 +433,6 @@ public class Entrada extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(153, 255, 153));
         jLabel7.setText("CLIENTES");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, 20));
-
-        btnFacturas.setBackground(new java.awt.Color(153, 255, 153));
-        btnFacturas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnFacturas.setText("FACTURAS");
-        btnFacturas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFacturasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, 250, 30));
 
         btnBusca.setBackground(new java.awt.Color(255, 255, 255));
         btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -479,7 +469,7 @@ public class Entrada extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 50, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 50, -1));
         getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 150, 10));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -487,6 +477,25 @@ public class Entrada extends javax.swing.JFrame {
         jLabel26.setText("FECHA");
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 40, 20));
         getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 200, -1));
+
+        btnGuarda1.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuarda1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGuarda1.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuarda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
+        btnGuarda1.setText("Generar");
+        btnGuarda1.setBorder(null);
+        btnGuarda1.setBorderPainted(false);
+        btnGuarda1.setContentAreaFilled(false);
+        btnGuarda1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuarda1.setIconTextGap(-1);
+        btnGuarda1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuarda1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, 50, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -531,15 +540,6 @@ public class Entrada extends javax.swing.JFrame {
     private void txtTelefonoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoClienteActionPerformed
-
-    private void btnFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasActionPerformed
-
-        Facturas_Entrada obj = new Facturas_Entrada();
-        obj.setVisible(true);
-        dispose();
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnFacturasActionPerformed
 
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
@@ -665,6 +665,15 @@ public class Entrada extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardaActionPerformed
 
+    private void btnGuarda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuarda1ActionPerformed
+
+        Facturas_Entrada obj = new Facturas_Entrada();
+        obj.setVisible(true);
+        dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuarda1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -707,8 +716,8 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JTextArea areaObservaciones;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnDescartar;
-    private javax.swing.JButton btnFacturas;
     private javax.swing.JButton btnGuarda;
+    private javax.swing.JButton btnGuarda1;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbBasesPlasticas;

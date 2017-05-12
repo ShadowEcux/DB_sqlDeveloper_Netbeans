@@ -80,7 +80,7 @@ public class salidaMySql {
     
     public void EditarSalida(Salidas salida) {
         try {
-            Connection cn = DataBaseConexion.getConnection();
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             PreparedStatement pst = (PreparedStatement) cn.prepareStatement("UPDATE salidas SET fecha=?,empresa=?,ciudad=?,direccion=?,contacto=?,telefono=?,correo=?,equipo=?,modelo=?,serie=?,comentario=? WHERE numero = ?");
             pst.setString(1, salida.getFecha());
             pst.setString(2, salida.getEmpresa());

@@ -18,8 +18,9 @@ public class Envios {
     String telefono;
     String ciudad;
     String comentario;
+    String numero;
     
-public Envios(int id_envio, String fecha, String destinatario, String ATN, String direccion, String telefono, String ciudad, String comentario) {
+public Envios(int id_envio, String numero, String fecha, String destinatario, String ATN, String direccion, String telefono, String ciudad, String comentario) {
         this.id_envio = id_envio;
         this.fecha = fecha;
         this.destinatario = destinatario;
@@ -28,11 +29,19 @@ public Envios(int id_envio, String fecha, String destinatario, String ATN, Strin
         this.telefono = telefono;
         this.ciudad = ciudad;
         this.comentario = comentario;
+        this.numero = numero;
     }
 
     public Envios() {
     }
-   
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
     public int getId_envio() {
         return id_envio;

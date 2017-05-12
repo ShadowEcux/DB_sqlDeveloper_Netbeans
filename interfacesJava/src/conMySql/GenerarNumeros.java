@@ -103,6 +103,51 @@ public class GenerarNumeros {
             num = "NS00000000"+can;
         }
     }
+    
+    public void generarEnvios(int dato){
+        this.dato = dato;
+
+        if((this.dato >= 99999999)&&(this.dato<999999999)){
+            int can = cont+this.dato;
+            num = "EN"+can;
+        }
+        if((this.dato >= 9999999)&&(this.dato<99999999)){
+            int can = cont+this.dato;
+            num = "EN0"+can;
+        }
+        if((this.dato >= 999999)&&(this.dato<9999999)){
+            int can = cont+this.dato;
+            num = "EN00"+can;
+        }
+        if((this.dato >= 99999)&&(this.dato<999999)){
+            int can = cont+this.dato;
+            num = "EN000"+can;
+        }
+        if((this.dato >= 9999)&&(this.dato < 99999)){
+            int can = cont+this.dato;
+            num = "EN0000"+can;
+        }
+        if((this.dato >= 999)&&(this.dato < 9999)){
+            int can = cont+this.dato;
+            num = "EN00000"+can;
+        }
+        if((this.dato >= 99)&&(this.dato < 999)){
+            int can = cont+this.dato;
+            num = "EN000000"+can;
+        }
+        if((this.dato >= 9)&&(this.dato < 99)){
+            int can = cont+this.dato;
+            num = "EN0000000"+can;
+        }
+        if((this.dato >= 1)&&(this.dato < 9)){
+            int can = cont+this.dato;
+            num = "EN00000000"+can;
+        }
+        if(this.dato == 0){
+            int can = cont+this.dato;
+            num = "EN00000000"+can;
+        }
+    }
     public String serie(){
         return this.num;
     }

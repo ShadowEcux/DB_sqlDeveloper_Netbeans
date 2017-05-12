@@ -5,6 +5,7 @@
  */
 package ventanas;
 
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -189,7 +190,7 @@ public class Formatos_Admin extends javax.swing.JFrame {
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalidaActionPerformed
 
-        Tipo_Salidas_Admin obj = new Tipo_Salidas_Admin();
+        Salidass obj = new Salidass();
         obj.setVisible(true);
         dispose();
         

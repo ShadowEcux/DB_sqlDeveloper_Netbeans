@@ -177,13 +177,16 @@ public class Salidass extends javax.swing.JFrame {
         btnBusca = new javax.swing.JButton();
         btnGuarda = new javax.swing.JButton();
         btnDescartar1 = new javax.swing.JButton();
-        btnFacturas = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         txtModel = new javax.swing.JTextField();
         txtSec = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
         txtFecha = new com.toedter.calendar.JDateChooser();
+        cmbEntradas = new javax.swing.JComboBox();
+        btnBusca3 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        btnGuarda1 = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -202,22 +205,22 @@ public class Salidass extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Formato De Salida");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+        jLabel2.setText("FORMATOS DE SALIDA");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 280, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, 220, 10));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
         jLabel6.setText("CLIENTES");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, 20));
 
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, -1));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 130, 10));
+        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 230, -1));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 130, 10));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Ciudad");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, -1, 20));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 20));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -228,16 +231,16 @@ public class Salidass extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(153, 255, 153));
         jLabel16.setText("DATOS DEL CONTACTO");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 150, -1));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 650, 10));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 650, 10));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 260, 10));
-        getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 200, -1));
-        getContentPane().add(txtEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 200, -1));
-        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 200, -1));
+        getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 200, -1));
+        getContentPane().add(txtEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 200, -1));
+        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 200, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Dirección");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, 20));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 20));
         getContentPane().add(txtContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 140, -1));
         getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 110, -1));
 
@@ -268,7 +271,7 @@ public class Salidass extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(153, 255, 153));
         jLabel25.setText("FECHA");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 40, 20));
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 40, 20));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -279,7 +282,7 @@ public class Salidass extends javax.swing.JFrame {
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Comentario");
         getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, 20));
-        getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 240, 10));
+        getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 330, 10));
 
         areaComentario.setColumns(20);
         areaComentario.setRows(5);
@@ -326,7 +329,7 @@ public class Salidass extends javax.swing.JFrame {
                 btnBuscaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 40, -1));
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 40, -1));
 
         btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
         btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -345,7 +348,7 @@ public class Salidass extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 50, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 50, -1));
 
         btnDescartar1.setBackground(new java.awt.Color(255, 255, 255));
         btnDescartar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -357,20 +360,10 @@ public class Salidass extends javax.swing.JFrame {
         });
         getContentPane().add(btnDescartar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 40, 40));
 
-        btnFacturas.setBackground(new java.awt.Color(153, 255, 153));
-        btnFacturas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnFacturas.setText("FACTURAS");
-        btnFacturas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFacturasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnFacturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, 250, 30));
-
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Empresa");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, -1, 20));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 20));
         getContentPane().add(txtModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 160, -1));
 
         txtSec.addActionListener(new java.awt.event.ActionListener() {
@@ -378,16 +371,65 @@ public class Salidass extends javax.swing.JFrame {
                 txtSecActionPerformed(evt);
             }
         });
-        getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 160, -1));
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 100, 10));
+        getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 160, -1));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 100, 10));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(153, 255, 153));
         jLabel26.setText("No. REM");
-        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 60, 20));
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 60, 20));
 
         txtFecha.setDateFormatString("yyyy/MM/dd");
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 170, -1));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 170, -1));
+
+        cmbEntradas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEntradasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmbEntradas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 160, -1));
+
+        btnBusca3.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca3.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca3.setBorder(null);
+        btnBusca3.setBorderPainted(false);
+        btnBusca3.setContentAreaFilled(false);
+        btnBusca3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca3.setIconTextGap(-1);
+        btnBusca3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusca3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 40, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(153, 255, 153));
+        jLabel8.setText("ENTRADAS");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 70, 20));
+
+        btnGuarda1.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuarda1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnGuarda1.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuarda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
+        btnGuarda1.setText("Generar");
+        btnGuarda1.setBorder(null);
+        btnGuarda1.setBorderPainted(false);
+        btnGuarda1.setContentAreaFilled(false);
+        btnGuarda1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuarda1.setIconTextGap(-1);
+        btnGuarda1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGuarda1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuarda1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, 50, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 530));
@@ -504,18 +546,60 @@ public class Salidass extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDescartar1ActionPerformed
 
-    private void btnFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturasActionPerformed
+    private void txtSecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSecActionPerformed
+
+    private void cmbEntradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEntradasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbEntradasActionPerformed
+
+    private void btnBusca3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca3ActionPerformed
+
+        //(FECHA, ELEMENTO, POTENCIA, MARCA, MODELO, SERIE, EMPRESA, NIT, PERSONA_REMITE, CIUDAD, DIRECCION, NOMBRE_CONTACTO, TELEFONO_CONTACTO, CORREO, MOTIVO, TARJETA_RED, PARRILLA, BASES_PLASTICAS, CONECTOR_ORIGI, GARANTIA, ESTADO_CARCASA, OBSERVACIONES)
+        try {
+
+            String guardar = cmbEntradas.getSelectedItem().toString();
+            Connection cn = DataBaseConexion.getConnection();
+            Statement st = cn.createStatement();
+            PreparedStatement pst = cn.prepareStatement("Select * from ENTRADAS where ID_ENTRADA = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                txtEmpresa.setText(rs.getString("EMPRESA").trim());
+                txtCiudad.setText(rs.getString("CIUDAD").trim());
+                txtDireccion.setText(rs.getString("DIRECCION").trim());
+                txtContacto.setText(rs.getString("NOMBRE_CONTACTO").trim());
+                txtTelefono.setText(rs.getString("TELEFONO_CONTACTO").trim());
+                txtCorreo.setText(rs.getString("CORREO").trim());
+                txtEquipo.setText(rs.getString("ELEMENTO"));
+                txtModel.setText(rs.getString("MODELO"));
+                txtSerie.setText(rs.getString("SERIE").trim());
+                areaComentario.setText(rs.getString("OBSERVACIONES").trim());
+
+                //pst.setString(1, CMBID.getName());
+                //String guardar = txtBuscar.getText();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe la factura");
+            }
+            cn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBusca3ActionPerformed
+
+    private void btnGuarda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuarda1ActionPerformed
 
         Facturas_Salida obj = new Facturas_Salida();
         obj.setVisible(true);
         dispose();
-
+        
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnFacturasActionPerformed
-
-    private void txtSecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSecActionPerformed
+    }//GEN-LAST:event_btnGuarda1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -586,12 +670,14 @@ public class Salidass extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaComentario;
     private javax.swing.JButton btnBusca;
+    private javax.swing.JButton btnBusca3;
     private javax.swing.JButton btnDescartar1;
-    private javax.swing.JButton btnFacturas;
     private javax.swing.JButton btnGuarda;
+    private javax.swing.JButton btnGuarda1;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbClientes;
+    private javax.swing.JComboBox cmbEntradas;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -608,6 +694,7 @@ public class Salidass extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

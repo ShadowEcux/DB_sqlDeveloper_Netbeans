@@ -365,7 +365,7 @@ public class Facturas_Entrada_Oper extends javax.swing.JFrame {
         areaObservaciones.setRows(5);
         jScrollPane1.setViewportView(areaObservaciones);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 520, 70));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 520, 130));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 260, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -426,7 +426,7 @@ public class Facturas_Entrada_Oper extends javax.swing.JFrame {
                 btnBusca1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 30, 30));
+        getContentPane().add(btnBusca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 550, 30, 30));
 
         btnEditar.setBackground(new java.awt.Color(255, 255, 255));
         btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -445,7 +445,7 @@ public class Facturas_Entrada_Oper extends javax.swing.JFrame {
                 btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 40, 50));
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, 40, 50));
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -464,15 +464,15 @@ public class Facturas_Entrada_Oper extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 50, 50));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, 50, 50));
 
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 10, 70));
-        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 150, 10));
+        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 10, 70));
+        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 150, 10));
 
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 10, 70));
-        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 560, 150, 10));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 470, 10, 70));
+        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 150, 10));
 
         btnDescartar.setBackground(new java.awt.Color(255, 255, 255));
         btnDescartar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -487,8 +487,8 @@ public class Facturas_Entrada_Oper extends javax.swing.JFrame {
         btnPdf.setBackground(new java.awt.Color(255, 255, 255));
         btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnPdf.setForeground(new java.awt.Color(255, 255, 255));
-        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf3.png"))); // NOI18N
-        btnPdf.setText("PDF");
+        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
+        btnPdf.setText("Generar");
         btnPdf.setBorder(null);
         btnPdf.setBorderPainted(false);
         btnPdf.setContentAreaFilled(false);
@@ -501,7 +501,7 @@ public class Facturas_Entrada_Oper extends javax.swing.JFrame {
                 btnPdfActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, 50, -1));
+        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 480, 50, -1));
         getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 190, -1));
         getContentPane().add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 140, 10));
 

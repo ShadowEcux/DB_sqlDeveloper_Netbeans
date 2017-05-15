@@ -481,7 +481,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
         btnGuarda1.setBackground(new java.awt.Color(255, 255, 255));
         btnGuarda1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGuarda1.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuarda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
+        btnGuarda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/generarr.png"))); // NOI18N
         btnGuarda1.setText("Go");
         btnGuarda1.setBorder(null);
         btnGuarda1.setBorderPainted(false);

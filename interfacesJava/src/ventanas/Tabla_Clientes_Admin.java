@@ -46,7 +46,7 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
         cliente = db.ListClientes();
         DefaultTableModel tb = (DefaultTableModel) tabla_clientes.getModel();
         for (clientes cl : cliente) {
-            tb.addRow(new Object[]{cl.getId_cliente(),cl.getNit_cliente(), cl.getNombre_cliente(), cl.getTelefono_cliente(), cl.getDireccion_cliente(), cl.getCiudad_cliente(), cl.getCorreo_cliente(), cl.getNombre_contacto()});
+            tb.addRow(new Object[]{cl.getNit_cliente(), cl.getNombre_cliente(), cl.getTelefono_cliente(), cl.getDireccion_cliente(), cl.getCiudad_cliente(), cl.getCorreo_cliente(), cl.getNombre_contacto()});
         }
     }
 

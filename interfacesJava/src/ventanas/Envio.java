@@ -59,7 +59,6 @@ public class Envio extends javax.swing.JFrame {
     }
     
     public void limpiar(){
-        txtSec.setText("");
         txtDestinatario.setText("");
         txtATN.setText("");
         txtDireccion.setText("");
@@ -296,7 +295,7 @@ public class Envio extends javax.swing.JFrame {
         btnPdf.setBackground(new java.awt.Color(255, 255, 255));
         btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnPdf.setForeground(new java.awt.Color(255, 255, 255));
-        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
+        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/generarr.png"))); // NOI18N
         btnPdf.setText("Go");
         btnPdf.setBorder(null);
         btnPdf.setBorderPainted(false);
@@ -405,6 +404,11 @@ public class Envio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscaActionPerformed
 
     private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
+
+        Facturas_Envio obj = new Facturas_Envio();
+        obj.setVisible(true);
+        dispose();
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPdfActionPerformed
 

@@ -266,7 +266,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
         areaComentario.setRows(5);
         jScrollPane1.setViewportView(areaComentario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 400, 90));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 470, 110));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 250, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -315,7 +315,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
         btnPdf.setIconTextGap(-1);
         btnPdf.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnPdf.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, 50, -1));
+        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 50, -1));
 
         btnBusca1.setBackground(new java.awt.Color(255, 255, 255));
         btnBusca1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -346,7 +346,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
         getContentPane().add(btnDescartar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 40, 40));
 
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 10, 70));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, 10, 70));
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -365,7 +365,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 50, 50));
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 430, 50, 50));
 
         btnEditar.setBackground(new java.awt.Color(255, 255, 255));
         btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -384,11 +384,11 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
                 btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 40, 50));
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 40, 50));
 
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, 10, 70));
-        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 510, 150, 10));
+        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 10, 70));
+        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 150, 10));
 
         btnBusca2.setBackground(new java.awt.Color(255, 255, 255));
         btnBusca2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -406,8 +406,8 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
                 btnBusca2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 30, 30));
-        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, 150, 10));
+        getContentPane().add(btnBusca2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 30, 30));
+        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 150, 10));
 
         cmbSalidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -445,7 +445,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 50, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, 50, -1));
 
         txtSec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

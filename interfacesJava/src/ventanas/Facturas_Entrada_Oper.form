@@ -611,7 +611,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="20" y="400" width="520" height="70"/>
+          <AbsoluteConstraints x="20" y="400" width="520" height="130"/>
         </Constraint>
       </Constraints>
 
@@ -773,7 +773,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="70" y="480" width="30" height="30"/>
+          <AbsoluteConstraints x="550" y="550" width="30" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -807,7 +807,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="130" y="500" width="40" height="50"/>
+          <AbsoluteConstraints x="570" y="480" width="40" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -841,7 +841,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="190" y="500" width="50" height="50"/>
+          <AbsoluteConstraints x="630" y="480" width="50" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -851,14 +851,14 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="110" y="490" width="10" height="70"/>
+          <AbsoluteConstraints x="550" y="470" width="10" height="70"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator11">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="110" y="490" width="150" height="10"/>
+          <AbsoluteConstraints x="550" y="470" width="150" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -868,14 +868,14 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="260" y="490" width="10" height="70"/>
+          <AbsoluteConstraints x="700" y="470" width="10" height="70"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator8">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="110" y="560" width="150" height="10"/>
+          <AbsoluteConstraints x="550" y="540" width="150" height="10"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -912,9 +912,9 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/pdf3.png"/>
+          <Image iconType="3" name="/imagenes/zzzzz.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="PDF"/>
+        <Property name="text" type="java.lang.String" value="Generar"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -930,7 +930,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="290" y="490" width="50" height="-1"/>
+          <AbsoluteConstraints x="720" y="480" width="50" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

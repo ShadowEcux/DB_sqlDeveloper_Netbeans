@@ -39,7 +39,6 @@ public class Facturas_Envio extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENVIOS");
         CargarCmbEnvios();
-        numerosEnvios();
         txtSec.setEnabled(false);
     }
 
@@ -47,9 +46,9 @@ public class Facturas_Envio extends javax.swing.JFrame {
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes ORDER BY nombre_cli ASC");
+            ResultSet rs = st.executeQuery("SELECT numero FROM envios ORDER BY numero DESC");
             while (rs.next()) {
-                this.cmbEnvios.addItem(rs.getString("nombre_cli"));
+                this.cmbEnvios.addItem(rs.getString("numero"));
             }
             cn.close();
         } catch (Exception e) {
@@ -66,7 +65,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
         areaComentario.setText("");
         txtDestinatario.requestFocus();
     }
-    
+  /*  
     void numerosEnvios() {
         int j;
         String c = "";
@@ -108,6 +107,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
             Logger.getLogger(Facturas_Envio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    */
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -144,7 +144,6 @@ public class Facturas_Envio extends javax.swing.JFrame {
         btnDescartar = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         txtCiudad = new javax.swing.JTextField();
-        txtFecha = new com.toedter.calendar.JDateChooser();
         jLabel25 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         btnBusca = new javax.swing.JButton();
@@ -153,6 +152,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
         txtSec = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
+        txtFecha = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -177,7 +177,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
-        jLabel6.setText("Clientes");
+        jLabel6.setText("Envios");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 50, 20));
 
         getContentPane().add(cmbEnvios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, -1));
@@ -264,9 +264,6 @@ public class Facturas_Envio extends javax.swing.JFrame {
         });
         getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 170, -1));
 
-        txtFecha.setDateFormatString("yyyy/MM/dd");
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 150, -1));
-
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(153, 255, 153));
         jLabel25.setText("FECHA");
@@ -335,6 +332,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(153, 255, 153));
         jLabel26.setText("No. REM");
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 60, 20));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 140, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 460));
@@ -353,7 +351,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-        Formatos_Admin obj = new Formatos_Admin();
+        Envio obj = new Envio();
         obj.setVisible(true);
         dispose();
 
@@ -378,17 +376,20 @@ public class Facturas_Envio extends javax.swing.JFrame {
             String guardar = cmbEnvios.getSelectedItem().toString();
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
+            PreparedStatement pst = cn.prepareStatement("Select * from envios where numero = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
-                txtDestinatario.setText(rs.getString("nombre_cli").trim());
-                txtTelefono.setText(rs.getString("telefono_cli").trim());
-                txtDireccion.setText(rs.getString("direccion_cli").trim());
-                txtATN.setText(rs.getString("contacto_cli").trim());
-                txtCiudad.setText(rs.getString("ciudad_cli").trim());
+                txtSec.setText(rs.getString("numero").trim());
+                txtFecha.setText(rs.getString("fecha").trim());
+                txtDestinatario.setText(rs.getString("destinatario").trim());
+                txtATN.setText(rs.getString("atn").trim());
+                txtDireccion.setText(rs.getString("direccion"));
+                txtTelefono.setText(rs.getString("telefono"));
+                txtCiudad.setText(rs.getString("ciudad").trim());
+                areaComentario.setText(rs.getString("comentario"));
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
             } else {
@@ -410,14 +411,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
 
         try {
                 Envios en = new Envios();
-                
-                String formato = txtFecha.getDateFormatString();
-                Date date = txtFecha.getDate();
-                SimpleDateFormat sdf = new SimpleDateFormat(formato);
-                String dato = String.valueOf(sdf.format(date));
-                //no_rem.setDisabledTextColor(java.awt.Color.BLUE);
-                en.setFecha(dato);
-                
+                en.setFecha(txtFecha.getText());
                 en.setNumero(txtSec.getText());
                 en.setDestinatario(txtDestinatario.getText().toUpperCase());
                 en.setATN(txtATN.getText().toUpperCase());
@@ -425,9 +419,8 @@ public class Facturas_Envio extends javax.swing.JFrame {
                 en.setTelefono(txtTelefono.getText().toUpperCase());
                 en.setCiudad(txtCiudad.getText().toUpperCase());
                 en.setComentario(areaComentario.getText().toUpperCase());
-                db.insertarEnvio(en);
+                db.EditarEnvio(en);
                 JOptionPane.showMessageDialog(this, "Envio guardado exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-                numerosEnvios();
                 limpiar();
             } catch (Exception e) {
                 System.err.println("error" + e);
@@ -568,7 +561,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtDestinatario;
     private javax.swing.JTextField txtDireccion;
-    private com.toedter.calendar.JDateChooser txtFecha;
+    private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtSec;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables

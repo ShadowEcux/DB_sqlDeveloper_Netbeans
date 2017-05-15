@@ -30,11 +30,10 @@ public class clienteDB {
         try {
             Connection cnx = DataBaseConexion.getConnection();
             Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT IDCLIENTE, NITCLIENTE, NOMBRECLIENTE, TELEFONOCLIENTE, DIRECCIONCLIENTE, CIUDADCLIENTE, CORREOCLIENTE, NOMBRECONTACTO "
+            ResultSet rs = st.executeQuery("SELECT NITCLIENTE, NOMBRECLIENTE, TELEFONOCLIENTE, DIRECCIONCLIENTE, CIUDADCLIENTE, CORREOCLIENTE, NOMBRECONTACTO "
                     + " FROM CLIENTES ORDER BY 2");
             while (rs.next()) {
                 clientes cl = new clientes();
-                cl.setId_cliente(rs.getInt("IDCLIENTE"));
                 cl.setNit_cliente(rs.getString("NITCLIENTE"));
                 cl.setNombre_cliente(rs.getString("NOMBRECLIENTE"));
                 cl.setTelefono_cliente(rs.getString("TELEFONOCLIENTE"));

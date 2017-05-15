@@ -309,7 +309,7 @@ public class Salidass extends javax.swing.JFrame {
         areaComentario.setRows(5);
         jScrollPane1.setViewportView(areaComentario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 420, 140));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 450, 140));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 230, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
@@ -369,7 +369,7 @@ public class Salidass extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 50, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 50, -1));
 
         btnDescartar1.setBackground(new java.awt.Color(255, 255, 255));
         btnDescartar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -436,7 +436,7 @@ public class Salidass extends javax.swing.JFrame {
         btnGuarda1.setBackground(new java.awt.Color(255, 255, 255));
         btnGuarda1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGuarda1.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuarda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
+        btnGuarda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/generarr.png"))); // NOI18N
         btnGuarda1.setText("Go");
         btnGuarda1.setBorder(null);
         btnGuarda1.setBorderPainted(false);
@@ -450,7 +450,7 @@ public class Salidass extends javax.swing.JFrame {
                 btnGuarda1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 50, -1));
+        getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 50, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 530));

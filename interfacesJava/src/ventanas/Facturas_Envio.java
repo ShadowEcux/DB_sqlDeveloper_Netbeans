@@ -324,7 +324,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 60, -1));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 60, -1));
         getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 200, -1));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 150, 10));
 

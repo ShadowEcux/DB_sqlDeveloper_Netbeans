@@ -28,7 +28,7 @@ import javax.swing.JOptionPane;
  *
  * @author CPU_SYS
  */
-public class Envio extends javax.swing.JFrame {
+public class Envio_Oper extends javax.swing.JFrame {
 
     ArrayList<Entradas> entrada;
     envioMySql db = new envioMySql();
@@ -36,7 +36,7 @@ public class Envio extends javax.swing.JFrame {
     /**
      * Creates new form Entrada
      */
-    public Envio() {
+    public Envio_Oper() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENVIOS");
@@ -107,7 +107,7 @@ public class Envio extends javax.swing.JFrame {
                 txtSec.setText(gen.serie());
             }
         } catch (SQLException | NumberFormatException ex) {
-            Logger.getLogger(Envio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Envio_Oper.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -355,7 +355,7 @@ public class Envio extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-        Formatos_Admin obj = new Formatos_Admin();
+        Formatos_Oper obj = new Formatos_Oper();
         obj.setVisible(true);
         dispose();
 
@@ -406,7 +406,7 @@ public class Envio extends javax.swing.JFrame {
 
     private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
 
-        Facturas_Envio obj = new Facturas_Envio();
+        Facturas_Envio_Oper obj = new Facturas_Envio_Oper();
         obj.setVisible(true);
         dispose();
         
@@ -460,14 +460,46 @@ public class Envio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envio_Oper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envio_Oper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envio_Oper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envio_Oper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -504,7 +536,7 @@ public class Envio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Envio().setVisible(true);
+                new Envio_Oper().setVisible(true);
             }
         });
     }

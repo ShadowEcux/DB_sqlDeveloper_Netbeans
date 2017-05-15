@@ -191,8 +191,8 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("SALIDA POR INGRESO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
+        jLabel2.setText("SALIDA");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 240, 10));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

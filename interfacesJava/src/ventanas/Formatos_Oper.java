@@ -182,7 +182,7 @@ public class Formatos_Oper extends javax.swing.JFrame {
 
     private void btnEnvios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnvios1ActionPerformed
 
-        Envio obj = new Envio();
+        Envio_Oper obj = new Envio_Oper();
         obj.setVisible(true);
         dispose();
 

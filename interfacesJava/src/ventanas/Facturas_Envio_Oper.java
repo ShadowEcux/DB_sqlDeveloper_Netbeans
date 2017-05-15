@@ -7,10 +7,8 @@ package ventanas;
 
 import clasesPrincipales.Entradas;
 import clasesPrincipales.Envios;
-import clasesPrincipales.Salidas;
 import conMySql.GenerarNumeros;
 import conMySql.envioMySql;
-import conexionSQLDB.DataBaseConexion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -28,7 +26,7 @@ import javax.swing.JOptionPane;
  *
  * @author CPU_SYS
  */
-public class Envio extends javax.swing.JFrame {
+public class Facturas_Envio_Oper extends javax.swing.JFrame {
 
     ArrayList<Entradas> entrada;
     envioMySql db = new envioMySql();
@@ -36,22 +34,21 @@ public class Envio extends javax.swing.JFrame {
     /**
      * Creates new form Entrada
      */
-    public Envio() {
+    public Facturas_Envio_Oper() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENVIOS");
-        CargarCmbCliente();
-        numerosEnvios();
+        CargarCmbEnvios();
         txtSec.setEnabled(false);
     }
 
-    public void CargarCmbCliente(){
+    public void CargarCmbEnvios(){
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes ORDER BY nombre_cli ASC");
+            ResultSet rs = st.executeQuery("SELECT numero FROM envios ORDER BY numero DESC");
             while (rs.next()) {
-                this.cmbClientes.addItem(rs.getString("nombre_cli"));
+                this.cmbEnvios.addItem(rs.getString("numero"));
             }
             cn.close();
         } catch (Exception e) {
@@ -59,7 +56,7 @@ public class Envio extends javax.swing.JFrame {
     }
     
     public void limpiar(){
-        txtFecha.setDateFormatString("");
+        txtSec.setText("");
         txtDestinatario.setText("");
         txtATN.setText("");
         txtDireccion.setText("");
@@ -68,7 +65,7 @@ public class Envio extends javax.swing.JFrame {
         areaComentario.setText("");
         txtDestinatario.requestFocus();
     }
-    
+  /*  
     void numerosEnvios() {
         int j;
         String c = "";
@@ -107,9 +104,10 @@ public class Envio extends javax.swing.JFrame {
                 txtSec.setText(gen.serie());
             }
         } catch (SQLException | NumberFormatException ex) {
-            Logger.getLogger(Envio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Facturas_Envio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    */
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -124,7 +122,7 @@ public class Envio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        cmbClientes = new javax.swing.JComboBox();
+        cmbEnvios = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -146,7 +144,6 @@ public class Envio extends javax.swing.JFrame {
         btnDescartar = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         txtCiudad = new javax.swing.JTextField();
-        txtFecha = new com.toedter.calendar.JDateChooser();
         jLabel25 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         btnBusca = new javax.swing.JButton();
@@ -155,6 +152,7 @@ public class Envio extends javax.swing.JFrame {
         txtSec = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
+        txtFecha = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -175,63 +173,63 @@ public class Envio extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Formato De Envios");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 200, 10));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 200, 10));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
-        jLabel6.setText("Clientes");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 50, 20));
+        jLabel6.setText("Envios");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 50, 20));
 
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 210, -1));
+        getContentPane().add(cmbEnvios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("DESTINATARIO");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 20));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, 20));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("ATN");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, 20));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 20));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("DIRECCION");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, 20));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(153, 255, 153));
         jLabel16.setText("DATOS DE ENVIO");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
-        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 230, 10));
-        getContentPane().add(txtATN, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 170, -1));
-        getContentPane().add(txtDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 170, -1));
-        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 170, -1));
-        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 170, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, 10));
+        getContentPane().add(txtATN, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 170, -1));
+        getContentPane().add(txtDestinatario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 170, -1));
+        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 170, -1));
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 170, -1));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("CIUDAD");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 60, 20));
-        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 220, 10));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 60, 20));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 220, 10));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(153, 255, 153));
         jLabel22.setText("DATOS DEL EQUIPO");
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, -1, -1));
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, -1));
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Comentario");
-        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, 20));
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, 20));
         getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 240, 10));
 
         areaComentario.setColumns(20);
         areaComentario.setRows(5);
         jScrollPane1.setViewportView(areaComentario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 380, 100));
-        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 190, 10));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 380, 90));
+        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 190, 10));
 
         btnVolver.setBackground(new java.awt.Color(51, 153, 255));
         btnVolver.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -257,23 +255,20 @@ public class Envio extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("TELEFONO");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 60, 20));
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 60, 20));
 
         txtCiudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCiudadActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 170, -1));
-
-        txtFecha.setDateFormatString("yyyy/MM/dd");
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 150, -1));
+        getContentPane().add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 170, -1));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(153, 255, 153));
         jLabel25.setText("FECHA");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 40, 20));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 110, 10));
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 40, 20));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 110, 10));
 
         btnBusca.setBackground(new java.awt.Color(255, 255, 255));
         btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -291,13 +286,13 @@ public class Envio extends javax.swing.JFrame {
                 btnBuscaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 40, -1));
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 40, -1));
 
         btnPdf.setBackground(new java.awt.Color(255, 255, 255));
         btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnPdf.setForeground(new java.awt.Color(255, 255, 255));
-        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/generarr.png"))); // NOI18N
-        btnPdf.setText("Go");
+        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
+        btnPdf.setText("Generar");
         btnPdf.setBorder(null);
         btnPdf.setBorderPainted(false);
         btnPdf.setContentAreaFilled(false);
@@ -310,7 +305,7 @@ public class Envio extends javax.swing.JFrame {
                 btnPdfActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 60, 70));
+        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 60, 70));
 
         btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
         btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -329,14 +324,15 @@ public class Envio extends javax.swing.JFrame {
                 btnGuardaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 60, -1));
-        getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 200, -1));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 150, 10));
+        getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 60, -1));
+        getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 200, -1));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 150, 10));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(153, 255, 153));
         jLabel26.setText("No. REM");
-        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 60, 20));
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 60, 20));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 140, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 460));
@@ -355,7 +351,7 @@ public class Envio extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-        Formatos_Admin obj = new Formatos_Admin();
+        Envio_Oper obj = new Envio_Oper();
         obj.setVisible(true);
         dispose();
 
@@ -377,20 +373,23 @@ public class Envio extends javax.swing.JFrame {
 
        try {
 
-            String guardar = cmbClientes.getSelectedItem().toString();
+            String guardar = cmbEnvios.getSelectedItem().toString();
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
+            PreparedStatement pst = cn.prepareStatement("Select * from envios where numero = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
-                txtDestinatario.setText(rs.getString("nombre_cli").trim());
-                txtTelefono.setText(rs.getString("telefono_cli").trim());
-                txtDireccion.setText(rs.getString("direccion_cli").trim());
-                txtATN.setText(rs.getString("contacto_cli").trim());
-                txtCiudad.setText(rs.getString("ciudad_cli").trim());
+                txtSec.setText(rs.getString("numero").trim());
+                txtFecha.setText(rs.getString("fecha").trim());
+                txtDestinatario.setText(rs.getString("destinatario").trim());
+                txtATN.setText(rs.getString("atn").trim());
+                txtDireccion.setText(rs.getString("direccion"));
+                txtTelefono.setText(rs.getString("telefono"));
+                txtCiudad.setText(rs.getString("ciudad").trim());
+                areaComentario.setText(rs.getString("comentario"));
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
             } else {
@@ -405,11 +404,6 @@ public class Envio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscaActionPerformed
 
     private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
-
-        Facturas_Envio obj = new Facturas_Envio();
-        obj.setVisible(true);
-        dispose();
-        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPdfActionPerformed
 
@@ -417,14 +411,7 @@ public class Envio extends javax.swing.JFrame {
 
         try {
                 Envios en = new Envios();
-                
-                String formato = txtFecha.getDateFormatString();
-                Date date = txtFecha.getDate();
-                SimpleDateFormat sdf = new SimpleDateFormat(formato);
-                String dato = String.valueOf(sdf.format(date));
-                //no_rem.setDisabledTextColor(java.awt.Color.BLUE);
-                en.setFecha(dato);
-                
+                en.setFecha(txtFecha.getText());
                 en.setNumero(txtSec.getText());
                 en.setDestinatario(txtDestinatario.getText().toUpperCase());
                 en.setATN(txtATN.getText().toUpperCase());
@@ -432,9 +419,8 @@ public class Envio extends javax.swing.JFrame {
                 en.setTelefono(txtTelefono.getText().toUpperCase());
                 en.setCiudad(txtCiudad.getText().toUpperCase());
                 en.setComentario(areaComentario.getText().toUpperCase());
-                db.insertarEnvio(en);
+                db.EditarEnvio(en);
                 JOptionPane.showMessageDialog(this, "Envio guardado exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-                numerosEnvios();
                 limpiar();
             } catch (Exception e) {
                 System.err.println("error" + e);
@@ -460,14 +446,110 @@ public class Envio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Facturas_Envio_Oper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Facturas_Envio_Oper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Facturas_Envio_Oper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Envio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Facturas_Envio_Oper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -504,7 +586,7 @@ public class Envio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Envio().setVisible(true);
+                new Facturas_Envio_Oper().setVisible(true);
             }
         });
     }
@@ -517,7 +599,7 @@ public class Envio extends javax.swing.JFrame {
     private javax.swing.JButton btnPdf;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox cmbClientes;
+    private javax.swing.JComboBox cmbEnvios;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -543,7 +625,7 @@ public class Envio extends javax.swing.JFrame {
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtDestinatario;
     private javax.swing.JTextField txtDireccion;
-    private com.toedter.calendar.JDateChooser txtFecha;
+    private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtSec;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables

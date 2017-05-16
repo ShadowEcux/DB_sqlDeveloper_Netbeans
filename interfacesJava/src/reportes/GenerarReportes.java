@@ -26,15 +26,15 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class GenerarReportes {
 
-    public void reporteSalida(String numero) {
+    public void reporteSalida(String nume) {
 
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
-
+            
             JasperReport reporte = (JasperReport) JRLoader.loadObject("salida.jasper");
             Map parametro = new HashMap();
 
-            parametro.put("numero", numero);
+            parametro.put("nume", nume);
 
             JasperPrint j;
             
@@ -45,7 +45,7 @@ public class GenerarReportes {
             jv.setTitle("REPORTE SALIDA");
             jv.setVisible(true);
             //jv.show();
-
+            cn.close();
         } catch (JRException e) {
             System.out.println("Error: \n" + e);
         } catch (SQLException ex) {

@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import reportes.GenerarReportes;
 
 /**
  *
@@ -404,7 +405,12 @@ public class Facturas_Envio_Oper extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscaActionPerformed
 
     private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
-        // TODO add your handling code here:
+ 
+        String nume = txtSec.getText();
+        GenerarReportes g = new GenerarReportes();
+        g.reporteEnvio(nume);
+        
+// TODO add your handling code here:
     }//GEN-LAST:event_btnPdfActionPerformed
 
     private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed

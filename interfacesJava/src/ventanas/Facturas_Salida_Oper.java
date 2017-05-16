@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import reportes.GenerarReportes;
 
 /**
  *
@@ -306,8 +307,8 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
         btnPdf.setBackground(new java.awt.Color(255, 255, 255));
         btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnPdf.setForeground(new java.awt.Color(255, 255, 255));
-        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf3.png"))); // NOI18N
-        btnPdf.setText("PDF");
+        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/zzzzz.png"))); // NOI18N
+        btnPdf.setText("Generar");
         btnPdf.setBorder(null);
         btnPdf.setBorderPainted(false);
         btnPdf.setContentAreaFilled(false);
@@ -315,6 +316,11 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
         btnPdf.setIconTextGap(-1);
         btnPdf.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         btnPdf.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPdfActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 50, -1));
 
         btnBusca1.setBackground(new java.awt.Color(255, 255, 255));
@@ -749,6 +755,15 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
     private void txtSecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSecActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSecActionPerformed
+
+    private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
+
+        String nume = txtSec.getText();
+        GenerarReportes g = new GenerarReportes();
+        g.reporteSalida(nume);
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnPdfActionPerformed
 
     /**
      * @param args the command line arguments

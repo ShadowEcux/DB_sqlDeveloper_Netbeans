@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import reportes.GenerarReportes;
 
 /**
  *
@@ -824,7 +825,12 @@ public class Facturas_Entrada_Oper extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDescartarActionPerformed
 
     private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
-        // TODO add your handling code here:
+
+        String nume = txtSec.getText();
+        GenerarReportes g = new GenerarReportes();
+        g.reporteEntrada(nume);
+        
+// TODO add your handling code here:
     }//GEN-LAST:event_btnPdfActionPerformed
 
     /**

@@ -3,51 +3,51 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/entradaMySql.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Envio.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/usuarioDB.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Entrada.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Tabla_Clientes_Oper.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/salidaDB.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Nuevo_Cliente.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Entrada.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Envio.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/GenerarNumeros.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/usuarios.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Usuarios.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/Envios.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Interfaz_Admin.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/Salidas.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/clienteDB.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Salida.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Editar_Cliente.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Nuevo_Cliente_Oper.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/envioMySql.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Bienvenida.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/usuarioMySQLDB.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Salidass.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/clientes.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Entrada_Oper.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/envioDB.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Envio_Oper.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Eliminar_Cliente.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/entradaDB.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Nuevo_Usuario.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/clienteDB.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Entrada.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Formatos_Admin.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/conector.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Salidass.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Nuevo_Cliente.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Eliminar_Cliente.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Envio.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Bienvenida.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Interfaz_Admin.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/clientes.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Nuevo_Usuario.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/usuarios.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Principal_Oper.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Salida_Oper.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Tabla_Clientes_Admin.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Salidass_Oper.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Entrada_Oper.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/salidaMySql.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/clienteMySql.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/Entradas.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/imagenes/Entrada.png</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Formatos_Oper.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Envio_Oper.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Principal_Admin.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/usuarioDB.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Usuarios.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/Entradas.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/entradaDB.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Entrada.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/imagenes/Entrada.png</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Nuevo_Cliente_Oper.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Salida.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/Salidas.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/salidaDB.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/DataBaseConexion.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/Envios.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/envioDB.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/GenerarNumeros.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/conector.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/clienteMySql.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Tabla_Clientes_Admin.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/usuarioMySQLDB.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Tabla_Clientes_Oper.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Principal_Admin.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/entradaMySql.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Entrada_Oper.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Entrada_Oper.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/salidaMySql.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Salidass_Oper.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Salida_Oper.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conMySql/envioMySql.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Envio.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Envio_Oper.java</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Envio_Oper.java</file>
         </group>
     </open-files>
 </project-private>

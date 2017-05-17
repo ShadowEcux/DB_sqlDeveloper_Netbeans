@@ -7,8 +7,6 @@ package ventanas;
 
 import clasesPrincipales.Entradas;
 import conMySql.entradaMySql;
-import conexionSQLDB.DataBaseConexion;
-import conexionSQLDB.entradaDB;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

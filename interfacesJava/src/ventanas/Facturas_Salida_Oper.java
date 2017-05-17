@@ -562,7 +562,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
         } else {
 
             Salidas sal = new Salidas();
-            sal.setId_salida(Integer.parseInt(cmbSalidas.getSelectedItem().toString()));
+            sal.setNumero(cmbSalidas.getSelectedItem().toString());
             sal.setFecha(txtFechaFact.getText().toUpperCase());
             sal.setEmpresa(txtEmpresa.getText().toUpperCase());
             sal.setCiudad(txtCiudad.getText().toUpperCase());
@@ -588,6 +588,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
                 this.cmbSalidas.removeAllItems();
                 CargarCmbSalidas();
 
+                txtSec.setText("");
                 txtFechaFact.setText("");
                 txtEmpresa.setText("");
                 txtTelefono.setText("");
@@ -602,7 +603,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
                 txtEmpresa.requestFocus();
 
             } else {
-                
+                txtSec.setText("");
                 txtFechaFact.setText("");
                 txtEmpresa.setText("");
                 txtTelefono.setText("");
@@ -629,7 +630,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
         } else {
 
             Salidas sal = new Salidas();
-            sal.setId_salida(Integer.parseInt(cmbSalidas.getSelectedItem().toString()));
+            sal.setNumero(cmbSalidas.getSelectedItem().toString());
             sal.setFecha(txtFechaFact.getText().toUpperCase());
             sal.setEmpresa(txtEmpresa.getText().toUpperCase());
             sal.setCiudad(txtCiudad.getText().toUpperCase());
@@ -655,6 +656,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
                 this.cmbSalidas.removeAllItems();
                 CargarCmbSalidas();
 
+                txtSec.setText("");
                 txtFechaFact.setText("");
                 txtEmpresa.setText("");
                 txtTelefono.setText("");
@@ -669,6 +671,7 @@ public class Facturas_Salida_Oper extends javax.swing.JFrame {
                 txtEmpresa.requestFocus();
 
             } else {
+                txtSec.setText("");
                 txtFechaFact.setText("");
                 txtEmpresa.setText("");
                 txtTelefono.setText("");

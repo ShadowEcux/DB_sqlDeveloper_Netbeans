@@ -588,6 +588,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
                 this.cmbSalidas.removeAllItems();
                 CargarCmbSalidas();
 
+                txtSec.setText("");
                 txtFechaFact.setText("");
                 txtEmpresa.setText("");
                 txtTelefono.setText("");
@@ -602,7 +603,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
                 txtEmpresa.requestFocus();
 
             } else {
-                
+                txtSec.setText("");
                 txtFechaFact.setText("");
                 txtEmpresa.setText("");
                 txtTelefono.setText("");
@@ -655,6 +656,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
                 this.cmbSalidas.removeAllItems();
                 CargarCmbSalidas();
 
+                txtSec.setText("");
                 txtFechaFact.setText("");
                 txtEmpresa.setText("");
                 txtTelefono.setText("");
@@ -669,6 +671,7 @@ public class Facturas_Salida extends javax.swing.JFrame {
                 txtEmpresa.requestFocus();
 
             } else {
+                txtSec.setText("");
                 txtFechaFact.setText("");
                 txtEmpresa.setText("");
                 txtTelefono.setText("");

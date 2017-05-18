@@ -177,7 +177,7 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-        Usuarios obj = new Usuarios();
+        Usuario obj = new Usuario();
         obj.setVisible(true);
         dispose();
 

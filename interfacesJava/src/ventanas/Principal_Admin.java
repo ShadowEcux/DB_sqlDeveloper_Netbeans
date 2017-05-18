@@ -181,7 +181,7 @@ public class Principal_Admin extends javax.swing.JFrame {
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
 
-        Usuarios obj = new Usuarios();
+        Usuario obj = new Usuario();
         obj.setVisible(true);
         dispose();
         

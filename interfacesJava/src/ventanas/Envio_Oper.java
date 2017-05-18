@@ -8,6 +8,7 @@ package ventanas;
 import clasesPrincipales.Entradas;
 import clasesPrincipales.Envios;
 import clasesPrincipales.Salidas;
+import com.mxrck.autocompleter.TextAutoCompleter;
 import conMySql.GenerarNumeros;
 import conMySql.envioMySql;
 import conexionSQLDB.DataBaseConexion;
@@ -40,11 +41,27 @@ public class Envio_Oper extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENVIOS");
-        CargarCmbCliente();
+        //CargarCmbCliente();
+        autoComplete();
         numerosEnvios();
         txtSec.setEnabled(false);
     }
-
+    
+    public void autoComplete(){
+        TextAutoCompleter TextAutoCompleter = new TextAutoCompleter(auto);
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = (Statement)cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes");
+            while (rs.next()) {
+                TextAutoCompleter.addItem(rs.getString("nombre_cli"));
+            }
+            cn.close();
+        } catch (Exception e) {
+            System.out.println("error: "+e);
+        }
+    }
+/*
     public void CargarCmbCliente(){
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
@@ -57,6 +74,7 @@ public class Envio_Oper extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    */
     
     public void limpiar(){
         txtFecha.setDateFormatString("");
@@ -124,7 +142,6 @@ public class Envio_Oper extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        cmbClientes = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -149,12 +166,13 @@ public class Envio_Oper extends javax.swing.JFrame {
         txtFecha = new com.toedter.calendar.JDateChooser();
         jLabel25 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        btnBusca = new javax.swing.JButton();
         btnPdf = new javax.swing.JButton();
         btnGuarda = new javax.swing.JButton();
         txtSec = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        auto = new javax.swing.JTextField();
+        btnBusca = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -181,8 +199,6 @@ public class Envio_Oper extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
         jLabel6.setText("Clientes");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 50, 20));
-
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 210, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -275,24 +291,6 @@ public class Envio_Oper extends javax.swing.JFrame {
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 40, 20));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 110, 10));
 
-        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
-        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
-        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
-        btnBusca.setBorder(null);
-        btnBusca.setBorderPainted(false);
-        btnBusca.setContentAreaFilled(false);
-        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnBusca.setIconTextGap(-1);
-        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnBusca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 40, -1));
-
         btnPdf.setBackground(new java.awt.Color(255, 255, 255));
         btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnPdf.setForeground(new java.awt.Color(255, 255, 255));
@@ -331,12 +329,31 @@ public class Envio_Oper extends javax.swing.JFrame {
         });
         getContentPane().add(btnGuarda, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 60, -1));
         getContentPane().add(txtSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 200, -1));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 150, 10));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(153, 255, 153));
         jLabel26.setText("No. REM");
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 60, 20));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 150, 10));
+        getContentPane().add(auto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 240, -1));
+
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 40, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 460));
@@ -372,37 +389,6 @@ public class Envio_Oper extends javax.swing.JFrame {
     private void txtCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCiudadActionPerformed
-
-    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
-
-       try {
-
-            String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
-            Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
-            pst.setString(1, guardar);
-            //pst.setString(1, CMBID.getName());
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-
-                txtDestinatario.setText(rs.getString("nombre_cli").trim());
-                txtTelefono.setText(rs.getString("telefono_cli").trim());
-                txtDireccion.setText(rs.getString("direccion_cli").trim());
-                txtATN.setText(rs.getString("contacto_cli").trim());
-                txtCiudad.setText(rs.getString("ciudad_cli").trim());
-                //pst.setString(1, CMBID.getName());
-                //String guardar = txtBuscar.getText();
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el usuario");
-            }
-            cn.close();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscaActionPerformed
 
     private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
 
@@ -442,6 +428,37 @@ public class Envio_Oper extends javax.swing.JFrame {
         
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardaActionPerformed
+
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
+
+        try {
+
+            String guardar = auto.getText();
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                txtDestinatario.setText(rs.getString("nombre_cli").trim());
+                txtTelefono.setText(rs.getString("telefono_cli").trim());
+                txtDireccion.setText(rs.getString("direccion_cli").trim());
+                txtATN.setText(rs.getString("contacto_cli").trim());
+                txtCiudad.setText(rs.getString("ciudad_cli").trim());
+                //pst.setString(1, CMBID.getName());
+                //String guardar = txtBuscar.getText();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el usuario");
+            }
+            cn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -543,13 +560,13 @@ public class Envio_Oper extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaComentario;
+    private javax.swing.JTextField auto;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnGuarda;
     private javax.swing.JButton btnPdf;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;

@@ -6,6 +6,7 @@
 package ventanas;
 
 import clasesPrincipales.clientes;
+import com.mxrck.autocompleter.TextAutoCompleter;
 import conMySql.clienteMySql;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -38,7 +39,8 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         LimpirTabla();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ELIMINAR CLIENTES");
-        CargarCmbCliente();
+        //CargarCmbCliente();
+        autoComplete();
         txtID.setEnabled(false);
         txtNitCliente.setEnabled(false);
         txtNombreCliente.setEnabled(false);
@@ -70,7 +72,22 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
             tb.removeRow(i);
         }
     }
-
+    
+    public void autoComplete(){
+        TextAutoCompleter TextAutoCompleter = new TextAutoCompleter(auto);
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = (Statement)cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes");
+            while (rs.next()) {
+                TextAutoCompleter.addItem(rs.getString("nombre_cli"));
+            }
+            cn.close();
+        } catch (Exception e) {
+            System.out.println("error: "+e);
+        }
+    }
+/*
     public void CargarCmbCliente() {
         try {
             Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
@@ -82,6 +99,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -112,12 +130,13 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         txtCorreoCliente = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtDireccionCliente = new javax.swing.JTextField();
-        cmbClientes = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         brnListar1 = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        auto = new javax.swing.JTextField();
         btnBusca = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -175,50 +194,43 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("NIT");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-        getContentPane().add(txtNitCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 150, -1));
+        getContentPane().add(txtNitCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 210, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Telefono");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
-        getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 150, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
+        getContentPane().add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 180, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Ciudad");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, -1, -1));
-        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 150, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
+        getContentPane().add(txtCiudadCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Contacto");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, -1, -1));
-        getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 150, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, -1, -1));
+        getContentPane().add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 150, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nombre Cliente");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, -1));
-        getContentPane().add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 150, -1));
+        getContentPane().add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 210, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Direccion");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
-        getContentPane().add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 150, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, -1));
+        getContentPane().add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 160, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Correo");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
-        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 150, -1));
-
-        cmbClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbClientesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 250, 30));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, -1, -1));
+        getContentPane().add(txtDireccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 180, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -263,6 +275,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 50, 50));
+        getContentPane().add(auto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 240, -1));
 
         btnBusca.setBackground(new java.awt.Color(255, 255, 255));
         btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -280,7 +293,12 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
                 btnBuscaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 40, 40));
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 40, 40));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(153, 255, 153));
+        jLabel11.setText("Buscar");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 520));
@@ -322,10 +340,6 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_tabla_clientesMouseClicked
 
-    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbClientesActionPerformed
-
     private void brnListar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnListar1ActionPerformed
 
         LimpirTabla();
@@ -358,8 +372,8 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Datos ELIMINADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
                 LimpirTabla();
                 ListarDatos();
-                this.cmbClientes.removeAllItems();
-                CargarCmbCliente();
+                //this.cmbClientes.removeAllItems();
+                //CargarCmbCliente();
                 txtID.setText("");
                 txtNitCliente.setText("");
                 txtNombreCliente.setText("");
@@ -373,8 +387,8 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
             } else {
                 LimpirTabla();
                 ListarDatos();
-                this.cmbClientes.removeAllItems();
-                CargarCmbCliente();
+                //this.cmbClientes.removeAllItems();
+                //CargarCmbCliente();
                 txtID.setText("");
                 txtNitCliente.setText("");
                 txtNombreCliente.setText("");
@@ -393,14 +407,14 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
         try {
-
-            String guardar = cmbClientes.getSelectedItem().toString();
+            String guardar = auto.getText();
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from Clientes where nombre_cli = ?");
+            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
+            LimpirTabla();
             if (rs.next()) {
 
                 txtID.setText(rs.getString("id_cli").trim());
@@ -411,9 +425,7 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
                 txtCiudadCliente.setText(rs.getString("ciudad_cli").trim());
                 txtCorreoCliente.setText(rs.getString("correo_cli").trim());
                 txtContactoCliente.setText(rs.getString("contacto_cli").trim());
-
-                //pst.setString(1, CMBID.getName());
-                //String guardar = txtBuscar.getText();
+                autoComplete();
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el usuario");
             }
@@ -492,14 +504,15 @@ public class Eliminar_Cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField auto;
     private javax.swing.JButton brnListar1;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver1;
-    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

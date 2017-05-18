@@ -6,6 +6,7 @@
 package ventanas;
 
 import clasesPrincipales.Entradas;
+import com.mxrck.autocompleter.TextAutoCompleter;
 import conexionSQLDB.DataBaseConexion;
 import conMySql.GenerarNumeros;
 import conMySql.entradaMySql;
@@ -41,12 +42,28 @@ public class Entrada extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENTRADA");
-        CargarCmbCliente();
+        //CargarCmbCliente();
+        autoComplete();
         numeros();
         txtSec.setEnabled(false);
         //CargarCmbFacturas();
     }
-
+    
+    public void autoComplete(){
+        TextAutoCompleter TextAutoCompleter = new TextAutoCompleter(auto);
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = (Statement)cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes");
+            while (rs.next()) {
+                TextAutoCompleter.addItem(rs.getString("nombre_cli"));
+            }
+            cn.close();
+        } catch (Exception e) {
+            System.out.println("error: "+e);
+        }
+    }
+/*
     public void CargarCmbCliente() {
         try {
             Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
@@ -58,6 +75,7 @@ public class Entrada extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    */
 
     void numeros() {
         int j;
@@ -126,7 +144,6 @@ public class Entrada extends javax.swing.JFrame {
         btnSalir1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        cmbClientes = new javax.swing.JComboBox();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -189,6 +206,7 @@ public class Entrada extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         txtSec = new javax.swing.JTextField();
         btnGuarda1 = new javax.swing.JButton();
+        auto = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -210,13 +228,6 @@ public class Entrada extends javax.swing.JFrame {
         jLabel2.setText("Formato De Entrada");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 270, 10));
-
-        cmbClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbClientesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, -1));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 150, 10));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -450,7 +461,7 @@ public class Entrada extends javax.swing.JFrame {
                 btnBuscaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 40, -1));
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 40, -1));
 
         btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
         btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -496,6 +507,7 @@ public class Entrada extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 440, 50, 70));
+        getContentPane().add(auto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 240, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -529,10 +541,6 @@ public class Entrada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbClientesActionPerformed
-
     private void txtContactoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactoClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContactoClienteActionPerformed
@@ -545,10 +553,10 @@ public class Entrada extends javax.swing.JFrame {
 
         try {
 
-            String guardar = cmbClientes.getSelectedItem().toString();
+            String guardar = auto.getText();
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from Clientes where nombre_cli = ?");
+            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
             pst.setString(1, guardar);
             //pst.setString(1, CMBID.getName());
             ResultSet rs = pst.executeQuery();
@@ -562,7 +570,7 @@ public class Entrada extends javax.swing.JFrame {
                 txtCorreoCliente.setText(rs.getString("correo_cli").trim());
                 txtContactoCliente.setText(rs.getString("contacto_cli").trim());
                 txtPersonaRemitente.setText(rs.getString("contacto_cli").trim());
-
+                autoComplete();
                 //pst.setString(1, CMBID.getName());
                 //String guardar = txtBuscar.getText();
             } else {
@@ -653,9 +661,9 @@ public class Entrada extends javax.swing.JFrame {
                 areaObservaciones.setText("");
                 txtPersonaRemitente.setText("");
                 txtFecha.setDateFormatString("");
-                this.cmbClientes.removeAllItems();
+                //this.cmbClientes.removeAllItems();
                 //this.cmbFacturas.removeAllItems();
-                CargarCmbCliente();
+                //CargarCmbCliente();
                 //CargarCmbFacturas();
                 txtElemento.requestFocus();
             } catch (Exception e) {
@@ -714,6 +722,7 @@ public class Entrada extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaObservaciones;
+    private javax.swing.JTextField auto;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnGuarda;
@@ -721,7 +730,6 @@ public class Entrada extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbBasesPlasticas;
-    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JComboBox cmbConectorOriginal;
     private javax.swing.JComboBox cmbEstadoCarcasa;
     private javax.swing.JComboBox cmbGarantia;

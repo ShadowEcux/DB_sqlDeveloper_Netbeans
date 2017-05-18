@@ -8,6 +8,7 @@ package ventanas;
 import clasesPrincipales.Entradas;
 import clasesPrincipales.Envios;
 import clasesPrincipales.Salidas;
+import com.mxrck.autocompleter.TextAutoCompleter;
 import conMySql.GenerarNumeros;
 import conMySql.envioMySql;
 import conexionSQLDB.DataBaseConexion;
@@ -40,11 +41,27 @@ public class Envio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENVIOS");
-        CargarCmbCliente();
+        //CargarCmbCliente();
+        autoComplete();
         numerosEnvios();
         txtSec.setEnabled(false);
     }
-
+    
+    public void autoComplete(){
+        TextAutoCompleter TextAutoCompleter = new TextAutoCompleter(auto);
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = (Statement)cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes");
+            while (rs.next()) {
+                TextAutoCompleter.addItem(rs.getString("nombre_cli"));
+            }
+            cn.close();
+        } catch (Exception e) {
+            System.out.println("error: "+e);
+        }
+    }
+/*
     public void CargarCmbCliente(){
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
@@ -57,6 +74,7 @@ public class Envio extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    */
     
     public void limpiar(){
         txtFecha.setDateFormatString("");
@@ -124,7 +142,6 @@ public class Envio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        cmbClientes = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -155,6 +172,7 @@ public class Envio extends javax.swing.JFrame {
         txtSec = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
+        auto = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -181,8 +199,6 @@ public class Envio extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
         jLabel6.setText("Clientes");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 50, 20));
-
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 210, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -291,7 +307,7 @@ public class Envio extends javax.swing.JFrame {
                 btnBuscaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 40, -1));
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 40, -1));
 
         btnPdf.setBackground(new java.awt.Color(255, 255, 255));
         btnPdf.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -337,6 +353,7 @@ public class Envio extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(153, 255, 153));
         jLabel26.setText("No. REM");
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 60, 20));
+        getContentPane().add(auto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 240, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 460));
@@ -377,7 +394,7 @@ public class Envio extends javax.swing.JFrame {
 
        try {
 
-            String guardar = cmbClientes.getSelectedItem().toString();
+            String guardar = auto.getText();
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
             PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
@@ -511,13 +528,13 @@ public class Envio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaComentario;
+    private javax.swing.JTextField auto;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnGuarda;
     private javax.swing.JButton btnPdf;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;

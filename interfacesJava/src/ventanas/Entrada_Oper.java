@@ -6,6 +6,7 @@
 package ventanas;
 
 import clasesPrincipales.Entradas;
+import com.mxrck.autocompleter.TextAutoCompleter;
 import conexionSQLDB.DataBaseConexion;
 import conMySql.GenerarNumeros;
 import conMySql.entradaMySql;
@@ -41,12 +42,27 @@ public class Entrada_Oper extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - ENTRADA");
-        CargarCmbCliente();
+        //CargarCmbCliente();
+        autoComplete();
         numeros();
         txtSec.setEnabled(false);
         //CargarCmbFacturas();
     }
-
+    public void autoComplete(){
+        TextAutoCompleter TextAutoCompleter = new TextAutoCompleter(auto);
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = (Statement)cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes");
+            while (rs.next()) {
+                TextAutoCompleter.addItem(rs.getString("nombre_cli"));
+            }
+            cn.close();
+        } catch (Exception e) {
+            System.out.println("error: "+e);
+        }
+    }
+/*
     public void CargarCmbCliente() {
         try {
             Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
@@ -58,6 +74,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    */
 
     void numeros() {
         int j;
@@ -126,7 +143,6 @@ public class Entrada_Oper extends javax.swing.JFrame {
         btnSalir1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        cmbClientes = new javax.swing.JComboBox();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -183,12 +199,13 @@ public class Entrada_Oper extends javax.swing.JFrame {
         txtFecha = new com.toedter.calendar.JDateChooser();
         btnDescartar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        btnBusca = new javax.swing.JButton();
         btnGuarda = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
         txtSec = new javax.swing.JTextField();
         btnGuarda1 = new javax.swing.JButton();
+        auto = new javax.swing.JTextField();
+        btnBusca = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -210,13 +227,6 @@ public class Entrada_Oper extends javax.swing.JFrame {
         jLabel2.setText("Formato De Entrada");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 270, 10));
-
-        cmbClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbClientesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, -1));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 150, 10));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -434,24 +444,6 @@ public class Entrada_Oper extends javax.swing.JFrame {
         jLabel7.setText("CLIENTES");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, 20));
 
-        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
-        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
-        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
-        btnBusca.setBorder(null);
-        btnBusca.setBorderPainted(false);
-        btnBusca.setContentAreaFilled(false);
-        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnBusca.setIconTextGap(-1);
-        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnBusca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 40, -1));
-
         btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
         btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnGuarda.setForeground(new java.awt.Color(255, 255, 255));
@@ -496,6 +488,25 @@ public class Entrada_Oper extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, 50, -1));
+        getContentPane().add(auto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 240, -1));
+
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 40, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Entrada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
@@ -529,10 +540,6 @@ public class Entrada_Oper extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void cmbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbClientesActionPerformed
-
     private void txtContactoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactoClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContactoClienteActionPerformed
@@ -540,41 +547,6 @@ public class Entrada_Oper extends javax.swing.JFrame {
     private void txtTelefonoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoClienteActionPerformed
-
-    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
-
-        try {
-
-            String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
-            Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from Clientes where nombre_cli = ?");
-            pst.setString(1, guardar);
-            //pst.setString(1, CMBID.getName());
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-
-                txtNitCliente.setText(rs.getString("nit_cli").trim());
-                txtEmpresa.setText(rs.getString("nombre_cli").trim());
-                txtTelefonoCliente.setText(rs.getString("telefono_cli").trim());
-                txtDireccionCliente.setText(rs.getString("direccion_cli").trim());
-                txtCiudadCliente.setText(rs.getString("ciudad_cli").trim());
-                txtCorreoCliente.setText(rs.getString("correo_cli").trim());
-                txtContactoCliente.setText(rs.getString("contacto_cli").trim());
-                txtPersonaRemitente.setText(rs.getString("contacto_cli").trim());
-
-                //pst.setString(1, CMBID.getName());
-                //String guardar = txtBuscar.getText();
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el usuario");
-            }
-            cn.close();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscaActionPerformed
 
     private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
 
@@ -653,9 +625,9 @@ public class Entrada_Oper extends javax.swing.JFrame {
                 areaObservaciones.setText("");
                 txtPersonaRemitente.setText("");
                 txtFecha.setDateFormatString("");
-                this.cmbClientes.removeAllItems();
+                //this.cmbClientes.removeAllItems();
                 //this.cmbFacturas.removeAllItems();
-                CargarCmbCliente();
+                //CargarCmbCliente();
                 //CargarCmbFacturas();
                 txtElemento.requestFocus();
             } catch (Exception e) {
@@ -674,6 +646,41 @@ public class Entrada_Oper extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuarda1ActionPerformed
+
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
+
+        try {
+
+            String guardar = auto.getText();
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                txtNitCliente.setText(rs.getString("nit_cli").trim());
+                txtEmpresa.setText(rs.getString("nombre_cli").trim());
+                txtTelefonoCliente.setText(rs.getString("telefono_cli").trim());
+                txtDireccionCliente.setText(rs.getString("direccion_cli").trim());
+                txtCiudadCliente.setText(rs.getString("ciudad_cli").trim());
+                txtCorreoCliente.setText(rs.getString("correo_cli").trim());
+                txtContactoCliente.setText(rs.getString("contacto_cli").trim());
+                txtPersonaRemitente.setText(rs.getString("contacto_cli").trim());
+                autoComplete();
+                //pst.setString(1, CMBID.getName());
+                //String guardar = txtBuscar.getText();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el usuario");
+            }
+            cn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -719,6 +726,7 @@ public class Entrada_Oper extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaObservaciones;
+    private javax.swing.JTextField auto;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnDescartar;
     private javax.swing.JButton btnGuarda;
@@ -726,7 +734,6 @@ public class Entrada_Oper extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox cmbBasesPlasticas;
-    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JComboBox cmbConectorOriginal;
     private javax.swing.JComboBox cmbEstadoCarcasa;
     private javax.swing.JComboBox cmbGarantia;

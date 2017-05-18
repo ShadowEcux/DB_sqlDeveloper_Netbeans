@@ -6,6 +6,7 @@
 package ventanas;
 
 import clasesPrincipales.clientes;
+import com.mxrck.autocompleter.TextAutoCompleter;
 import conMySql.clienteMySql;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -38,7 +39,8 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
         LimpirTabla();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - TABLA DE CLIENTES");
-        CargarCmbCliente();
+        //CargarCmbCliente();
+        autoComplete();
     }
 
     // METODOS::::::::::::::::::::
@@ -56,12 +58,27 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
             tb.removeRow(i);
         }
     }
+    
+    public void autoComplete(){
+        TextAutoCompleter TextAutoCompleter = new TextAutoCompleter(auto);
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = (Statement)cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes");
+            while (rs.next()) {
+                TextAutoCompleter.addItem(rs.getString("nombre_cli"));
+            }
+            cn.close();
+        } catch (Exception e) {
+            System.out.println("error: "+e);
+        }
+    }
 
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/CPU_new_2.png"));
         return retValue;
     }
-
+/*
     public void CargarCmbCliente() {
         try {
             Class.forName("org.gjt.mm.mysql.Driver").newInstance();
@@ -75,6 +92,7 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    */
     
 
     /**
@@ -91,11 +109,11 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
         btnSalir1 = new javax.swing.JButton();
         btnVolver1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        cmbClientes = new javax.swing.JComboBox();
         brnListar1 = new javax.swing.JButton();
-        btnBusca = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla_clientes = new javax.swing.JTable();
+        auto = new javax.swing.JTextField();
+        btnBusca = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,8 +152,6 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
         jLabel2.setText("Nombre del cliente");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 330, 30));
-
         brnListar1.setBackground(new java.awt.Color(255, 255, 255));
         brnListar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         brnListar1.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,24 +170,6 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
             }
         });
         getContentPane().add(brnListar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 40, 50));
-
-        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
-        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
-        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
-        btnBusca.setBorder(null);
-        btnBusca.setBorderPainted(false);
-        btnBusca.setContentAreaFilled(false);
-        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnBusca.setIconTextGap(-1);
-        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnBusca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 40, 40));
 
         tabla_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -192,6 +190,25 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tabla_clientes);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 1020, 300));
+        getContentPane().add(auto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 310, -1));
+
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 40, 40));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/amp-mas.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 480));
@@ -225,10 +242,18 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_brnListar1ActionPerformed
 
+    private void tabla_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_clientesMouseClicked
+
+        int seleccion = tabla_clientes.getSelectedRow();
+        tabla_clientes.getSelectedColumn();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabla_clientesMouseClicked
+
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
         try {
-            String guardar = cmbClientes.getSelectedItem().toString();
+            String guardar = auto.getText();
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
             PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
@@ -237,7 +262,7 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             LimpirTabla();
             if (rs.next()) {
-                
+
                 clientes cl = new clientes();
                 cl.setNit_cliente(rs.getString("nit_cli"));
                 cl.setNombre_cliente(rs.getString("nombre_cli"));
@@ -260,14 +285,6 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscaActionPerformed
-
-    private void tabla_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_clientesMouseClicked
-
-        int seleccion = tabla_clientes.getSelectedRow();
-        tabla_clientes.getSelectedColumn();
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabla_clientesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -320,11 +337,11 @@ public class Tabla_Clientes_Oper extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField auto;
     private javax.swing.JButton brnListar1;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver1;
-    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelFondo;

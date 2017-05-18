@@ -250,7 +250,7 @@ public class Usuarios extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setForeground(new java.awt.Color(204, 255, 255));
         jLabel2.setText("- 1. ADMINISTRADOR");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 110, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 130, 20));
 
         btnDelete.setBackground(new java.awt.Color(255, 255, 255));
         btnDelete.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

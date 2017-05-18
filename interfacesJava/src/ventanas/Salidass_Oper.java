@@ -6,6 +6,7 @@
 package ventanas;
 
 import clasesPrincipales.Salidas;
+import com.mxrck.autocompleter.TextAutoCompleter;
 import conMySql.GenerarNumeros;
 import conMySql.salidaMySql;
 import conexionSQLDB.DataBaseConexion;
@@ -40,13 +41,29 @@ public class Salidass_Oper extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - SALIDA");
-        CargarCmbCliente();
+        //CargarCmbCliente();
+        autoComplete();
         CargarCmbEntadas();
         numeros();
         txtSec.setEnabled(false);
         //CargarCmbFacturas();
     }
-
+    
+    public void autoComplete(){
+        TextAutoCompleter TextAutoCompleter = new TextAutoCompleter(auto);
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = (Statement)cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes");
+            while (rs.next()) {
+                TextAutoCompleter.addItem(rs.getString("nombre_cli"));
+            }
+            cn.close();
+        } catch (Exception e) {
+            System.out.println("error: "+e);
+        }
+    }
+/*
     public void CargarCmbCliente() {
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
@@ -59,6 +76,7 @@ public class Salidass_Oper extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    */
     public void CargarCmbEntadas() {
         try {
             Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
@@ -83,8 +101,8 @@ public class Salidass_Oper extends javax.swing.JFrame {
         txtModel.setText("");
         txtSerie.setText("");
         txtFecha.setDateFormatString("");
-        this.cmbClientes.removeAllItems();
-        CargarCmbCliente();
+        //this.cmbClientes.removeAllItems();
+        //CargarCmbCliente();
         txtEmpresa.requestFocus();
     }
     public void limpiar2() {
@@ -92,8 +110,8 @@ public class Salidass_Oper extends javax.swing.JFrame {
         txtEquipo.setText("");
         txtModel.setText("");
         txtSerie.setText("");
-        this.cmbClientes.removeAllItems();
-        CargarCmbCliente();
+        //this.cmbClientes.removeAllItems();
+        //CargarCmbCliente();
         txtEmpresa.requestFocus();
     }
 
@@ -165,7 +183,6 @@ public class Salidass_Oper extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        cmbClientes = new javax.swing.JComboBox();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -195,7 +212,6 @@ public class Salidass_Oper extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         txtSerie = new javax.swing.JTextField();
-        btnBusca = new javax.swing.JButton();
         btnGuarda = new javax.swing.JButton();
         btnDescartar1 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
@@ -208,6 +224,8 @@ public class Salidass_Oper extends javax.swing.JFrame {
         btnBusca3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         btnGuarda1 = new javax.swing.JButton();
+        auto = new javax.swing.JTextField();
+        btnBusca = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -234,8 +252,6 @@ public class Salidass_Oper extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
         jLabel6.setText("CLIENTES");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, 20));
-
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 230, -1));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 130, 10));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -333,24 +349,6 @@ public class Salidass_Oper extends javax.swing.JFrame {
         jLabel35.setText("Serie");
         getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 40, 20));
         getContentPane().add(txtSerie, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 150, -1));
-
-        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
-        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
-        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
-        btnBusca.setBorder(null);
-        btnBusca.setBorderPainted(false);
-        btnBusca.setContentAreaFilled(false);
-        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnBusca.setIconTextGap(-1);
-        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnBusca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 40, -1));
 
         btnGuarda.setBackground(new java.awt.Color(255, 255, 255));
         btnGuarda.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -451,6 +449,25 @@ public class Salidass_Oper extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGuarda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 50, -1));
+        getContentPane().add(auto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 230, -1));
+
+        btnBusca.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
+        btnBusca.setBorder(null);
+        btnBusca.setBorderPainted(false);
+        btnBusca.setContentAreaFilled(false);
+        btnBusca.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca.setIconTextGap(-1);
+        btnBusca.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 40, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 530));
@@ -479,40 +496,6 @@ public class Salidass_Oper extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
-
-    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
-
-        try {
-
-            String guardar = cmbClientes.getSelectedItem().toString();
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
-            Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
-            pst.setString(1, guardar);
-            //pst.setString(1, CMBID.getName());
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-
-                txtEmpresa.setText(rs.getString("nombre_cli").trim());
-                txtTelefono.setText(rs.getString("telefono_cli").trim());
-                txtDireccion.setText(rs.getString("direccion_cli").trim());
-                txtCiudad.setText(rs.getString("ciudad_cli").trim());
-                txtCorreo.setText(rs.getString("correo_cli").trim());
-                txtContacto.setText(rs.getString("contacto_cli").trim());
-
-                //pst.setString(1, CMBID.getName());
-                //String guardar = txtBuscar.getText();
-                limpiar2();
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el usuario");
-            }
-            cn.close();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscaActionPerformed
 
     private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
  
@@ -618,6 +601,41 @@ public class Salidass_Oper extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuarda1ActionPerformed
 
+    private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
+
+        //limpiar2();
+        try {
+
+            String guardar = auto.getText();
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = cn.createStatement();
+            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
+            pst.setString(1, guardar);
+            //pst.setString(1, CMBID.getName());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                txtEmpresa.setText(rs.getString("nombre_cli").trim());
+                txtCiudad.setText(rs.getString("ciudad_cli").trim());
+                txtDireccion.setText(rs.getString("direccion_cli").trim());
+                txtContacto.setText(rs.getString("contacto_cli").trim());
+                txtTelefono.setText(rs.getString("telefono_cli").trim());
+                txtCorreo.setText(rs.getString("correo_cli").trim());
+                //pst.setString(1, CMBID.getName());
+                //String guardar = txtBuscar.getText();
+                limpiar2();
+                autoComplete();
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el usuario");
+            }
+            cn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -718,6 +736,7 @@ public class Salidass_Oper extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaComentario;
+    private javax.swing.JTextField auto;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnBusca3;
     private javax.swing.JButton btnDescartar1;
@@ -725,7 +744,6 @@ public class Salidass_Oper extends javax.swing.JFrame {
     private javax.swing.JButton btnGuarda1;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JComboBox cmbEntradas;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

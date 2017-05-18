@@ -6,6 +6,7 @@
 package ventanas;
 
 import clasesPrincipales.clientes;
+import com.mxrck.autocompleter.TextAutoCompleter;
 import conMySql.clienteMySql;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -38,7 +39,8 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
         LimpirTabla();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - TABLA DE CLIENTES");
-        CargarCmbCliente();
+        autoComplete();
+        //CargarCmbCliente();
     }
 
     // METODOS::::::::::::::::::::
@@ -56,12 +58,27 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
             tb.removeRow(i);
         }
     }
+    
+    public void autoComplete(){
+        TextAutoCompleter TextAutoCompleter = new TextAutoCompleter(auto);
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Statement st = (Statement)cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes");
+            while (rs.next()) {
+                TextAutoCompleter.addItem(rs.getString("nombre_cli"));
+            }
+            cn.close();
+        } catch (Exception e) {
+            System.out.println("error: "+e);
+        }
+    }
 
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/CPU_new_2.png"));
         return retValue;
     }
-
+/*
     public void CargarCmbCliente() {
         try {
             Class.forName("org.gjt.mm.mysql.Driver").newInstance();
@@ -75,7 +92,7 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    
+ */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,13 +108,13 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
         btnSalir1 = new javax.swing.JButton();
         btnVolver1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        cmbClientes = new javax.swing.JComboBox();
         brnListar1 = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnBusca = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla_clientes = new javax.swing.JTable();
+        auto = new javax.swing.JTextField();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,9 +151,7 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 255, 153));
         jLabel2.setText("Nombre del cliente");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-
-        getContentPane().add(cmbClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 330, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         brnListar1.setBackground(new java.awt.Color(255, 255, 255));
         brnListar1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -211,7 +226,7 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
                 btnBuscaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 40, 40));
+        getContentPane().add(btnBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 40, 40));
 
         tabla_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -231,7 +246,8 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabla_clientes);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 1020, 300));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 1020, 310));
+        getContentPane().add(auto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 310, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/amp-mas.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 480));
@@ -286,7 +302,7 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
     private void btnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaActionPerformed
 
         try {
-            String guardar = cmbClientes.getSelectedItem().toString();
+            String guardar = auto.getText();
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             Statement st = cn.createStatement();
             PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
@@ -370,13 +386,13 @@ public class Tabla_Clientes_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField auto;
     private javax.swing.JButton brnListar1;
     private javax.swing.JButton btnBusca;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnVolver1;
-    private javax.swing.JComboBox cmbClientes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelFondo;

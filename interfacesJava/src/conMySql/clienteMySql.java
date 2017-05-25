@@ -38,7 +38,7 @@ public class clienteMySql {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
             //Connection cn = DataBaseConexion.getConnection();
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT id_cli, nit_cli, nombre_cli, telefono_cli, direccion_cli, ciudad_cli, correo_cli, contacto_cli FROM clientes order by 2");
+            ResultSet rs = st.executeQuery("SELECT id_cli, nit_cli, nombre_cli, telefono_cli, direccion_cli, ciudad_cli, correo_cli, contacto_cli FROM clientes ORDER BY nombre_cli ASC");
             while (rs.next()) {
                 clientes cl = new clientes();
                 cl.setId_cliente(rs.getInt("id_cli"));

@@ -381,6 +381,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Datos EDITADOS exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
                 LimpirTabla();
                 ListarDatos();
+                autoComplete();
                 //this.cmbClientes.removeAllItems();
                 //CargarCmbCliente();
                 txtID.setText("");
@@ -396,6 +397,7 @@ public class Editar_Cliente extends javax.swing.JFrame {
             } else {
                 LimpirTabla();
                 ListarDatos();
+                autoComplete();
                 //this.cmbClientes.removeAllItems();
                 //CargarCmbCliente();
                 txtID.setText("");

@@ -19,7 +19,6 @@
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Principal_Oper.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Formatos_Oper.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/usuarioDB.java</file>
-            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Usuarios.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/clasesPrincipales/Entradas.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/conexionSQLDB/entradaDB.java</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Facturas_Entrada.java</file>
@@ -52,6 +51,7 @@
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/reportes/salida.jrxml</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/reportes/entrada.jrxml</file>
             <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/reportes/envio.jrxml</file>
+            <file>file:/C:/Users/CPU_SYS/Desktop/Carlos/DB_Registro_Git/interfacesJava/src/ventanas/Usuario.java</file>
         </group>
     </open-files>
 </project-private>

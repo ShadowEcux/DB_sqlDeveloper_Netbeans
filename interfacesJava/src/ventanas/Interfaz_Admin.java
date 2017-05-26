@@ -10,11 +10,9 @@ package ventanas;
  * @author CPU_SYS
  */
 import clasesPrincipales.usuarios;
-import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 import java.sql.*;
 

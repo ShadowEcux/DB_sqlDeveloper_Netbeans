@@ -5,7 +5,6 @@
  */
 package ventanas;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.awt.Image;
 import java.awt.Toolkit;
 

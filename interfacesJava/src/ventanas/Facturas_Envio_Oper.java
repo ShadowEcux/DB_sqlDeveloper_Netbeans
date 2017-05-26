@@ -7,7 +7,6 @@ package ventanas;
 
 import clasesPrincipales.Entradas;
 import clasesPrincipales.Envios;
-import conMySql.GenerarNumeros;
 import conMySql.envioMySql;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,11 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import reportes.GenerarReportes;
 
@@ -154,6 +149,13 @@ public class Facturas_Envio_Oper extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jLabel26 = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
+        btnBusca2 = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
         jLabelFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -335,6 +337,70 @@ public class Facturas_Envio_Oper extends javax.swing.JFrame {
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 60, 20));
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 140, -1));
 
+        btnBusca2.setBackground(new java.awt.Color(255, 255, 255));
+        btnBusca2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnBusca2.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusca2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/juega.png"))); // NOI18N
+        btnBusca2.setBorder(null);
+        btnBusca2.setBorderPainted(false);
+        btnBusca2.setContentAreaFilled(false);
+        btnBusca2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBusca2.setIconTextGap(-1);
+        btnBusca2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBusca2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBusca2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusca2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBusca2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 30, 30));
+
+        btnEditar.setBackground(new java.awt.Color(255, 255, 255));
+        btnEditar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEditar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/edit.png"))); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.setBorder(null);
+        btnEditar.setBorderPainted(false);
+        btnEditar.setContentAreaFilled(false);
+        btnEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEditar.setIconTextGap(-1);
+        btnEditar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 40, 50));
+
+        btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorder(null);
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEliminar.setIconTextGap(-1);
+        btnEliminar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 50, 50));
+
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 10, 70));
+        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 150, 10));
+
+        jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 10, 70));
+        getContentPane().add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 150, 10));
+
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ima2.2_ampliada.png"))); // NOI18N
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 460));
 
@@ -434,6 +500,58 @@ public class Facturas_Envio_Oper extends javax.swing.JFrame {
         
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardaActionPerformed
+
+    private void btnBusca2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusca2ActionPerformed
+
+        btnEditar.setEnabled(true);
+        btnEliminar.setEnabled(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBusca2ActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+
+        try {
+            Envios en = new Envios();
+            en.setFecha(txtFecha.getText());
+            en.setNumero(txtSec.getText());
+            en.setDestinatario(txtDestinatario.getText().toUpperCase());
+            en.setATN(txtATN.getText().toUpperCase());
+            en.setDireccion(txtDireccion.getText().toUpperCase());
+            en.setTelefono(txtTelefono.getText().toUpperCase());
+            en.setCiudad(txtCiudad.getText().toUpperCase());
+            en.setComentario(areaComentario.getText().toUpperCase());
+            db.EditarEnvio(en);
+            JOptionPane.showMessageDialog(this, "Envio guardado exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+            limpiar();
+        } catch (Exception e) {
+            System.err.println("error" + e);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+
+        try {
+            Envios en = new Envios();
+            en.setFecha(txtFecha.getText());
+            en.setNumero(txtSec.getText());
+            en.setDestinatario(txtDestinatario.getText().toUpperCase());
+            en.setATN(txtATN.getText().toUpperCase());
+            en.setDireccion(txtDireccion.getText().toUpperCase());
+            en.setTelefono(txtTelefono.getText().toUpperCase());
+            en.setCiudad(txtCiudad.getText().toUpperCase());
+            en.setComentario(areaComentario.getText().toUpperCase());
+            db.EliminarEnvio(en);
+            JOptionPane.showMessageDialog(this, "Envio guardado exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+            limpiar();
+        } catch (Exception e) {
+            System.err.println("error" + e);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -600,7 +718,10 @@ public class Facturas_Envio_Oper extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaComentario;
     private javax.swing.JButton btnBusca;
+    private javax.swing.JButton btnBusca2;
     private javax.swing.JButton btnDescartar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuarda;
     private javax.swing.JButton btnPdf;
     private javax.swing.JButton btnSalir1;
@@ -621,11 +742,15 @@ public class Facturas_Envio_Oper extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField txtATN;
     private javax.swing.JTextField txtCiudad;

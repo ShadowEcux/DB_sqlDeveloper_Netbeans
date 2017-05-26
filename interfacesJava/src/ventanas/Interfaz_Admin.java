@@ -31,7 +31,6 @@ public class Interfaz_Admin extends javax.swing.JFrame {
 
     }
 
-
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/CPU_new_2.png"));
@@ -116,60 +115,28 @@ public class Interfaz_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
- 
-        
+
         /*
-        Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
-            PreparedStatement pst =  cn.prepareStatement("INSERT INTO clientes(nit_cli, nombre_cli, telefono_cli, direccion_cli, ciudad_cli, correo_cli, contacto_cli) VALUES (?,?,?,?,?,?,?)");
-            //pst.setInt(1, cliente.getId_cliente());
-            pst.setString(1, cliente.getNit_cliente());
-            pst.setString(2, cliente.getNombre_cliente());
-            */
+         Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
+         PreparedStatement pst =  cn.prepareStatement("INSERT INTO clientes(nit_cli, nombre_cli, telefono_cli, direccion_cli, ciudad_cli, correo_cli, contacto_cli) VALUES (?,?,?,?,?,?,?)");
+         //pst.setInt(1, cliente.getId_cliente());
+         pst.setString(1, cliente.getNit_cliente());
+         pst.setString(2, cliente.getNombre_cliente());
+         */
         /*
-        Statement st = cn.createStatement();
-            PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
-            pst.setString(1, guardar);
-        */
+         Statement st = cn.createStatement();
+         PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
+         pst.setString(1, guardar);
+         */
         usuarios usu = new usuarios();
         usu.setNombre(this.txtNombreUsuario.getText());
         usu.setPassword(this.txtPassword.getText());
         try {
-           Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
-           PreparedStatement pst = cn.prepareStatement("Select id_tipo_usu From usuarios Where nombre_usu = ? And password_usu  = ?"); 
-           pst.setString(1, usu.getNombre());
-           pst.setString(2, usu.getPassword());
-           ResultSet rs = pst.executeQuery();       
-           if (rs.next()) {
-               
-                int tipo = rs.getInt("id_tipo_usu");
-                if (tipo == 1) {
-
-                    new Principal_Admin().setVisible(true);
-                    dispose();
-                    this.setVisible(false);
-                    
-                }
-                if (tipo == 2) {
-
-                    new Principal_Oper().setVisible(true);
-                    dispose();
-                    this.setVisible(false);
-                }
-
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe usuario, por favor revise sus datos");
-            }
-            cn.close();
-           
-        } catch (Exception e) {
-        }
-        
-        /*
-        try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("Select id_tipo_usu From usuarios Where nombre_usu = '" + usu.getNombre() + "' And password_usu  = '" + usu.getPassword() + "'");
-            //ResultSet rs = st.executeQuery("insert into USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIOS_ID_TIPO_USUARIO) VALUES ('fserrano1', '1234', 3)");   
+            PreparedStatement pst = cn.prepareStatement("Select id_tipo_usu From usuarios Where nombre_usu = ? And password_usu  = ?");
+            pst.setString(1, usu.getNombre());
+            pst.setString(2, usu.getPassword());
+            ResultSet rs = pst.executeQuery();
             if (rs.next()) {
 
                 int tipo = rs.getInt("id_tipo_usu");
@@ -178,56 +145,84 @@ public class Interfaz_Admin extends javax.swing.JFrame {
                     new Principal_Admin().setVisible(true);
                     dispose();
                     this.setVisible(false);
-                    
                 }
-
                 if (tipo == 2) {
 
                     new Principal_Oper().setVisible(true);
                     dispose();
                     this.setVisible(false);
                 }
-
             } else {
-
                 JOptionPane.showMessageDialog(null, "No existe usuario, por favor revise sus datos");
             }
             cn.close();
-        } catch (SQLException | HeadlessException e) {
-            //JOptionPane.showMessageDialog(null, "Error " + e);
-            System.out.println(e);
+        } catch (Exception e) {
         }
-        */
+
+        /*
+         try {
+         Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
+         Statement st = cn.createStatement();
+         ResultSet rs = st.executeQuery("Select id_tipo_usu From usuarios Where nombre_usu = '" + usu.getNombre() + "' And password_usu  = '" + usu.getPassword() + "'");
+         //ResultSet rs = st.executeQuery("insert into USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIOS_ID_TIPO_USUARIO) VALUES ('fserrano1', '1234', 3)");   
+         if (rs.next()) {
+
+         int tipo = rs.getInt("id_tipo_usu");
+         if (tipo == 1) {
+
+         new Principal_Admin().setVisible(true);
+         dispose();
+         this.setVisible(false);
+                    
+         }
+
+         if (tipo == 2) {
+
+         new Principal_Oper().setVisible(true);
+         dispose();
+         this.setVisible(false);
+         }
+
+         } else {
+
+         JOptionPane.showMessageDialog(null, "No existe usuario, por favor revise sus datos");
+         }
+         cn.close();
+         } catch (SQLException | HeadlessException e) {
+         //JOptionPane.showMessageDialog(null, "Error " + e);
+         System.out.println(e);
+         }
+         */
 
         /*
         
          Cusuario usu=new Cusuario();
 
-      //Cencriptación encrip=new Cencriptación();
-       usu.setUsuario(this.txtusuario.getText());
-       // this.txtcontraseña.setText(encrip.Encriptar(this.txtcontraseña.getText(),3));
-       usu.setContraseña(this.txtcontraseña.getText());
+         //Cencriptación encrip=new Cencriptación();
+         usu.setUsuario(this.txtusuario.getText());
+         // this.txtcontraseña.setText(encrip.Encriptar(this.txtcontraseña.getText(),3));
+         usu.setContraseña(this.txtcontraseña.getText());
 
-        frm_Principal frm=new frm_Principal();
+         frm_Principal frm=new frm_Principal();
 
-        if(usu.ValidarUsuario()>0)
-        {
+         if(usu.ValidarUsuario()>0)
+         {
 
-              frm.setVisible(true);
-             this.setVisible(false);
-              if(usu.TipoUsuario()==2)
-        {
+         frm.setVisible(true);
+         this.setVisible(false);
+         if(usu.TipoUsuario()==2)
+         {
 
-             frm.getJMenuBar().getMenu(2).setVisible(false);
-        }
-        }
+         frm.getJMenuBar().getMenu(2).setVisible(false);
+         }
+         }
 
-      else
-        {
+         else
+         {
 
-            this.lblusuario.setText("Usuario o Contraseña Incorrecta!");
+         this.lblusuario.setText("Usuario o Contraseña Incorrecta!");
 
-        }
+         }
 
 
         

@@ -123,7 +123,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("Select id_tipo_usu From Usuarios Where nombre_usu = '" + usu.getNombre() + "' And password_usu  = '" + usu.getPassword() + "'");
+            ResultSet rs = st.executeQuery("Select id_tipo_usu From usuarios Where nombre_usu = '" + usu.getNombre() + "' And password_usu  = '" + usu.getPassword() + "'");
             //ResultSet rs = st.executeQuery("insert into USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIOS_ID_TIPO_USUARIO) VALUES ('fserrano1', '1234', 3)");   
             if (rs.next()) {
 

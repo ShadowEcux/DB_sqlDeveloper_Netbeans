@@ -29,7 +29,7 @@ public class GenerarReportes {
     public void reporteSalida(String nume) {
 
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             
             JasperReport reporte = (JasperReport) JRLoader.loadObject("salida.jasper");
             Map parametro = new HashMap();

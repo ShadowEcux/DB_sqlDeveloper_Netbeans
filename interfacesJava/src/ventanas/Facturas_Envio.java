@@ -45,7 +45,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
 
     public void CargarCmbEnvios(){
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT numero FROM envios ORDER BY numero DESC");
             while (rs.next()) {
@@ -375,7 +375,7 @@ public class Facturas_Envio extends javax.swing.JFrame {
        try {
 
             String guardar = cmbEnvios.getSelectedItem().toString();
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cn.createStatement();
             PreparedStatement pst = cn.prepareStatement("Select * from envios where numero = ?");
             pst.setString(1, guardar);

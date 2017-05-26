@@ -9,8 +9,6 @@ import clasesPrincipales.Salidas;
 import com.mxrck.autocompleter.TextAutoCompleter;
 import conMySql.GenerarNumeros;
 import conMySql.salidaMySql;
-import conexionSQLDB.DataBaseConexion;
-import conexionSQLDB.salidaDB;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -52,7 +50,7 @@ public class Salidass_Oper extends javax.swing.JFrame {
     public void autoComplete(){
         TextAutoCompleter TextAutoCompleter = new TextAutoCompleter(auto);
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = (Statement)cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes");
             while (rs.next()) {
@@ -79,7 +77,7 @@ public class Salidass_Oper extends javax.swing.JFrame {
     */
     public void CargarCmbEntadas() {
         try {
-            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cnx = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery("SELECT numero FROM entradas ORDER BY numero DESC");
             while (rs.next()) {
@@ -120,7 +118,7 @@ public class Salidass_Oper extends javax.swing.JFrame {
         String c = "";
         String SQL = "SELECT MAX(numero) AS numero FROM salidas";
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             if (rs.next()) {
@@ -560,7 +558,7 @@ public class Salidass_Oper extends javax.swing.JFrame {
         try {
 
             String guardar = cmbEntradas.getSelectedItem().toString();
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cn.createStatement();
             PreparedStatement pst = cn.prepareStatement("Select * from entradas where numero = ?");
             pst.setString(1, guardar);
@@ -607,7 +605,7 @@ public class Salidass_Oper extends javax.swing.JFrame {
         try {
 
             String guardar = auto.getText();
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cn.createStatement();
             PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
             pst.setString(1, guardar);

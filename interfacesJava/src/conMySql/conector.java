@@ -5,7 +5,6 @@
  */
 package conMySql;
 
-import conexionSQLDB.DataBaseConexion;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -35,10 +34,11 @@ public class conector implements Serializable{
     public static Connection realizarConexion(){
         try {
             
-            Class.forName("org.gjt.mm.mysql.Driver");
-            String DB = "jdbc:mysql://localhost/basecpu";
-            String usuario = "root";
-            String password = "8020123496";    
+            Class.forName("com.mysql.jdbc.Driver");
+            String DB = "jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb";
+            String usuario = "cpusysc1_root";
+            String password = "c8020123496"; 
+            
             
             Connection cn = DriverManager.getConnection(DB, usuario, password);
             
@@ -48,7 +48,7 @@ public class conector implements Serializable{
             System.out.println(ex.getMessage());
           //JOptionPane.showMessageDialog(null, ex.getMessage());
         }catch (ClassNotFoundException ex) {
-            Logger.getLogger(DataBaseConexion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(conector.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

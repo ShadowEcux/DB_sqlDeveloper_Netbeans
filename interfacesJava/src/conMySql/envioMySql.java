@@ -6,7 +6,6 @@
 package conMySql;
 
 
-import conexionSQLDB.*;
 import clasesPrincipales.Envios;
 import clasesPrincipales.Salidas;
 import java.sql.Connection;
@@ -29,7 +28,7 @@ public class envioMySql {
     public ArrayList<Envios> ListEnvios() {
         ArrayList<Envios> envio = new ArrayList();
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT id_envio, numero, fecha, destinatario, atn, direccion, telefono, ciudad, comentario FROM envios ORDER BY 2");
             while (rs.next()) {
@@ -55,7 +54,7 @@ public class envioMySql {
     
     public void insertarEnvio(Envios envio) {
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             PreparedStatement pst =  cn.prepareStatement("INSERT INTO envios(numero, fecha, destinatario, atn, direccion, telefono, ciudad, comentario) VALUES (?,?,?,?,?,?,?,?)");
             pst.setString(1, envio.getNumero());
             pst.setString(2, envio.getFecha());
@@ -75,7 +74,7 @@ public class envioMySql {
     
     public void EditarEnvio(Envios envio) {
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             PreparedStatement pst = (PreparedStatement) cn.prepareStatement("UPDATE envios SET fecha=?,destinatario=?,atn=?,direccion=?,telefono=?,ciudad=?,comentario=? WHERE numero = ?");
             pst.setString(1, envio.getFecha());
             pst.setString(2, envio.getDestinatario());
@@ -94,7 +93,7 @@ public class envioMySql {
     
     public void EliminarEnvio(Envios envio) {
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             PreparedStatement pst = (PreparedStatement) cn.prepareStatement("DELETE FROM envios WHERE numero = ?");
             pst.setString(1, envio.getNumero());
             pst.executeUpdate();

@@ -7,10 +7,8 @@ package ventanas;
 
 import clasesPrincipales.Entradas;
 import com.mxrck.autocompleter.TextAutoCompleter;
-import conexionSQLDB.DataBaseConexion;
 import conMySql.GenerarNumeros;
 import conMySql.entradaMySql;
-import conexionSQLDB.entradaDB;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -52,7 +50,7 @@ public class Entrada extends javax.swing.JFrame {
     public void autoComplete(){
         TextAutoCompleter TextAutoCompleter = new TextAutoCompleter(auto);
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = (Statement)cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT nombre_cli FROM clientes");
             while (rs.next()) {
@@ -82,7 +80,7 @@ public class Entrada extends javax.swing.JFrame {
         String c = "";
         String SQL = "SELECT MAX(numero) AS numero FROM entradas";
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(SQL);
             if (rs.next()) {
@@ -554,7 +552,7 @@ public class Entrada extends javax.swing.JFrame {
         try {
 
             String guardar = auto.getText();
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cn.createStatement();
             PreparedStatement pst = cn.prepareStatement("Select * from clientes where nombre_cli = ?");
             pst.setString(1, guardar);

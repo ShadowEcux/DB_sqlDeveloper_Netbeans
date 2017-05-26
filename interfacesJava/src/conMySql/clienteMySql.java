@@ -5,7 +5,6 @@
  */
 package conMySql;
 
-import conexionSQLDB.*;
 import clasesPrincipales.clientes;
 
 import java.sql.Connection;
@@ -35,7 +34,7 @@ public class clienteMySql {
         try {
             
             //Class.forName("org.gjt.mm.mysql.Driver").newInstance();
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             //Connection cn = DataBaseConexion.getConnection();
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("SELECT id_cli, nit_cli, nombre_cli, telefono_cli, direccion_cli, ciudad_cli, correo_cli, contacto_cli FROM clientes ORDER BY nombre_cli ASC");
@@ -61,7 +60,7 @@ public class clienteMySql {
     //Codigo para INSERTAR DATOS.........................................................
     public void insertarCliente(clientes cliente) {
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             PreparedStatement pst =  cn.prepareStatement("INSERT INTO clientes(nit_cli, nombre_cli, telefono_cli, direccion_cli, ciudad_cli, correo_cli, contacto_cli) VALUES (?,?,?,?,?,?,?)");
             //pst.setInt(1, cliente.getId_cliente());
             pst.setString(1, cliente.getNit_cliente());
@@ -102,7 +101,7 @@ public class clienteMySql {
     //Codigo para MODIFICAR datos
     public void EditarCliente(clientes cli) {
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             PreparedStatement pst = (PreparedStatement) cn.prepareStatement("UPDATE clientes SET nit_cli = ?, nombre_cli = ?, telefono_cli = ?, direccion_cli = ?, ciudad_cli = ?, correo_cli = ?, contacto_cli = ? WHERE id_cli = ?");
             pst.setString(1, cli.getNit_cliente());
             pst.setString(2, cli.getNombre_cliente());
@@ -123,7 +122,7 @@ public class clienteMySql {
     //ELIMINAR DATOS DE CLIENTES
     public void EliminarCliente(clientes cli) {
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             PreparedStatement pst = (PreparedStatement) cn.prepareStatement("DELETE FROM clientes WHERE nombre_cli=?");
             pst.setString(1, cli.getNombre_cliente());
             pst.executeUpdate();
@@ -133,30 +132,7 @@ public class clienteMySql {
         }
     }
     
-     
-    public clientes Buscar(String buscar) {
-        clientes c = null;
-        try {
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = (Statement) cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM CLIENTES "
-                    + " WHERE NOMBRE='"+buscar+"'");
-            while (rs.next()) {
-                c = new clientes();
-                c.setNit_cliente(rs.getString(1));
-                c.setNombre_cliente(rs.getString(2));
-                c.setTelefono_cliente(rs.getString(3));
-                c.setDireccion_cliente(rs.getString(4));
-                c.setCiudad_cliente(rs.getString(5));
-                c.setCorreo_cliente(rs.getString(6));
-                c.setNombre_contacto(rs.getString(7));
 
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return c;
-    }
 
     /*
     public void Buscar(clientes cli) {

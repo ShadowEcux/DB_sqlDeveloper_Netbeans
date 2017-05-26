@@ -10,7 +10,6 @@ package ventanas;
  * @author CPU_SYS
  */
 import clasesPrincipales.usuarios;
-import conexionSQLDB.DataBaseConexion;
 import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -26,24 +25,12 @@ public class Interfaz_Admin extends javax.swing.JFrame {
      */
     public Interfaz_Admin() {
         initComponents();
-        CargarCmbUsuarios();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("CPU System Service S.A.S");
 
     }
 
-    public void CargarCmbUsuarios() {
-        try {
-            Connection cnx = DataBaseConexion.getConnection();
-            Statement st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("SELECT NOMBRE_TIPO_USUARIO FROM TIPO_USUARIOS");
-            while (rs.next()) {
-                //cmbUsuarios.addItem(rs.getString("nombre_tipo_usuario"));
-            }
-        } catch (Exception e) {
-        }
-    }
 
     @Override
     public Image getIconImage() {
@@ -134,7 +121,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         usu.setNombre(this.txtNombreUsuario.getText());
         usu.setPassword(this.txtPassword.getText());
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery("Select id_tipo_usu From Usuarios Where nombre_usu = '" + usu.getNombre() + "' And password_usu  = '" + usu.getPassword() + "'");
             //ResultSet rs = st.executeQuery("insert into USUARIOS (NOMBRE_USUARIO, PASSWORD_USUARIO, TIPO_USUARIOS_ID_TIPO_USUARIO) VALUES ('fserrano1', '1234', 3)");   

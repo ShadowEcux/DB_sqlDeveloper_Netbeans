@@ -7,8 +7,6 @@ package ventanas;
 
 import clasesPrincipales.Entradas;
 import conMySql.entradaMySql;
-import conexionSQLDB.DataBaseConexion;
-import conexionSQLDB.entradaDB;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -60,7 +58,7 @@ public class Facturas_Entrada_Oper extends javax.swing.JFrame {
 
     public void CargarCmbFacturas() {
         try {
-            Connection cnx = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cnx = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery("SELECT numero FROM entradas ORDER BY numero DESC");
             while (rs.next()) {
@@ -559,7 +557,7 @@ public class Facturas_Entrada_Oper extends javax.swing.JFrame {
         try {
 
             String guardar = cmbFacturas.getSelectedItem().toString();
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/basecpu", "root", "8020123496");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
             Statement st = cn.createStatement();
             //PreparedStatement pst = cn.prepareStatement("SELECT numero, fecha, elemento, potencia, marca, modelo, serie, empresa, nit, persona_remite, ciudad, direccion, contacto, telefono, correo, motivo, parrilla, bases_plas, conector_ori, garantia, estado_car, observaciones, tarjeta FROM entradas where numero = ? ORDER BY 2");
             PreparedStatement pst = cn.prepareStatement("Select * from entradas where numero = ?");

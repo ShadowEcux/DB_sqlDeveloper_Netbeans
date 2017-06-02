@@ -6,8 +6,15 @@
 package ventanas;
 
 
+import clasesPrincipales.clientes;
 import clasesPrincipales.usuarios;
 import conMySql.usuarioMySQLDB;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -30,6 +37,30 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         this.setTitle("CPU System Service S.A.S - NUEVO USUARIO");
         //CargarCmbUsuarios();
 
+    }
+    
+    public boolean existe() {
+        clientes cli = new clientes();
+        cli.setNombre_cliente(this.txtNombre.getText());
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
+            PreparedStatement pst = cn.prepareStatement("Select nombre_cli From clientes Where nombre_cli = ?");
+            pst.setString(1, cli.getNombre_cliente());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                String nombre = txtNombre.getText();
+                String nombreDB = rs.getString("nombre_cli");
+                if (nombre.equals(nombreDB)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            cn.close();
+        } catch (SQLException | HeadlessException e) {
+            System.out.println("error: " + e);
+        }
+        return false;
     }
 /*
     public void CargarCmbUsuarios() {
@@ -190,7 +221,6 @@ public class Nuevo_Usuario extends javax.swing.JFrame {
         if (txtNombre.getText().equals("") || txtPasswordUsuario.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-
             int tipo;
             usuarios usu = new usuarios();
             usu.setNombre(txtNombre.getText());

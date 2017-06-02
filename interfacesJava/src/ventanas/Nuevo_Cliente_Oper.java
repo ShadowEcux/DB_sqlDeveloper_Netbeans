@@ -7,6 +7,12 @@ package ventanas;
 
 import clasesPrincipales.clientes;
 import conMySql.clienteMySql;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -26,11 +32,43 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
     public Nuevo_Cliente_Oper() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("CPU System Service S.A.S - NUEVO CLIENTE");      
-        
-        
+        this.setTitle("CPU System Service S.A.S - NUEVO CLIENTE");          
+    }
+    
+    public void limpiar() {
+        txtNitCliente.setText("");
+        txtNombreCliente.setText("");
+        txtTelefonoCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtCiudadCliente.setText("");
+        txtCorreoCliente.setText("");
+        txtContactoCliente.setText("");
+        txtNitCliente.requestFocus();
     }
 
+    public boolean existe() {
+        clientes cli = new clientes();
+        cli.setNombre_cliente(this.txtNombreCliente.getText());
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
+            PreparedStatement pst = cn.prepareStatement("Select nombre_cli From clientes Where nombre_cli = ?");
+            pst.setString(1, cli.getNombre_cliente());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                String nombre = txtNombreCliente.getText();
+                String nombreDB = rs.getString("nombre_cli");
+                if (nombre.equals(nombreDB)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            cn.close();
+        } catch (SQLException | HeadlessException e) {
+            System.out.println("error: " + e);
+        }
+        return false;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -196,30 +234,28 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
 
     private void btnGuardaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardaActionPerformed
 
-         if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
+        if (txtNitCliente.getText().equals("") || txtNombreCliente.getText().equals("") || txtTelefonoCliente.getText().equals("") || txtDireccionCliente.getText().equals("") || txtCiudadCliente.getText().equals("") || txtCorreoCliente.getText().equals("") || txtContactoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Debe llenar todos los campos", "", JOptionPane.INFORMATION_MESSAGE);
         } else {
-
-            clientes cl = new clientes();
-            cl.setNit_cliente(txtNitCliente.getText().toUpperCase());
-            cl.setNombre_cliente(txtNombreCliente.getText().toUpperCase());
-            cl.setTelefono_cliente(txtTelefonoCliente.getText().toUpperCase());
-            cl.setDireccion_cliente(txtDireccionCliente.getText().toUpperCase());
-            cl.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
-            cl.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
-            cl.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
-
-            db.insertarCliente(cl);
-            JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-            txtNitCliente.setText("");
-            txtNombreCliente.setText("");
-            txtTelefonoCliente.setText("");
-            txtDireccionCliente.setText("");
-            txtCiudadCliente.setText("");
-            txtCorreoCliente.setText("");
-            txtContactoCliente.setText("");
-            txtNitCliente.requestFocus();
-
+            try {
+                clientes cl = new clientes();
+                cl.setNit_cliente(txtNitCliente.getText().toUpperCase());
+                cl.setNombre_cliente(txtNombreCliente.getText().toUpperCase());
+                cl.setTelefono_cliente(txtTelefonoCliente.getText().toUpperCase());
+                cl.setDireccion_cliente(txtDireccionCliente.getText().toUpperCase());
+                cl.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
+                cl.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
+                cl.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
+                if (existe()) {
+                    JOptionPane.showMessageDialog(this, "Ya existe este registro");
+                } else {
+                    db.insertarCliente(cl);
+                    JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+                    limpiar();
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e);
+            }
         }
          
         // TODO add your handling code here:
@@ -227,14 +263,7 @@ public class Nuevo_Cliente_Oper extends javax.swing.JFrame {
 
     private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
 
-        txtNitCliente.setText("");
-        txtNombreCliente.setText("");
-        txtTelefonoCliente.setText("");
-        txtDireccionCliente.setText("");
-        txtCiudadCliente.setText("");
-        txtCorreoCliente.setText("");
-        txtContactoCliente.setText("");
-        txtNitCliente.requestFocus();
+        limpiar();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDescartarActionPerformed

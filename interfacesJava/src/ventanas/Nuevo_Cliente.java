@@ -9,6 +9,12 @@ import clasesPrincipales.clientes;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import conMySql.clienteMySql;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -27,7 +33,41 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("CPU System Service S.A.S - NUEVO CLIENTE");
+    }
 
+    public void limpiar() {
+        txtNitCliente.setText("");
+        txtNombreCliente.setText("");
+        txtTelefonoCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtCiudadCliente.setText("");
+        txtCorreoCliente.setText("");
+        txtContactoCliente.setText("");
+        txtNitCliente.requestFocus();
+    }
+
+    public boolean existe() {
+        clientes cli = new clientes();
+        cli.setNombre_cliente(this.txtNombreCliente.getText());
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://69.73.129.251:3306/cpusysc1_cpudb", "cpusysc1_root", "c8020123496");
+            PreparedStatement pst = cn.prepareStatement("Select nombre_cli From clientes Where nombre_cli = ?");
+            pst.setString(1, cli.getNombre_cliente());
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                String nombre = txtNombreCliente.getText();
+                String nombreDB = rs.getString("nombre_cli");
+                if (nombre.equals(nombreDB)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            cn.close();
+        } catch (SQLException | HeadlessException e) {
+            System.out.println("error: " + e);
+        }
+        return false;
     }
 
     /**
@@ -208,16 +248,13 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
                 cl.setCiudad_cliente(txtCiudadCliente.getText().toUpperCase());
                 cl.setCorreo_cliente(txtCorreoCliente.getText().toUpperCase());
                 cl.setNombre_contacto(txtContactoCliente.getText().toUpperCase());
-                db.insertarCliente(cl);
-                JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
-                txtNitCliente.setText("");
-                txtNombreCliente.setText("");
-                txtTelefonoCliente.setText("");
-                txtDireccionCliente.setText("");
-                txtCiudadCliente.setText("");
-                txtCorreoCliente.setText("");
-                txtContactoCliente.setText("");
-                txtNitCliente.requestFocus();
+                if (existe()) {
+                    JOptionPane.showMessageDialog(this, "Ya existe este registro");
+                } else {
+                    db.insertarCliente(cl);
+                    JOptionPane.showMessageDialog(this, "Datos ingresados exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
+                    limpiar();
+                }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e);
             }
@@ -229,14 +266,7 @@ public class Nuevo_Cliente extends javax.swing.JFrame {
 
     private void btnDescartarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescartarActionPerformed
 
-        txtNitCliente.setText("");
-        txtNombreCliente.setText("");
-        txtTelefonoCliente.setText("");
-        txtDireccionCliente.setText("");
-        txtCiudadCliente.setText("");
-        txtCorreoCliente.setText("");
-        txtContactoCliente.setText("");
-        txtNitCliente.requestFocus();
+        limpiar();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDescartarActionPerformed

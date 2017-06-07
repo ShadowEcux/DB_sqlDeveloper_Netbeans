@@ -2,12 +2,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0000000000000004"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="238"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="nume" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT numero, fecha, elemento, potencia, marca, modelo, serie, empresa, nit, persona_remite, ciudad, direccion, contacto, telefono, correo, motivo, parrilla, bases_plas, conector_ori, garantia, estado_car, observaciones, tarjeta FROM entradas WHERE numero = $P{nume} ORDER BY 2]]>
+		<![CDATA[SELECT numero, fecha, elemento, potencia, marca, modelo, serie, empresa, nit, persona_remite, ciudad, direccion, contacto, telefono, correo, motivo, parrilla, bases_plas, conector_ori, garantia, estado_car, observaciones, tarjeta FROM entradas WHERE numero =$P{nume} ORDER BY 2]]>
 	</queryString>
 	<field name="numero" class="java.lang.String"/>
 	<field name="fecha" class="java.sql.Date"/>
@@ -37,10 +37,6 @@
 	</background>
 	<title>
 		<band height="29" splitType="Stretch">
-			<image>
-				<reportElement x="15" y="-17" width="65" height="46"/>
-				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\CPU_SYS\\Desktop\\Interfaces\\CPU_new_jp.jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="152" y="0" width="235" height="29"/>
 				<textElement>
@@ -48,6 +44,10 @@
 				</textElement>
 				<text><![CDATA[              CPU SYSTEM SERVICE S.A.S.                                                             Nit: 802012349-6         tel:  368 6813 - 368 9219]]></text>
 			</staticText>
+			<image>
+				<reportElement x="18" y="-20" width="50" height="49"/>
+				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\CPU_SYS\\Desktop\\Carlos\\IMAG_ENVIO\\cpu_mini.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -433,10 +433,6 @@
 			<line>
 				<reportElement x="0" y="338" width="555" height="1"/>
 			</line>
-			<image>
-				<reportElement x="15" y="340" width="65" height="46"/>
-				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\CPU_SYS\\Desktop\\Interfaces\\CPU_new_jp.jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="152" y="357" width="235" height="29"/>
 				<textElement>
@@ -876,6 +872,10 @@
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{persona_remite}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="18" y="339" width="50" height="49"/>
+				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\CPU_SYS\\Desktop\\Carlos\\IMAG_ENVIO\\cpu_mini.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</detail>
 	<columnFooter>

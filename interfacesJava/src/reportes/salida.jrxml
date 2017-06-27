@@ -2,10 +2,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="192"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="nume" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="logo2" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[SELECT numero, fecha, empresa, ciudad, direccion, contacto, telefono, correo, equipo, modelo, serie, comentario FROM salidas WHERE numero = $P{nume}]]>
 	</queryString>
@@ -50,10 +52,6 @@
 	</background>
 	<title>
 		<band height="56" splitType="Stretch">
-			<image>
-				<reportElement x="31" y="2" width="111" height="53"/>
-				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\CPU_SYS\\Desktop\\Interfaces\\CPU_new_jp.jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="198" y="25" width="168" height="30"/>
 				<textElement textAlignment="Justified">
@@ -70,6 +68,10 @@
 TEL: 3686813 – 3689219
 ]]></text>
 			</staticText>
+			<image>
+				<reportElement x="15" y="0" width="100" height="50"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{logo}]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -266,10 +268,6 @@ TEL: 3686813 – 3689219
 				</textElement>
 				<text><![CDATA[SALIDA DE EQUIPOS]]></text>
 			</staticText>
-			<image>
-				<reportElement x="31" y="344" width="111" height="53"/>
-				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\CPU_SYS\\Desktop\\Interfaces\\CPU_new_jp.jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="326" y="404" width="51" height="13"/>
 				<textElement>
@@ -459,6 +457,10 @@ NIT: 802012349-6
 				<textElement/>
 				<textFieldExpression class="java.util.Date"><![CDATA[$F{fecha}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="15" y="334" width="100" height="50"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{logo2}]]></imageExpression>
+			</image>
 		</band>
 	</detail>
 	<columnFooter>

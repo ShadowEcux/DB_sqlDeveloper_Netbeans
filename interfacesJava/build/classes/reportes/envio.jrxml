@@ -2,10 +2,14 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="240"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="nume" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="cpu" class="java.io.InputStream"/>
+	<parameter name="fondo" class="java.io.InputStream"/>
+	<parameter name="data" class="java.io.InputStream"/>
+	<parameter name="apc" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[SELECT numero, fecha, destinatario, atn, direccion, telefono, ciudad, comentario FROM envios WHERE numero = $P{nume} ORDER BY 2]]>
 	</queryString>
@@ -32,8 +36,8 @@ NIT. 802012349-6
 ]]></text>
 			</staticText>
 			<image>
-				<reportElement x="17" y="0" width="113" height="116"/>
-				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\CPU_SYS\\Desktop\\Carlos\\IMAG_ENVIO\\cpu.jpg"]]></imageExpression>
+				<reportElement x="0" y="0" width="141" height="116"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{cpu}]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -47,15 +51,15 @@ NIT. 802012349-6
 		<band height="615" splitType="Stretch">
 			<image>
 				<reportElement x="80" y="139" width="390" height="304"/>
-				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\CPU_SYS\\Desktop\\Carlos\\IMAG_ENVIO\\fondo.jpg"]]></imageExpression>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{fondo}]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="28" y="464" width="89" height="67"/>
-				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\CPU_SYS\\Desktop\\Carlos\\IMAG_ENVIO\\apc.jpg"]]></imageExpression>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{apc}]]></imageExpression>
 			</image>
 			<image>
 				<reportElement x="387" y="443" width="176" height="88"/>
-				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\CPU_SYS\\Desktop\\Carlos\\IMAG_ENVIO\\data.jpg"]]></imageExpression>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{data}]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="127" y="512" width="294" height="19" forecolor="#CC0000"/>
